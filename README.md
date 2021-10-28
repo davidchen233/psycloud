@@ -43,5 +43,4 @@
 
 > 獨立套件
 
-- full calendar/daygrid
-- fullcalendar/interaction
+- full calendar (daygrid / interaction)
