@@ -13,8 +13,6 @@
 - router 會統一放在 index，前期各自作業時請不要 push 上來
 - 請勿自行 merge，請發 pull request 並請一位組員協助 code review
 
----
-
 ## git flow
 
 - 可以參考 [Git Flow 與 Commit 團隊協作規範](https://syj0905.github.io/git/20201104/138987188/)
