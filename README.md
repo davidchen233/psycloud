@@ -30,7 +30,7 @@
 > 專案設定用
 
 - ESLint 與 Prettier
-- prop types
+- [prop types](https://zh-hant.reactjs.org/docs/typechecking-with-proptypes.html)
 - react router dom
 - jquery <br>
   (import $ from 'jquery' / 在 componentDidMount 階段使用)
@@ -38,9 +38,9 @@
 > 樣式工具
 
 - sass
-- react bootstrap 5.1.0
-- react icon
+- [react bootstrap 5.1.0](https://react-bootstrap.github.io/)
+- [react icon](https://react-icons.github.io/react-icons/)
 
 > 獨立套件
 
-- full calendar (daygrid / interaction)
+- [full calendar](https://fullcalendar.io/docs#toc) (daygrid / interaction)
