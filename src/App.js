@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// 使用套件
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// 組合用元件
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+
+// 頁面元件
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <MainContent>
+        {/* ScrollToTop是為了讓連到另一頁內容時，頁面回到最上方 */}
+        <ScrollToTop>
+          <Switch></Switch>
+        </ScrollToTop>
+      </MainContent>
+      <Footer />
+    </Router>
   );
 }
 
