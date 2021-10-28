@@ -2,7 +2,7 @@
 
 ## 協作初始化
 
-1. git clone <我的 url>
+1. git clone https://github.com/davidchen233/psycloud.git
 2. npm install
 
 ---
