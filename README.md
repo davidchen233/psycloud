@@ -35,18 +35,21 @@
 > 專案設定用
 
 - ESLint 與 Prettier
-- [prop types](https://zh-hant.reactjs.org/docs/typechecking-with-proptypes.html)
-- [dotenv](https://github.com/motdotla/dotenv#readme)
-- [react router dom](https://reactrouter.com/web/guides/quick-start)
-- jquery <br>
+- [prop types](https://zh-hant.reactjs.org/docs/typechecking-with-proptypes.html) -f
+- [react router dom](https://reactrouter.com/web/guides/quick-start) -f
+- jquery -f <br>
   (import $ from 'jquery' / 在 componentDidMount 階段使用)
+- [axios](https://github.com/axios/axios) -(f + b)
+- [dotenv](https://github.com/motdotla/dotenv#readme) -b
+- [bluebird](https://github.com/petkaantonov/bluebird) -b
+- [mysql](https://github.com/mysqljs/mysql) -b
 
 > 樣式工具
 
 - sass
-- [react bootstrap 5.1.0](https://react-bootstrap.github.io/)
-- [react icon](https://react-icons.github.io/react-icons/)
+- [react bootstrap 5.1.0](https://react-bootstrap.github.io/) -f
+- [react icon](https://react-icons.github.io/react-icons/) -f
 
 > 獨立套件
 
-- [full calendar](https://fullcalendar.io/docs#toc) (daygrid / interaction)
+- [full calendar](https://fullcalendar.io/docs#toc) (daygrid / interaction) -f
