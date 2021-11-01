@@ -43,6 +43,8 @@
 - [dotenv](https://github.com/motdotla/dotenv#readme) -b
 - [bluebird](https://github.com/petkaantonov/bluebird) -b
 - [mysql](https://github.com/mysqljs/mysql) -b
+- [cors](https://www.npmjs.com/package/cors) -b
+- [express](http://expressjs.com/) -b
 
 > 樣式工具
 
