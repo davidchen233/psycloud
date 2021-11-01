@@ -9,17 +9,24 @@
 
 ## 協作規範
 
-- 有事沒事就 pull 一下
-- router 會統一放在 index，前期各自作業時請不要 push 上來
-- 請勿自行 merge，請發 pull request 並請一位組員協助 code review
+- frontend
+  - 路由: 
+  - router 會統一放在 index，前期各自作業時請不要 push 上來
+  
+- backend
+  - 路由: 
+  - 單一資料回傳 -> 物件
+  
 
 ## git flow
 
 - 可以參考 [Git Flow 與 Commit 團隊協作規範](https://syj0905.github.io/git/20201104/138987188/)
 - 建立各自作業的 develop branch
+- - 有事沒事就 pull 一下
 - 請勿直接在 master 分支 修改/ commit
 - 時常 commit，內容要簡潔明瞭的描述本次的 commit 內容
 - 一個功能 commit 一次，不要做了很多功能才一次 commit
+- 請勿自行 merge，請發 pull request 並請一位組員協助 code review
 
 ---
 
