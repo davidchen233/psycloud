@@ -37,14 +37,14 @@
 - ESLint 與 Prettier
 - [prop types](https://zh-hant.reactjs.org/docs/typechecking-with-proptypes.html) -f
 - [react router dom](https://reactrouter.com/web/guides/quick-start) -f
-- jquery -f <br>
-  (import $ from 'jquery' / 在 componentDidMount 階段使用)
+- jquery -f
 - [axios](https://github.com/axios/axios) -(f + b)
 - [dotenv](https://github.com/motdotla/dotenv#readme) -b
 - [bluebird](https://github.com/petkaantonov/bluebird) -b
 - [mysql](https://github.com/mysqljs/mysql) -b
 - [cors](https://www.npmjs.com/package/cors) -b
 - [express](http://expressjs.com/) -b
+- [bcrypt](https://github.com/kelektiv/node.bcrypt.js#readme) -b
 
 > 樣式工具
 
