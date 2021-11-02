@@ -1,0 +1,18 @@
+section {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 120px);
+}
+
+section video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section video:nth-child(2) {
+  mix-blend-mode: screen;
+}
