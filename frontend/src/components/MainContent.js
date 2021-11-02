@@ -1,6 +1,7 @@
 import React from 'react';
 import './mainContent.css';
 
+
 function MainContent(props) {
   return (
     <>
