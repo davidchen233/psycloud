@@ -1,8 +1,13 @@
+// 共用 css
+#root {
+  background: linear-gradient(-10deg, #fcf3d685, #ffa69e83, #75c5f2);
+  min-height: 100vh;
+}
 // 變數覆蓋區
 $primary: #4797ff;
 $secondary: #75c5f2;
 
 // 導入Bootstrap所有的樣式與預設變數
-@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/scss/bootstrap';
 
 // 覆蓋樣式區
