@@ -12,7 +12,7 @@ const Header = () => {
       setSticky(false);
     }
   });
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   return (
     <header className={sticky ? 'sticky' : ''}>
       <NavLink to="/" className="logo">

@@ -1,0 +1,102 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(39, 39, 39, 0.342);
+}
+
+footer .content {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+footer .content img {
+  width: 200px;
+}
+
+.formBox {
+  min-width: 320px;
+}
+
+.formBox form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formBox form h3,
+.contactInfo h3 {
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.formBox form input,
+.formBox form textarea {
+  margin-bottom: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.767);
+  color: rgb(0, 0, 0);
+  resize: none;
+}
+
+.formBox form textarea {
+  min-height: 40px;
+}
+
+.formBox form input::placeholder,
+.formBox form textarea::placeholder {
+  color: #999;
+}
+
+.formBox form input[type='submit'] {
+  max-width: 100px;
+  background: #2196f3;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+footer .links li {
+  list-style: none;
+}
+
+footer .links li a {
+  text-decoration: none;
+}
+
+footer .links .medias {
+  display: flex;
+  font-size: 30px;
+}
+
+footer .links .medias a {
+  padding-right: 20px;
+  color: #000;
+}
+
+footer .bar {
+  width: 90%;
+  height: 2px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+footer .copyright {
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  padding: 15px;
+}
+footer .copyright p {
+  margin: 0;
+}

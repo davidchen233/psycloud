@@ -19,7 +19,7 @@ function App() {
           <Switch></Switch>
         </ScrollToTop>
       </MainContent>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }
