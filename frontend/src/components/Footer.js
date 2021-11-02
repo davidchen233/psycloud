@@ -28,10 +28,10 @@ const Footer = () => {
 
         <div className="links">
           <ul>
-            <li>
+            <li className="mb-2">
               <FaPhoneAlt className="me-3 mb-2" /> 02-25154848
             </li>
-            <li>
+            <li className="mb-2">
               <FaHome className="me-3 mb-2" /> 台北市萬華區安和路223巷26號3樓
             </li>
             <li>

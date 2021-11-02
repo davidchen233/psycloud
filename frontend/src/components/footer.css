@@ -40,6 +40,7 @@ footer .content img {
 .formBox form textarea {
   margin-bottom: 20px;
   padding: 5px 15px;
+  border-radius: 7px;
   font-size: 16px;
   border: none;
   outline: none;
