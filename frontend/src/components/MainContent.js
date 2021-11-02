@@ -1,9 +1,11 @@
 import React from 'react';
+import './mainContent.css';
+
 
 function MainContent(props) {
   return (
     <>
-      <main role="main" className="flex-shrink-0">
+      <main>
         <div className="container">{props.children}</div>
       </main>
     </>
