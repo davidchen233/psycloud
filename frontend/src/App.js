@@ -1,6 +1,9 @@
 // 使用套件
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+// 頁面元件
+import Home from './pages/home/Home';
+
 // 組合用元件
 import Header from './components/Header';
 import MainContent from './components/MainContent';
@@ -16,7 +19,11 @@ function App() {
       <MainContent>
         {/* ScrollToTop是為了讓連到另一頁內容時，頁面回到最上方 */}
         <ScrollToTop>
-          <Switch></Switch>
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
         </ScrollToTop>
       </MainContent>
       <Footer />
