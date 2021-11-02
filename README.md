@@ -48,7 +48,7 @@
 
 > 樣式工具
 
-- sass
+- sass -s
 - [react bootstrap 5.1.0](https://react-bootstrap.github.io/) -f
 - [react icon](https://react-icons.github.io/react-icons/) -f
 
