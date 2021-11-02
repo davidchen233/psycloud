@@ -1,0 +1,82 @@
+section {
+  position: relative;
+}
+
+section h2 {
+  font-size: 32px;
+  color: #5e6472;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* button */
+.button-md {
+  align-items: center;
+  background-color: #ffffff7c;
+  border: 2px solid #4797ff;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #4797ff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 200px;
+}
+
+.button-md:hover,
+.button-6:focus {
+  border-color: #2a70cc;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: #2a70cc;
+}
+
+.button-md:hover {
+  transform: translateY(-1px);
+}
+
+.button-md:active {
+  background-color: #f0f0f1;
+  border-color: #2158a0;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: #2158a0;
+  transform: translateY(0);
+}
+
+/* see more btn */
+.seeMore {
+  position: absolute;
+  bottom: 80px;
+  right: 60px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 160px 5px;
+  transition: background-position 0.5s ease, padding-left 0.5s ease;
+  width: 150px;
+  border: 2px solid rgb(85, 85, 85);
+  font-size: 16px;
+  padding: 5px 7px;
+  text-decoration: none;
+}
+
+.seeMore:hover {
+  transition: background-position 0.5s ease, padding-left 0.5s ease;
+  background-position: 113px 5px;
+  padding-left: 0;
+  color: #4797ff;
+}

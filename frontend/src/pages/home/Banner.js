@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const Banner = () => {
   return (
-    <section>
+    <div className="banner">
       <video src={Video} type="video/mp4" autoPlay muted loop></video>
       <video src={Ink1} type="video/mov" autoPlay muted loop></video>
       <div className="content">
@@ -22,7 +22,7 @@ const Banner = () => {
           </NavLink>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

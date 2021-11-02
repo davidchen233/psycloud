@@ -1,20 +1,20 @@
-section {
+.banner {
   position: relative;
   width: 100%;
-  height: calc(100vh);
+  height: calc(90vh);
   /* transform: translateY(-120px); */
   clip-path: polygon(100% 0, 100% 89%, 71% 76%, 0 100%, 0 0);
 }
-section::before {
+.banner::before {
   content: '';
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100px;
-  background: linear-gradient(to bottom, #8ab8f388, transparent);
+  height: 50px;
+  background: linear-gradient(#8ab8f388, transparent);
   z-index: 1000;
 }
-section video {
+.banner video {
   position: absolute;
   top: 0;
   left: 0;
@@ -23,14 +23,14 @@ section video {
   object-fit: cover;
 }
 
-section video:nth-child(2) {
+.banner video:nth-child(2) {
   mix-blend-mode: screen;
 }
 
-section .content {
+.banner .content {
   position: absolute;
   right: 16%;
-  top: 160px;
+  top: 140px;
   width: 40%;
   min-width: 350px;
   padding: 50px 60px;
@@ -42,62 +42,13 @@ section .content {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-section .content p {
+.banner .content p {
   margin-top: 10px;
   line-height: 30px;
 }
 
-/* button */
-.button-md {
-  align-items: center;
-  background-color: #ffffff;
-  border: 2px solid #4797ff;
-  border-radius: 0.25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-  box-sizing: border-box;
-  color: #4797ff;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: system-ui, -apple-system, system-ui, 'Helvetica Neue', Helvetica,
-    Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  justify-content: center;
-  line-height: 1.25;
-  margin: 0;
-  min-height: 3rem;
-  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
-  position: relative;
-  text-decoration: none;
-  transition: all 250ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  width: 200px;
-}
-
-.button-md:hover,
-.button-6:focus {
-  border-color: #2a70cc;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-  color: #2a70cc;
-}
-
-.button-md:hover {
-  transform: translateY(-1px);
-}
-
-.button-md:active {
-  background-color: #f0f0f1;
-  border-color: #2158a0;
-  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-  color: #2158a0;
-  transform: translateY(0);
-}
-
 @media (max-width: 996px) {
-  section .content {
+  .banner .content {
     top: 100px;
   }
 }
