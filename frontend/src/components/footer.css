@@ -20,7 +20,7 @@ footer .content img {
 }
 
 .formBox {
-  min-width: 320px;
+  min-width: 300px;
 }
 
 .formBox form {
@@ -67,6 +67,7 @@ footer .content img {
 
 footer .links li {
   list-style: none;
+  letter-spacing: 2px;
 }
 
 footer .links li a {

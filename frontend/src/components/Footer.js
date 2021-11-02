@@ -6,6 +6,7 @@ import {
   FaTwitter,
   FaPhoneAlt,
   FaHome,
+  FaRegEnvelope,
 } from 'react-icons/fa';
 import './footer.css';
 import Logo from './logo.png';
@@ -14,7 +15,7 @@ const Footer = () => {
     <footer>
       <div className="content d-lg-flex">
         <NavLink to="/">
-          <img src={Logo} alt="" />
+          <img className="me-3" src={Logo} alt="" />
         </NavLink>
         <div className="formBox">
           <form>
@@ -34,7 +35,7 @@ const Footer = () => {
               <FaHome className="me-3 mb-2" /> 台北市萬華區安和路223巷26號3樓
             </li>
             <li>
-              <FaPhoneAlt className="me-3" /> 02-25154848
+              <FaRegEnvelope className="me-3" /> psycloud@gmail.com
             </li>
           </ul>
           <ul className="medias">
