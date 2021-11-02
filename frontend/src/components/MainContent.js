@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function MainContent(props) {
   return (
@@ -7,7 +7,7 @@ function MainContent(props) {
         <div className="container">{props.children}</div>
       </main>
     </>
-  )
+  );
 }
 
-export default MainContent
+export default MainContent;
