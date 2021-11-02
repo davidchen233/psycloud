@@ -50,9 +50,10 @@ header ul li a {
   margin: 0 5px;
   font-size: 20px;
   font-weight: 400;
-  color: rgb(102, 102, 102);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   transition: 0.4s;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
 }
 
 header ul li a:hover {
