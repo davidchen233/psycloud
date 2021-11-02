@@ -5,7 +5,7 @@
 }
 
 #logo path {
-  stroke: #fff;
+  stroke: #4797ff;
   stroke-miterlimit: 10;
 }
 
@@ -45,6 +45,6 @@
     fill: transparent;
   }
   to {
-    fill: white;
+    fill: #4797ff;
   }
 }
