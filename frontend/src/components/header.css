@@ -1,0 +1,117 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 80px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+}
+
+header.sticky {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px 60px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+#logo {
+  width: 200px;
+}
+
+header.sticky #logo {
+  fill: #111;
+}
+
+header.sticky #logo path {
+  fill: #111;
+}
+
+header nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul {
+  position: relative;
+  display: flex;
+  margin: 0;
+}
+
+header ul li {
+  position: relative;
+  list-style: none;
+  padding: 0 10px;
+}
+
+header ul li a {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+header ul li a:hover {
+  color: rgb(88, 88, 88);
+}
+
+header.sticky ul li a {
+  color: #111;
+}
+
+@media (max-width: 1020px) {
+  header,
+  header.sticky {
+    padding: 20px 50px;
+    z-index: 1000;
+  }
+
+  #logo {
+    width: 160px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 75px;
+    left: -100%;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    padding: 100px 50px;
+    text-align: center;
+    z-index: 999;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+  }
+
+  .menu.active {
+    left: 0;
+  }
+
+  header ul li a {
+    color: #111;
+    font-size: 24px;
+    margin: 10px;
+  }
+
+  header.sticky .toggle {
+    filter: invert(1);
+  }
+}
+
+@media (max-width: 600px) {
+  header,
+  header.sticky {
+    padding: 20px 20px;
+  }
+  .banner {
+    padding: 150px 20px 100px;
+  }
+}
