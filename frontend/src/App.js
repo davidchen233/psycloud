@@ -12,7 +12,7 @@ import ScrollToTop from './components/ScrollToTop';
 function App() {
   return (
     <Router>
-      {/* <Header /> */}
+      <Header />
       <MainContent>
         {/* ScrollToTop是為了讓連到另一頁內容時，頁面回到最上方 */}
         <ScrollToTop>
