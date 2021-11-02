@@ -29,9 +29,10 @@ section video:nth-child(2) {
 
 section .content {
   position: absolute;
-  right: 220px;
+  right: 16%;
   top: 160px;
-  width: 600px;
+  width: 40%;
+  min-width: 350px;
   padding: 50px 60px;
   background: rgba(255, 255, 255, 0.26);
   box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.171);
@@ -93,4 +94,10 @@ section .content p {
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   color: #2158a0;
   transform: translateY(0);
+}
+
+@media (max-width: 996px) {
+  section .content {
+    top: 100px;
+  }
 }
