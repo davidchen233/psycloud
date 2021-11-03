@@ -12,7 +12,7 @@ SwiperCore.use(EffectCoverflow);
 const Doctor = () => {
   return (
     <section className="h-section doctor">
-      <h2>-- 預約心理師 --</h2>
+      <h2>-- 心理師團隊 --</h2>
       <div className="d-flex justify-content-between">
         <div></div>
         <NavLink to="/doctor" className="seeMore text-center">

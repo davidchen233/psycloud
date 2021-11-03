@@ -1,12 +1,8 @@
-.link-wrapper {
-  text-decoration: none;
-}
-
 .d-card {
   position: relative;
   width: 280px;
   height: 400px;
-  background: rgba(180, 180, 180, 0.452);
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.507);
   display: flex;
@@ -14,6 +10,11 @@
   align-items: center;
   backdrop-filter: blur(10px);
   overflow: hidden;
+  transition: 0.4s;
+}
+
+.d-card:hover {
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .d-card:hover .cardContent {
@@ -66,10 +67,11 @@
   color: #111;
   border-bottom: 3px dotted #75c5f2;
   padding-bottom: 10px;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   margin: 20px 0 20px;
   line-height: 1.5em;
+  font-weight: 600;
 }
 
 .d-card .cardContent .contentBx p {

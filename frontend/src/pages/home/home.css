@@ -1,6 +1,10 @@
+.link-wrapper {
+  text-decoration: none;
+}
+
 .h-section {
   position: relative;
-  margin-bottom: 150px;
+  margin-bottom: 180px;
 }
 
 .h-section h2 {
@@ -65,13 +69,14 @@
   background-repeat: no-repeat;
   background-position: 160px 5px;
   transition: background-position 0.5s ease, padding-left 0.5s ease;
+  border-radius: 6px;
   width: 150px;
   border: 2px solid rgb(85, 85, 85);
   font-size: 16px;
   padding: 5px 7px;
   text-decoration: none;
   margin-right: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .seeMore:hover {
