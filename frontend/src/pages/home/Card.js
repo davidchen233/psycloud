@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 const Card = () => {
   return (
-    <NavLink to="/doctor">
-      <div className="card">
+    <NavLink to="/doctor" className="link-wrapper">
+      <div className="d-card">
         <div className="cardContent">
           <div className="imgBx">
             <div className="avatar">

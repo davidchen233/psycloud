@@ -1,0 +1,21 @@
+.reflect {
+  position: relative;
+  max-width: 100%;
+  -webkit-box-reflect: below 1px linear-gradient(transparent 70%, #0009);
+}
+
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  margin: 0 20px;
+}
+
+.swiper-container-3d .swiper-slide-shadow-left {
+  background-image: none;
+}

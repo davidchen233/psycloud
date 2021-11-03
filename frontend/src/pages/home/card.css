@@ -1,41 +1,49 @@
-.card {
+.link-wrapper {
+  text-decoration: none;
+}
+
+.d-card {
   position: relative;
   width: 280px;
   height: 400px;
-  background: rgba(255, 255, 255, 0.322);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  background: rgba(180, 180, 180, 0.452);
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.404);
+  border: 1px solid rgba(255, 255, 255, 0.507);
   display: flex;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(10px);
-  cursor: pointer;
+  overflow: hidden;
 }
 
-.card .cardContent {
+.d-card:hover .cardContent {
+  transform: scale(1.1);
+}
+
+.d-card .cardContent {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: 0.4s;
 }
 
-.card .cardContent .imgBx {
+.d-card .cardContent .imgBx {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000;
+  border: 2px solid #75c5f2;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   margin-bottom: 20px;
 }
 
-.card .cardContent .avatar {
+.d-card .cardContent .avatar {
   position: relative;
-  width: 140px;
-  height: 140px;
+  width: 135px;
+  height: 135px;
   background: #fff;
   border-radius: 50%;
   overflow: hidden;
@@ -45,7 +53,7 @@
   align-items: center;
 }
 
-.card .cardContent .avatar img {
+.d-card .cardContent .avatar img {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,7 +62,7 @@
   object-fit: cover;
 }
 
-.card .cardContent .contentBx h3 {
+.d-card .cardContent .contentBx h3 {
   color: #111;
   border-bottom: 3px dotted #75c5f2;
   padding-bottom: 10px;
@@ -64,7 +72,7 @@
   line-height: 1.5em;
 }
 
-.card .cardContent .contentBx p {
+.d-card .cardContent .contentBx p {
   font-size: 14px;
   color: rgb(88, 88, 88);
   letter-spacing: 2px;

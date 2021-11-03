@@ -2,7 +2,7 @@ import './test.css';
 import { NavLink } from 'react-router-dom';
 const Test = () => {
   return (
-    <section className="test">
+    <section className="h-section test">
       <div>
         <h2>-- 壓力檢測 --</h2>
         <p>
