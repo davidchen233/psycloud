@@ -5,7 +5,7 @@
 }
 
 #logo path {
-  stroke: #4797ff;
+  stroke: rgba(17, 17, 17, 0.603);
   stroke-miterlimit: 10;
 }
 
@@ -45,6 +45,6 @@
     fill: transparent;
   }
   to {
-    fill: #4797ff;
+    fill: rgba(17, 17, 17, 0.616);
   }
 }

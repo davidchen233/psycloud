@@ -1,8 +1,19 @@
 // 共用 css
-#root {
-  background: linear-gradient(-5deg, #fcf3d69c, #ffa69e83, #8ab8f388);
-  min-height: 100vh;
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
+#root {
+  background: linear-gradient(-30deg, #fcf3d69c, #ffa69e83, #0066c598);
+  min-height: 100vh;
+  position: relative;
+}
+#root::after {
+  content: '';
+  display: block;
+  height: 315px;
+}
+
 // 變數覆蓋區
 $primary: #4797ff;
 $secondary: #75c5f2;

@@ -26,7 +26,9 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-tilt": "^0.1.4",
     "sass": "^1.43.4",
+    "swiper": "^6.8.4",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

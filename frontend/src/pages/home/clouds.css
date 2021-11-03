@@ -1,0 +1,48 @@
+.backgroundClouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+}
+
+.cloud {
+  position: absolute;
+}
+.cloud.x1 {
+  top: 100px;
+  animation: fly 34s infinite linear;
+}
+.cloud.x2 {
+  top: 400px;
+  animation: fly 24s infinite linear;
+}
+.cloud.x3 {
+  top: 400px;
+  animation: fly 20s infinite linear;
+}
+.cloud.x4 {
+  top: 600px;
+  animation: fly 34s infinite linear;
+}
+
+.cloud.x1 img {
+  width: 1000px;
+}
+.cloud.x2 img {
+  width: 700px;
+}
+.cloud.x3 img {
+  width: 200px;
+}
+.cloud.x4 img {
+  width: 300px;
+}
+
+@keyframes fly {
+  0% {
+    left: 1920px;
+  }
+  100% {
+    left: -1000px;
+  }
+}

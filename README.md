@@ -10,13 +10,11 @@
 ## 協作規範
 
 - frontend
-  - 路由: 
+  - 路由:
   - router 會統一放在 index，前期各自作業時請不要 push 上來
-  
 - backend
-  - 路由: 
+  - 路由:
   - 單一資料回傳 -> 物件
-  
 
 ## git flow
 
@@ -55,3 +53,4 @@
 > 獨立套件
 
 - [full calendar](https://fullcalendar.io/docs#toc) (daygrid / interaction) -f
+- [swiper](https://swiperjs.com/react) -f

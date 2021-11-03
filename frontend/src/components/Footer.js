@@ -21,8 +21,8 @@ const Footer = () => {
           <form>
             <h3>聯絡我們</h3>
             <input type="email" name="" placeholder="Email" />
-            <textarea name="" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send" />
+            <textarea name="" placeholder="輸入您想說的話"></textarea>
+            <input type="submit" value="送出" />
           </form>
         </div>
 
@@ -58,7 +58,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bar  mt-2"></div>
-      <div class="copyright">
+      <div className="copyright">
         <p>Copyright &copy; 2021 心理雲. All Right Reserved.</p>
       </div>
     </footer>
