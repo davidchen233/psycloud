@@ -58,7 +58,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bar  mt-2"></div>
-      <div class="copyright">
+      <div className="copyright">
         <p>Copyright &copy; 2021 心理雲. All Right Reserved.</p>
       </div>
     </footer>
