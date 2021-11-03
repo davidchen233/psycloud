@@ -22,27 +22,27 @@ const Header = () => {
       <nav>
         <ul className={`menu ${toggle ? 'active' : ''}`}>
           <li>
-            <NavLink to="home">壓力檢測</NavLink>
+            <NavLink to="test">壓力檢測</NavLink>
           </li>
           <li>
-            <NavLink to="#about">預約心理師</NavLink>
+            <NavLink to="doctor">預約心理師</NavLink>
           </li>
           <li>
-            <NavLink to="#services">紓壓小物</NavLink>
+            <NavLink to="product">紓壓小物</NavLink>
           </li>
           <li>
-            <NavLink to="#work">心情聊天室</NavLink>
+            <NavLink to="chatRoom">心情聊天室</NavLink>
           </li>
         </ul>
       </nav>
       <ul className="other-nav">
         <li>
-          <NavLink to="home">
+          <NavLink to="profile">
             <BsPerson size="28" />
           </NavLink>
         </li>
         <li>
-          <NavLink to="home">
+          <NavLink to="cart">
             <BsCart3 size="26" />
           </NavLink>
         </li>

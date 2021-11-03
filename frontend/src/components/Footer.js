@@ -13,7 +13,7 @@ import Logo from './logo.png';
 const Footer = () => {
   return (
     <footer>
-      <div className="content d-lg-flex">
+      <div className="content">
         <NavLink to="/">
           <img className="me-3" src={Logo} alt="" />
         </NavLink>
