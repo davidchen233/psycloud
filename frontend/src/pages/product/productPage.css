@@ -1,0 +1,86 @@
+body {
+  font-family: 'jf-openhuninn-1.1', Arial, Helvetica, sans-serif;
+}
+
+/* Item */
+
+.Item {
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 3px;
+}
+
+div > h3 {
+  margin: 50px 0px 40px 0px;
+}
+
+.product {
+  position: relative;
+}
+
+.product-img1 {
+  width: 80%;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.image-text {
+  font-size: 36px;
+  position: absolute;
+  top: 45%;
+  right: 17%;
+}
+
+@media (max-width: 996px) {
+  .image-text {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  .image-text > div {
+    position: absolute;
+    top: 65%;
+    right: 32%;
+  }
+}
+
+.image-text > div {
+  background-color: rgb(58, 58, 58);
+  height: 3px;
+  width: 30px;
+  margin: 0 auto;
+}
+
+/* hot */
+
+.hot {
+  text-align: center;
+  letter-spacing: 2px;
+  margin: 20px 0px;
+}
+
+.hotImg img {
+  /* max-width: 100%;
+  height: auto; */
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.hotImg:hover img {
+  opacity: 0.7;
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 520px) {
+  .flex-wrapper {
+    justify-content: center;
+  }
+}
