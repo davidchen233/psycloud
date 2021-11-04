@@ -13,6 +13,15 @@ const Header = () => {
     }
   });
   const [toggle, setToggle] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const menuItems = ['壓力檢測', '預約心理師', '紓壓小物', '心情聊天室'];
+  const menuLinks = {
+    壓力檢測: 'test',
+    預約心理師: 'doctor',
+    紓壓小物: 'product',
+    心情聊天室: 'chatRoom',
+  };
+
   return (
     <header className={sticky ? 'sticky' : ''}>
       <NavLink to="/" className="logo">
@@ -21,28 +30,39 @@ const Header = () => {
 
       <nav>
         <ul className={`menu ${toggle ? 'active' : ''}`}>
-          <li>
-            <NavLink to="home">壓力檢測</NavLink>
-          </li>
-          <li>
-            <NavLink to="#about">預約心理師</NavLink>
-          </li>
-          <li>
-            <NavLink to="#services">紓壓小物</NavLink>
-          </li>
-          <li>
-            <NavLink to="#work">心情聊天室</NavLink>
-          </li>
+          {menuItems.map((v, i) => {
+            return (
+              <li
+                key={i}
+                className={activeIndex === i ? 'active' : ''}
+                onClick={() => {
+                  setActiveIndex(i);
+                }}
+              >
+                <NavLink to={menuLinks[v]}>{v}</NavLink>
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <ul className="other-nav">
         <li>
-          <NavLink to="home">
-            <BsPerson size="28" />
+          <NavLink
+            to="profile"
+            onClick={() => {
+              setActiveIndex(-1);
+            }}
+          >
+            <BsPerson size="28" className="icon" />
           </NavLink>
         </li>
         <li>
-          <NavLink to="home">
+          <NavLink
+            to="cart"
+            onClick={() => {
+              setActiveIndex(-1);
+            }}
+          >
             <BsCart3 size="26" />
           </NavLink>
         </li>

@@ -10,7 +10,7 @@ const Product = () => {
       <NavLink to="/product" className="link-wrapper">
         <div className="p-card">
           <div className="content">
-            <div className="productImg">
+            <div className="productImg mx-auto">
               <img src={P1} alt="" />
             </div>
             <div className="d-flex justify-content-between mb-1">
