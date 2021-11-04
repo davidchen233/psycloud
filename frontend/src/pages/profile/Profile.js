@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useState, useRef } from 'react';
 import Avatar from './tempImg/avatar.jpg';
 import {
   FaRegUser,
@@ -8,8 +8,47 @@ import {
   FaUserMd,
 } from 'react-icons/fa';
 import './profile.css';
+import Personal from './Personal.js';
 
-const Profile = (props) => {
+const Profile = () => {
+  const [currentView, setCurrentView] = useState('profile');
+
+  const profileRef = useRef();
+  const consultationRef = useRef();
+  const ordersRef = useRef();
+  const testRef = useRef();
+  const psychologistRef = useRef();
+
+  function handleClick(e) {
+    let id = e.currentTarget.getAttribute('data-id');
+    setCurrentView(id);
+
+    profileRef.current.classList.remove('active');
+    consultationRef.current.classList.remove('active');
+    ordersRef.current.classList.remove('active');
+    testRef.current.classList.remove('active');
+    psychologistRef.current.classList.remove('active');
+    e.currentTarget.classList.add('active');
+  }
+
+  const switchView = () => {
+    switch (currentView) {
+      case 'profile':
+        return <Personal />;
+      case 'consultation':
+        return 'not yet';
+      case 'orders':
+        return 'not yet';
+      case 'test':
+        return 'not yet';
+      case 'psychologist':
+        return 'not yet';
+      default:
+        return <Personal />;
+    }
+  };
+
+  console.log(currentView);
   return (
     <div className="container pt-4">
       <h2 className="text-center mb-3">會員專區</h2>
@@ -20,50 +59,75 @@ const Profile = (props) => {
               <img src={Avatar} alt="" />
             </div>
             <ul>
-              <li className="list active">
-                <Link to="/u-profile">
+              <li
+                data-id="profile"
+                className="list active"
+                ref={profileRef}
+                onClick={handleClick}
+              >
+                <div className="listItem">
                   <span className="iconBx">
                     <FaRegUser className="icon" />
                   </span>
                   <span className="title">個人資訊</span>
-                </Link>
+                </div>
               </li>
-              <li className="list">
-                <Link to="/u-consultation">
+              <li
+                data-id="consultation"
+                className="list"
+                ref={consultationRef}
+                onClick={handleClick}
+              >
+                <div className="listItem">
                   <span className="iconBx">
                     <FaCalendarCheck className="icon" />
                   </span>
                   <span className="title">我的預約</span>
-                </Link>
+                </div>
               </li>
-              <li className="list">
-                <Link to="/u-orders">
+              <li
+                data-id="orders"
+                className="list"
+                ref={ordersRef}
+                onClick={handleClick}
+              >
+                <div className="listItem">
                   <span className="iconBx">
                     <FaShoppingBag className="icon" />
                   </span>
                   <span className="title">我的訂單</span>
-                </Link>
+                </div>
               </li>
-              <li className="list">
-                <Link to="/u-test-result">
+              <li
+                data-id="test"
+                className="list"
+                ref={testRef}
+                onClick={handleClick}
+              >
+                <div className="listItem">
                   <span className="iconBx">
                     <FaTasks className="icon" />
                   </span>
                   <span className="title">檢測結果</span>
-                </Link>
+                </div>
               </li>
-              <li className="list">
-                <Link to="/u-psychologist">
+              <li
+                data-id="psychologist"
+                className="list"
+                ref={psychologistRef}
+                onClick={handleClick}
+              >
+                <div className="listItem">
                   <span className="iconBx">
                     <FaUserMd className="icon" />
                   </span>
                   <span className="title">心理師專區</span>
-                </Link>
+                </div>
               </li>
             </ul>
           </div>
         </div>
-        <div className="content"></div>
+        <div className="contentBox">{switchView()}</div>
       </div>
     </div>
   );

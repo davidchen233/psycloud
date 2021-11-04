@@ -56,22 +56,22 @@
   width: 100%;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+  cursor: pointer;
 }
 
 .navigation ul li.active {
   background: #99c5ff;
 }
 
-.navigation ul li a {
+.navigation ul li .listItem {
   position: relative;
-  display: block;
   width: 100%;
   display: flex;
   text-decoration: none;
   color: #111;
 }
 
-.navigation ul li.active a::before {
+.navigation ul li.active .listItem::before {
   content: '';
   position: absolute;
   top: -30px;
@@ -83,7 +83,7 @@
   box-shadow: 15px 15px 0 #99c5ff;
 }
 
-.navigation ul li.active a::after {
+.navigation ul li.active .listItem::after {
   content: '';
   position: absolute;
   bottom: -30px;
@@ -95,7 +95,7 @@
   box-shadow: 15px -15px 0 #99c5ff;
 }
 
-.navigation ul li a .iconBx {
+.navigation ul li .listItem .iconBx {
   position: relative;
   display: block;
   min-width: 60px;
@@ -104,13 +104,13 @@
   text-align: center;
 }
 
-.navigation ul li a .iconBx .icon {
+.navigation ul li .listItem .iconBx .icon {
   position: relative;
   font-size: 1.5em;
   z-index: 1;
 }
 
-.navigation ul li a .title {
+.navigation ul li .listItem .title {
   position: relative;
   display: block;
   padding-left: 20px;
