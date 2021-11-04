@@ -44,7 +44,7 @@ header ul li {
   padding: 0 10px;
 }
 
-header ul li a {
+header .menu li a {
   position: relative;
   display: inline-block;
   margin: 0 5px;
@@ -56,12 +56,23 @@ header ul li a {
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
 }
 
-header ul li a:hover {
+header.sticky .menu li.active a {
+  color: #4797ff;
+}
+
+header .menu li a:hover {
   color: rgb(0, 0, 0);
 }
 
+header .menu li.active a {
+  color: rgb(0, 0, 0);
+}
 header.sticky ul li a {
   color: #111;
+}
+
+header .other-nav li a {
+  color: #575757;
 }
 
 @media (max-width: 996px) {
@@ -105,7 +116,6 @@ header.sticky ul li a {
   .other-nav li {
     padding: 0;
   }
-
   .menu {
     position: fixed;
     top: 96px;
@@ -125,10 +135,13 @@ header.sticky ul li a {
     left: 0;
   }
 
-  header ul li a {
+  header .menu li a {
     color: #111;
     font-size: 24px;
     margin: 10px;
+  }
+  header .other-nav li a {
+    margin-right: 15px;
   }
 }
 

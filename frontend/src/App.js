@@ -1,10 +1,6 @@
 // 使用套件
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// 頁面元件
-import Home from './pages/home/Home';
-import Personal from './pages/profile/Personal';
-
 // 組合用元件
 import Header from './components/Header';
 import MainContent from './components/MainContent';
@@ -12,6 +8,8 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
 // 頁面元件
+import Home from './pages/home/Home';
+import Profile from './pages/profile/Profile';
 
 function App() {
   return (
@@ -22,7 +20,7 @@ function App() {
         <ScrollToTop>
           <Switch>
             <Route path="/profile">
-              <Personal />
+              <Profile />
             </Route>
             <Route path="/">
               <Home />

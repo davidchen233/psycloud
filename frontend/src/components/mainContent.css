@@ -1,9 +1,4 @@
 main {
-  padding-top: 80px;
+  padding-top: 100px;
   margin-bottom: 40px;
-}
-@media (max-width: 996px) {
-  main {
-    padding-top: 100px;
-  }
 }

@@ -1,5 +1,3 @@
-import './profileSideNav.css';
-
 import { Link } from 'react-router-dom';
 import Avatar from './tempImg/avatar.jpg';
 import {
@@ -9,8 +7,9 @@ import {
   FaTasks,
   FaUserMd,
 } from 'react-icons/fa';
+import './profile.css';
 
-const ProfileSideNav = (props) => {
+const Profile = (props) => {
   return (
     <div className="container pt-4">
       <h2 className="text-center mb-3">會員專區</h2>
@@ -21,8 +20,8 @@ const ProfileSideNav = (props) => {
               <img src={Avatar} alt="" />
             </div>
             <ul>
-              <li className="list">
-                <Link to="/profile">
+              <li className="list active">
+                <Link to="/u-profile">
                   <span className="iconBx">
                     <FaRegUser className="icon" />
                   </span>
@@ -30,7 +29,7 @@ const ProfileSideNav = (props) => {
                 </Link>
               </li>
               <li className="list">
-                <Link to="/profile/consultation">
+                <Link to="/u-consultation">
                   <span className="iconBx">
                     <FaCalendarCheck className="icon" />
                   </span>
@@ -38,7 +37,7 @@ const ProfileSideNav = (props) => {
                 </Link>
               </li>
               <li className="list">
-                <Link to="/profile/orders">
+                <Link to="/u-orders">
                   <span className="iconBx">
                     <FaShoppingBag className="icon" />
                   </span>
@@ -46,7 +45,7 @@ const ProfileSideNav = (props) => {
                 </Link>
               </li>
               <li className="list">
-                <Link to="/profile/test-result">
+                <Link to="/u-test-result">
                   <span className="iconBx">
                     <FaTasks className="icon" />
                   </span>
@@ -54,7 +53,7 @@ const ProfileSideNav = (props) => {
                 </Link>
               </li>
               <li className="list">
-                <Link to="/profile/psychologist">
+                <Link to="/u-psychologist">
                   <span className="iconBx">
                     <FaUserMd className="icon" />
                   </span>
@@ -64,10 +63,10 @@ const ProfileSideNav = (props) => {
             </ul>
           </div>
         </div>
-        <div className="content">{props.children}</div>
+        <div className="content"></div>
       </div>
     </div>
   );
 };
 
-export default ProfileSideNav;
+export default Profile;
