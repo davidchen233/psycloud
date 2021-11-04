@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // 頁面元件
 import Home from './pages/home/Home';
-import Profile from './pages/profile/Profile';
+import Personal from './pages/profile/Personal';
 
 // 組合用元件
 import Header from './components/Header';
@@ -22,7 +22,7 @@ function App() {
         <ScrollToTop>
           <Switch>
             <Route path="/profile">
-              <Profile />
+              <Personal />
             </Route>
             <Route path="/">
               <Home />

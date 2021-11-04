@@ -1,11 +1,14 @@
 import './personal.css';
+import ProfileSideNav from './ProfileSideNav';
 import Banner from './tempImg/banner.png';
 
 const Personal = () => {
   return (
-    <div className="personal-banner">
-      <img src={Banner} alt="" />
-    </div>
+    <ProfileSideNav>
+      <div className="personal-banner">
+        <img src={Banner} alt="" />
+      </div>
+    </ProfileSideNav>
   );
 };
 
