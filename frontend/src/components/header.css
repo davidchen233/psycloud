@@ -56,6 +56,10 @@ header .menu li a {
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
 }
 
+header.sticky .menu li.active a {
+  color: #4797ff;
+}
+
 header .menu li a:hover {
   color: rgb(0, 0, 0);
 }

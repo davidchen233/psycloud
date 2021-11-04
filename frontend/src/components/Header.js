@@ -47,12 +47,22 @@ const Header = () => {
       </nav>
       <ul className="other-nav">
         <li>
-          <NavLink to="profile">
+          <NavLink
+            to="profile"
+            onClick={() => {
+              setActiveIndex(-1);
+            }}
+          >
             <BsPerson size="28" className="icon" />
           </NavLink>
         </li>
         <li>
-          <NavLink to="cart">
+          <NavLink
+            to="cart"
+            onClick={() => {
+              setActiveIndex(-1);
+            }}
+          >
             <BsCart3 size="26" />
           </NavLink>
         </li>
