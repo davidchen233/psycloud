@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './psychologist.css';
 
+import PsyInfo from './pyschologist/PsyInfo';
 import Calendar from './pyschologist/Calendar';
 
 const Psychologist = () => {
@@ -15,13 +16,13 @@ const Psychologist = () => {
   const switchView = () => {
     switch (activeItem) {
       case '心理師資料':
-        return 'not yet';
+        return <PsyInfo />;
       case '我的排程':
         return <Calendar />;
       case '我的諮詢':
-        return 'not yet';
+        return 'Still Working on it';
       default:
-        return 'not yet';
+        return <PsyInfo />;
     }
   };
   return (

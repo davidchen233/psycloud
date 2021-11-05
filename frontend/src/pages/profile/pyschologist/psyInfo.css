@@ -1,0 +1,63 @@
+.licenseBx {
+  margin-right: 100px;
+}
+
+.licenseBx .licenseImg {
+  width: 160px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.licenseBx .licenseImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.priceBx h5 span {
+  margin-left: 10px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.ellipsisBox {
+  width: 500px;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.viewEditBtns button {
+  padding: 5px 24px;
+  border: none;
+  outline: none;
+  letter-spacing: 2px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.viewEditBtns button:hover {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.viewEditBtns button:active {
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.viewEditBtns button:nth-child(1) {
+  background: #4797ff;
+  color: #fff;
+}
+
+.viewEditBtns button:nth-child(2) {
+  border: 2px solid #4797ff;
+  color: rgb(44, 44, 44);
+  background-color: transparent;
+}
+
+.viewEditBtns button:nth-child(2):hover {
+  background-color: rgba(255, 255, 255, 0.705);
+}
