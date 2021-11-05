@@ -1,4 +1,5 @@
 import './personal.css';
+import { HiOutlinePhotograph } from 'react-icons/hi';
 import Banner from './tempImg/banner.png';
 import Avatar from './tempImg/avatar.jpg';
 
@@ -8,12 +9,21 @@ const Personal = () => {
       <div className="personal-banner">
         <img src={Banner} alt="" />
       </div>
+      <label className="upload-banner">
+        <HiOutlinePhotograph size="30" />
+        <input type="file" name="myfile" className="d-none" />
+      </label>
       <div className="profile-box">
         <div className="editPhoto">
           <div className="photo">
             <img src={Avatar} alt="" />
           </div>
-          <input type="file" />
+          <div className="d-flex justify-content-center">
+            <label className="upload-avatar">
+              更換頭貼
+              <input type="file" name="myfile" className="d-none" />
+            </label>
+          </div>
         </div>
         <div className="account-box">
           <h3>神奇寶貝</h3>
