@@ -22,7 +22,7 @@ const Test = () => {
             return <li key={i}>{v}</li>;
           })}
         </ol>
-        <ul className="links">
+        <ul className="adv-links">
           {result.links.map((v, i) => {
             return (
               <li key={i}>

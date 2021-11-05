@@ -10,6 +10,7 @@ import './profile.css';
 import Personal from './Personal.js';
 import Orders from './Orders';
 import Test from './Test';
+import Psychologist from './Psychologist';
 import Avatar from './tempImg/avatar.jpg';
 
 // popup modals
@@ -56,7 +57,7 @@ const Profile = () => {
       case 'test':
         return <Test />;
       case 'psychologist':
-        return 'not yet';
+        return <Psychologist />;
       default:
         return <Personal />;
     }
