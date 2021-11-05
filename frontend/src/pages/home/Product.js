@@ -1,5 +1,5 @@
 import './product.css';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaFire } from 'react-icons/fa';
 import Tilt from 'react-tilt';
 import P1 from './tempImg/3.jpg';
@@ -7,7 +7,7 @@ import P1 from './tempImg/3.jpg';
 const Product = () => {
   return (
     <Tilt>
-      <NavLink to="/product" className="link-wrapper">
+      <Link to="/product" className="link-wrapper">
         <div className="p-card">
           <div className="content">
             <div className="productImg mx-auto">
@@ -25,7 +25,7 @@ const Product = () => {
             </div>
           </div>
         </div>
-      </NavLink>
+      </Link>
     </Tilt>
   );
 };
