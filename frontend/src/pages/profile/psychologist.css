@@ -18,7 +18,7 @@
   font-size: 1rem;
   cursor: pointer;
   text-align: center;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .psyNav ul li:hover,
 .psyNav ul li.active {
@@ -28,5 +28,5 @@
 
 .doctorContent {
   width: 90%;
-  margin: 0 auto;
+  margin: 20px auto 0;
 }

@@ -1,12 +1,27 @@
 import { useState } from 'react';
 import './psychologist.css';
 
+import Calendar from './pyschologist/Calendar';
+
 const Psychologist = () => {
   const [activeItem, setActiveItem] = useState('心理師資料');
   const handleClick = (e) => {
     let currentItem = e.currentTarget.innerText;
     if (currentItem !== activeItem) {
       setActiveItem(currentItem);
+    }
+  };
+
+  const switchView = () => {
+    switch (activeItem) {
+      case '心理師資料':
+        return 'not yet';
+      case '我的排程':
+        return <Calendar />;
+      case '我的諮詢':
+        return 'not yet';
+      default:
+        return 'not yet';
     }
   };
   return (
@@ -37,7 +52,7 @@ const Psychologist = () => {
           </li>
         </ul>
       </nav>
-      <div className="doctorContent"></div>
+      <div className="doctorContent">{switchView()}</div>
     </>
   );
 };
