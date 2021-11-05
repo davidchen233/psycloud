@@ -124,3 +124,10 @@
   width: 100%;
   padding-left: 5px;
 }
+
+.profile-heading {
+  position: relative;
+  width: 90%;
+  border-bottom: 1px solid #666;
+  margin: 30px auto 40px;
+}

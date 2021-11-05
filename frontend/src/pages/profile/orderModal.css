@@ -1,0 +1,53 @@
+.orderModal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.orderModal {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 700px;
+  height: 600px;
+  border-radius: 20px;
+  border-top: 1px solid rgb(167, 167, 167);
+  background: rgba(255, 255, 255, 0.712);
+  padding: 40px 80px;
+  backdrop-filter: blur(5px);
+  overflow: auto;
+}
+
+.orderModal .close {
+  position: absolute;
+  top: 35px;
+  right: 45px;
+  cursor: pointer;
+}
+
+.orderModal h3 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.orderModal .orderProducts {
+  height: 300px;
+}
+
+.orderModal .imgBx {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.orderModal .imgBx img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

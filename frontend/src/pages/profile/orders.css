@@ -1,0 +1,47 @@
+.order-table {
+  width: 90%;
+  margin: 0 auto;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.order-table .order-heading {
+  font-size: 20px;
+}
+
+.order-table tr td {
+  line-height: 30px;
+}
+
+.viewBtn {
+  margin-top: 10px;
+  align-items: center;
+  background-color: #ffffff7c;
+  border: 2px solid #4797ff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #4797ff;
+  display: inline-flex;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  height: 40px;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 120px;
+}
+.viewBtn:hover {
+  transform: translateY(-1px);
+}
+
+.viewBtn:active {
+  background-color: #f0f0f1;
+  border-color: #2158a0;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: #2158a0;
+  transform: translateY(0);
+}
