@@ -14,10 +14,14 @@ import Psychologist from './Psychologist';
 import Avatar from './tempImg/avatar.jpg';
 
 // popup modals
+import PwdModal from './PwdModal';
+import PersonalInfoForm from './PersonalInfoForm';
 import OrderModal from './OrderModal';
 
 const Profile = () => {
   const [currentView, setCurrentView] = useState('profile');
+  const [showPwdModal, setShowPwdModal] = useState(false);
+  const [showPersonalModal, setShowPersonalModal] = useState(false);
   const [showOrderModal, setShowOrderModal] = useState(false);
 
   const profileRef = useRef();
@@ -38,10 +42,23 @@ const Profile = () => {
     e.currentTarget.classList.add('active');
   }
 
+  const openPwdModal = () => {
+    setShowPwdModal(true);
+  };
+  const closePwdModal = () => {
+    setShowPwdModal(false);
+  };
+
+  const openPersonalModal = () => {
+    setShowPersonalModal(true);
+  };
+  const closePersonalModal = () => {
+    setShowPersonalModal(false);
+  };
+
   const openOrderModal = () => {
     setShowOrderModal(true);
   };
-
   const closeOrderModal = () => {
     setShowOrderModal(false);
   };
@@ -49,7 +66,12 @@ const Profile = () => {
   const switchView = () => {
     switch (currentView) {
       case 'profile':
-        return <Personal />;
+        return (
+          <Personal
+            openPwdModal={openPwdModal}
+            openPersonalModal={openPersonalModal}
+          />
+        );
       case 'consultation':
         return 'not yet';
       case 'orders':
@@ -62,10 +84,12 @@ const Profile = () => {
         return <Personal />;
     }
   };
-
-  console.log(currentView);
   return (
     <>
+      {showPwdModal === true && <PwdModal closePwdModal={closePwdModal} />}
+      {showPersonalModal === true && (
+        <PersonalInfoForm closePersonalModal={closePersonalModal} />
+      )}
       {showOrderModal === true && <OrderModal closeModal={closeOrderModal} />}
       <div className="container pt-4">
         <h2 className="text-center mb-3">會員專區</h2>

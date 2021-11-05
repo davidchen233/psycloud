@@ -8,6 +8,7 @@
   border-radius: 20px;
   overflow: hidden;
   display: flex;
+  box-shadow: 5px 7px 30px rgba(0, 0, 0, 0.2);
 }
 
 .navigation {

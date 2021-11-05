@@ -1,7 +1,6 @@
 import './orders.css';
 
 const Orders = ({ openModal }) => {
-  console.log(openModal);
   return (
     <>
       <div className="profile-heading">
