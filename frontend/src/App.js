@@ -10,6 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 // 頁面元件
 import Home from './pages/home/Home';
 import Profile from './pages/profile/Profile';
+import Auth from './pages/auth/Auth';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           <Switch>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/auth">
+              <Auth />
             </Route>
             <Route path="/">
               <Home />
