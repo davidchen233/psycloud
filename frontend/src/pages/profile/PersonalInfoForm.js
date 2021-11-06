@@ -1,6 +1,6 @@
 import './formModal.css';
 import { GrClose } from 'react-icons/gr';
-import { Form, FloatingLabel, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 const PersonalInfoForm = ({ closePersonalModal }) => {
   return (
     <div className="formModal-mask">
@@ -8,13 +8,46 @@ const PersonalInfoForm = ({ closePersonalModal }) => {
         <GrClose size="30" className="close" onClick={closePersonalModal} />
         <h3 className="mb-4">編輯資料</h3>
         <Form>
-          <FloatingLabel
-            controlId="floatingPassword"
-            label="請再次輸入新密碼"
-            className="mb-3"
-          >
-            <Form.Control type="password" placeholder="Password" />
-          </FloatingLabel>
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column sm="2">
+              姓名 :
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="text" placeholder="請輸入姓名" />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column sm="2">
+              Email :
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="email" placeholder="請輸入 Email" />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column sm="2">
+              生日 :
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="date" placeholder="請輸入姓出生年月日" />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column sm="2">
+              電話 :
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="phone" placeholder="請輸入電話號碼" />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column sm="2">
+              地址 :
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="text" placeholder="請輸入地址" />
+            </Col>
+          </Form.Group>
           <div className="d-flex justify-content-end">
             <Button
               variant="outline-primary"

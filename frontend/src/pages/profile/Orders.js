@@ -16,19 +16,7 @@ const Orders = ({ openModal }) => {
           <div className="col-3"></div>
         </div>
 
-        <div className="row mb-4 align-items-center">
-          <div className="col-2">#D554845</div>
-          <div className="col-3">2021-05-30</div>
-          <div className="col-2">$ 666</div>
-          <div className="col-2">
-            <span className="order-status">未出貨</span>
-          </div>
-          <div className="col-3">
-            <button onClick={openModal} className="viewBtn">
-              檢視詳情
-            </button>
-          </div>
-        </div>
+        {/* TODO: map 出訂單內容 */}
         <div className="row mb-4 align-items-center">
           <div className="col-2">#D554845</div>
           <div className="col-3">2021-05-30</div>

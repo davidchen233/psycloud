@@ -8,6 +8,7 @@ import {
 } from 'react-icons/fa';
 import './profile.css';
 import Personal from './Personal.js';
+import Consultation from './Consultation';
 import Orders from './Orders';
 import Test from './Test';
 import Psychologist from './Psychologist';
@@ -73,7 +74,7 @@ const Profile = () => {
           />
         );
       case 'consultation':
-        return 'not yet';
+        return <Consultation />;
       case 'orders':
         return <Orders openModal={openOrderModal} />;
       case 'test':
