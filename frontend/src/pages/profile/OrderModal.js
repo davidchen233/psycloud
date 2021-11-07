@@ -75,6 +75,7 @@ const OrderModal = ({ closeModal }) => {
             </div>
           </div>
         </div>
+        <p className="totalPrice mt-4">總價 : $3000</p>
       </div>
     </div>
   );
