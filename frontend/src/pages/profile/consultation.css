@@ -69,3 +69,8 @@
   border: none;
   padding: 0 20px;
 }
+
+.swipeBtn.disabled {
+  opacity: 0.2;
+  cursor: default;
+}
