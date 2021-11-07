@@ -62,6 +62,18 @@ const OrderModal = ({ closeModal }) => {
               小計 :<span className="s-total">600</span>
             </div>
           </div>
+          <div className="row ps-3 align-items-center mb-3">
+            <div className="col-3">
+              <div className="imgBx">
+                <img src={ProductImg} alt="" />
+              </div>
+            </div>
+            <div className="col-4 fw-bold">超級捏捏好舒服</div>
+            <div className="col-2">x 2</div>
+            <div className="col-3">
+              小計 :<span className="s-total">600</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

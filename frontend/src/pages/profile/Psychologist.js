@@ -3,6 +3,7 @@ import './psychologist.css';
 
 import PsyInfo from './pyschologist/PsyInfo';
 import Calendar from './pyschologist/Calendar';
+import DocConsultation from './pyschologist/DocConsultation';
 
 const Psychologist = () => {
   const [activeItem, setActiveItem] = useState('心理師資料');
@@ -20,7 +21,7 @@ const Psychologist = () => {
       case '我的排程':
         return <Calendar />;
       case '我的諮詢':
-        return 'Still Working on it';
+        return <DocConsultation />;
       default:
         return <PsyInfo />;
     }

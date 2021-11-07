@@ -106,7 +106,7 @@ const Consultation = () => {
             handleSwipe();
           }}
         >
-          <BsArrowLeftCircle size="36" />
+          <BsArrowLeftCircle size="36" color="#565656" />
         </button>
         <button
           className="swipeBtn"
@@ -127,7 +127,7 @@ const Consultation = () => {
             handleSwipe();
           }}
         >
-          <BsArrowRightCircle size="36" />
+          <BsArrowRightCircle size="36" color="#565656" />
         </button>
       </div>
     </>

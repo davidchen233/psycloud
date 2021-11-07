@@ -31,33 +31,38 @@
 }
 
 .viewEditBtns button {
-  padding: 5px 24px;
-  border: none;
-  outline: none;
-  letter-spacing: 2px;
-  border-radius: 6px;
-  transition: 0.3s;
+  margin-top: 10px;
+  align-items: center;
+  background-color: #ffffff7c;
+  border: 2px solid #4797ff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #4797ff;
+  display: inline-flex;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  height: 40px;
+  position: relative;
+  text-decoration: none;
+  transition: 250ms;
+  user-select: none;
+  width: 80px;
 }
 
 .viewEditBtns button:hover {
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
 }
 
 .viewEditBtns button:active {
-  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
-}
-
-.viewEditBtns button:nth-child(1) {
-  background: #4797ff;
-  color: #fff;
+  background-color: #f0f0f1;
+  border-color: #2158a0;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: #2158a0;
+  transform: translateY(0);
 }
 
 .viewEditBtns button:nth-child(2) {
-  border: 2px solid #4797ff;
-  color: rgb(44, 44, 44);
-  background-color: transparent;
-}
-
-.viewEditBtns button:nth-child(2):hover {
-  background-color: rgba(255, 255, 255, 0.705);
+  background: #4797ff;
+  color: #fff;
 }

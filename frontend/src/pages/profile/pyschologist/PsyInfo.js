@@ -30,8 +30,8 @@ const PsyInfo = () => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button className="me-4">檢視</button>
           <button>編輯</button>
+          <button className="ms-4">檢視</button>
         </div>
       </div>
       <div className="d-flex align-items-center mx-auto  mb-4">
@@ -42,8 +42,8 @@ const PsyInfo = () => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button className="me-4">檢視</button>
           <button>編輯</button>
+          <button className="ms-4">檢視</button>
         </div>
       </div>
       <div className="d-flex align-items-center mx-auto  mb-4">
@@ -54,8 +54,8 @@ const PsyInfo = () => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button className="me-4">檢視</button>
           <button>編輯</button>
+          <button className="ms-4">檢視</button>
         </div>
       </div>
       <div className="d-flex align-items-center mx-auto  mb-4">
@@ -66,8 +66,8 @@ const PsyInfo = () => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button className="me-4">檢視</button>
           <button>編輯</button>
+          <button className="ms-4">檢視</button>
         </div>
       </div>
     </>

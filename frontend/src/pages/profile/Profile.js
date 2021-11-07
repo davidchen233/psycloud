@@ -93,7 +93,6 @@ const Profile = () => {
       )}
       {showOrderModal === true && <OrderModal closeModal={closeOrderModal} />}
       <div className="container pt-4">
-        <h2 className="text-center mb-3">會員專區</h2>
         <div className="profile-template">
           <div>
             <div className="navigation">

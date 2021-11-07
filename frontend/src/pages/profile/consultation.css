@@ -1,7 +1,7 @@
 .myConsult-swipe {
   width: 90%;
   height: 400px;
-  margin: 40px auto;
+  margin: 60px auto 30px;
   position: relative;
   overflow: hidden;
 }
@@ -18,9 +18,9 @@
 .myConsult-card {
   width: 260px;
   height: 400px;
-  background: rgba(119, 119, 119, 0.1);
+  background: rgba(204, 204, 204, 0.411);
   backdrop-filter: blur(15px);
-  border: 1px solid #969696;
+  border: 1px solid #c4c4c4;
   border-radius: 20px;
   text-align: center;
   padding: 15px 10px;
