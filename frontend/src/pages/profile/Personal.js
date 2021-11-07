@@ -53,15 +53,9 @@ const Personal = ({ openPwdModal, openPersonalModal }) => {
             <div className="col-3 itemTitle">生日 :</div>
             <span className="col-9 itemValue">87-10-30</span>
           </div>
-          <div className="row infoItem">
+          <div className="row infoItem mb-4">
             <div className="col-3 itemTitle">電話 :</div>
             <span className="col-9 itemValue">0952147856</span>
-          </div>
-          <div className="row infoItem">
-            <div className="col-3 itemTitle">地址 :</div>
-            <span className="col-9 itemValue address">
-              日本東京都港區六本木6-10-1 六本木新城森大廈18F
-            </span>
           </div>
           <div className="d-flex justify-content-between">
             <div></div>

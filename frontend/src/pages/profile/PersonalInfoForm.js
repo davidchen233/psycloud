@@ -40,14 +40,6 @@ const PersonalInfoForm = ({ closePersonalModal }) => {
               <Form.Control type="phone" placeholder="請輸入電話號碼" />
             </Col>
           </Form.Group>
-          <Form.Group as={Row} className="mb-3">
-            <Form.Label column sm="2">
-              地址 :
-            </Form.Label>
-            <Col sm="10">
-              <Form.Control type="text" placeholder="請輸入地址" />
-            </Col>
-          </Form.Group>
           <div className="d-flex justify-content-end">
             <Button
               variant="outline-primary"
