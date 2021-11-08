@@ -82,76 +82,6 @@ const Consultation = () => {
               <FaVideo size="22" color="#333" />
             </button>
           </div>
-          <div className="myConsult-card">
-            <h4>預約資訊</h4>
-            <div className="consult-avatarBx">
-              <img src={Avatar} alt="" />
-            </div>
-            <h5>心理師: 鴨子王</h5>
-            <p>預約日期: 2021/8/9</p>
-            <p>預約時段: 上午(10:00 - 12:00)</p>
-            <p>價格: 2000/次</p>
-            <p>狀態: 未開啟</p>
-            <button>
-              <FaVideo size="22" color="#333" />
-            </button>
-          </div>
-          <div className="myConsult-card">
-            <h4>預約資訊</h4>
-            <div className="consult-avatarBx">
-              <img src={Avatar} alt="" />
-            </div>
-            <h5>心理師: 鴨子王</h5>
-            <p>預約日期: 2021/8/9</p>
-            <p>預約時段: 上午(10:00 - 12:00)</p>
-            <p>價格: 2000/次</p>
-            <p>狀態: 未開啟</p>
-            <button>
-              <FaVideo size="22" color="#333" />
-            </button>
-          </div>
-          <div className="myConsult-card">
-            <h4>預約資訊</h4>
-            <div className="consult-avatarBx">
-              <img src={Avatar} alt="" />
-            </div>
-            <h5>心理師: 鴨子王</h5>
-            <p>預約日期: 2021/8/9</p>
-            <p>預約時段: 上午(10:00 - 12:00)</p>
-            <p>價格: 2000/次</p>
-            <p>狀態: 未開啟</p>
-            <button>
-              <FaVideo size="22" color="#333" />
-            </button>
-          </div>
-          <div className="myConsult-card">
-            <h4>預約資訊</h4>
-            <div className="consult-avatarBx">
-              <img src={Avatar} alt="" />
-            </div>
-            <h5>心理師: 鴨子王</h5>
-            <p>預約日期: 2021/8/9</p>
-            <p>預約時段: 上午(10:00 - 12:00)</p>
-            <p>價格: 2000/次</p>
-            <p>狀態: 未開啟</p>
-            <button>
-              <FaVideo size="22" color="#333" />
-            </button>
-          </div>
-          <div className="myConsult-card">
-            <h4>預約資訊</h4>
-            <div className="consult-avatarBx">
-              <img src={Avatar} alt="" />
-            </div>
-            <h5>心理師: 鴨子王</h5>
-            <p>預約日期: 2021/8/9</p>
-            <p>預約時段: 上午(10:00 - 12:00)</p>
-            <p>價格: 2000/次</p>
-            <p>狀態: 未開啟</p>
-            <button>
-              <FaVideo size="22" color="#333" />
-            </button>
-          </div>
         </div>
       </div>
       <div className="d-flex justify-content-center align-items-center">
@@ -173,7 +103,7 @@ const Consultation = () => {
           className={`swipeBtn ${rightDisabled}`}
           onClick={() => {
             if (
-              swipeLengthRef.current.offsetWidth + (swiperPosition - 400) <
+              swipeLengthRef.current.offsetWidth + (swiperPosition - 400) <=
               swiperWrapperRef.current.offsetWidth
             ) {
               setSwiperPosition(
