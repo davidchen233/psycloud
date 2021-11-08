@@ -15,9 +15,9 @@ import Psychologist from './Psychologist';
 import Avatar from './tempImg/avatar.jpg';
 
 // popup modals
-import PwdModal from './PwdModal';
-import PersonalInfoForm from './PersonalInfoForm';
-import OrderModal from './OrderModal';
+import PwdModal from './modals/PwdModal';
+import PersonalInfoForm from './modals/PersonalInfoForm';
+import OrderModal from './modals/OrderModal';
 
 const Profile = () => {
   const [currentView, setCurrentView] = useState('profile');

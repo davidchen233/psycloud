@@ -1,6 +1,6 @@
 import './orderModal.css';
 import { GrClose } from 'react-icons/gr';
-import ProductImg from './tempImg/12.jpg';
+import ProductImg from '../tempImg/12.jpg';
 
 const OrderModal = ({ closeModal }) => {
   return (
@@ -21,7 +21,7 @@ const OrderModal = ({ closeModal }) => {
           <div className="col-md-6 mb-3">
             訂單狀態 :<span>已出貨</span>
           </div>
-          <div className="col-md-6 mb-3">
+          <div className="col-md-12 mb-3">
             取或超商 :<span>7-11 信義安和門市</span>
           </div>
         </div>
