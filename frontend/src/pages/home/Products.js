@@ -1,5 +1,4 @@
 import './products.css';
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Product from './Product';
 

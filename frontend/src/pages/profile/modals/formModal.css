@@ -19,6 +19,7 @@
   background: rgba(255, 255, 255, 0.712);
   padding: 40px 60px;
   backdrop-filter: blur(5px);
+  z-index: 2000;
 }
 
 .formModal .close {

@@ -6,7 +6,7 @@
 .psyNav ul {
   padding: 0;
   list-style: none;
-  z-index: 1000;
+  z-index: 400;
 }
 
 .psyNav ul li {

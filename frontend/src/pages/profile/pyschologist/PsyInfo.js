@@ -1,7 +1,7 @@
 import './psyInfo.css';
 import License from '../tempImg/12.jpg';
 
-const PsyInfo = () => {
+const PsyInfo = ({ openInfoModal, openEditModal }) => {
   return (
     <>
       <div className="w-75 mx-auto d-flex align-items-center pt-3 mb-4">
@@ -30,8 +30,10 @@ const PsyInfo = () => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button>編輯</button>
-          <button className="ms-4">檢視</button>
+          <button onClick={openEditModal}>編輯</button>
+          <button className="ms-4" onClick={openInfoModal}>
+            檢視
+          </button>
         </div>
       </div>
       <div className="d-flex align-items-center mx-auto  mb-4">
@@ -42,8 +44,10 @@ const PsyInfo = () => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button>編輯</button>
-          <button className="ms-4">檢視</button>
+          <button onClick={openEditModal}>編輯</button>
+          <button className="ms-4" onClick={openInfoModal}>
+            檢視
+          </button>
         </div>
       </div>
       <div className="d-flex align-items-center mx-auto  mb-4">
@@ -54,8 +58,10 @@ const PsyInfo = () => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button>編輯</button>
-          <button className="ms-4">檢視</button>
+          <button onClick={openEditModal}>編輯</button>
+          <button className="ms-4" onClick={openInfoModal}>
+            檢視
+          </button>
         </div>
       </div>
       <div className="d-flex align-items-center mx-auto  mb-4">
@@ -66,8 +72,10 @@ const PsyInfo = () => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button>編輯</button>
-          <button className="ms-4">檢視</button>
+          <button onClick={openEditModal}>編輯</button>
+          <button className="ms-4" onClick={openInfoModal}>
+            檢視
+          </button>
         </div>
       </div>
     </>

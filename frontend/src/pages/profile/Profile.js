@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import {
   FaRegUser,
   FaCalendarCheck,
@@ -18,12 +18,16 @@ import Avatar from './tempImg/avatar.jpg';
 import PwdModal from './modals/PwdModal';
 import PersonalInfoForm from './modals/PersonalInfoForm';
 import OrderModal from './modals/OrderModal';
+import PsyInfoForm from './modals/PsyInfoForm';
+import EditPsyInfoForm from './modals/EditPsyInfoForm';
 
 const Profile = () => {
   const [currentView, setCurrentView] = useState('profile');
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false);
   const [showOrderModal, setShowOrderModal] = useState(false);
+  const [showPsyInfoForm, setShowPsyInfoForm] = useState(false);
+  const [showEditPsyInfoForm, setShowEditPsyInfoForm] = useState(false);
 
   const profileRef = useRef();
   const consultationRef = useRef();
@@ -64,6 +68,20 @@ const Profile = () => {
     setShowOrderModal(false);
   };
 
+  const openPsyInfoForm = () => {
+    setShowPsyInfoForm(true);
+  };
+  const closePsyInfoForm = () => {
+    setShowPsyInfoForm(false);
+  };
+
+  const openEditPsyInfoForm = () => {
+    setShowEditPsyInfoForm(true);
+  };
+  const closeEditPsyInfoForm = () => {
+    setShowEditPsyInfoForm(false);
+  };
+
   const switchView = () => {
     switch (currentView) {
       case 'profile':
@@ -80,7 +98,12 @@ const Profile = () => {
       case 'test':
         return <Test />;
       case 'psychologist':
-        return <Psychologist />;
+        return (
+          <Psychologist
+            openInfoModal={openPsyInfoForm}
+            openEditModal={openEditPsyInfoForm}
+          />
+        );
       default:
         return <Personal />;
     }
@@ -92,6 +115,12 @@ const Profile = () => {
         <PersonalInfoForm closePersonalModal={closePersonalModal} />
       )}
       {showOrderModal === true && <OrderModal closeModal={closeOrderModal} />}
+      {showPsyInfoForm === true && (
+        <PsyInfoForm closeModal={closePsyInfoForm} />
+      )}
+      {showEditPsyInfoForm === true && (
+        <EditPsyInfoForm closeModal={closeEditPsyInfoForm} />
+      )}
       <div className="container pt-4">
         <div className="profile-template">
           <div>
