@@ -1,6 +1,10 @@
 // 使用套件
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+// 頁面元件
+import Profile from './pages/profile/Profile';
+import Home from './pages/home/Home';
+
 // 組合用元件
 import Header from './components/Header';
 import MainContent from './components/MainContent';
