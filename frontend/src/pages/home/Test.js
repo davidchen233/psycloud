@@ -1,5 +1,5 @@
 import './test.css';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Test = () => {
   return (
     <section className="h-section test">
@@ -12,9 +12,9 @@ const Test = () => {
           <br />
           現在就花五分鐘關照自己，測試最近的壓力指數跟壓力源，是否在理想範圍內吧!
         </p>
-        <NavLink to="/test" className="button-md d-block mx-auto text-center">
+        <Link to="/test" className="button-md d-block mx-auto text-center">
           進入檢測
-        </NavLink>
+        </Link>
       </div>
     </section>
   );

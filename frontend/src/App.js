@@ -11,8 +11,6 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
-// 頁面元件
-
 function App() {
   return (
     <Router>
