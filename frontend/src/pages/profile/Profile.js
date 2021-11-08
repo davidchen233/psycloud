@@ -121,7 +121,7 @@ const Profile = () => {
       {showEditPsyInfoForm === true && (
         <EditPsyInfoForm closeModal={closeEditPsyInfoForm} />
       )}
-      <div className="container pt-4">
+      <div className="container">
         <div className="profile-template">
           <div>
             <div className="navigation">
