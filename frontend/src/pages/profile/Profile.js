@@ -1,4 +1,3 @@
-
 import { useState, useRef } from 'react';
 import {
   FaRegUser,
@@ -203,6 +202,6 @@ const Profile = () => {
       </div>
     </>
   );
-
+};
 
 export default Profile;
