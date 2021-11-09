@@ -1,0 +1,40 @@
+.recommend-card {
+  padding: 2em 3em;
+  margin: 0.5em;
+  border-radius: 29px;
+  background: linear-gradient(#ffffda50, #f6c9d950);
+  box-shadow: 5px 5px 10px #cecfc7, -5px -5px 10px #ffffff;
+  transition: all ease-in-out 250ms;
+  text-align: center;
+
+  img {
+    border-radius: 50%;
+    background: #fff2f0;
+    box-shadow: 5px 5px 10px #bec2c2, -5px -5px 10px #ffffff;
+  }
+
+  p {
+    margin: 1.2em 0em;
+  }
+  button {
+    border: 2px solid #4797ff;
+    border-radius: 8px;
+    padding: 0.25em;
+    color: white;
+    font-size: 1em;
+    background-color: #4797ff;
+    max-width: 90%;
+
+    &:hover {
+      background-color: #4797ff50;
+      border: 2px solid #4797ff50;
+    }
+  }
+}
+
+.float:hover {
+  transform: scale(1.005, 1.005);
+  border-radius: 29px;
+  box-shadow: 20px 20px 40px #e4e6dd, -20px -20px 40px #ffffff;
+  transition: all ease-in-out 250ms;
+}

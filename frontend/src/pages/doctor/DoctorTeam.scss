@@ -1,0 +1,68 @@
+// #root {
+//   background: linear-gradient(#c5f0ff50, #ffffda50, #ff9bc050) !important;
+// }
+
+.team-title {
+  text-align: center;
+}
+
+.team-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3em;
+  margin-top: 2em;
+}
+
+.doc-photo {
+  width: 180px;
+}
+
+.control-section {
+  margin: 1em 10em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-btn {
+  border-radius: 0px 8px 8px 0px;
+  border-style: solid;
+  border-color: #4797ff;
+  padding: 0.25em;
+  color: white;
+  font-size: 1em;
+  background-color: #4797ff;
+}
+
+.round {
+  border-radius: 8px 8px 8px 8px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.search-input {
+  border-radius: 8px 0px 0px 8px;
+  border-style: solid;
+  border-color: #4797ff;
+  padding: 0.25em;
+  color: white;
+  font-size: 1em;
+  background-color: #ffffff;
+}
+
+.show {
+  animation-name: pop-up;
+  animation-duration: 4s;
+  animation-fill-mode: both;
+}
+
+@keyframes pop-up {
+  from {
+    opacity: 0;
+    transform: translate(0, 20px);
+  }
+  to {
+    opacity: 1;
+  }
+}
