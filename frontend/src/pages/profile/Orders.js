@@ -1,6 +1,6 @@
 import './orders.css';
 
-const Orders = ({ openModal }) => {
+const Orders = ({ toggleOrderModal }) => {
   return (
     <>
       <div className="profile-heading">
@@ -25,7 +25,7 @@ const Orders = ({ openModal }) => {
             <span className="order-status">未出貨</span>
           </div>
           <div className="col-3">
-            <button onClick={openModal} className="viewBtn">
+            <button onClick={toggleOrderModal} className="viewBtn">
               檢視詳情
             </button>
           </div>

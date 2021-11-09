@@ -1,11 +1,11 @@
 import './formModal.css';
 import { GrClose } from 'react-icons/gr';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-const PwdModal = ({ closePwdModal }) => {
+const PwdModal = ({ togglePwdModal }) => {
   return (
     <div className="formModal-mask">
       <div className="formModal">
-        <GrClose size="30" className="close" onClick={closePwdModal} />
+        <GrClose size="30" className="close" onClick={togglePwdModal} />
         <h3 className="mb-4">編輯資料</h3>
         <Form>
           <Form.Group as={Row} className="mb-3">
@@ -35,7 +35,7 @@ const PwdModal = ({ closePwdModal }) => {
           <div className="d-flex justify-content-end">
             <Button
               variant="outline-primary"
-              onClick={closePwdModal}
+              onClick={togglePwdModal}
               className="me-4"
             >
               取消

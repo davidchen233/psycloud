@@ -1,11 +1,11 @@
 import './formModal.css';
 import { GrClose } from 'react-icons/gr';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-const PersonalInfoForm = ({ closePersonalModal }) => {
+const PersonalInfoForm = ({ togglePersonalModal }) => {
   return (
     <div className="formModal-mask">
       <div className="formModal">
-        <GrClose size="30" className="close" onClick={closePersonalModal} />
+        <GrClose size="30" className="close" onClick={togglePersonalModal} />
         <h3 className="mb-4">編輯資料</h3>
         <Form>
           <Form.Group as={Row} className="mb-3">
@@ -45,7 +45,7 @@ const PersonalInfoForm = ({ closePersonalModal }) => {
               variant="outline-primary"
               type="submit"
               className="me-4"
-              onClick={closePersonalModal}
+              onClick={togglePersonalModal}
             >
               取消
             </Button>

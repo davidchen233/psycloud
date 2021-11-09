@@ -1,11 +1,11 @@
 import { GrClose } from 'react-icons/gr';
 import './formModal.css';
 
-const EditPsyInfoForm = ({ closeModal }) => {
+const EditPsyInfoForm = ({ toggleEditPsyInfoForm }) => {
   return (
     <div className="formModal-mask">
       <div className="formModal">
-        <GrClose size="30" className="close" onClick={closeModal} />
+        <GrClose size="30" className="close" onClick={toggleEditPsyInfoForm} />
         <h3 className="mb-4">編輯</h3>
         <div>
           <textarea

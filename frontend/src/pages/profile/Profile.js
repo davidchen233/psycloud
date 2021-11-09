@@ -47,39 +47,24 @@ const Profile = () => {
     e.currentTarget.classList.add('active');
   }
 
-  const openPwdModal = () => {
-    setShowPwdModal(true);
-  };
-  const closePwdModal = () => {
-    setShowPwdModal(false);
+  const togglePwdModal = () => {
+    setShowPwdModal(!showPwdModal);
   };
 
-  const openPersonalModal = () => {
-    setShowPersonalModal(true);
-  };
-  const closePersonalModal = () => {
-    setShowPersonalModal(false);
+  const togglePersonalModal = () => {
+    setShowPersonalModal(!showPersonalModal);
   };
 
-  const openOrderModal = () => {
-    setShowOrderModal(true);
-  };
-  const closeOrderModal = () => {
-    setShowOrderModal(false);
+  const toggleOrderModal = () => {
+    setShowOrderModal(!showOrderModal);
   };
 
-  const openPsyInfoForm = () => {
-    setShowPsyInfoForm(true);
-  };
-  const closePsyInfoForm = () => {
-    setShowPsyInfoForm(false);
+  const togglePsyInfoForm = () => {
+    setShowPsyInfoForm(!showPsyInfoForm);
   };
 
-  const openEditPsyInfoForm = () => {
-    setShowEditPsyInfoForm(true);
-  };
-  const closeEditPsyInfoForm = () => {
-    setShowEditPsyInfoForm(false);
+  const toggleEditPsyInfoForm = () => {
+    setShowEditPsyInfoForm(!showEditPsyInfoForm);
   };
 
   const switchView = () => {
@@ -87,21 +72,21 @@ const Profile = () => {
       case 'profile':
         return (
           <Personal
-            openPwdModal={openPwdModal}
-            openPersonalModal={openPersonalModal}
+            togglePwdModal={togglePwdModal}
+            togglePersonalModal={togglePersonalModal}
           />
         );
       case 'consultation':
         return <Consultation />;
       case 'orders':
-        return <Orders openModal={openOrderModal} />;
+        return <Orders toggleOrderModal={toggleOrderModal} />;
       case 'test':
         return <Test />;
       case 'psychologist':
         return (
           <Psychologist
-            openInfoModal={openPsyInfoForm}
-            openEditModal={openEditPsyInfoForm}
+            togglePsyInfoForm={togglePsyInfoForm}
+            toggleEditPsyInfoForm={toggleEditPsyInfoForm}
           />
         );
       default:
@@ -110,16 +95,18 @@ const Profile = () => {
   };
   return (
     <>
-      {showPwdModal === true && <PwdModal closePwdModal={closePwdModal} />}
+      {showPwdModal === true && <PwdModal togglePwdModal={togglePwdModal} />}
       {showPersonalModal === true && (
-        <PersonalInfoForm closePersonalModal={closePersonalModal} />
+        <PersonalInfoForm togglePersonalModal={togglePersonalModal} />
       )}
-      {showOrderModal === true && <OrderModal closeModal={closeOrderModal} />}
+      {showOrderModal === true && (
+        <OrderModal toggleOrderModal={toggleOrderModal} />
+      )}
       {showPsyInfoForm === true && (
-        <PsyInfoForm closeModal={closePsyInfoForm} />
+        <PsyInfoForm togglePsyInfoForm={togglePsyInfoForm} />
       )}
       {showEditPsyInfoForm === true && (
-        <EditPsyInfoForm closeModal={closeEditPsyInfoForm} />
+        <EditPsyInfoForm toggleEditPsyInfoForm={toggleEditPsyInfoForm} />
       )}
       <div className="container pt-4">
         <div className="profile-template">

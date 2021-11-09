@@ -4,7 +4,7 @@ import { HiOutlinePhotograph } from 'react-icons/hi';
 import Banner from './tempImg/banner.png';
 import Avatar from './tempImg/avatar.jpg';
 
-const Personal = ({ openPwdModal, openPersonalModal }) => {
+const Personal = ({ togglePwdModal, togglePersonalModal }) => {
   return (
     <>
       <div className="personal-banner">
@@ -33,7 +33,7 @@ const Personal = ({ openPwdModal, openPersonalModal }) => {
           </p>
           <p>
             密碼: <span>po******23 </span>
-            <button onClick={openPwdModal}>更改密碼</button>
+            <button onClick={togglePwdModal}>更改密碼</button>
           </p>
         </div>
         <div className="infos">
@@ -59,7 +59,7 @@ const Personal = ({ openPwdModal, openPersonalModal }) => {
           </div>
           <div className="d-flex justify-content-between">
             <div></div>
-            <button className="edit-btn" onClick={openPersonalModal}>
+            <button className="edit-btn" onClick={togglePersonalModal}>
               編輯
             </button>
           </div>
