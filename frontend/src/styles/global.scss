@@ -14,6 +14,12 @@
   height: 315px;
 }
 
+@media (max-width: 960px) {
+  #root::after {
+    height: 65px;
+  }
+}
+
 // 變數覆蓋區
 $primary: #4797ff;
 $secondary: #75c5f2;
