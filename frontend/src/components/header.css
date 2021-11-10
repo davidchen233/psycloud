@@ -135,10 +135,13 @@ header .other-nav li a {
     left: 0;
   }
 
-  header ul li a {
+  header .menu li a {
     color: #111;
     font-size: 24px;
     margin: 10px;
+  }
+  header .other-nav li a {
+    margin-right: 15px;
   }
 }
 

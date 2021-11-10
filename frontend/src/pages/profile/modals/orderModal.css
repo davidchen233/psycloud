@@ -1,0 +1,78 @@
+.orderModal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.orderModal {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 700px;
+  height: 600px;
+  border-radius: 20px;
+  border-top: 1px solid rgb(167, 167, 167);
+  background: rgba(255, 255, 255, 0.712);
+  padding: 40px 80px;
+  backdrop-filter: blur(5px);
+}
+
+.orderModal .close {
+  position: absolute;
+  top: 35px;
+  right: 45px;
+  cursor: pointer;
+}
+
+.orderModal h3 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.orderModal .orderProducts {
+  height: 240px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+/* Scroll Bar 開始 */
+.orderModal .orderProducts::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+.orderModal .orderProducts::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+.orderModal .orderProducts::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #cacaca;
+}
+/* Scroll Bar 結束 */
+
+.orderModal .imgBx {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.orderModal .imgBx img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.totalPrice {
+  border-top: 1px solid rgb(141, 141, 141);
+  padding-top: 20px;
+  text-align: end;
+}

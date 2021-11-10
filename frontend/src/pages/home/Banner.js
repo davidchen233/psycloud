@@ -1,7 +1,7 @@
 import './banner.css';
 import Video from './bannerVideo.mp4';
 import Ink1 from './ink1.mov';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
   return (
@@ -17,9 +17,9 @@ const Banner = () => {
         </p>
         <div className="d-flex justify-content-between">
           <div></div>
-          <NavLink to="/doctor" className="button-md">
+          <Link to="/doctor" className="button-md">
             馬上諮詢
-          </NavLink>
+          </Link>
         </div>
       </div>
     </div>

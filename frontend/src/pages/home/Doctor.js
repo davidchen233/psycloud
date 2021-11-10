@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Card from './Card';
 import './doctor.css';
 // import 'swiper/swiper-bundle.min.css';
@@ -15,9 +14,9 @@ const Doctor = () => {
       <h2>-- 心理師團隊 --</h2>
       <div className="d-flex justify-content-between">
         <div></div>
-        <NavLink to="/doctor" className="seeMore text-center">
+        <Link to="/doctor" className="seeMore text-center">
           See More
-        </NavLink>
+        </Link>
       </div>
       <div className="reflect">
         <Swiper
