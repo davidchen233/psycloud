@@ -24,7 +24,13 @@ const Header = () => {
 
   return (
     <header className={sticky ? 'sticky' : ''}>
-      <NavLink to="/" className="logo">
+      <NavLink
+        to="/"
+        className="logo"
+        onClick={() => {
+          setActiveIndex(-1);
+        }}
+      >
         <Logo />
       </NavLink>
 
