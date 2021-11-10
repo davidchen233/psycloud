@@ -5,24 +5,25 @@ import './Doctor.scss';
 import Card from './Card';
 import PopUp from './PopUp';
 import { useState } from 'react';
-import { ImCross } from 'react-icons/im';
+import { useParams } from 'react-router';
 
 function Doctor() {
-  const [popUp, setPopUp] = useState('hidden');
+  const [popUp, setPopUp] = useState('hidden-dr');
+  console.log(useParams());
 
   function handlePopUp() {
-    if (popUp === 'hidden') {
-      setPopUp('form-mask');
+    if (popUp === 'hidden-dr') {
+      setPopUp('form-mask-dr');
     } else {
-      setPopUp('hidden');
+      setPopUp('hidden-dr');
     }
   }
 
   return (
     <>
       <PopUp handlePopUp={handlePopUp} popUp={popUp} Photo={Photo} />
-      <section class="portfolio">
-        <section className="summary press fade-in fade1">
+      <section class="dr-portfolio">
+        <section className="summary dr-press dr-fade-in dr-fade1">
           <div className="photo-div">
             <img className="photo" src={Photo} alt="doctor"></img>
           </div>
@@ -41,7 +42,7 @@ function Doctor() {
             </p>
           </div>
         </section>
-        <section className="cv press fade-in fade2">
+        <section className="cv press dr-fade-in dr-fade2">
           <h3>學歷/Education</h3>
           <p>成功大學</p>
           <h3>經歷（摘錄）／ Experience：</h3>
@@ -60,7 +61,7 @@ function Doctor() {
             <br />
           </p>
         </section>
-        <section className="expertise press fade-in fade3">
+        <section className="expertise press dr-fade-in dr-fade3">
           <h3>專長/Expertise</h3>
           <p>
             精神疾病評估與治療
@@ -78,12 +79,12 @@ function Doctor() {
             兒童青少年亞斯伯格及其相關症狀
           </p>
         </section>
-        <section className="calender press fade-in fade4">
+        <section className="calender press dr-fade-in dr-fade4">
           <h3>可預約時間</h3>
           <img src={Calender} alt="calender" className="calender-img"></img>
         </section>
       </section>
-      <section className="recommend-section fade-in fade5">
+      <section className="dr-recommend-section dr-fade-in dr-fade5">
         <h3>其他相似專長的心理師</h3>
         <section className="card-section">
           <Card />

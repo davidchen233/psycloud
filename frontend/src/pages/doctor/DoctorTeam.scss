@@ -1,60 +1,67 @@
 // #root {
 //   background: linear-gradient(#c5f0ff50, #ffffda50, #ff9bc050) !important;
 // }
+.dr-team-page {
+  .team-title {
+    text-align: center;
+  }
 
-.team-title {
-  text-align: center;
-}
+  .team-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3em;
+    margin-top: 3em;
+  }
 
-.team-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3em;
-  margin-top: 2em;
-}
+  .doc-photo {
+    width: 180px;
+  }
 
-.doc-photo {
-  width: 180px;
-}
+  .control-section {
+    margin: 1em 10em;
+    display: flex;
+    justify-content: space-between;
+    .search-hide {
+      display: none;
+    }
+    .search-show {
+      display: none;
+    }
+  }
 
-.control-section {
-  margin: 1em 10em;
-  display: flex;
-  justify-content: space-between;
-}
+  .search-btn {
+    border-radius: 0px 8px 8px 0px;
+    border-style: solid;
+    border-color: #4797ff;
+    padding: 0.25em;
+    color: white;
+    font-size: 1em;
+    background-color: #4797ff;
+  }
 
-.search-btn {
-  border-radius: 0px 8px 8px 0px;
-  border-style: solid;
-  border-color: #4797ff;
-  padding: 0.25em;
-  color: white;
-  font-size: 1em;
-  background-color: #4797ff;
-}
+  .round {
+    border-radius: 8px 8px 8px 8px;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 
-.round {
-  border-radius: 8px 8px 8px 8px;
-  padding-left: 1em;
-  padding-right: 1em;
-}
+  .search-input {
+    border-radius: 8px 0px 0px 8px;
+    border-style: solid;
+    border-color: #4797ff;
+    padding: 0.25em;
+    color: white;
+    font-size: 1em;
+    background-color: #ffffff;
+  }
 
-.search-input {
-  border-radius: 8px 0px 0px 8px;
-  border-style: solid;
-  border-color: #4797ff;
-  padding: 0.25em;
-  color: white;
-  font-size: 1em;
-  background-color: #ffffff;
-}
-
-.show {
-  animation-name: pop-up;
-  animation-duration: 4s;
-  animation-fill-mode: both;
+  .dr-show-btn {
+    margin: auto;
+    display: none;
+    font-size: 2em;
+  }
 }
 
 @keyframes pop-up {
@@ -64,5 +71,48 @@
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes show-up {
+  from {
+    opacity: 0;
+    transform: translate(0, -20px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .dr-team-page {
+    .control-section {
+      flex-direction: column;
+      gap: 1em;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0;
+      margin-right: 0;
+      .round {
+        display: none;
+      }
+
+      .search-input,
+      .search-btn {
+        font-size: 0.8em;
+      }
+      .search-section {
+        display: none;
+      }
+      .search-show {
+        display: flex;
+        animation-name: show-up;
+        animation-duration: 0.5s;
+        margin-top: -1em;
+        margin-bottom: -1.9em;
+      }
+    }
+    .dr-show-btn {
+      display: block;
+    }
   }
 }

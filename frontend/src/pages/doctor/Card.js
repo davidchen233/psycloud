@@ -1,6 +1,7 @@
 import React from 'react';
 import Photo from './unnamed.jpg';
 import './Card.scss';
+import { Link } from 'react-router-dom';
 
 export default function card() {
   return (
@@ -14,7 +15,9 @@ export default function card() {
         <br />
         成人嚴重憂鬱、焦慮症狀
       </p>
-      <button>查看詳情</button>
+      <Link to="/doctor/1">
+        <button>查看詳情</button>
+      </Link>
     </div>
   );
 }

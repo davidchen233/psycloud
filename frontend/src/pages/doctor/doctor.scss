@@ -4,28 +4,28 @@
 
 $font-color: #006ead;
 
-.fade1 {
+.dr-fade1 {
   animation-delay: 0s;
 }
-.fade2 {
+.dr-fade2 {
   animation-delay: 0.6s;
 }
-.fade3 {
+.dr-fade3 {
   animation-delay: 1.2s;
 }
-.fade4 {
+.dr-fade4 {
   animation-delay: 1.8s;
 }
-.fade5 {
+.dr-fade5 {
   animation-delay: 2.4s;
 }
-.fade-in {
+.dr-fade-in {
   animation-name: pop-up;
   animation-duration: 3s;
   animation-fill-mode: both;
 }
 
-.portfolio {
+.dr-portfolio {
   margin: 20px 150px;
   display: grid;
   gap: 1em 1em;
@@ -42,7 +42,7 @@ $font-color: #006ead;
   box-shadow: 5px 5px 10px #d2d4cc, -5px -5px 10px #ffffff;
 }
 
-.portfolio {
+.dr-portfolio {
   h3 {
     font-size: 1.2em;
     color: $font-color;
@@ -115,7 +115,7 @@ $font-color: #006ead;
     transition: all ease-in-out 250ms;
   }
 }
-.recommend-section {
+.dr-recommend-section {
   margin: 20px 150px;
   // outline: 1px solid red;
   padding: 1em;
@@ -130,14 +130,14 @@ $font-color: #006ead;
   }
 }
 
-.press:hover {
+.dr-press:hover {
   transform: translateY(-0.1em);
   box-shadow: 2px 2px 2px #e4e6dd;
   transition: all ease-in-out 250ms;
 }
 
 @media only screen and (max-width: 1300px) {
-  .portfolio {
+  .dr-portfolio {
     margin: 20px 2em;
     display: grid;
     gap: 2em 1em;
@@ -146,20 +146,20 @@ $font-color: #006ead;
       'summary summary'
       'cv expertise'
       'calender calender';
+    .summary {
+      padding: 2em;
+    }
   }
-  .summary {
-    padding: 2em;
-  }
-  .recommend-section {
-    margin: 2em;
+  .dr-recommend-section {
+    margin: 0em;
   }
 }
 
 @media only screen and (max-width: 768px) {
   :root {
-    font-size: 0.5em;
+    font-size: 1em;
   }
-  .portfolio {
+  .dr-portfolio {
     margin: 10px 2em;
     grid-template-columns: 100%;
     grid-template-areas:
@@ -167,15 +167,22 @@ $font-color: #006ead;
       'cv'
       'expertise'
       'calender';
-  }
-  .photo {
-    width: 100px;
+    .photo {
+      width: 150px;
+    }
   }
   .calender-img {
     width: 100%;
     height: auto;
   }
-  .recommend-section {
+  .dr-recommend-section {
     margin: 0em;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .dr-portfolio {
+    .summary {
+      flex-direction: column;
+    }
   }
 }
