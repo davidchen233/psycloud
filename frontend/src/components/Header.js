@@ -39,7 +39,7 @@ const Header = () => {
                   setActiveIndex(i);
                 }}
               >
-                <NavLink to={menuLinks[v]}>{v}</NavLink>
+                <NavLink to={`/${menuLinks[v]}`}>{v}</NavLink>
               </li>
             );
           })}
@@ -48,7 +48,7 @@ const Header = () => {
       <ul className="other-nav">
         <li>
           <NavLink
-            to="profile"
+            to="/profile"
             onClick={() => {
               setActiveIndex(-1);
             }}
@@ -58,7 +58,7 @@ const Header = () => {
         </li>
         <li>
           <NavLink
-            to="cart"
+            to="/cart"
             onClick={() => {
               setActiveIndex(-1);
             }}
