@@ -7,6 +7,8 @@ import {
   FaUserMd,
 } from 'react-icons/fa';
 import './profile.css';
+
+// inner pages
 import Personal from './Personal.js';
 import Consultation from './Consultation';
 import Orders from './Orders';
