@@ -25,7 +25,5 @@ router.get("/:userId", async(req,res)=>{
 
 
 
-
-
-
+// 匯出此 router
 module.exports = router;
