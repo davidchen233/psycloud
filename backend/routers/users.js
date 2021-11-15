@@ -16,11 +16,11 @@ router.get("/:userId", async(req,res)=>{
   [req.params.userId]);
 
   // 判斷是否有資料
-  if(data.length>0){
-    res.json(data)
-  }else{
-    res.send(null)
-  }
+  if (data.length>0){
+		res.json(data[0]);
+	} else {
+		res.status(404).send('查無此資料')
+	}
 })
 
 
