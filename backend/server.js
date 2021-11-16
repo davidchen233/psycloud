@@ -11,7 +11,7 @@ let app = express();
 // 限制 req 來源
 app.use(cors({
   origin: ['http://localhost:3000'],
-  credential: true,
+  credentials: true,
 }))
 
 // 讀取 body 的資料

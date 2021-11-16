@@ -38,7 +38,7 @@ router.post("/signup",signupRules, async(req,res)=>{
     let username = req.body.email.split("@")[0];
     let result = await connection.queryAsync("INSERT INTO users (name, username, email, gender, password) VALUES (?)",
     [[req.body.name, username, req.body.email, req.body.gender, hashPassword]])
-    res.json({code: 0, message: '註冊成功'})
+    res.json({code: '0', message: '註冊成功'})
     }catch(err){
       console.log(err);
       res.json({code: '9999', message: '註冊失敗，請洽系統管理員'})
@@ -81,7 +81,6 @@ router.post('/login', async(req,res)=>{
 // 登出
 router.get("/logout", (req, res) => {
   req.session.user = null;
-
   res.json({ code: "0", message: "登出成功" });
 });
 
