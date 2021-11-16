@@ -13,6 +13,8 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
+let user = JSON.parse(localStorage.getItem('user'));
+
 function App() {
   return (
     <Router>

@@ -1,10 +1,16 @@
 import { useState } from 'react';
+import { withRouter, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../config/config';
 import './auth.css';
 
 const Auth = () => {
   const [toggleForm, setToggleForm] = useState(false);
+  let history = useHistory();
+  let user = JSON.parse(localStorage.getItem('user'));
+  if (user) {
+    history.push('/');
+  }
 
   // 登入表單開始 ===========================================
   const [loginResponse, setLoginResponse] = useState('');
@@ -37,15 +43,20 @@ const Auth = () => {
   };
   async function handleLoginSubmit(e) {
     e.preventDefault();
-    const res = await axios.post(`${API_URL}/auth/login`, loginForm);
-    if (res.data.code !== 0) {
-      setLoginResponse(res.data.message);
-    } else {
-      setLoginForm({
-        email: '',
-        password: '',
+    try {
+      const res = await axios.post(`${API_URL}/auth/login`, loginForm, {
+        withCredentials: true,
       });
-      setLoginResponse('');
+      if (res.data.code !== '0') {
+        setLoginResponse(res.data.message);
+      } else {
+        console.log(res.data.user);
+        localStorage.setItem('user', JSON.stringify(res.data.user));
+        alert(res.data.message);
+        history.push('/');
+      }
+    } catch (err) {
+      console.log(err);
     }
   }
   // 登入表單結束 ===========================================
@@ -101,7 +112,7 @@ const Auth = () => {
 
     try {
       const res = await axios.post(`${API_URL}/auth/signup`, signupForm);
-      if (res.data.code !== 0) {
+      if (res.data.code !== '0') {
         setSignupResponse(res.data.message);
       } else {
         setSignupForm({
@@ -121,12 +132,12 @@ const Auth = () => {
   // 註冊表單結束 ===========================================
   return (
     <div className="auth-wrapper">
-      <div class={`authbox ${toggleForm ? 'active' : ''}`}>
-        <div class="user signinBox">
-          <div class="imgBox">
+      <div className={`authbox ${toggleForm ? 'active' : ''}`}>
+        <div className="user signinBox">
+          <div className="imgBox">
             <img src="/sources/signin.jpg" alt="" />
           </div>
-          <div class="authFormBx">
+          <div className="authFormBx">
             <form
               onSubmit={handleLoginSubmit}
               onChange={handleLoginFormChange}
@@ -156,7 +167,7 @@ const Auth = () => {
               {loginErrors.password !== '' && (
                 <span className="errorMsg">{loginErrors.password}</span>
               )}
-              <p class="signup">
+              <p className="signup">
                 還沒有帳號?
                 <span
                   onClick={() => {
@@ -174,8 +185,8 @@ const Auth = () => {
             </form>
           </div>
         </div>
-        <div class="user signupBox">
-          <div class="authFormBx">
+        <div className="user signupBox">
+          <div className="authFormBx">
             <form
               onSubmit={handleSignupSubmit}
               onChange={handleSignupFormChange}
@@ -200,7 +211,6 @@ const Auth = () => {
                     type="radio"
                     name="gender"
                     value={1}
-                    checkedValue={signupForm.gender}
                     onChange={handleSignupChange}
                     required
                   />
@@ -212,7 +222,6 @@ const Auth = () => {
                     type="radio"
                     name="gender"
                     value={2}
-                    checkedValue={signupForm.gender}
                     onChange={handleSignupChange}
                     required
                   />
@@ -256,7 +265,7 @@ const Auth = () => {
               {signupErrors.confirmPassword !== '' && (
                 <span className="errorMsg">{signupErrors.confirmPassword}</span>
               )}
-              <p class="signup">
+              <p className="signup">
                 已經有帳號了?
                 <span
                   onClick={() => {
@@ -273,7 +282,7 @@ const Auth = () => {
               </div>
             </form>
           </div>
-          <div class="imgBox">
+          <div className="imgBox">
             <img src="/sources/signup.jpeg" alt="" />
           </div>
         </div>
@@ -282,4 +291,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default withRouter(Auth);
