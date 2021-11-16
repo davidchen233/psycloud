@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 
 // 建立應用程式
 let app = express();
@@ -9,6 +9,14 @@ app.use(cors({
   origin: ['http://localhost:3000'],
   credential: true,
 }))
+
+// 讀取 body 的資料
+app.use(express.urlencoded({ extended: true }));
+
+// 解析 JSON 的資料
+app.use(express.json());
+
+app.use(express.static("public"))
 
 // auth 相關的 API
 let authRouter = require('./routers/auth');

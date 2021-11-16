@@ -136,7 +136,6 @@
   font-size: 14px;
   letter-spacing: 1px;
   color: #555;
-  text-transform: uppercase;
 }
 
 .signupPsy span {
@@ -202,4 +201,11 @@
   .authbox.active .signinBox .authFormBx {
     top: -100%;
   }
-} ;
+}
+
+.errorMsg {
+  padding-left: 5px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgb(255, 101, 101);
+}
