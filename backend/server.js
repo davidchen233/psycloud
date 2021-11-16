@@ -1,5 +1,9 @@
 const express = require('express');
 const cors = require('cors');
+const expressSession = require('express-session');
+const FileStore = require('session-file-store')(expressSession);
+const path = require("path");
+require("dotenv").config();
 
 // 建立應用程式
 let app = express();
@@ -17,6 +21,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"))
+
+// 使用 session
+app.use(expressSession({
+  store: new FileStore({path: path.join(__dirname, "..", "sessions")}),
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
 
 // auth 相關的 API
 let authRouter = require('./routers/auth');

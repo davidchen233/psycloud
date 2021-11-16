@@ -7,6 +7,7 @@ const Auth = () => {
   const [toggleForm, setToggleForm] = useState(false);
 
   // 登入表單開始 ===========================================
+  const [loginResponse, setLoginResponse] = useState('');
   const [loginForm, setLoginForm] = useState({
     email: '',
     password: '',
@@ -36,6 +37,16 @@ const Auth = () => {
   };
   async function handleLoginSubmit(e) {
     e.preventDefault();
+    const res = await axios.post(`${API_URL}/auth/login`, loginForm);
+    if (res.data.code !== 0) {
+      setLoginResponse(res.data.message);
+    } else {
+      setLoginForm({
+        email: '',
+        password: '',
+      });
+      setLoginResponse('');
+    }
   }
   // 登入表單結束 ===========================================
 
@@ -90,7 +101,19 @@ const Auth = () => {
 
     try {
       const res = await axios.post(`${API_URL}/auth/signup`, signupForm);
-      setSignupResponse(res.data.message);
+      if (res.data.code !== 0) {
+        setSignupResponse(res.data.message);
+      } else {
+        setSignupForm({
+          name: '',
+          gender: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+        });
+        setSignupResponse('');
+        setToggleForm(false);
+      }
     } catch (err) {
       console.log('handleSubmit err', err);
     }
@@ -143,6 +166,7 @@ const Auth = () => {
                   馬上註冊...
                 </span>
               </p>
+              <span className="errorMsg ps-0 fs-6">{loginResponse}</span>
               <div className="d-flex justify-content-between">
                 <div></div>
                 <input type="submit" value="登入" />
