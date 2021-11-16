@@ -4,6 +4,9 @@ import Logo from './Logo';
 import './header.css';
 import { BsPerson, BsCart3 } from 'react-icons/bs';
 const Header = () => {
+  // TODO: 是否已登入
+  const [signedin, setSignedin] = useState(true);
+
   const [sticky, setSticky] = useState(false);
   window.addEventListener('scroll', () => {
     if (window.scrollY > 0) {
@@ -55,6 +58,7 @@ const Header = () => {
         <li>
           <NavLink
             to="/profile"
+            to={signedin ? '/profile' : '/auth'}
             onClick={() => {
               setActiveIndex(-1);
             }}

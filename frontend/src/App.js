@@ -12,6 +12,11 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
+// 頁面元件
+import Home from './pages/home/Home';
+import Profile from './pages/profile/Profile';
+import Auth from './pages/auth/Auth';
+
 function App() {
   return (
     <Router>
@@ -25,6 +30,9 @@ function App() {
             </Route>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/auth">
+              <Auth />
             </Route>
             <Route path="/">
               <Home />
