@@ -131,6 +131,9 @@ header .other-nav li a {
     transition: 0.5s;
   }
 
+  header.sticky .menu {
+    top: 76px;
+  }
   .menu.active {
     left: 0;
   }

@@ -1,13 +1,23 @@
 import './banner.css';
-import Video from './bannerVideo.mp4';
-import Ink1 from './ink1.mov';
 import { Link } from 'react-router-dom';
 
 const Banner = () => {
   return (
     <div className="banner">
-      <video src={Video} type="video/mp4" autoPlay muted loop></video>
-      <video src={Ink1} type="video/mov" autoPlay muted loop></video>
+      <video
+        src="/sources/bannerVideo.mp4"
+        type="video/mp4"
+        autoPlay
+        muted
+        loop
+      ></video>
+      <video
+        src="/sources/inkVideo.mov"
+        type="video/mov"
+        autoPlay
+        muted
+        loop
+      ></video>
       <div className="content">
         <h3>從心出發</h3>
         <p>

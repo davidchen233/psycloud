@@ -1,11 +1,10 @@
 import './products.css';
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Product from './Product';
 
 const Products = () => {
   return (
-    <section className="h-section">
+    <section className="h-section mb-0">
       <h2>-- 減壓小物 --</h2>
       <div className="d-flex justify-content-between">
         <div></div>

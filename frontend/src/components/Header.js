@@ -27,7 +27,13 @@ const Header = () => {
 
   return (
     <header className={sticky ? 'sticky' : ''}>
-      <NavLink to="/" className="logo">
+      <NavLink
+        to="/"
+        className="logo"
+        onClick={() => {
+          setActiveIndex(-1);
+        }}
+      >
         <Logo />
       </NavLink>
 
@@ -42,7 +48,7 @@ const Header = () => {
                   setActiveIndex(i);
                 }}
               >
-                <NavLink to={menuLinks[v]}>{v}</NavLink>
+                <NavLink to={`/${menuLinks[v]}`}>{v}</NavLink>
               </li>
             );
           })}
@@ -51,6 +57,7 @@ const Header = () => {
       <ul className="other-nav">
         <li>
           <NavLink
+            to="/profile"
             to={signedin ? '/profile' : '/auth'}
             onClick={() => {
               setActiveIndex(-1);
@@ -61,7 +68,7 @@ const Header = () => {
         </li>
         <li>
           <NavLink
-            to="cart"
+            to="/cart"
             onClick={() => {
               setActiveIndex(-1);
             }}

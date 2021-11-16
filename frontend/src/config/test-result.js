@@ -10,11 +10,6 @@ export const TEST_RESULT = [
     ],
     links: [
       {
-        link: '/doctor',
-        linkName: '心理諮詢',
-        linkInfo: '雖然測驗結果為輕度，找心理師聊聊也不失為一個不錯的舒壓方式',
-      },
-      {
         link: '/product',
         linkName: '紓壓小物',
         linkInfo: '一些紓壓的小東西，可以在我們的生活中增加一些樂趣',
