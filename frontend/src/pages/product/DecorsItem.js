@@ -5,7 +5,7 @@ const DecorsItem = () => {
     <div>
       <div className="justify-content-center align-items-center">
         <div className="DecorsImg mb-3">
-          <img src={require('./images/decors/21.png').default} alt="" />
+          <img src="/sources/bear.jpg" alt="" />
         </div>
         <div>
           <h5>松鼠愛森林</h5>

@@ -7,14 +7,14 @@ const ProductDetailsSection = () => {
       <div className="col-7 d-flex justify-content-evenly">
         <div>
           <div className="product-small-img">
-            <img src={require('./images/stuffedToys/1.jpg').default} alt="" />
-            <img src={require('./images/stuffedToys/2.jpg').default} alt="" />
-            <img src={require('./images/stuffedToys/4.jpg').default} alt="" />
-            <img src={require('./images/stuffedToys/5.jpg').default} alt="" />
-            <img src={require('./images/stuffedToys/6.jpg').default} alt="" />
+            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/bear.jpg" alt="" />
           </div>
           <div className="img-container">
-            <img src={require('./images/stuffedToys/1.jpg').default} alt="" />
+            <img src="/sources/bear.jpg" alt="" />
           </div>
         </div>
       </div>
