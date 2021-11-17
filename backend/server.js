@@ -46,6 +46,10 @@ app.use('/api/tests', testsRouter);
 let doctorsRouter = require('./routers/doctors');
 app.use('/api/doctors', doctorsRouter);
 
+// reservations 相關的 API
+let reservationsRouter = require('./routers/reservations');
+app.use('/api/reservations', reservationsRouter);
+
 // products 相關的 API
 let productsRouter = require('./routers/products');
 app.use('/api/products', productsRouter);
