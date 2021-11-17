@@ -1,0 +1,31 @@
+.testResult {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.testResult p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.advices {
+  margin-bottom: 50px;
+}
+
+.advices li {
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.adv-links li {
+  margin-bottom: 26px;
+  letter-spacing: 2px;
+}
+.adv-links li a {
+  font-size: 18px;
+  color: #4797ff;
+  text-decoration: none;
+  padding-bottom: 1px;
+  font-weight: bold;
+  border-bottom: 1px dashed #6e6e6e;
+}

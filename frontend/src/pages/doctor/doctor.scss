@@ -1,0 +1,188 @@
+// #root {
+//   background: linear-gradient(#c5f0ff50, #ffffda50, #ff9bc050) !important;
+// }
+
+$font-color: #006ead;
+
+.dr-fade1 {
+  animation-delay: 0s;
+}
+.dr-fade2 {
+  animation-delay: 0.6s;
+}
+.dr-fade3 {
+  animation-delay: 1.2s;
+}
+.dr-fade4 {
+  animation-delay: 1.8s;
+}
+.dr-fade5 {
+  animation-delay: 2.4s;
+}
+.dr-fade-in {
+  animation-name: pop-up;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+}
+
+.dr-portfolio {
+  margin: 20px 150px;
+  display: grid;
+  gap: 1em 1em;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-areas:
+    'summary summary calender calender'
+    'cv expertise calender calender'
+    'cv expertise calender calender';
+}
+
+.neu {
+  border-radius: 29px;
+  background: linear-gradient(#f1f6f6, #fdfff6);
+  box-shadow: 5px 5px 10px #d2d4cc, -5px -5px 10px #ffffff;
+}
+
+.dr-portfolio {
+  h3 {
+    font-size: 1.2em;
+    color: $font-color;
+  }
+  .name {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .reserve-now {
+      border: 2px solid #4797ff;
+      border-radius: 8px;
+      color: white;
+      font-size: 1em;
+      background-color: #4797ff;
+      // position: relative;
+      // right: 1em;
+
+      &:hover {
+        background-color: #4797ff50;
+        border: 2px solid #4797ff50;
+      }
+    }
+  }
+  .summary {
+    @extend .neu;
+    grid-area: summary;
+    display: flex;
+    align-items: center;
+    padding: 2em;
+
+    .photo-div {
+      display: flex;
+      margin-left: 0.5em;
+    }
+
+    .summary-div {
+      margin: 0.5rem 1rem;
+    }
+
+    img {
+      border-radius: 50%;
+      background: #f1f6f6;
+      box-shadow: 5px 5px 10px #bec2c2, -5px -5px 10px #ffffff;
+      align-self: center;
+      max-width: 200px;
+      height: auto;
+    }
+    transition: all ease-in-out 250ms;
+  }
+  .cv {
+    @extend .neu;
+    grid-area: cv;
+    padding: 1.5em;
+    transition: all ease-in-out 250ms;
+  }
+  .expertise {
+    @extend .neu;
+    padding: 1.5em;
+    grid-area: expertise;
+    transition: all ease-in-out 250ms;
+  }
+  .calender {
+    @extend .neu;
+    grid-area: calender;
+    padding: 1em;
+    img {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    transition: all ease-in-out 250ms;
+  }
+}
+.dr-recommend-section {
+  margin: 20px 150px;
+  // outline: 1px solid red;
+  padding: 1em;
+  img {
+    border-radius: 50%;
+    max-width: 200px;
+  }
+  .card-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
+.dr-press:hover {
+  transform: translateY(-0.1em);
+  box-shadow: 2px 2px 2px #e4e6dd;
+  transition: all ease-in-out 250ms;
+}
+
+@media only screen and (max-width: 1300px) {
+  .dr-portfolio {
+    margin: 20px 2em;
+    display: grid;
+    gap: 2em 1em;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+      'summary summary'
+      'cv expertise'
+      'calender calender';
+    .summary {
+      padding: 2em;
+    }
+  }
+  .dr-recommend-section {
+    margin: 0em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  :root {
+    font-size: 1em;
+  }
+  .dr-portfolio {
+    margin: 10px 2em;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'summary '
+      'cv'
+      'expertise'
+      'calender';
+    .photo {
+      width: 150px;
+    }
+  }
+  .calender-img {
+    width: 100%;
+    height: auto;
+  }
+  .dr-recommend-section {
+    margin: 0em;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .dr-portfolio {
+    .summary {
+      flex-direction: column;
+    }
+  }
+}

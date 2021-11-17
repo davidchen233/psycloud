@@ -1,0 +1,32 @@
+.psyNav {
+  margin-top: -95px;
+  margin-right: 60px;
+}
+
+.psyNav ul {
+  padding: 0;
+  list-style: none;
+  z-index: 400;
+}
+
+.psyNav ul li {
+  padding: 10px 15px;
+  margin-left: 30px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  color: #6d6d6d;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+}
+.psyNav ul li:hover,
+.psyNav ul li.active {
+  color: #4797ff;
+  border-bottom: 2px solid #4797ff;
+}
+
+.doctorContent {
+  max-width: 90%;
+  margin: 20px auto 0;
+}

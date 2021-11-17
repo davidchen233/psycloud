@@ -74,6 +74,12 @@ header.sticky ul li a {
 header .other-nav li a {
   color: #575757;
 }
+.other-nav li .logout {
+  white-space: nowrap;
+  font-size: 18px;
+  border-bottom: 1px solid #000;
+  cursor: pointer;
+}
 
 @media (max-width: 996px) {
   header,
@@ -116,6 +122,7 @@ header .other-nav li a {
   .other-nav li {
     padding: 0;
   }
+
   .menu {
     position: fixed;
     top: 96px;
@@ -131,14 +138,20 @@ header .other-nav li a {
     transition: 0.5s;
   }
 
+  header.sticky .menu {
+    top: 76px;
+  }
   .menu.active {
     left: 0;
   }
 
-  header ul li a {
+  header .menu li a {
     color: #111;
     font-size: 24px;
     margin: 10px;
+  }
+  header .other-nav li {
+    margin-right: 15px;
   }
 }
 
