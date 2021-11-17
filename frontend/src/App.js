@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Auth from './pages/auth/Auth';
 import Home from './pages/home/Home';
 import Profile from './pages/profile/Profile';
+import Test from './pages/test/Detect';
+import Process from './pages/test/Process';
+import Result from './pages/test/Result';
 import Doctor from './pages/doctor/DoctorTeam';
 import ProductPage from './pages/product/ProductPage';
 import StuffedToys from './pages/product/StuffedToys';
@@ -33,6 +36,15 @@ function App() {
           <Switch>
             <Route path="/auth">
               <Auth />
+            </Route>
+            <Route path="/process">
+              <Process />
+            </Route>
+            <Route path="/Result">
+              <Result />
+            </Route>
+            <Route path="/test">
+              <Test />
             </Route>
             <Route path="/profile">
               <Profile />
