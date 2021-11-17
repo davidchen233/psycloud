@@ -20,7 +20,7 @@ const CartSection = () => {
             <td className="cart-tbody-td py-3">
               <img
                 className="cart-tbody-image"
-                src={require('../product/images/stuffedToys/22.jpg').default}
+                src="/sources/bear.jpg"
                 alt=""
               />
             </td>
@@ -43,7 +43,7 @@ const CartSection = () => {
             <td className="cart-tbody-td py-3">
               <img
                 className="cart-tbody-image"
-                src={require('../product/images/stuffedToys/22.jpg').default}
+                src="/sources/bear.jpg"
                 alt=""
               />
             </td>
@@ -66,7 +66,7 @@ const CartSection = () => {
             <td className="cart-tbody-td py-3">
               <img
                 className="cart-tbody-image"
-                src={require('../product/images/stuffedToys/22.jpg').default}
+                src="/sources/bear.jpg"
                 alt=""
               />
             </td>

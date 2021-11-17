@@ -21,22 +21,22 @@ export default class CenterMode extends Component {
         <h3 className="text-center">其他人也看了...</h3>
         <Slider {...settings}>
           <div>
-            <img src={require('./images/stuffedToys/4.jpg').default} alt="" />
+            <img src="/sources/bear.jpg" alt="" />
           </div>
           <div>
-            <img src={require('./images/stuffedToys/6.jpg').default} alt="" />
+            <img src="/sources/bear.jpg" alt="" />
           </div>
           <div>
-            <img src={require('./images/stuffedToys/13.jpg').default} alt="" />
+            <img src="/sources/bear.jpg" alt="" />
           </div>
           <div>
-            <img src={require('./images/stuffedToys/9.jpg').default} alt="" />
+            <img src="/sources/bear.jpg" alt="" />
           </div>
           <div>
-            <img src={require('./images/stuffedToys/21.jpg').default} alt="" />
+            <img src="/sources/bear.jpg" alt="" />
           </div>
           <div>
-            <img src={require('./images/stuffedToys/16.jpg').default} alt="" />
+            <img src="/sources/bear.jpg" alt="" />
           </div>
         </Slider>
       </div>

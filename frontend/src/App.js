@@ -21,6 +21,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
 let user = JSON.parse(localStorage.getItem('user'));
+console.log(user);
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
             </Route>
             <Route path="/doctor">
               <Doctor />
-            </Route>  
+            </Route>
             <Route path="/product">
               <ProductPage />
             </Route>
