@@ -1,5 +1,9 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
+const expressSession = require('express-session');
+const FileStore = require('session-file-store')(expressSession);
+const path = require("path");
+require("dotenv").config();
 
 // 建立應用程式
 let app = express();
@@ -7,7 +11,23 @@ let app = express();
 // 限制 req 來源
 app.use(cors({
   origin: ['http://localhost:3000'],
-  credential: true,
+  credentials: true,
+}))
+
+// 讀取 body 的資料
+app.use(express.urlencoded({ extended: true }));
+
+// 解析 JSON 的資料
+app.use(express.json());
+
+app.use(express.static("public"))
+
+// 使用 session
+app.use(expressSession({
+  store: new FileStore({path: path.join(__dirname, "..", "sessions")}),
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
 }))
 
 // auth 相關的 API
@@ -25,6 +45,10 @@ app.use('/api/tests', testsRouter);
 // doctors 相關的 API
 let doctorsRouter = require('./routers/doctors');
 app.use('/api/doctors', doctorsRouter);
+
+// reservations 相關的 API
+let reservationsRouter = require('./routers/reservations');
+app.use('/api/reservations', reservationsRouter);
 
 // products 相關的 API
 let productsRouter = require('./routers/products');

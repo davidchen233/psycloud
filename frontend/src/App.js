@@ -2,8 +2,9 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // 頁面元件
-import Profile from './pages/profile/Profile';
+import Auth from './pages/auth/Auth';
 import Home from './pages/home/Home';
+import Profile from './pages/profile/Profile';
 import Doctor from './pages/doctor/DoctorTeam';
 
 // 組合用元件
@@ -12,10 +13,7 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
-// 頁面元件
-import Home from './pages/home/Home';
-import Profile from './pages/profile/Profile';
-import Auth from './pages/auth/Auth';
+let user = JSON.parse(localStorage.getItem('user'));
 
 function App() {
   return (
