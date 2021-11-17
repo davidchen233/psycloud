@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductPageItem = () => {
+const ProductPageItem = ({ title, banner }) => {
   return (
     <div className="product">
       <img
@@ -9,7 +9,7 @@ const ProductPageItem = () => {
         alt=""
       />
       <div className="image-text">
-        <p>手指紓壓</p>
+        <p>{title}</p>
         <div></div>
       </div>
     </div>

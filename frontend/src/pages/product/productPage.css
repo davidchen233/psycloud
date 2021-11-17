@@ -2,6 +2,13 @@ body {
   font-family: 'jf-openhuninn-1.1', Arial, Helvetica, sans-serif;
 }
 
+.CategoryLink {
+  color: rgb(39, 39, 39);
+}
+.CategoryLink:hover {
+  color: rgb(120, 120, 121);
+}
+
 /* Item */
 
 .Item {
@@ -10,7 +17,7 @@ body {
   letter-spacing: 3px;
 }
 
-div > h3 {
+.prouctpage-title h3 {
   margin: 50px 0px 40px 0px;
 }
 
@@ -79,7 +86,7 @@ div > h3 {
   justify-content: space-between;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 540px) {
   .flex-wrapper {
     justify-content: center;
   }

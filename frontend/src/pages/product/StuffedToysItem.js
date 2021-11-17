@@ -1,11 +1,11 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import './StuffedToys.css';
 
-const ProductPageHot = () => {
+const StuffedToysItem = () => {
   return (
     <div>
-      <p>No.1</p>
       <div className="justify-content-center align-items-center">
-        <div className="hotImg mb-3">
+        <div className="StuffedImg mb-3">
           <img src={require('./images/relieveStress/22.jpg').default} alt="" />
         </div>
         <div>
@@ -16,4 +16,5 @@ const ProductPageHot = () => {
     </div>
   );
 };
-export default ProductPageHot;
+
+export default StuffedToysItem;
