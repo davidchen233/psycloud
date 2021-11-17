@@ -73,6 +73,7 @@ const Auth = () => {
   const [signupErrors, setSignupErrors] = useState({
     name: '',
     email: '',
+    gender: '',
     password: '',
     confirmPassword: '',
   });
