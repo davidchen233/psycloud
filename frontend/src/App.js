@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Profile from './pages/profile/Profile';
 import Home from './pages/home/Home';
 import Doctor from './pages/doctor/DoctorTeam';
-
+import Test from './pages/test/Detect';
+import Process from './pages/test/Process';
+import Result from './pages/test/Result';
 // 組合用元件
 import Header from './components/Header';
 import MainContent from './components/MainContent';
@@ -13,8 +15,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
 // 頁面元件
-import Home from './pages/home/Home';
-import Profile from './pages/profile/Profile';
+
 import Auth from './pages/auth/Auth';
 
 function App() {
@@ -27,6 +28,15 @@ function App() {
           <Switch>
             <Route path="/doctor">
               <Doctor />
+            </Route>
+            <Route path="/process">
+              <Process />
+            </Route>
+            <Route path="/Result">
+              <Result />
+            </Route>
+            <Route path="/test">
+              <Test />
             </Route>
             <Route path="/profile">
               <Profile />
