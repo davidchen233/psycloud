@@ -24,7 +24,7 @@ const ProductPage = () => {
       </section>
 
       <section className="hot">
-        <div>
+        <div className="hot-product-title">
           <h3>-熱銷商品-</h3>
         </div>
         <div className="flex-wrapper">

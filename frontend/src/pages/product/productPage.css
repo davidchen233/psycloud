@@ -77,6 +77,10 @@ body {
 
 /* hot */
 
+.hot-product-title h3 {
+  margin: 60px 0px 40px 0px;
+}
+
 .hot {
   text-align: center;
   letter-spacing: 2px;
