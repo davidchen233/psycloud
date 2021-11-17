@@ -1,0 +1,102 @@
+.R-Title {
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 3px;
+}
+
+.R-Title h3 {
+  margin: 50px 0px 40px 0px;
+}
+
+.buttons3 {
+  float: left;
+  margin-bottom: 5%;
+}
+
+.button3 {
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4897fe;
+  color: aliceblue;
+  text-transform: uppercase;
+  padding-left: 12px;
+  letter-spacing: 2px;
+  margin: 5px 5px;
+  padding: 6px 10px;
+  transition: 0.3s all;
+  box-shadow: 1px 2px 5px #707070;
+}
+
+.button3:hover {
+  background-color: rgba(66, 184, 248, 0);
+}
+
+.search {
+  float: right;
+  margin-bottom: 5%;
+}
+
+input {
+  border: none;
+  outline: medium;
+}
+
+.btn-search-area {
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 1.5px;
+  margin: 5px 0px;
+  padding: 6px 10px;
+}
+
+.btn-search {
+  border: none;
+  border-radius: 5px;
+  background-color: #4897fe;
+  color: aliceblue;
+  margin: 7px 0px;
+  padding: 6px 10px;
+}
+
+/* main */
+
+.flex-wrapper3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 50px 0px 40px;
+  text-align: center;
+  clear: both;
+}
+
+@media (max-width: 540px) {
+  .flex-wrapper3 {
+    justify-content: center;
+  }
+}
+
+.RelieveImg img {
+  /* max-width: 100%;
+      height: auto; */
+  width: 280px;
+  height: 280px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.RelieveImg:hover img {
+  opacity: 0.7;
+}
+
+/* Pagination */
+
+.pagination li a {
+  border: none;
+  background-color: transparent;
+}
+
+.pagination li a:hover {
+  background-color: transparent;
+}

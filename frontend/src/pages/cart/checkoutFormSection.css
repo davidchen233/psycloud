@@ -1,0 +1,88 @@
+.checkform {
+  justify-content: space-between;
+}
+
+.checkout-div {
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255, 0.7);
+  box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.1);
+}
+
+.checkout-Title {
+  text-align: center;
+  letter-spacing: 3px;
+  margin: 25px;
+}
+
+.cf-group,
+.creditform {
+  text-align: center;
+}
+
+.CF-body {
+  margin-top: 80px;
+}
+
+.CF-body input {
+  border-radius: 7px;
+  margin-bottom: 15px;
+  padding: 5px 15px;
+  font-size: 16px;
+}
+
+/* 購買方式 */
+
+.checkout-div3 {
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255, 0.7);
+  box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.1);
+  display: block;
+  padding-bottom: 16px;
+}
+
+/* creditcards */
+
+.creditform input {
+  border-radius: 7px;
+  margin: 13px 0 10px 0;
+  padding: 5px 15px;
+  font-size: 16px;
+}
+
+/* button */
+
+.CF-btn1 {
+  font-size: 16px;
+  border: 2px solid #4897fe;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: black;
+  letter-spacing: 1.5px;
+  margin: 10px 10px 10px 0;
+  padding: 6px 18px;
+  transition: 0.4s all;
+}
+
+.CF-btn2 {
+  font-size: 16px;
+  border: 2px solid #4897fe;
+  border-radius: 5px;
+  background-color: #4897fe;
+  color: rgb(255, 255, 255);
+  letter-spacing: 2px;
+  margin: 10px;
+  padding: 6px 20px;
+  transition: 0.4s all;
+}
+
+.CF-btn1:hover {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  box-shadow: 1px 2px 8px #979797;
+}
+
+.CF-btn2:hover {
+  background-color: #5ea1ff;
+  color: #ffffff;
+  box-shadow: 1px 2px 8px #979797;
+}
