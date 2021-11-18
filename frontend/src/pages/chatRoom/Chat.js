@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import io from 'socket.io-client';
+import { PUBLIC_URL } from '../../config/config';
 import './chat.css';
 import { BiSend } from 'react-icons/bi';
 // import axios from 'axios';
@@ -40,7 +41,7 @@ const Chat = () => {
     if (currentMessage !== '') {
       const messageData = {
         author: user.username,
-        avatar: user.avatar,
+        avatar: PUBLIC_URL + user.avatar,
         message: currentMessage,
         time:
           appendZero(new Date(Date.now()).getHours()) +
@@ -87,7 +88,7 @@ const Chat = () => {
                     </div>
                   </div>
                   <div className="chatAvatar">
-                    <img src="/sources/signin.jpg" alt="" />
+                    <img src={messageContent.avatar} alt="" />
                   </div>
                 </div>
               );
