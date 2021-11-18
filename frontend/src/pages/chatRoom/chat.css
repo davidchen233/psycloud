@@ -53,8 +53,7 @@
   color: white;
   display: flex;
   align-items: center;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin: 0 5px 5px;
   padding: 6px 20px;
   overflow-wrap: break-word;
   word-break: break-word;
@@ -103,7 +102,7 @@
 
 #other .message-content {
   justify-content: flex-start;
-  background-color: rgb(185, 177, 255);
+  background-color: rgba(103, 86, 255, 0.678);
 }
 
 #other .message-meta {
@@ -117,7 +116,7 @@
 
 .chat-window .chat-body .message .message-meta {
   display: flex;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .chat-window .chat-footer {

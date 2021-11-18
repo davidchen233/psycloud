@@ -7,8 +7,32 @@ import { BiSend } from 'react-icons/bi';
 const socket = io.connect('http://localhost:3001');
 
 const Chat = () => {
+  function appendZero(time) {
+    if (time < 10) return '0' + '' + time;
+    else return time;
+  }
+
   const [currentMessage, setCurrentMessage] = useState('');
-  const [messageList, setMessageList] = useState([]);
+  const [messageList, setMessageList] = useState([
+    {
+      author: '心理雲管理員',
+      avatar: '/sources/signin.jpg',
+      message: '歡迎來到心理雲聊天室',
+      time:
+        appendZero(new Date(Date.now()).getHours()) +
+        ':' +
+        appendZero(new Date(Date.now()).getMinutes()),
+    },
+    {
+      author: '心理雲管理員',
+      avatar: '/sources/signin.jpg',
+      message: '可以和大家說說自己遇到的壓力 ... ',
+      time:
+        appendZero(new Date(Date.now()).getHours()) +
+        ':' +
+        appendZero(new Date(Date.now()).getMinutes()),
+    },
+  ]);
   let user = JSON.parse(localStorage.getItem('user'));
   const sendMessage = async () => {
     let user = JSON.parse(localStorage.getItem('user'));
@@ -19,9 +43,9 @@ const Chat = () => {
         avatar: user.avatar,
         message: currentMessage,
         time:
-          new Date(Date.now()).getHours() +
+          appendZero(new Date(Date.now()).getHours()) +
           ':' +
-          new Date(Date.now()).getMinutes(),
+          appendZero(new Date(Date.now()).getMinutes()),
       };
       await socket.emit('send_message', messageData);
       setMessageList((list) => [...list, messageData]);
