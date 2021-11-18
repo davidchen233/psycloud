@@ -1,6 +1,17 @@
+import { useState } from 'react';
+import { ORDER_STATUS } from '../../config/status';
 import './orders.css';
 
-const Orders = ({ openModal }) => {
+const Orders = ({ toggleOrderModal }) => {
+  const [orders, setOrders] = useState([
+    {
+      order_code: '#D554845',
+      created_at: '2021-05-05',
+      total: 1500,
+      status: 1,
+    },
+  ]);
+
   return (
     <>
       <div className="profile-heading">
@@ -17,19 +28,25 @@ const Orders = ({ openModal }) => {
         </div>
 
         {/* TODO: map 出訂單內容 */}
-        <div className="row mb-4 align-items-center">
-          <div className="col-2">#D554845</div>
-          <div className="col-3">2021-05-30</div>
-          <div className="col-2">$ 666</div>
-          <div className="col-2">
-            <span className="order-status">未出貨</span>
-          </div>
-          <div className="col-3">
-            <button onClick={openModal} className="viewBtn">
-              檢視詳情
-            </button>
-          </div>
-        </div>
+        {orders.map((order) => {
+          return (
+            <div className="row mb-4 align-items-center">
+              <div className="col-2">{order.order_code}</div>
+              <div className="col-3">{order.created_at}</div>
+              <div className="col-2">$ {order.total}</div>
+              <div className="col-2">
+                <span className="order-status">
+                  {ORDER_STATUS[order.status]}
+                </span>
+              </div>
+              <div className="col-3">
+                <button onClick={toggleOrderModal} className="viewBtn">
+                  檢視詳情
+                </button>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );
