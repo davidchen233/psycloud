@@ -57,8 +57,8 @@ const Process = () => {
   return (
     <>
       <form name="test" onSubmit={handleSubmit}>
-        <Carousel wrap={false}>
-          <Carousel.Item interval={null} indicators={false}>
+        <Carousel wrap={false} interval={null}>
+          <Carousel.Item indicators={false}>
             <div className="container">
               <div className="row mx-auto maxwid">
                 <div className="col-md-12 text-center mt-3">
