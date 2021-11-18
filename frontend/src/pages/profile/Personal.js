@@ -30,9 +30,6 @@ const Personal = ({ openPwdModal, openPersonalModal }) => {
           <h3>神奇寶貝</h3>
           <p>
             會員帳號: <span>pokemon@gmail.com</span>
-          </p>
-          <p>
-            密碼: <span>po******23 </span>
             <button onClick={openPwdModal}>更改密碼</button>
           </p>
         </div>
@@ -45,17 +42,9 @@ const Personal = ({ openPwdModal, openPersonalModal }) => {
             <div className="col-3 itemTitle">Email :</div>
             <span className="col-9 itemValue">pokemon@gmail.com</span>
           </div>
-          <div className="row infoItem">
-            <div className="col-3 itemTitle">密碼 :</div>
-            <span className="col-9 itemValue">pok*****123</span>
-          </div>
-          <div className="row infoItem">
+          <div className="row infoItem mb-4">
             <div className="col-3 itemTitle">生日 :</div>
             <span className="col-9 itemValue">87-10-30</span>
-          </div>
-          <div className="row infoItem mb-4">
-            <div className="col-3 itemTitle">電話 :</div>
-            <span className="col-9 itemValue">0952147856</span>
           </div>
           <div className="d-flex justify-content-between">
             <div></div>
