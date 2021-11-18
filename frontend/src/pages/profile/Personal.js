@@ -5,6 +5,9 @@ import Banner from './tempImg/banner.png';
 import Avatar from './tempImg/avatar.jpg';
 
 const Personal = ({ togglePwdModal, togglePersonalModal }) => {
+  let user = JSON.parse(localStorage.getItem('user'));
+  console.log(user);
+
   return (
     <>
       <div className="personal-banner">
@@ -27,24 +30,26 @@ const Personal = ({ togglePwdModal, togglePersonalModal }) => {
           </div>
         </div>
         <div className="account-box">
-          <h3>神奇寶貝</h3>
+          <h3>{user.name}</h3>
           <p>
-            會員帳號: <span>pokemon@gmail.com</span>
-            <button onClick={openPwdModal}>更改密碼</button>
+            會員帳號: <span>{user.email}</span>
+            <button onClick={togglePwdModal}>更改密碼</button>
           </p>
         </div>
         <div className="infos">
           <div className="row infoItem">
             <div className="col-3 itemTitle">姓名 :</div>
-            <span className="col-9 itemValue">神奇寶貝</span>
+            <span className="col-9 itemValue">{user.name}</span>
           </div>
           <div className="row infoItem">
             <div className="col-3 itemTitle">Email :</div>
-            <span className="col-9 itemValue">pokemon@gmail.com</span>
+            <span className="col-9 itemValue">{user.email}</span>
           </div>
           <div className="row infoItem mb-4">
             <div className="col-3 itemTitle">生日 :</div>
-            <span className="col-9 itemValue">87-10-30</span>
+            <span className="col-9 itemValue">
+              {user.birth ? user.birth : '---未填寫---'}
+            </span>
           </div>
           <div className="d-flex justify-content-between">
             <div></div>

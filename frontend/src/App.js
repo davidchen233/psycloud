@@ -16,6 +16,7 @@ import Relieve from './pages/product/Relieve';
 import Cart from './pages/cart/Cart';
 import Checkpage from './pages/cart/Checkpage';
 import ProductDetails from './pages/product/ProductDetails';
+import Chat from './pages/chatRoom/Chat';
 
 // 組合用元件
 import Header from './components/Header';
@@ -72,6 +73,9 @@ function App() {
             </Route>
             <Route path="/Checkpage">
               <Checkpage />
+            </Route>
+            <Route path="/chatRoom">
+              <Chat />
             </Route>
             <Route path="/">
               <Home />
