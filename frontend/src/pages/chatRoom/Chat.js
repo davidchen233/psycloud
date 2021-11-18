@@ -38,7 +38,7 @@ const Chat = () => {
   const sendMessage = async () => {
     let user = JSON.parse(localStorage.getItem('user'));
     // let user = await axios.get('http://localhost:3001/api/users/userInfo');
-    if (currentMessage !== '') {
+    if (currentMessage !== '' && user !== null) {
       const messageData = {
         author: user.username,
         avatar: PUBLIC_URL + user.avatar,
@@ -73,7 +73,11 @@ const Chat = () => {
               return (
                 <div
                   className="message d-flex"
-                  id={user.username === messageContent.author ? 'you' : 'other'}
+                  id={
+                    user && user.username === messageContent.author
+                      ? 'you'
+                      : 'other'
+                  }
                   key={id}
                 >
                   <div>
@@ -99,13 +103,14 @@ const Chat = () => {
           <input
             type="text"
             value={currentMessage}
-            placeholder="來說點什麼 ..."
+            placeholder={user ? '來說點什麼 ...' : '請先登入才能傳送訊息喔 ...'}
             onChange={(event) => {
               setCurrentMessage(event.target.value);
             }}
             onKeyPress={(e) => {
               e.key === 'Enter' && sendMessage();
             }}
+            disabled={user ? false : true}
           />
           <button onClick={sendMessage}>
             <BiSend />

@@ -1,8 +1,8 @@
 import './personal.css';
 import { HiOutlinePhotograph } from 'react-icons/hi';
+import { PUBLIC_URL } from '../../config/config';
 
 import Banner from './tempImg/banner.png';
-import Avatar from './tempImg/avatar.jpg';
 
 const Personal = ({ togglePwdModal, togglePersonalModal }) => {
   let user = JSON.parse(localStorage.getItem('user'));
@@ -20,7 +20,7 @@ const Personal = ({ togglePwdModal, togglePersonalModal }) => {
       <div className="profile-box">
         <div className="editPhoto">
           <div className="photo">
-            <img src={Avatar} alt="" />
+            <img src={PUBLIC_URL + user.avatar} alt="" />
           </div>
           <div className="d-flex justify-content-center">
             <label className="upload-avatar">

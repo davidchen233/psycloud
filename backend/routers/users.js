@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
   res.json(data);
 });
 
-// 取得單筆會員資料
+// 取得登入會員資料
 router.get("/userInfo", async (req, res) => {
   let data = await connection.queryAsync(
     "SELECT * FROM users WHERE id=?",
@@ -26,9 +26,10 @@ router.get("/userInfo", async (req, res) => {
     avatar: data.avatar,
     email: data.email,
     birth: data.birth,
+    isPsychologist: data.is_psychologist,
+    isAdmin: data.is_admin,
   };
 
-  // 判斷是否有資料
   res.json(returnUserData);
 });
 
