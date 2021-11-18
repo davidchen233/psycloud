@@ -1,0 +1,211 @@
+.auth-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  margin-top: 20px;
+}
+
+.authbox {
+  position: relative;
+  width: 900px;
+  height: 600px;
+  border-radius: 20px;
+  border: 1px solid rgba(143, 143, 143, 0.801);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.authbox .user {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.authbox .user .imgBox {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  opacity: 0.9;
+  transition: 0.5s;
+}
+
+.authbox .user .imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.authbox .signupBox .imgBox img {
+  filter: grayscale(0.8);
+}
+
+.authbox .user .authFormBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.562);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  transition: 0.5s;
+  backdrop-filter: blur(15px);
+}
+
+.authbox .user .authFormBx h2 {
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.authbox .user .authFormBx input {
+  width: 100%;
+  padding: 10px;
+  color: rgb(78, 78, 78);
+  border-radius: 7px;
+  font-size: 14px;
+  border: none;
+  border: 1px solid rgba(161, 161, 161, 0.616);
+  background: rgba(255, 255, 255, 0.514);
+  margin: 8px 0;
+  letter-spacing: 2px;
+}
+
+.authbox .user .authFormBx .gender input {
+  width: 40px;
+}
+
+.authbox .user .authFormBx input::placeholder {
+  color: rgb(78, 78, 78);
+}
+
+.authbox .user .authFormBx input[type='submit'] {
+  max-width: 100px;
+  background: #4797ff;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.authbox .user .authFormBx input[type='submit']:hover {
+  background: #68a8fc;
+}
+
+.authbox .user.signupBox .authFormBx input[type='submit'] {
+  background: #4797ff;
+}
+
+.authbox .user.signupBox .authFormBx input[type='submit']:hover {
+  background: #68a8fc;
+}
+
+.authbox .user .authFormBx .signup {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #555;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.authbox .user .authFormBx .signup span {
+  font-weight: 600;
+  text-decoration: none;
+  color: #4797ff;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.signupPsy {
+  position: relative;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #555;
+}
+
+.signupPsy span {
+  font-weight: 600;
+  text-decoration: none;
+  color: #4797ff;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.authbox .signupBox {
+  pointer-events: none;
+}
+
+.authbox.active .signupBox {
+  pointer-events: initial;
+}
+
+.authbox .signupBox .authFormBx {
+  top: 100%;
+}
+
+.authbox.active .signupBox .authFormBx {
+  top: 0;
+}
+
+.authbox .signupBox .imgBox {
+  top: -100%;
+  transition: 0.5s;
+}
+
+.authbox.active .signupBox .imgBox {
+  top: 0;
+}
+
+.authbox .signinBox .authFormBx {
+  top: 0;
+}
+
+.authbox.active .signinBox .authFormBx {
+  top: 100%;
+}
+
+.authbox .signinBox .imgBox {
+  top: 0;
+  transition: 0.5s;
+}
+
+.authbox.active .signinBox .imgBox {
+  top: -100%;
+}
+
+@media (max-width: 991px) {
+  .authbox {
+    max-width: 400px;
+  }
+  .authbox .imgBox {
+    display: none;
+  }
+  .authbox .user .authFormBx {
+    width: 100%;
+  }
+  .authbox.active .signinBox .authFormBx {
+    top: -100%;
+  }
+}
+
+.errorMsg {
+  padding-left: 5px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgb(255, 101, 101);
+}

@@ -1,9 +1,14 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter, useHistory } from 'react-router-dom';
 import Logo from './Logo';
 import './header.css';
 import { BsPerson, BsCart3 } from 'react-icons/bs';
+import axios from 'axios';
+import { API_URL } from '../config/config';
 const Header = () => {
+  // TODO: 是否已登入
+  let user = JSON.parse(localStorage.getItem('user'));
+
   const [sticky, setSticky] = useState(false);
   window.addEventListener('scroll', () => {
     if (window.scrollY > 0) {
@@ -21,10 +26,26 @@ const Header = () => {
     紓壓小物: 'product',
     心情聊天室: 'chatRoom',
   };
-
+  let history = useHistory();
+  function handleLogout() {
+    try {
+      axios.get(`${API_URL}/auth/logout`, { withCredentials: true });
+      localStorage.removeItem('user');
+      alert('登出成功');
+      history.push('/');
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <header className={sticky ? 'sticky' : ''}>
-      <NavLink to="/" className="logo">
+      <NavLink
+        to="/"
+        className="logo"
+        onClick={() => {
+          setActiveIndex(-1);
+        }}
+      >
         <Logo />
       </NavLink>
 
@@ -39,7 +60,7 @@ const Header = () => {
                   setActiveIndex(i);
                 }}
               >
-                <NavLink to={menuLinks[v]}>{v}</NavLink>
+                <NavLink to={`/${menuLinks[v]}`}>{v}</NavLink>
               </li>
             );
           })}
@@ -48,7 +69,7 @@ const Header = () => {
       <ul className="other-nav">
         <li>
           <NavLink
-            to="profile"
+            to={user ? '/profile' : '/auth'}
             onClick={() => {
               setActiveIndex(-1);
             }}
@@ -58,7 +79,7 @@ const Header = () => {
         </li>
         <li>
           <NavLink
-            to="cart"
+            to="/cart"
             onClick={() => {
               setActiveIndex(-1);
             }}
@@ -66,6 +87,15 @@ const Header = () => {
             <BsCart3 size="26" />
           </NavLink>
         </li>
+        {user ? (
+          <li>
+            <span className="logout" onClick={handleLogout}>
+              登出
+            </span>
+          </li>
+        ) : (
+          ''
+        )}
       </ul>
       <div
         className={`toggle ${toggle ? 'active' : ''}`}
@@ -81,4 +111,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

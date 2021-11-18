@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { withRouter, useHistory } from 'react-router-dom';
 import {
   FaRegUser,
   FaCalendarCheck,
@@ -24,6 +25,7 @@ import PsyInfoForm from './modals/PsyInfoForm';
 import EditPsyInfoForm from './modals/EditPsyInfoForm';
 
 const Profile = () => {
+  const user = localStorage.getItem('user');
   const [currentView, setCurrentView] = useState('profile');
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false);
@@ -95,6 +97,7 @@ const Profile = () => {
         return <Personal />;
     }
   };
+
   return (
     <>
       {showPwdModal === true && <PwdModal togglePwdModal={togglePwdModal} />}
@@ -110,7 +113,7 @@ const Profile = () => {
       {showEditPsyInfoForm === true && (
         <EditPsyInfoForm toggleEditPsyInfoForm={toggleEditPsyInfoForm} />
       )}
-      <div className="container pt-4">
+      <div className="container">
         <div className="profile-template">
           <div>
             <div className="navigation">
@@ -186,11 +189,15 @@ const Profile = () => {
               </ul>
             </div>
           </div>
-          <div className="contentBox">{switchView()}</div>
+          {user ? (
+            <div className="contentBox">{switchView()}</div>
+          ) : (
+            <p className="p-4">使用者未登入</p>
+          )}
         </div>
       </div>
     </>
   );
 };
 
-export default Profile;
+export default withRouter(Profile);
