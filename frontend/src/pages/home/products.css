@@ -6,3 +6,6 @@
   flex-wrap: wrap;
   z-index: 1;
 }
+.product-container a {
+  text-decoration: none;
+}
