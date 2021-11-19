@@ -87,11 +87,15 @@ body {
   margin: 20px 0px;
 }
 
+.hot a {
+  text-decoration: none;
+  color: rgb(78, 78, 78);
+}
+
 .hotImg {
   width: 250px;
   height: 250px;
   border-radius: 8px;
-  cursor: pointer;
   overflow: hidden;
 }
 

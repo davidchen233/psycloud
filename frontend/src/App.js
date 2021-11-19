@@ -1,5 +1,10 @@
 // 使用套件
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams,
+} from 'react-router-dom';
 
 // 頁面元件
 import Auth from './pages/auth/Auth';
@@ -56,6 +61,9 @@ function App() {
             <Route path="/product">
               <ProductPage />
             </Route>
+            <Route path="/ProductDetails/:productID">
+              <ProductDetails />
+            </Route>
             <Route path="/StuffedToys">
               <StuffedToys />
             </Route>
@@ -64,9 +72,6 @@ function App() {
             </Route>
             <Route path="/Relieve">
               <Relieve />
-            </Route>
-            <Route path="/ProductDetails">
-              <ProductDetails />
             </Route>
             <Route path="/cart">
               <Cart />

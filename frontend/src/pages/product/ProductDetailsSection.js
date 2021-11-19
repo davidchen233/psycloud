@@ -19,27 +19,27 @@ const ProductDetailsSection = ({ samplepic }) => {
         </div>
       </div>
 
-      <div class="col-5 d-flex align-items-start flex-column bd-highlight mb-3">
-        <div class="mb-auto p-2 bd-highlight">
+      <div className="col-5 d-flex align-items-start flex-column bd-highlight mb-3">
+        <div className="mb-auto p-2 bd-highlight">
           <p className="detail-title">雙面章魚娃娃</p>
           <p>小巧可愛的外型，陪你開心、陪你生氣，搭配呆萌療癒表情！</p>
           <p>一秒翻臉，飽滿填充、柔軟不怕壓扁，大人小孩都需要！</p>
         </div>
-        <div class="px-2 py-3 bd-highlight">
+        <div className="px-2 py-3 bd-highlight">
           <div>
             <label>數量: &thinsp; </label>
             <input
               className="detail-quantity-input pl-1"
               type="number"
-              Value="1"
+              value="1"
               min="1"
             />
           </div>
         </div>
-        <div class="p-2 bd-highlight">
+        <div className="p-2 bd-highlight">
           <h2>NT$290</h2>
         </div>
-        <div class="p-2 bd-highlight">
+        <div className="p-2 bd-highlight">
           <div className="d-grid gap-2 d-md-flex justify-content-md-center">
             <button className="me-md-2 detail-btn1" type="button">
               加入購物車
