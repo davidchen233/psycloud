@@ -1,6 +1,6 @@
 import React from 'react';
 import './PopUp.scss';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { ImCross } from 'react-icons/im';
 
 export default function PopUp(props) {

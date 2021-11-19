@@ -14,8 +14,10 @@ function Doctor() {
   function handlePopUp() {
     if (popUp === 'hidden-dr') {
       setPopUp('form-mask-dr');
+      document.body.style.overflow = 'hidden';
     } else {
       setPopUp('hidden-dr');
+      document.body.style.overflow = 'initial';
     }
   }
 
@@ -42,7 +44,7 @@ function Doctor() {
             </p>
           </div>
         </section>
-        <section className="cv press dr-fade-in dr-fade2">
+        <section className="cv dr-press dr-fade-in dr-fade2">
           <h3>學歷/Education</h3>
           <p>成功大學</p>
           <h3>經歷（摘錄）／ Experience：</h3>
@@ -61,7 +63,7 @@ function Doctor() {
             <br />
           </p>
         </section>
-        <section className="expertise press dr-fade-in dr-fade3">
+        <section className="expertise dr-press dr-fade-in dr-fade3">
           <h3>專長/Expertise</h3>
           <p>
             精神疾病評估與治療
@@ -79,7 +81,7 @@ function Doctor() {
             兒童青少年亞斯伯格及其相關症狀
           </p>
         </section>
-        <section className="calender press dr-fade-in dr-fade4">
+        <section className="calender dr-press dr-fade-in dr-fade4">
           <h3>可預約時間</h3>
           <img src={Calender} alt="calender" className="calender-img"></img>
         </section>
