@@ -81,7 +81,7 @@ const Header = () => {
         </li>
         <li>
           <NavLink
-            to="/cart"
+            to={user ? '/cart' : '/auth'}
             onClick={() => {
               setActiveIndex(-1);
             }}
