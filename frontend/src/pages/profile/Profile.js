@@ -8,6 +8,7 @@ import {
   FaUserMd,
 } from 'react-icons/fa';
 import './profile.css';
+import { PUBLIC_URL } from '../../config/config';
 
 // inner pages
 import Personal from './Personal.js';
@@ -15,7 +16,6 @@ import Consultation from './Consultation';
 import Orders from './Orders';
 import Test from './Test';
 import Psychologist from './Psychologist';
-import Avatar from './tempImg/avatar.jpg';
 
 // popup modals
 import PwdModal from './modals/PwdModal';
@@ -25,7 +25,7 @@ import PsyInfoForm from './modals/PsyInfoForm';
 import EditPsyInfoForm from './modals/EditPsyInfoForm';
 
 const Profile = () => {
-  const user = localStorage.getItem('user');
+  let user = JSON.parse(localStorage.getItem('user'));
   const [currentView, setCurrentView] = useState('profile');
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false);
@@ -118,7 +118,7 @@ const Profile = () => {
           <div>
             <div className="navigation">
               <div className="avatar">
-                <img src={Avatar} alt="" />
+                <img src={PUBLIC_URL + user.avatar} alt="" />
               </div>
               <ul>
                 <li

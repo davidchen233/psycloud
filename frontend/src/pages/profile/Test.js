@@ -1,11 +1,23 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './test.css';
+import axios from 'axios';
 import { TEST_RESULT } from '../../config/test-result';
+import { API_URL } from '../../config/config';
 
 const Test = () => {
-  // TODO: fetch test result from user
-  const result = TEST_RESULT[0];
-  console.log(result);
+  // TODO: fetch test result from user (TEST_RESULT[0])
+  const [result, setResult] = useState({});
+
+  useEffect(async () => {
+    let res = await axios.get(
+      `http://localhost:3001/api/users/userTestResult`,
+      {
+        withCredentials: true,
+      }
+    );
+    setResult(TEST_RESULT[res.data.pressure_level]);
+  }, []);
 
   return (
     <>

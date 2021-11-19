@@ -33,5 +33,15 @@ router.get("/userInfo", async (req, res) => {
   res.json(returnUserData);
 });
 
+// 取得登入者的測驗結果
+router.get("/userTestResult", async (req, res) => {
+  let data = await connection.queryAsync(
+    "SELECT * FROM test_results WHERE user_id=?",
+    [req.session.user.id]
+  );
+  data = data[0];
+  res.json(data);
+});
+
 // 匯出此 router
 module.exports = router;
