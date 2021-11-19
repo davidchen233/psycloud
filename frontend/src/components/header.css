@@ -76,9 +76,13 @@ header .other-nav li a {
 }
 .other-nav li .logout {
   white-space: nowrap;
-  font-size: 18px;
-  border-bottom: 1px solid #000;
+  color: rgb(39, 39, 39);
   cursor: pointer;
+}
+
+.other-nav .logouta {
+  color: rgb(39, 39, 39);
+  text-decoration: none;
 }
 
 @media (max-width: 996px) {

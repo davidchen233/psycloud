@@ -5,7 +5,7 @@ import PsyInfo from './pyschologist/PsyInfo';
 import Calendar from './pyschologist/Calendar';
 import DocConsultation from './pyschologist/DocConsultation';
 
-const Psychologist = ({ openInfoModal, openEditModal }) => {
+const Psychologist = ({ togglePsyInfoForm, toggleEditPsyInfoForm }) => {
   const [activeItem, setActiveItem] = useState('心理師資料');
   const handleClick = (e) => {
     let currentItem = e.currentTarget.innerText;
@@ -19,8 +19,8 @@ const Psychologist = ({ openInfoModal, openEditModal }) => {
       case '心理師資料':
         return (
           <PsyInfo
-            openInfoModal={openInfoModal}
-            openEditModal={openEditModal}
+            togglePsyInfoForm={togglePsyInfoForm}
+            toggleEditPsyInfoForm={toggleEditPsyInfoForm}
           />
         );
       case '我的排程':
