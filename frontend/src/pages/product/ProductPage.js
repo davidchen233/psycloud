@@ -3,8 +3,18 @@ import ProductPageItem from './ProductPageItem';
 import ProductPageHot from './ProductPageHot';
 import './productPage.css';
 import { Link } from 'react-router-dom';
+import { PUBLIC_URL, API_URL } from '../../config/config';
+import axios from 'axios';
 
 const ProductPage = () => {
+  const [hotproducts, sethotproducts] = useState([]);
+  useEffect(async () => {
+    let res = await axios.get(`${API_URL}/products/hotproducts`);
+    sethotproducts(res.data);
+  }, []);
+
+  console.log(hotproducts);
+
   return (
     <div className="container">
       <section className="Item">
@@ -24,14 +34,23 @@ const ProductPage = () => {
       </section>
 
       <section className="hot">
-        <div>
+        <div className="hot-product-title">
           <h3>-熱銷商品-</h3>
         </div>
         <div className="flex-wrapper">
-          <ProductPageHot />
-          <ProductPageHot />
-          <ProductPageHot />
-          <ProductPageHot />
+          {hotproducts.map((hotproduct) => {
+            return (
+              <Link to={`/ProductDetails/${hotproduct.id}`}>
+                <ProductPageHot
+                  key={hotproduct.id}
+                  sold={hotproduct.sold}
+                  image={PUBLIC_URL + hotproduct.image}
+                  name={hotproduct.name}
+                  price={hotproduct.price}
+                />
+              </Link>
+            );
+          })}
         </div>
       </section>
     </div>
