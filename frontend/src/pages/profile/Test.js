@@ -7,7 +7,7 @@ import { API_URL } from '../../config/config';
 
 const Test = () => {
   // TODO: fetch test result from user (TEST_RESULT[0])
-  const [result, setResult] = useState({});
+  const [result, setResult] = useState(TEST_RESULT[0]);
 
   useEffect(async () => {
     let res = await axios.get(
@@ -16,8 +16,10 @@ const Test = () => {
         withCredentials: true,
       }
     );
+
     setResult(TEST_RESULT[res.data.pressure_level]);
   }, []);
+  console.log(result);
 
   return (
     <>
