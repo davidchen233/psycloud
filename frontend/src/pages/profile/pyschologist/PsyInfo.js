@@ -1,7 +1,7 @@
 import './psyInfo.css';
 import License from '../tempImg/12.jpg';
 
-const PsyInfo = ({ openInfoModal, openEditModal }) => {
+const PsyInfo = ({ togglePsyInfoForm, toggleEditPsyInfoForm }) => {
   return (
     <>
       <div className="w-75 mx-auto d-flex align-items-center pt-3 mb-4">
@@ -30,8 +30,8 @@ const PsyInfo = ({ openInfoModal, openEditModal }) => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button onClick={openEditModal}>編輯</button>
-          <button className="ms-4" onClick={openInfoModal}>
+          <button onClick={toggleEditPsyInfoForm}>編輯</button>
+          <button className="ms-4" onClick={togglePsyInfoForm}>
             檢視
           </button>
         </div>
@@ -44,8 +44,8 @@ const PsyInfo = ({ openInfoModal, openEditModal }) => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button onClick={openEditModal}>編輯</button>
-          <button className="ms-4" onClick={openInfoModal}>
+          <button onClick={toggleEditPsyInfoForm}>編輯</button>
+          <button className="ms-4" onClick={togglePsyInfoForm}>
             檢視
           </button>
         </div>
@@ -58,8 +58,8 @@ const PsyInfo = ({ openInfoModal, openEditModal }) => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button onClick={openEditModal}>編輯</button>
-          <button className="ms-4" onClick={openInfoModal}>
+          <button onClick={toggleEditPsyInfoForm}>編輯</button>
+          <button className="ms-4" onClick={togglePsyInfoForm}>
             檢視
           </button>
         </div>
@@ -72,8 +72,8 @@ const PsyInfo = ({ openInfoModal, openEditModal }) => {
           </p>
         </div>
         <div className="viewEditBtns  ms-4 ps-4">
-          <button onClick={openEditModal}>編輯</button>
-          <button className="ms-4" onClick={openInfoModal}>
+          <button onClick={toggleEditPsyInfoForm}>編輯</button>
+          <button className="ms-4" onClick={togglePsyInfoForm}>
             檢視
           </button>
         </div>

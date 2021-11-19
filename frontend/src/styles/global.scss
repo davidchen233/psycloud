@@ -8,12 +8,6 @@
   min-height: 100vh;
   position: relative;
 }
-#root::after {
-  content: '';
-  display: block;
-  height: 315px;
-}
-
 // 變數覆蓋區
 $primary: #4797ff;
 $secondary: #75c5f2;

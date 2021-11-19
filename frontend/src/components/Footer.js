@@ -8,13 +8,12 @@ import {
   FaRegEnvelope,
 } from 'react-icons/fa';
 import './footer.css';
-import Logo from './logo.png';
 const Footer = () => {
   return (
     <footer>
       <div className="content">
         <NavLink to="/">
-          <img className="me-3" src={Logo} alt="" />
+          <img className="me-3" src="/sources/logo.png" alt="" />
         </NavLink>
         <div className="formBox">
           <form>
