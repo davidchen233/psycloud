@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductDetailsSection = () => {
+const ProductDetailsSection = ({ samplepic }) => {
   return (
     <div className="row detail-product ">
       <div className="col-7 d-flex justify-content-evenly">
         <div>
           <div className="product-small-img">
-            <img src="/sources/bear.jpg" alt="" />
-            <img src="/sources/bear.jpg" alt="" />
-            <img src="/sources/bear.jpg" alt="" />
-            <img src="/sources/bear.jpg" alt="" />
-            <img src="/sources/bear.jpg" alt="" />
+            <img src={samplepic} alt="" />
+            <img src={samplepic} alt="" />
+            <img src={samplepic} alt="" />
+            <img src={samplepic} alt="" />
+            <img src={samplepic} alt="" />
           </div>
           <div className="img-container">
-            <img src="/sources/bear.jpg" alt="" />
+            <img src={samplepic} alt="" />
           </div>
         </div>
       </div>

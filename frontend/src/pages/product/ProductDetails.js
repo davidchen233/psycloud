@@ -6,8 +6,8 @@ import './ProductDetails.css';
 const ProductDetails = () => {
   return (
     <>
-      <ProductDetailsSection />
-      <ProductDetailSeemore />
+      <ProductDetailsSection samplepic="/sources/sample.jpg" />
+      <ProductDetailSeemore samplepic="/sources/sample.jpg" />
     </>
   );
 };

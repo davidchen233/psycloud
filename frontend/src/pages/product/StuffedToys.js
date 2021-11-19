@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import StuffedToysItem from './StuffedToysItem';
 import Pagination from './Pagination';
 import { FaSearch } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './StuffedToys.css';
 
 const StuffedItem = () => {
@@ -31,7 +32,12 @@ const StuffedItem = () => {
       </div>
 
       <div className="flex-wrapper1">
-        <StuffedToysItem />
+        <Link
+          style={{ color: 'inherit', textDecoration: 'inherit' }}
+          to="/productDetails"
+        >
+          <StuffedToysItem />
+        </Link>
         <StuffedToysItem />
         <StuffedToysItem />
         <StuffedToysItem />

@@ -21,22 +21,22 @@ export default class CenterMode extends Component {
         <h3 className="text-center">其他人也看了...</h3>
         <Slider {...settings}>
           <div>
-            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/sample.jpg" alt="" />
           </div>
           <div>
-            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/sample.jpg" alt="" />
           </div>
           <div>
-            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/sample.jpg" alt="" />
           </div>
           <div>
-            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/sample.jpg" alt="" />
           </div>
           <div>
-            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/sample.jpg" alt="" />
           </div>
           <div>
-            <img src="/sources/bear.jpg" alt="" />
+            <img src="/sources/sample.jpg" alt="" />
           </div>
         </Slider>
       </div>
