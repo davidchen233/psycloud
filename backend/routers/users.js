@@ -1,14 +1,14 @@
 const express = require("express");
-const connection = require('../utils/db_connection')
+const connection = require("../utils/db_connection");
 
 // 建立 router
 const router = express.Router();
 
 // 取得所有會員資料
-router.get("/", async(req,res)=>{
-  let data = await connection.queryAsync('SELECT * FROM users');
+router.get("/", async (req, res) => {
+  let data = await connection.queryAsync("SELECT * FROM users");
   res.json(data);
-})
+});
 
 // 取得登入會員資料
 router.get("/userInfo", async (req, res) => {
@@ -33,6 +33,7 @@ router.get("/userInfo", async (req, res) => {
   res.json(returnUserData);
 });
 
+// 取得登入者的測驗結果
 router.get("/userTestResult", async (req, res) => {
   let data = await connection.queryAsync(
     "SELECT * FROM test_results WHERE user_id=?",
@@ -41,8 +42,6 @@ router.get("/userTestResult", async (req, res) => {
   data = data[0];
   res.json(data);
 });
-
-
 
 // 匯出此 router
 module.exports = router;

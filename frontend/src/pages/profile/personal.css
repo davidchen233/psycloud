@@ -52,7 +52,7 @@
 
 .account-box {
   margin-left: 280px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .account-box p {
@@ -72,7 +72,6 @@
   border-radius: 8px;
   box-sizing: border-box;
   color: #4797ff;
-  display: inline-flex;
   font-size: 14px;
   justify-content: center;
   line-height: 1.25;
@@ -81,8 +80,6 @@
   position: relative;
   text-decoration: none;
   transition: all 250ms;
-  user-select: none;
-  -webkit-user-select: none;
   width: 110px;
   margin-left: 30px;
 }

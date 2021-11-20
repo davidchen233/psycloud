@@ -8,12 +8,14 @@ import {
   FaUserMd,
 } from 'react-icons/fa';
 import './profile.css';
+import { PUBLIC_URL } from '../../config/config';
+
+// inner pages
 import Personal from './Personal.js';
 import Consultation from './Consultation';
 import Orders from './Orders';
 import Test from './Test';
 import Psychologist from './Psychologist';
-import Avatar from './tempImg/avatar.jpg';
 
 // popup modals
 import PwdModal from './modals/PwdModal';
@@ -23,7 +25,8 @@ import PsyInfoForm from './modals/PsyInfoForm';
 import EditPsyInfoForm from './modals/EditPsyInfoForm';
 
 const Profile = () => {
-  const user = localStorage.getItem('user');
+  let user = JSON.parse(localStorage.getItem('user'));
+
   const [currentView, setCurrentView] = useState('profile');
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false);
@@ -49,39 +52,24 @@ const Profile = () => {
     e.currentTarget.classList.add('active');
   }
 
-  const openPwdModal = () => {
-    setShowPwdModal(true);
-  };
-  const closePwdModal = () => {
-    setShowPwdModal(false);
+  const togglePwdModal = () => {
+    setShowPwdModal(!showPwdModal);
   };
 
-  const openPersonalModal = () => {
-    setShowPersonalModal(true);
-  };
-  const closePersonalModal = () => {
-    setShowPersonalModal(false);
+  const togglePersonalModal = () => {
+    setShowPersonalModal(!showPersonalModal);
   };
 
-  const openOrderModal = () => {
-    setShowOrderModal(true);
-  };
-  const closeOrderModal = () => {
-    setShowOrderModal(false);
+  const toggleOrderModal = () => {
+    setShowOrderModal(!showOrderModal);
   };
 
-  const openPsyInfoForm = () => {
-    setShowPsyInfoForm(true);
-  };
-  const closePsyInfoForm = () => {
-    setShowPsyInfoForm(false);
+  const togglePsyInfoForm = () => {
+    setShowPsyInfoForm(!showPsyInfoForm);
   };
 
-  const openEditPsyInfoForm = () => {
-    setShowEditPsyInfoForm(true);
-  };
-  const closeEditPsyInfoForm = () => {
-    setShowEditPsyInfoForm(false);
+  const toggleEditPsyInfoForm = () => {
+    setShowEditPsyInfoForm(!showEditPsyInfoForm);
   };
 
   const switchView = () => {
@@ -89,21 +77,21 @@ const Profile = () => {
       case 'profile':
         return (
           <Personal
-            openPwdModal={openPwdModal}
-            openPersonalModal={openPersonalModal}
+            togglePwdModal={togglePwdModal}
+            togglePersonalModal={togglePersonalModal}
           />
         );
       case 'consultation':
         return <Consultation />;
       case 'orders':
-        return <Orders openModal={openOrderModal} />;
+        return <Orders toggleOrderModal={toggleOrderModal} />;
       case 'test':
         return <Test />;
       case 'psychologist':
         return (
           <Psychologist
-            openInfoModal={openPsyInfoForm}
-            openEditModal={openEditPsyInfoForm}
+            togglePsyInfoForm={togglePsyInfoForm}
+            toggleEditPsyInfoForm={toggleEditPsyInfoForm}
           />
         );
       default:
@@ -113,23 +101,25 @@ const Profile = () => {
 
   return (
     <>
-      {showPwdModal === true && <PwdModal closePwdModal={closePwdModal} />}
+      {showPwdModal === true && <PwdModal togglePwdModal={togglePwdModal} />}
       {showPersonalModal === true && (
-        <PersonalInfoForm closePersonalModal={closePersonalModal} />
+        <PersonalInfoForm togglePersonalModal={togglePersonalModal} />
       )}
-      {showOrderModal === true && <OrderModal closeModal={closeOrderModal} />}
+      {showOrderModal === true && (
+        <OrderModal toggleOrderModal={toggleOrderModal} />
+      )}
       {showPsyInfoForm === true && (
-        <PsyInfoForm closeModal={closePsyInfoForm} />
+        <PsyInfoForm togglePsyInfoForm={togglePsyInfoForm} />
       )}
       {showEditPsyInfoForm === true && (
-        <EditPsyInfoForm closeModal={closeEditPsyInfoForm} />
+        <EditPsyInfoForm toggleEditPsyInfoForm={toggleEditPsyInfoForm} />
       )}
       <div className="container">
         <div className="profile-template">
           <div>
             <div className="navigation">
               <div className="avatar">
-                <img src={Avatar} alt="" />
+                <img src={PUBLIC_URL + user.avatar} alt="" />
               </div>
               <ul>
                 <li
@@ -184,19 +174,23 @@ const Profile = () => {
                     <span className="title">檢測結果</span>
                   </div>
                 </li>
-                <li
-                  data-id="psychologist"
-                  className="list"
-                  ref={psychologistRef}
-                  onClick={handleClick}
-                >
-                  <div className="listItem">
-                    <span className="iconBx">
-                      <FaUserMd className="icon" />
-                    </span>
-                    <span className="title">心理師專區</span>
-                  </div>
-                </li>
+                {user.isPsychologist ? (
+                  <li
+                    data-id="psychologist"
+                    className="list"
+                    ref={psychologistRef}
+                    onClick={handleClick}
+                  >
+                    <div className="listItem">
+                      <span className="iconBx">
+                        <FaUserMd className="icon" />
+                      </span>
+                      <span className="title">心理師專區</span>
+                    </div>
+                  </li>
+                ) : (
+                  ''
+                )}
               </ul>
             </div>
           </div>

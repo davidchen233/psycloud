@@ -18,11 +18,9 @@ const CartSection = () => {
         <tbody>
           <tr>
             <td className="cart-tbody-td py-3">
-              <img
-                className="cart-tbody-image"
-                src="/sources/bear.jpg"
-                alt=""
-              />
+              <div className="cart-tbody-image">
+                <img src="/sources/bear.jpg" alt="" />
+              </div>
             </td>
             <td className="cart-tbody-td">章魚小麵團</td>
             <td className="cart-tbody-td">$299</td>
@@ -41,11 +39,9 @@ const CartSection = () => {
           </tr>
           <tr>
             <td className="cart-tbody-td py-3">
-              <img
-                className="cart-tbody-image"
-                src="/sources/bear.jpg"
-                alt=""
-              />
+              <div className="cart-tbody-image">
+                <img src="/sources/bear.jpg" alt="" />
+              </div>
             </td>
             <td className="cart-tbody-td">章魚小麵團</td>
             <td className="cart-tbody-td">$299</td>
@@ -64,11 +60,9 @@ const CartSection = () => {
           </tr>
           <tr>
             <td className="cart-tbody-td py-3">
-              <img
-                className="cart-tbody-image"
-                src="/sources/bear.jpg"
-                alt=""
-              />
+              <div className="cart-tbody-image">
+                <img src="/sources/bear.jpg" alt="" />
+              </div>
             </td>
             <td className="cart-tbody-td">章魚小麵團</td>
             <td className="cart-tbody-td">$299</td>

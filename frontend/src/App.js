@@ -1,5 +1,10 @@
 // 使用套件
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams,
+} from 'react-router-dom';
 
 // 頁面元件
 import Auth from './pages/auth/Auth';
@@ -16,6 +21,7 @@ import Relieve from './pages/product/Relieve';
 import Cart from './pages/cart/Cart';
 import Checkpage from './pages/cart/Checkpage';
 import ProductDetails from './pages/product/ProductDetails';
+import Chat from './pages/chatRoom/Chat';
 
 // 組合用元件
 import Header from './components/Header';
@@ -55,6 +61,9 @@ function App() {
             <Route path="/product">
               <ProductPage />
             </Route>
+            <Route path="/ProductDetails/:productID">
+              <ProductDetails />
+            </Route>
             <Route path="/StuffedToys">
               <StuffedToys />
             </Route>
@@ -64,14 +73,14 @@ function App() {
             <Route path="/Relieve">
               <Relieve />
             </Route>
-            <Route path="/ProductDetails">
-              <ProductDetails />
-            </Route>
             <Route path="/cart">
               <Cart />
             </Route>
             <Route path="/Checkpage">
               <Checkpage />
+            </Route>
+            <Route path="/chatRoom">
+              <Chat />
             </Route>
             <Route path="/">
               <Home />
