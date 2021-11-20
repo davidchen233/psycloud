@@ -3,6 +3,7 @@ import { NavLink, withRouter, useHistory } from 'react-router-dom';
 import Logo from './Logo';
 import './header.css';
 import { BsPerson, BsCart3 } from 'react-icons/bs';
+import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 import axios from 'axios';
 import { API_URL } from '../config/config';
 const Header = () => {
@@ -32,6 +33,7 @@ const Header = () => {
       axios.get(`${API_URL}/auth/logout`, { withCredentials: true });
       localStorage.removeItem('user');
       alert('登出成功');
+      setActiveIndex(-1);
       history.push('/');
     } catch (err) {
       console.log(err);
@@ -79,7 +81,7 @@ const Header = () => {
         </li>
         <li>
           <NavLink
-            to="/cart"
+            to={user ? '/cart' : '/auth'}
             onClick={() => {
               setActiveIndex(-1);
             }}
@@ -90,11 +92,25 @@ const Header = () => {
         {user ? (
           <li>
             <span className="logout" onClick={handleLogout}>
-              登出
+              <IoMdLogOut size="26" />
+              <span className="ms-1">登出</span>
             </span>
           </li>
         ) : (
-          ''
+          <NavLink
+            to="/auth"
+            className="logouta"
+            onClick={() => {
+              setActiveIndex(-1);
+            }}
+          >
+            <li>
+              <span className="logout">
+                <IoMdLogIn size="26" />
+                <span className="ms-1">登入</span>
+              </span>
+            </li>
+          </NavLink>
         )}
       </ul>
       <div

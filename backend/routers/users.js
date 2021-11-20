@@ -1,29 +1,47 @@
 const express = require("express");
-const connection = require('../utils/db_connection')
+const connection = require("../utils/db_connection");
 
 // 建立 router
 const router = express.Router();
 
 // 取得所有會員資料
-router.get("/", async(req,res)=>{
-  let data = await connection.queryAsync('SELECT * FROM users');
+router.get("/", async (req, res) => {
+  let data = await connection.queryAsync("SELECT * FROM users");
   res.json(data);
-})
+});
 
-// 取得單筆會員資料
-router.get("/:userId", async(req,res)=>{
-  let data = await connection.queryAsync('SELECT * FROM users WHERE id=?',
-  [req.params.userId]);
+// 取得登入會員資料
+router.get("/userInfo", async (req, res) => {
+  let data = await connection.queryAsync(
+    "SELECT * FROM users WHERE id=?",
+    req.session.user.id
+  );
 
-  // 判斷是否有資料
-  if (data.length>0){
-		res.json(data[0]);
-	} else {
-		res.status(404).send('查無此資料')
-	}
-})
+  data = data[0];
 
+  let returnUserData = {
+    id: data.id,
+    name: data.name,
+    username: data.username,
+    avatar: data.avatar,
+    email: data.email,
+    birth: data.birth,
+    isPsychologist: data.is_psychologist,
+    isAdmin: data.is_admin,
+  };
 
+  res.json(returnUserData);
+});
+
+// 取得登入者的測驗結果
+router.get("/userTestResult", async (req, res) => {
+  let data = await connection.queryAsync(
+    "SELECT * FROM test_results WHERE user_id=?",
+    [req.session.user.id]
+  );
+  data = data[0];
+  res.json(data);
+});
 
 // 匯出此 router
 module.exports = router;

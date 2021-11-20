@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import './consultation.css';
 import { FaVideo } from 'react-icons/fa';
 import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
+import { PERIOD } from '../../config/status';
 import Avatar from './tempImg/avatar.jpg';
 
 const Consultation = () => {
@@ -9,11 +10,19 @@ const Consultation = () => {
   const [rightDisabled, setRightDisabled] = useState('');
   const swipeLengthRef = useRef();
   const swiperWrapperRef = useRef();
-  const handleSwipe = () => {
-    console.log('position', swiperPosition);
-    console.log('卡片盒寬度', swipeLengthRef.current.offsetWidth);
-    console.log('slider寬度', swiperWrapperRef.current.offsetWidth);
-  };
+
+  // TODO: 替換掉假資料
+  const [consultations, setConsultations] = useState([
+    {
+      id: 1,
+      psychologist: '鴨子王',
+      date: '1998-10-30',
+      period: 1,
+      price: 2000,
+      status: '0',
+    },
+  ]);
+
   return (
     <>
       <div className="profile-heading">
@@ -25,63 +34,24 @@ const Consultation = () => {
           className="myConsult-wrapper"
           style={{ left: swiperPosition }}
         >
-          <div className="myConsult-card">
-            <h4>預約資訊</h4>
-            <div className="consult-avatarBx">
-              <img src={Avatar} alt="" />
-            </div>
-            <h5>心理師: 鴨子王</h5>
-            <p>預約日期: 2021/8/9</p>
-            <p>預約時段: 上午(10:00 - 12:00)</p>
-            <p>價格: 2000/次</p>
-            <p>狀態: 未開啟</p>
-            <button>
-              <FaVideo size="22" color="#333" />
-            </button>
-          </div>
-          <div className="myConsult-card">
-            <h4>預約資訊</h4>
-            <div className="consult-avatarBx">
-              <img src={Avatar} alt="" />
-            </div>
-            <h5>心理師: 鴨子王</h5>
-            <p>預約日期: 2021/8/9</p>
-            <p>預約時段: 上午(10:00 - 12:00)</p>
-            <p>價格: 2000/次</p>
-            <p>狀態: 未開啟</p>
-            <button>
-              <FaVideo size="22" color="#333" />
-            </button>
-          </div>
-
-          <div className="myConsult-card">
-            <h4>預約資訊</h4>
-            <div className="consult-avatarBx">
-              <img src={Avatar} alt="" />
-            </div>
-            <h5>心理師: 鴨子王</h5>
-            <p>預約日期: 2021/8/9</p>
-            <p>預約時段: 上午(10:00 - 12:00)</p>
-            <p>價格: 2000/次</p>
-            <p>狀態: 未開啟</p>
-            <button>
-              <FaVideo size="22" color="#333" />
-            </button>
-          </div>
-          <div className="myConsult-card">
-            <h4>預約資訊</h4>
-            <div className="consult-avatarBx">
-              <img src={Avatar} alt="" />
-            </div>
-            <h5>心理師: 鴨子王</h5>
-            <p>預約日期: 2021/8/9</p>
-            <p>預約時段: 上午(10:00 - 12:00)</p>
-            <p>價格: 2000/次</p>
-            <p>狀態: 未開啟</p>
-            <button>
-              <FaVideo size="22" color="#333" />
-            </button>
-          </div>
+          {consultations.map((consultation) => {
+            return (
+              <div className="myConsult-card" key={consultation.id}>
+                <h4>預約資訊</h4>
+                <div className="consult-avatarBx">
+                  <img src={Avatar} alt="" />
+                </div>
+                <h5>心理師: {consultation.psychologist}</h5>
+                <p>預約日期: {consultation.date}</p>
+                <p>預約時段: {PERIOD[consultation.period]}</p>
+                <p>價格: {consultation.price}/次</p>
+                <p>狀態: {consultation.status}</p>
+                <button>
+                  <FaVideo size="22" color="#333" />
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className="d-flex justify-content-center align-items-center">
@@ -94,7 +64,6 @@ const Consultation = () => {
             } else {
               setSwiperPosition(swiperPosition + 400);
             }
-            handleSwipe();
           }}
         >
           <BsArrowLeftCircle size="36" color="#565656" />
@@ -114,7 +83,6 @@ const Consultation = () => {
             } else {
               setSwiperPosition(swiperPosition - 400);
             }
-            handleSwipe();
           }}
         >
           <BsArrowRightCircle size="36" color="#565656" />

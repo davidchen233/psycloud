@@ -2,11 +2,11 @@ import './orderModal.css';
 import { GrClose } from 'react-icons/gr';
 import ProductImg from '../tempImg/12.jpg';
 
-const OrderModal = ({ closeModal }) => {
+const OrderModal = ({ toggleOrderModal }) => {
   return (
     <div className="orderModal-mask">
       <div className="orderModal">
-        <GrClose size="30" className="close" onClick={closeModal} />
+        <GrClose size="30" className="close" onClick={toggleOrderModal} />
         <h3 className="mb-4">訂單詳情</h3>
         <div className="row mb-2 ps-3">
           <div className="col-md-6 mb-3">
