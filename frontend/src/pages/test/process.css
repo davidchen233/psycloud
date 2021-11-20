@@ -41,6 +41,11 @@
 
     }
 
+    .card-body{
+        height: 350px;
+            margin: 0 50px;
+    }
+
     /* .carousel-control-next-icon:after
     {
     content: '>';
