@@ -26,6 +26,7 @@ import EditPsyInfoForm from './modals/EditPsyInfoForm';
 
 const Profile = () => {
   let user = JSON.parse(localStorage.getItem('user'));
+
   const [currentView, setCurrentView] = useState('profile');
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false);
@@ -173,19 +174,23 @@ const Profile = () => {
                     <span className="title">檢測結果</span>
                   </div>
                 </li>
-                <li
-                  data-id="psychologist"
-                  className="list"
-                  ref={psychologistRef}
-                  onClick={handleClick}
-                >
-                  <div className="listItem">
-                    <span className="iconBx">
-                      <FaUserMd className="icon" />
-                    </span>
-                    <span className="title">心理師專區</span>
-                  </div>
-                </li>
+                {user.isPsychologist ? (
+                  <li
+                    data-id="psychologist"
+                    className="list"
+                    ref={psychologistRef}
+                    onClick={handleClick}
+                  >
+                    <div className="listItem">
+                      <span className="iconBx">
+                        <FaUserMd className="icon" />
+                      </span>
+                      <span className="title">心理師專區</span>
+                    </div>
+                  </li>
+                ) : (
+                  ''
+                )}
               </ul>
             </div>
           </div>

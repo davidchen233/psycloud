@@ -50,41 +50,41 @@ const result = () => {
                 </div>
               </div>
               <div className="row mt-3">
-              <Swiper
-                effect={'coverflow'}
-                // slidesPerView={3}
-                grabCursor={true}
-                centeredSlides={true}
-                coverflowEffect={{
-                  rotate: 0,
-                  stretch: 0,
-                  depth: 0,
-                  modifier: 1,
-                  slideShadows: false,
-                }}
-                breakpoints={{
-                  // when window width is >= 480px
-                  640: {
-                    slidesPerView: 1,
-                    spaceBetween: 1,
-                  },
-                  996: {
-                    slidesPerView: 3,
-                    spaceBetween: 1,
-                  },
-                }}
-                loop={true}
-              >
-                <SwiperSlide>
-                  <TestPsychologist />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <TestPsychologist />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <TestPsychologist />
-                </SwiperSlide>                
-              </Swiper>
+                <Swiper
+                  effect={'coverflow'}
+                  // slidesPerView={3}
+                  grabCursor={true}
+                  centeredSlides={true}
+                  coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 0,
+                    modifier: 1,
+                    slideShadows: false,
+                  }}
+                  breakpoints={{
+                    // when window width is >= 480px
+                    640: {
+                      slidesPerView: 1,
+                      spaceBetween: 1,
+                    },
+                    996: {
+                      slidesPerView: 3,
+                      spaceBetween: 1,
+                    },
+                  }}
+                  loop={true}
+                >
+                  <SwiperSlide>
+                    <TestPsychologist />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <TestPsychologist />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <TestPsychologist />
+                  </SwiperSlide>
+                </Swiper>
               </div>
               <div className="mt-5 location">
                 <h4>-您可能會喜歡的舒壓好物-</h4>
@@ -96,44 +96,44 @@ const result = () => {
               </div>
               {/* 產品                 */}
               <div className="row mt-3">
-              <Swiper
-                effect={'coverflow'}
-                // slidesPerView={3}
-                grabCursor={true}
-                centeredSlides={true}
-                coverflowEffect={{
-                  rotate: 0,
-                  stretch: 0,
-                  depth: 0,
-                  modifier: 1,
-                  slideShadows: false,
-                }}
-                breakpoints={{
-                  // when window width is >= 480px
-                  640: {
-                    slidesPerView: 1,
-                    spaceBetween: 1,
-                  },
-                  996: {
-                    slidesPerView: 4,
-                    spaceBetween: 1,
-                  },
-                }}
-                loop={true}
-              >
-                <SwiperSlide>
-                  <TestProduct />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <TestProduct />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <TestProduct />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <TestProduct />
-                </SwiperSlide>
-              </Swiper>             
+                <Swiper
+                  effect={'coverflow'}
+                  // slidesPerView={3}
+                  grabCursor={true}
+                  centeredSlides={true}
+                  coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 0,
+                    modifier: 1,
+                    slideShadows: false,
+                  }}
+                  breakpoints={{
+                    // when window width is >= 480px
+                    640: {
+                      slidesPerView: 1,
+                      spaceBetween: 1,
+                    },
+                    996: {
+                      slidesPerView: 4,
+                      spaceBetween: 1,
+                    },
+                  }}
+                  loop={true}
+                >
+                  <SwiperSlide>
+                    <TestProduct />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <TestProduct />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <TestProduct />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <TestProduct />
+                  </SwiperSlide>
+                </Swiper>
               </div>
               {/* 產品                 */}
             </div>

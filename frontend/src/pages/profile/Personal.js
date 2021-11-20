@@ -6,7 +6,6 @@ import Banner from './tempImg/banner.png';
 
 const Personal = ({ togglePwdModal, togglePersonalModal }) => {
   let user = JSON.parse(localStorage.getItem('user'));
-  console.log(user);
 
   return (
     <>
