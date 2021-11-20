@@ -1,7 +1,10 @@
 import './process.css';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
+import axios from 'axios';
+import { API_URL } from '../../config/config';
+import { useHistory } from 'react-router-dom';
 
 const Process = () => {
   const [score, setScore] = useState({
@@ -18,6 +21,8 @@ const Process = () => {
     q11: '',
     q12: '',
   });
+  let user = JSON.parse(localStorage.getItem('user'));
+  console.log(user);
   const [pressureType, setPressureType] = useState('');
   const handleScoreChange = (e) => {
     const updatedScore = {
@@ -31,7 +36,9 @@ const Process = () => {
     setPressureType(e.target.value);
   };
 
-  function handleSubmit(e) {
+  let history = useHistory();
+
+  async function handleSubmit(e) {
     e.preventDefault();
     let scoreObj = Object.values(score);
     console.log(scoreObj);
@@ -51,14 +58,28 @@ const Process = () => {
     } else {
       result = 3;
     }
-    let testResult = { pressure: pressureType, pressure_level: result };
+    let testResult = {
+      user_id: user.id,
+      pressure_type: +pressureType,
+      pressure_level: result,
+      now: new Date(),
+    };
     console.log(testResult);
+
+    let res = await axios.post(`${API_URL}/tests/result`,testResult);
+    console.log(res)
+    history.push("/Result")
   }
+  
+
+
+  const now = 7.7;
+
   return (
     <>
       <form name="test" onSubmit={handleSubmit}>
-        <Carousel wrap={false} interval={null}>
-          <Carousel.Item indicators={false}>
+        <Carousel wrap={false} interval={null} indicators={false}>
+          <Carousel.Item>
             <div className="container">
               <div className="row mx-auto maxwid">
                 <div className="col-md-12 text-center mt-3">
@@ -138,12 +159,12 @@ const Process = () => {
                   <div
                     className="progress-bar progress-bar-striped"
                     role="progressbar"
-                    style={{ width: '0%' }}
+                    style={{ width: '10%' }}
                     aria-valuenow={10}
                     aria-valuemin={0}
                     aria-valuemax={100}
                   >
-                    0%
+                    {now / 2}%
                   </div>
                 </div>
               </div>
@@ -689,12 +710,12 @@ const Process = () => {
                   <div
                     className="progress-bar progress-bar-striped"
                     role="progressbar"
-                    style={{ width: '90%' }}
+                    style={{ width: 'calc(12/13*100%)' }}
                     aria-valuenow={10}
                     aria-valuemin={0}
                     aria-valuemax={100}
                   >
-                    90%
+                    {now * '12'}%
                   </div>
                 </div>
               </div>
