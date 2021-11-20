@@ -10,13 +10,9 @@ const Test = () => {
   const [result, setResult] = useState(TEST_RESULT[0]);
 
   useEffect(async () => {
-    let res = await axios.get(
-      `http://localhost:3001/api/users/userTestResult`,
-      {
-        withCredentials: true,
-      }
-    );
-
+    let res = await axios.get(`${API_URL}/users/userTestResult`, {
+      withCredentials: true,
+    });
     setResult(TEST_RESULT[res.data.pressure_level]);
   }, []);
   console.log(result);
