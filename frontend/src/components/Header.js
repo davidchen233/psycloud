@@ -22,7 +22,7 @@ const Header = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const menuItems = ['壓力檢測', '預約心理師', '紓壓小物', '心情聊天室'];
   const menuLinks = {
-    壓力檢測: 'test',
+    壓力檢測: user ? 'test' : 'auth',
     預約心理師: 'doctor',
     紓壓小物: 'product',
     心情聊天室: 'chatRoom',
