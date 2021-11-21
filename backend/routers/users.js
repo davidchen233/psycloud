@@ -57,6 +57,9 @@ router.get("/userTestResult", async (req, res) => {
     "SELECT * FROM test_results WHERE user_id=?",
     [req.session.user.id]
   );
+  if (data.length === 0) {
+    res.json({ status: "none", message: "未填寫" });
+  }
   data = data[0];
   res.json(data);
 });

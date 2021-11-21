@@ -11,6 +11,8 @@ import withReactContent from 'sweetalert2-react-content';
 import './calendar.css';
 
 const Calendar = () => {
+  let localUser = JSON.parse(localStorage.getItem('user'));
+
   const MySwal = withReactContent(Swal);
   const [currentEvent, setcurrentEvent] = useState({
     id: '',
@@ -25,8 +27,9 @@ const Calendar = () => {
   });
 
   useEffect(async () => {
-    // TODO: 換成當下使用者
-    let res = await axios(`${API_URL}/reservations/psychologistEvents/1`);
+    let res = await axios(
+      `${API_URL}/reservations/psychologistEvents/${localUser.psychologistId}`
+    );
     let eventData = res.data.map((currentEvent) => {
       return {
         event_id: currentEvent.id,
@@ -79,7 +82,7 @@ const Calendar = () => {
   async function createEvent(e) {
     e.preventDefault();
     let postData = {
-      psychologist_id: 1,
+      id: localUser.psychologistId,
       date: e.target.date.value,
       period: e.target.period.value,
     };
@@ -87,7 +90,9 @@ const Calendar = () => {
     let res = await axios.post(`${API_URL}/reservations/createEvent`, postData);
     setShow(false);
     MySwal.fire(res.data.message).then(async () => {
-      let res = await axios(`${API_URL}/reservations/psychologistEvents/1`);
+      let res = await axios(
+        `${API_URL}/reservations/psychologistEvents/${localUser.psychologistId}`
+      );
       let eventData = res.data.map((currentEvent) => {
         return {
           id: currentEvent.id,
@@ -122,7 +127,9 @@ const Calendar = () => {
     let res = await axios.post(`${API_URL}/reservations/editEvent`, postData);
     setShow(false);
     MySwal.fire(res.data.message).then(async () => {
-      let res = await axios(`${API_URL}/reservations/psychologistEvents/1`);
+      let res = await axios(
+        `${API_URL}/reservations/psychologistEvents/${localUser.psychologistId}`
+      );
       let eventData = res.data.map((currentEvent) => {
         return {
           id: currentEvent.id,

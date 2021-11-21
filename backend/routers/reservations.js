@@ -31,7 +31,7 @@ router.post("/createEvent", async (req, res) => {
 
   let data = await connection.queryAsync(
     "INSERT INTO reservations (psychologist_id,date,period) VALUE(?)",
-    [[req.body.psychologist_id, req.body.date, req.body.period]]
+    [[req.body.id, req.body.date, req.body.period]]
   );
   res.json({ code: "0", message: "新增成功" });
 });
