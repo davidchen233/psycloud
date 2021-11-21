@@ -18,18 +18,36 @@ router.get("/userInfo", async (req, res) => {
   );
 
   data = data[0];
+  let returnUserData = {};
 
-  let returnUserData = {
-    id: data.id,
-    name: data.name,
-    username: data.username,
-    avatar: data.avatar,
-    email: data.email,
-    birth: data.birth,
-    isPsychologist: data.is_psychologist,
-    isAdmin: data.is_admin,
-  };
-
+  if (data.is_psychologist === 1) {
+    let psychologistInfo = await connection.queryAsync(
+      "SELECT * FROM psychologists WHERE user_id=?",
+      [data.id]
+    );
+    returnUserData = {
+      id: data.id,
+      psychologist_id: psychologistInfo.id,
+      name: data.name,
+      username: data.username,
+      avatar: data.avatar,
+      email: data.email,
+      birth: data.birth,
+      isPsychologist: data.is_psychologist,
+      isAdmin: data.is_admin,
+    };
+  } else {
+    returnUserData = {
+      id: data.id,
+      name: data.name,
+      username: data.username,
+      avatar: data.avatar,
+      email: data.email,
+      birth: data.birth,
+      isPsychologist: data.is_psychologist,
+      isAdmin: data.is_admin,
+    };
+  }
   res.json(returnUserData);
 });
 

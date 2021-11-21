@@ -30,7 +30,7 @@ const Orders = ({ toggleOrderModal }) => {
         {/* TODO: map 出訂單內容 */}
         {orders.map((order) => {
           return (
-            <div className="row mb-4 align-items-center">
+            <div className="row mb-4 align-items-center" key={order.id}>
               <div className="col-2">{order.order_code}</div>
               <div className="col-3">{order.created_at}</div>
               <div className="col-2">$ {order.total}</div>
