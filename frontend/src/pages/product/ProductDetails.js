@@ -16,7 +16,7 @@ const ProductDetails = () => {
     setProductDetail(res.data);
 
     let newCatProducts = await axios.get(
-      `${API_URL}/products//similarproduct/${res.data.product_category}`
+      `${API_URL}/products/similarproduct/${res.data.product_category}`
     );
     setCategoryProducts(newCatProducts.data);
     console.log(newCatProducts);
