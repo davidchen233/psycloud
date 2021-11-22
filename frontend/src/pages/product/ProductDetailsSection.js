@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, withRouter, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { PUBLIC_URL, API_URL } from '../../config/config';
 import { GlobalValues } from '../../App';
@@ -12,6 +12,8 @@ const ProductDetailsSection = ({
   productInfo,
 }) => {
   let globalValues = useContext(GlobalValues);
+  let user = localStorage.getItem('user');
+  let history = useHistory();
   const { productID } = useParams();
   const [smallimages, setsmallimages] = useState([]);
   const [viewPic, setViewPic] = useState(image);
@@ -20,7 +22,6 @@ const ProductDetailsSection = ({
   useEffect(async () => {
     let res = await axios.get(`${API_URL}/products/${productID}/images`);
     setsmallimages(res.data);
-
     setViewPic(image);
   }, [image]);
 
@@ -32,7 +33,9 @@ const ProductDetailsSection = ({
     let newAmount = e.target.value;
     setAmount(newAmount);
   };
-
+  if (image === undefined) {
+    return <></>;
+  }
   return (
     <div className="detail-product d-flex mx-auto justify-content-between">
       <div className="d-flex justify-content-evenly">
@@ -78,21 +81,25 @@ const ProductDetailsSection = ({
               className="me-md-2 detail-btn1"
               type="button"
               onClick={(e) => {
-                if (localStorage.getItem(productInfo.id)) {
-                  alert('您已加入購物車');
+                if (!user) {
+                  history.push('/auth');
                 } else {
-                  localStorage.setItem(
-                    productInfo.id,
-                    e.currentTarget.children[0].value
-                  );
-                  let newCart = localStorage.getItem('cart');
-                  newCart += `${productInfo.id},`;
-                  localStorage.setItem('cart', newCart);
+                  if (localStorage.getItem(productInfo.id)) {
+                    alert('您已加入購物車');
+                  } else {
+                    localStorage.setItem(
+                      productInfo.id,
+                      e.currentTarget.children[0].value
+                    );
+                    let newCart = localStorage.getItem('cart');
+                    newCart += `${productInfo.id},`;
+                    localStorage.setItem('cart', newCart);
 
-                  let cartStr = localStorage.getItem('cart');
-                  let cartObj = cartStr.split(',');
-                  let cartCount = cartObj.length - 1;
-                  globalValues.setCartCount(cartCount);
+                    let cartStr = localStorage.getItem('cart');
+                    let cartObj = cartStr.split(',');
+                    let cartCount = cartObj.length - 1;
+                    globalValues.setCartCount(cartCount);
+                  }
                 }
               }}
             >
@@ -116,4 +123,4 @@ const ProductDetailsSection = ({
   );
 };
 
-export default ProductDetailsSection;
+export default withRouter(ProductDetailsSection);
