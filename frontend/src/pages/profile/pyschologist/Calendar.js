@@ -67,6 +67,7 @@ const Calendar = () => {
     };
     setcurrentEvent(getTime);
     setModalInfo({ title: '編輯', function: editEvent });
+    console.log(info.event.extendedProps);
   };
 
   const closeEventModal = (e) => {
@@ -147,7 +148,7 @@ const Calendar = () => {
           backgroundColor: currentEvent.reserved ? '#FF5151' : '#4F4F4F',
         };
       });
-      console.log(eventData);
+      console.log(res.data);
       setEvent(eventData);
     });
   }
@@ -160,7 +161,12 @@ const Calendar = () => {
         </Modal.Header>
         <Modal.Body>
           <form className="d-flex" id="eventForm" onSubmit={modalInfo.function}>
-            <input type="text" value={currentEvent.id} hidden name="id" />
+            <input
+              type="text"
+              defaultValue={currentEvent.id}
+              hidden
+              name="id"
+            />
             <input
               name="date"
               type="date"
