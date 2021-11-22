@@ -1,5 +1,6 @@
 const express = require("express");
 const connection = require("../utils/db_connection");
+const moment = require("moment");
 
 // 建立 router
 const router = express.Router();
@@ -12,6 +13,9 @@ router.get("/psychologistEvents/:psychologistId", async (req, res) => {
   );
 
   if (data.length > 0) {
+    for (let i = 0; i < data.length; i++) {
+      data[i].date = moment(data[i].date).format("YYYY-MM-DD");
+    }
     res.json(data);
   } else {
     data = [];

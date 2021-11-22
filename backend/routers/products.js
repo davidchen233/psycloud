@@ -15,7 +15,7 @@ router.get("/hotproducts", async (req, res) => {
 // 抓分類推薦商品
 router.get("/similarproduct/:categoryID", async (req, res) => {
   let data = await connection.queryAsync(
-    "SELECT * FROM products WHERE product_category = ? ORDER BY sold DESC LIMIT 10",
+    "SELECT * FROM products WHERE product_category = ? ORDER BY sold DESC LIMIT 6",
     [req.params.categoryID]
   );
   res.json(data);
