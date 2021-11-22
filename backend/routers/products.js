@@ -42,7 +42,8 @@ router.get("/product/:productID", async (req, res) => {
   }
 });
 
-//取得小照片
+
+// 取得小照片
 router.get("/:productID/images", async (req, res) => {
   let data = await connection.queryAsync(
     "SELECT * FROM product_images WHERE product_id=?",
