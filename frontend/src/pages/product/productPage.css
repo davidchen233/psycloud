@@ -92,6 +92,10 @@ body {
   color: rgb(78, 78, 78);
 }
 
+.hot a:hover {
+  color: rgb(78, 78, 78);
+}
+
 .hotImg {
   width: 250px;
   height: 250px;

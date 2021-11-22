@@ -7,9 +7,25 @@ import axios from 'axios';
 import { PUBLIC_URL, API_URL } from '../../config/config';
 
 const ProductDetails = () => {
-  const { productID } = useParams();
+  const { productID, catagoryID } = useParams();
   const [productDetail, setProductDetail] = useState({});
-  const [productCategory, setProductCategory] = useState(0);
+  const [productCategory, setProductCategory] = useState(true);
+
+  useEffect(async () => {
+    let res = await axios.get(`${API_URL}/products/product/${productID}`);
+    setProductDetail(res.data);
+  }, []);
+  console.log(productDetail);
+
+  // useEffect(async () => {
+  //   try {
+  //     let res = await axios.get(`${API_URL}/prouduts/catagory/${catagoryID}`);
+  //     setProductCategory(res.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }, []);
+  // console.log(productCategory);
 
   useEffect(async () => {
     try {
@@ -20,16 +36,20 @@ const ProductDetails = () => {
       console.log(err);
     }
   }, []);
+  console.log(productCategory);
 
   return (
     <>
       <ProductDetailsSection
-        productDetail={productDetail}
-        samplepic="/sources/sample.jpg"
+        productDetail={productDetail.id}
+        image={PUBLIC_URL + productDetail.image}
+        name={productDetail.name}
+        description={productDetail.description}
+        price={productDetail.price}
       />
       <ProductDetailSeemore
-        product_category={productCategory}
-        samplepic="/sources/sample.jpg"
+        productCategory={productCategory.id}
+        similarpic={PUBLIC_URL + productCategory.image}
       />
     </>
   );

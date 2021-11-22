@@ -10,16 +10,16 @@ export default class CenterMode extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      similarproduct: [],
+      similar: [],
     };
   }
-
   async componentDidMount() {
     let res = await axios.get(
-      `${API_URL}/similarproduct/${this.props.product_category}`
+      `${API_URL}/products/product/${this.props.productCategory}`
     );
+    res.json();
 
-    console.log(`${API_URL}/similarproduct/${this.props.product_category}`);
+    console.log(`${API_URL}/similar/${this.props.productCategory}`);
   }
 
   render() {
