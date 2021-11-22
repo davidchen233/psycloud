@@ -22,7 +22,6 @@ const ProductDetailsSection = ({
   useEffect(async () => {
     let res = await axios.get(`${API_URL}/products/${productID}/images`);
     setsmallimages(res.data);
-
     setViewPic(image);
   }, [image]);
 
@@ -34,7 +33,9 @@ const ProductDetailsSection = ({
     let newAmount = e.target.value;
     setAmount(newAmount);
   };
-
+  if (image === undefined) {
+    return <></>;
+  }
   return (
     <div className="detail-product d-flex mx-auto justify-content-between">
       <div className="d-flex justify-content-evenly">
