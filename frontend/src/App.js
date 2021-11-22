@@ -39,6 +39,9 @@ export const GlobalValues = createContext({
 });
 
 function App() {
+  if (!localStorage.getItem('cart')) {
+    localStorage.setItem('cart', '');
+  }
   let cartStr = localStorage.getItem('cart');
   let cartObj = cartStr.split(',');
   let cartNum = cartObj.length === 0 ? 0 : cartObj.length - 1;
