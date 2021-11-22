@@ -174,23 +174,19 @@ const Profile = () => {
                     <span className="title">檢測結果</span>
                   </div>
                 </li>
-                {user.isPsychologist ? (
-                  <li
-                    data-id="psychologist"
-                    className="list"
-                    ref={psychologistRef}
-                    onClick={handleClick}
-                  >
-                    <div className="listItem">
-                      <span className="iconBx">
-                        <FaUserMd className="icon" />
-                      </span>
-                      <span className="title">心理師專區</span>
-                    </div>
-                  </li>
-                ) : (
-                  ''
-                )}
+                <li
+                  data-id="psychologist"
+                  className={`list ${user.isPsychologist ? '' : 'invisible'}`}
+                  ref={psychologistRef}
+                  onClick={handleClick}
+                >
+                  <div className="listItem">
+                    <span className="iconBx">
+                      <FaUserMd className="icon" />
+                    </span>
+                    <span className="title">心理師專區</span>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>

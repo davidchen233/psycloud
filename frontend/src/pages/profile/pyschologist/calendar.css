@@ -1,0 +1,16 @@
+.fc-daygrid-day-events {
+  cursor: pointer;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 15px;
+}
+
+.fc a {
+  text-decoration: none;
+  color: rgb(51, 51, 51);
+}
+
+.fc-daygrid-day-events a {
+  color: #4797ff;
+}
