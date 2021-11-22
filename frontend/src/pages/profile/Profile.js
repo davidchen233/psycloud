@@ -26,6 +26,7 @@ import EditPsyInfoForm from './modals/EditPsyInfoForm';
 
 const Profile = () => {
   let user = JSON.parse(localStorage.getItem('user'));
+
   const [currentView, setCurrentView] = useState('profile');
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false);
@@ -175,7 +176,7 @@ const Profile = () => {
                 </li>
                 <li
                   data-id="psychologist"
-                  className="list"
+                  className={`list ${user.isPsychologist ? '' : 'invisible'}`}
                   ref={psychologistRef}
                   onClick={handleClick}
                 >

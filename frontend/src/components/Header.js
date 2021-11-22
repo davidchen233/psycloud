@@ -6,7 +6,11 @@ import { BsPerson, BsCart3 } from 'react-icons/bs';
 import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 import axios from 'axios';
 import { API_URL } from '../config/config';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
 const Header = () => {
+  const MySwal = withReactContent(Swal);
   // TODO: 是否已登入
   let user = JSON.parse(localStorage.getItem('user'));
 
@@ -22,7 +26,7 @@ const Header = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const menuItems = ['壓力檢測', '預約心理師', '紓壓小物', '心情聊天室'];
   const menuLinks = {
-    壓力檢測: 'test',
+    壓力檢測: user ? 'test' : 'auth',
     預約心理師: 'doctor',
     紓壓小物: 'product',
     心情聊天室: 'chatRoom',
@@ -32,9 +36,10 @@ const Header = () => {
     try {
       axios.get(`${API_URL}/auth/logout`, { withCredentials: true });
       localStorage.removeItem('user');
-      alert('登出成功');
-      setActiveIndex(-1);
-      history.push('/');
+      MySwal.fire({ title: '登出成功', icon: 'success' }).then(() => {
+        setActiveIndex(-1);
+        history.push('/');
+      });
     } catch (err) {
       console.log(err);
     }
@@ -81,7 +86,7 @@ const Header = () => {
         </li>
         <li>
           <NavLink
-            to="/cart"
+            to={user ? '/cart' : '/auth'}
             onClick={() => {
               setActiveIndex(-1);
             }}
