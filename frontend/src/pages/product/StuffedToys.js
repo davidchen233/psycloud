@@ -9,12 +9,27 @@ import './StuffedToys.css';
 
 const StuffedItem = () => {
   const [stuffed, setstuffed] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   useEffect(async () => {
     let res = await axios.get(`${API_URL}/products/category/1`);
     setstuffed(res.data);
+    setFilteredProducts(res.data);
   }, []);
-  console.log(stuffed);
 
+  const [search, setSearch] = useState('');
+  const handleSearch = async (e) => {
+    setSearch(e.target.value);
+    if (!e.target.value) {
+      setFilteredProducts(stuffed);
+    }
+  };
+
+  const handleFilter = () => {
+    let filteredProduct = stuffed.filter((item) => {
+      return item.name.includes(search);
+    });
+    setFilteredProducts(filteredProduct);
+  };
   return (
     <div className="container">
       <section className="S-Title">
@@ -34,15 +49,20 @@ const StuffedItem = () => {
             type="text"
             placeholder="Search.."
             name="search"
+            value={search}
+            onChange={handleSearch}
+            onKeyPress={(e) => {
+              e.key === 'Enter' && handleFilter();
+            }}
           />
-          <button class="btn-search">
+          <button class="btn-search" onClick={handleFilter}>
             <FaSearch />
           </button>
         </div>
       </div>
 
       <div className="flex-wrapper1">
-        {stuffed.map((stuffeditem) => {
+        {filteredProducts.map((stuffeditem) => {
           return (
             <Link to={`/ProductDetails/${stuffeditem.id}`}>
               <StuffedToysItem

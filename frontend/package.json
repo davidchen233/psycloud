@@ -19,6 +19,7 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "jquery": "^3.6.0",
+    "keen-slider": "^5.5.1",
     "moment": "^2.29.1",
     "prettier": "^2.4.1",
     "prop-types": "^15.7.2",

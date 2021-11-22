@@ -1,5 +1,11 @@
 .detail-product {
   padding: 80px;
+  width: 90%;
+}
+
+.right-content {
+  max-width: 600px;
+  min-width: 400px;
 }
 
 .product-small-img {
