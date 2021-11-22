@@ -56,6 +56,9 @@ const Auth = () => {
       } else {
         console.log(res.data.user);
         localStorage.setItem('user', JSON.stringify(res.data.user));
+        if (!localStorage.getItem('cart')) {
+          localStorage.setItem('cart', '');
+        }
         MySwal.fire({ title: res.data.message, icon: 'success' }).then(() => {
           history.push('/');
         });

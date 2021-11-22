@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { NavLink, withRouter, useHistory } from 'react-router-dom';
 import Logo from './Logo';
 import './header.css';
@@ -8,8 +8,12 @@ import axios from 'axios';
 import { API_URL } from '../config/config';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { GlobalValues } from '../App';
 
 const Header = () => {
+  let globalValues = useContext(GlobalValues);
+  console.log('cartCount', globalValues.cartCount);
+
   const MySwal = withReactContent(Swal);
   // TODO: 是否已登入
   let user = JSON.parse(localStorage.getItem('user'));
@@ -91,7 +95,14 @@ const Header = () => {
               setActiveIndex(-1);
             }}
           >
-            <BsCart3 size="26" />
+            <div className="header-cart">
+              {user ? (
+                <div className="cartCount">{globalValues.cartCount}</div>
+              ) : (
+                ''
+              )}
+              <BsCart3 size="26" />
+            </div>
           </NavLink>
         </li>
         {user ? (

@@ -1,62 +1,27 @@
-import React, { Component } from 'react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
-import './ProductDetails.css';
-import axios from 'axios';
+import './seemore.css';
 import { PUBLIC_URL, API_URL } from '../../config/config';
+import { Link } from 'react-router-dom';
 
-export default class CenterMode extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      similarproduct: [],
-    };
+const ProductDetailSeemore = ({ categoryProducts }) => {
+  if (categoryProducts === undefined) {
+    return <></>;
   }
-
-  async componentDidMount() {
-    let res = await axios.get(
-      `${API_URL}/similarproduct/${this.props.product_category}`
-    );
-
-    console.log(`${API_URL}/similarproduct/${this.props.product_category}`);
-  }
-
-  render() {
-    const settings = {
-      className: 'center',
-      centerMode: true,
-      infinite: true,
-      centerPadding: '200px',
-      slidesToShow: 3,
-      speed: 800,
-      autoplay: true,
-      pauseOnHover: true,
-    };
-    return (
-      <div className="container slick">
-        <h3 className="text-center">其他人也看了...</h3>
-        <Slider {...settings}>
-          <div>
-            <img src={this.props.samplepic} alt="" />
-          </div>
-          <div>
-            <img src={this.props.samplepic} alt="" />
-          </div>
-          <div>
-            <img src={this.props.samplepic} alt="" />
-          </div>
-          <div>
-            <img src={this.props.samplepic} alt="" />
-          </div>
-          <div>
-            <img src={this.props.samplepic} alt="" />
-          </div>
-          <div>
-            <img src={this.props.samplepic} alt="" />
-          </div>
-        </Slider>
+  return (
+    <div className="seeMoreWrapper">
+      <h4>其他人也看了 ... </h4>
+      <div className="seeMoreContent">
+        {categoryProducts.map((seemores) => {
+          return (
+            <a href={`/ProductDetails/${seemores.id}`} alt="">
+              <div className="seeMoreImg">
+                <img src={PUBLIC_URL + seemores.image} alt="" />
+              </div>
+            </a>
+          );
+        })}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default ProductDetailSeemore;
