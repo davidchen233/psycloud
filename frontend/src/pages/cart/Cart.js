@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import CartSection from './CartSection';
-import CheckoutFormSection from './CheckoutFormSection';
 import CreditCards from './CreditCards';
 import './checkoutFormSection.css';
 import './cart.css';
 
 const Cart = () => {
   const [cartInfo, setCartInfo] = useState({});
+
   return (
     <div className="container">
       <div className="Cart-Title mb-4">
@@ -18,7 +18,7 @@ const Cart = () => {
       <div className="row checkform ">
         <div className="col-md-5 checkout-div">
           <div className="checkout-Title">
-            <h3 class="CF-h3">-會員資料-</h3>
+            <h3 class="CF-h3">-訂購資訊-</h3>
           </div>
           <div className="CF-body">
             <form>

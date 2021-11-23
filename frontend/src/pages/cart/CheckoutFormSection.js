@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import CreditCards from './CreditCards';
 import './checkoutFormSection.css';
-import { Link } from 'react-router-dom';
 
 const CheckoutFormSection = ({ cartInfo }) => {
   return (

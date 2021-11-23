@@ -30,7 +30,7 @@ const CartSection = ({ setCartInfo }) => {
 
   useEffect(() => {
     setFinalTotal(total + shipping);
-    setCartInfo({ total: finalTotal });
+    setCartInfo({ total: total + shipping, cartItems: cartItemsState });
   }, [cartItemsState]);
 
   // 三元運算子
