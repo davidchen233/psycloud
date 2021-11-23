@@ -3,7 +3,7 @@ import CreditCards from './CreditCards';
 import './checkoutFormSection.css';
 import { Link } from 'react-router-dom';
 
-const CheckoutFormSection = () => {
+const CheckoutFormSection = ({ cartInfo }) => {
   return (
     <>
       <div className="row checkform ">
@@ -46,11 +46,16 @@ const CheckoutFormSection = () => {
         <button className="CF-btn1 me-md-2" type="button">
           繼續逛逛
         </button>
-        <Link to="/Checkpage">
-          <button className="CF-btn2" type="button">
-            下一步
-          </button>
-        </Link>
+
+        <button
+          className="CF-btn2"
+          type="button"
+          onClick={() => {
+            console.log(cartInfo);
+          }}
+        >
+          下一步
+        </button>
       </div>
     </>
   );
