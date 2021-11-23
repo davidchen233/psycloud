@@ -1,6 +1,5 @@
 import './seemore.css';
 import { PUBLIC_URL, API_URL } from '../../config/config';
-import { Link } from 'react-router-dom';
 
 const ProductDetailSeemore = ({ categoryProducts }) => {
   if (categoryProducts === undefined) {

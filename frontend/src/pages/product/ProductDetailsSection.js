@@ -111,11 +111,40 @@ const ProductDetailsSection = ({
               />
               加入購物車
             </button>
-            <Link to="/cart">
-              <button className="detail-btn2" type="button">
-                直接購買
-              </button>
-            </Link>
+            <button
+              className="detail-btn2"
+              type="button"
+              onClick={(e) => {
+                if (!user) {
+                  history.push('/auth');
+                } else {
+                  if (localStorage.getItem(productInfo.id)) {
+                    history.push('/cart');
+                  } else {
+                    localStorage.setItem(
+                      productInfo.id,
+                      e.currentTarget.children[0].value
+                    );
+                    let newCart = localStorage.getItem('cart');
+                    newCart += `${productInfo.id},`;
+                    localStorage.setItem('cart', newCart);
+
+                    let cartStr = localStorage.getItem('cart');
+                    let cartObj = cartStr.split(',');
+                    let cartCount = cartObj.length - 1;
+                    globalValues.setCartCount(cartCount);
+                    history.push('/cart');
+                  }
+                }
+              }}
+            >
+              <input
+                type="text"
+                value={`${productInfo.image}|${productInfo.name}|${productInfo.price}|${amount}`}
+                hidden
+              />
+              直接購買
+            </button>
           </div>
         </div>
       </div>
