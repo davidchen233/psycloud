@@ -3,6 +3,7 @@
   background-color: rgb(255, 255, 255, 0.7);
   box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.1);
   padding: 30px 80px;
+  min-height: 200px;
 }
 
 .Cart-Title {
