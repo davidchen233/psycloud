@@ -26,6 +26,7 @@ import EditPsyInfoForm from './modals/EditPsyInfoForm';
 
 const Profile = () => {
   let user = JSON.parse(localStorage.getItem('user'));
+  const [avatar, setAvatar] = useState(user.avatar);
 
   const [currentView, setCurrentView] = useState('profile');
   const [showPwdModal, setShowPwdModal] = useState(false);
@@ -79,6 +80,7 @@ const Profile = () => {
           <Personal
             togglePwdModal={togglePwdModal}
             togglePersonalModal={togglePersonalModal}
+            setAvatar={setAvatar}
           />
         );
       case 'consultation':
@@ -119,7 +121,7 @@ const Profile = () => {
           <div>
             <div className="navigation">
               <div className="avatar">
-                <img src={PUBLIC_URL + user.avatar} alt="" />
+                <img src={PUBLIC_URL + avatar} alt="" />
               </div>
               <ul>
                 <li
