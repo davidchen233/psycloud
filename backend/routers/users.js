@@ -1,5 +1,7 @@
 const express = require("express");
 const connection = require("../utils/db_connection");
+const multer = require("multer");
+const path = require("path");
 
 // 建立 router
 const router = express.Router();
@@ -62,6 +64,44 @@ router.get("/userTestResult", async (req, res) => {
   }
   data = data[0];
   res.json(data);
+});
+
+// 設定 muler
+const storage = multer.diskStorage({
+  // 設定路徑
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, "..", "public", "user_avatar"));
+  },
+  filename: function (req, file, cb) {
+    const ext = file.originalname.split(".").pop();
+    cb(null, `user-${Date.now()}.${ext}`);
+  },
+});
+
+const uploader = multer({
+  storage: storage,
+  fileFilter: function (req, file, cb) {
+    if (file.mimetype !== "image/jpeg" && file.mimetype !== "image/png") {
+      cb(new Error("檔案不符合格式喔"), false);
+    } else {
+      cb(null, true);
+    }
+  },
+  // limit:{
+  //   fileSize
+  // }
+});
+
+// 上傳大頭貼
+router.post("/uploadAvatar", uploader.single("avatar"), async (req, res) => {
+  let filename = req.file ? "/user_avatar/" + req.file.filename : "";
+
+  let result = await connection.queryAsync(
+    "UPDATE users SET avatar=? WHERE id =?",
+    [filename, req.session.user.id]
+  );
+
+  res.json({ code: "0", avatar: filename });
 });
 
 // 匯出此 router
