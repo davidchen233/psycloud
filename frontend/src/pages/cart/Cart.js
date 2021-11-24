@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import CartSection from './CartSection';
 import CreditCards from './CreditCards';
@@ -25,17 +25,6 @@ const Cart = () => {
     setPersonalInfo(newPersonalInfo);
   };
 
-  // 驗證 個人資訊和信用卡資訊的表單
-  const submitforms = () => {
-    // document.getElementById('personalInfoForm').submit();
-    // document.getElementById('creditForm').submit();
-  };
-
-  const handlepersonalSubmit = (e) => {
-    e.preventDefault();
-    alert('sent');
-  };
-
   return (
     <div className="container">
       <div className="Cart-Title mb-4">
@@ -44,89 +33,108 @@ const Cart = () => {
           <CartSection setCartInfo={setCartInfo} />
         </div>
       </div>
-      <div className="row checkform ">
-        <div className="col-md-5 checkout-div">
-          <div className="checkout-Title">
-            <h3 class="CF-h3">-訂購資訊-</h3>
-          </div>
-          <div className="CF-body">
-            <form id="personalInfoForm" onSubmit={handlepersonalSubmit}>
-              <div className="form-group cf-group mb-3">
-                <input
-                  type="text"
-                  size="40"
-                  placeholder="姓名"
-                  name="name"
-                  value={personalInfo.name}
-                  required
-                  onChange={handlePersonalInfoChange}
-                />
-                <input
-                  type="text"
-                  size="40"
-                  maxlength="10"
-                  placeholder="手機"
-                  name="phone"
-                  value={personalInfo.phone}
-                  required
-                  onChange={handlePersonalInfoChange}
-                />
-                <input
-                  type="text"
-                  size="40"
-                  maxlength="10"
-                  placeholder="宅配地址"
-                  name="address"
-                  value={personalInfo.address}
-                  required
-                  onChange={handlePersonalInfoChange}
-                />
+      {localStorage.getItem('cart') ? (
+        <>
+          <div className="row checkform ">
+            <div className="col-md-5 checkout-div">
+              <div className="checkout-Title">
+                <h3 class="CF-h3">-訂購資訊-</h3>
               </div>
-            </form>
+              <div className="CF-body">
+                <form id="personalInfoForm">
+                  <div className="form-group cf-group mb-3">
+                    <input
+                      type="text"
+                      size="40"
+                      placeholder="姓名"
+                      name="name"
+                      value={personalInfo.name}
+                      required
+                      onChange={handlePersonalInfoChange}
+                    />
+                    <input
+                      type="text"
+                      size="40"
+                      maxlength="10"
+                      placeholder="手機"
+                      name="phone"
+                      value={personalInfo.phone}
+                      required
+                      onChange={handlePersonalInfoChange}
+                    />
+                    <input
+                      type="text"
+                      size="40"
+                      maxlength="10"
+                      placeholder="宅配地址"
+                      name="address"
+                      value={personalInfo.address}
+                      required
+                      onChange={handlePersonalInfoChange}
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div className="col-md-6 checkout-div3">
+              <div className="checkout-Title">
+                <h3 class="CF-h3">-付款方式-</h3>
+              </div>
+              <div className="creditCard">
+                <CreditCards setcredicCardInfo={setcredicCardInfo} />
+              </div>
+            </div>
           </div>
-        </div>
+          <div className="d-grid gap-2 pt-5 d-md-flex justify-content-md-end">
+            <button className="CF-btn1 me-md-2" type="button">
+              繼續逛逛
+            </button>
 
-        <div className="col-md-6 checkout-div3">
-          <div className="checkout-Title">
-            <h3 class="CF-h3">-付款方式-</h3>
+            <button
+              className="CF-btn2"
+              type="button"
+              onClick={() => {
+                // 檢查資料是否有沒填寫的
+                if (
+                  !personalInfo.name ||
+                  !personalInfo.phone ||
+                  !personalInfo.address ||
+                  !credicCardInfo.cvc ||
+                  !credicCardInfo.expiry ||
+                  !credicCardInfo.focus ||
+                  !credicCardInfo.name ||
+                  !credicCardInfo.number
+                ) {
+                  alert('資料未填寫完整');
+                } else {
+                  let orderInfo = { ...personalInfo, total: cartInfo.total };
+                  let orderItem = cartInfo.cartItems;
+                  // console.log('orderInfo', orderInfo);
+                  // console.log('orderItem', orderItem);
+                  // console.log('credicCardInfo', credicCardInfo);
+
+                  let orderInfostr = JSON.stringify(orderInfo);
+                  let orderItemstr = JSON.stringify(orderItem);
+                  let credicCardInfostr = JSON.stringify(credicCardInfo);
+
+                  sessionStorage.setItem('orderInfostr', orderInfostr);
+                  sessionStorage.setItem('orderItemstr', orderItemstr);
+                  sessionStorage.setItem(
+                    'credicCardInfostr',
+                    credicCardInfostr
+                  );
+                  history.push('/checkpage');
+                }
+              }}
+            >
+              下一步
+            </button>
           </div>
-          <div className="creditCard">
-            <CreditCards setcredicCardInfo={setcredicCardInfo} />
-          </div>
-        </div>
-      </div>
-
-      <div className="d-grid gap-2 pt-5 d-md-flex justify-content-md-end">
-        <button className="CF-btn1 me-md-2" type="button">
-          繼續逛逛
-        </button>
-
-        <button
-          className="CF-btn2"
-          type="submit"
-          form="personalInfoForm"
-          onClick={() => {
-            submitforms();
-
-            let orderInfo = { ...personalInfo, total: cartInfo.total };
-            let orderItem = cartInfo.cartItems;
-            // console.log('orderInfo', orderInfo);
-            // console.log('orderItem', orderItem);
-            // console.log('credicCardInfo', credicCardInfo);
-
-            let orderInfostr = JSON.stringify(orderInfo);
-            let orderItemstr = JSON.stringify(orderItem);
-            let credicCardInfostr = JSON.stringify(credicCardInfo);
-
-            sessionStorage.setItem('orderInfostr', orderInfostr);
-            sessionStorage.setItem('orderItemstr', orderItemstr);
-            sessionStorage.setItem('credicCardInfostr', credicCardInfostr);
-            // history.push('/checkpage');
-          }}
-        >
-          下一步
-        </button>
-      </div>
+        </>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

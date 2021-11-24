@@ -16,6 +16,7 @@ import Decors from './pages/product/Decors';
 import Relieve from './pages/product/Relieve';
 import Cart from './pages/cart/Cart';
 import Checkpage from './pages/cart/Checkpage';
+import OrderCompleted from './pages/cart/OrderCompleted';
 import ProductDetails from './pages/product/ProductDetails';
 import Chat from './pages/chatRoom/Chat';
 
@@ -87,6 +88,9 @@ function App() {
               </Route>
               <Route path="/cart">
                 <Cart />
+              </Route>
+              <Route path="/OrderCompleted">
+                <OrderCompleted />
               </Route>
               <Route
                 path="/checkpage"

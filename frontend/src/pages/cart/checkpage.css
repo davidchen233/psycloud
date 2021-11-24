@@ -12,7 +12,7 @@
   border-radius: 15px;
   background-color: rgb(255, 255, 255, 0.7);
   box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.1);
-  padding: 30px 80px;
+  padding: 60px 80px 40px;
   display: flex;
   justify-content: center;
 }
@@ -20,4 +20,5 @@
 .CP-text {
   text-align: center;
   letter-spacing: 2px;
+  font-size: 18px;
 }

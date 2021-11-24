@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 import { PUBLIC_URL } from '../../config/config';
 import { GlobalValues } from '../../App';
@@ -36,7 +37,14 @@ const CartSection = ({ setCartInfo }) => {
   // 三元運算子
   // 判斷式?如果TRUE的結果:如果FALSE的結果
   if (cartObj.length === 0) {
-    return <h3 style={{ color: '#9D9D9D' }}>您尚未加入商品</h3>;
+    return (
+      <>
+        <h3 style={{ color: '#9D9D9D' }}>您尚未加入商品</h3>
+        <Link to="/product" className="CF-btn1 text-decoration-none">
+          回到商品頁
+        </Link>
+      </>
+    );
   }
 
   return (
@@ -135,7 +143,7 @@ const CartSection = ({ setCartInfo }) => {
                     globalValues.setCartCount(cartCount);
                   }}
                 >
-                  <FaTrashAlt />
+                  <FaTrashAlt size="24" />
                 </td>
               </tr>
             );

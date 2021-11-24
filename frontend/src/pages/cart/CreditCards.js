@@ -25,10 +25,6 @@ export default class PaymentForm extends React.Component {
     this.props.setcredicCardInfo(this.state);
   };
 
-  handleSubmit = (e) => {
-    alert('sent');
-  };
-
   render() {
     return (
       <div id="PaymentForm">
@@ -39,11 +35,7 @@ export default class PaymentForm extends React.Component {
           name={this.state.name}
           number={this.state.number}
         />
-        <form
-          className="creditform"
-          id="creditForm"
-          onSubmit={this.handleSubmit}
-        >
+        <form className="creditform" id="creditForm">
           <div class="row">
             <div class="col-md-6">
               <input
