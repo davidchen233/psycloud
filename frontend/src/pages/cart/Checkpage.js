@@ -14,16 +14,6 @@ const Checkpage = () => {
           <Checkpageform />
         </div>
       </div>
-      <div className="d-grid gap-2 pt-5 d-md-flex justify-content-md-center">
-        <Link to="/Cart">
-          <button className="CF-btn1 me-md-2" type="button">
-            回上一頁
-          </button>
-        </Link>
-        <button className="CF-btn2" type="button">
-          確定結帳
-        </button>
-      </div>
     </>
   );
 };
