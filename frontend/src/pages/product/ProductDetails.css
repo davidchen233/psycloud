@@ -81,7 +81,12 @@
   width: 25%;
   border-bottom: 1px solid rgb(0, 0, 0);
   text-align: center;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.021);
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 1;
 }
 
 .slick img {

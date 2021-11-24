@@ -1,11 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import CartSection from './CartSection';
 import CreditCards from './CreditCards';
 import './checkoutFormSection.css';
 import './cart.css';
 
 const Cart = () => {
+  const history = useHistory();
+  const [credicCardInfo, setcredicCardInfo] = useState({});
+
+  // 購物車資訊
   const [cartInfo, setCartInfo] = useState({});
+
+  // 個人資料
+  const [personalInfo, setPersonalInfo] = useState({
+    name: '',
+    phone: '',
+    address: '',
+  });
+
+  const handlePersonalInfoChange = (e) => {
+    let newPersonalInfo = { ...personalInfo };
+    newPersonalInfo[e.target.name] = e.target.value;
+    setPersonalInfo(newPersonalInfo);
+  };
+
+  // 驗證 個人資訊和信用卡資訊的表單
+  const submitforms = () => {
+    // document.getElementById('personalInfoForm').submit();
+    // document.getElementById('creditForm').submit();
+  };
+
+  const handlepersonalSubmit = (e) => {
+    e.preventDefault();
+    alert('sent');
+  };
 
   return (
     <div className="container">
@@ -21,20 +50,36 @@ const Cart = () => {
             <h3 class="CF-h3">-訂購資訊-</h3>
           </div>
           <div className="CF-body">
-            <form>
+            <form id="personalInfoForm" onSubmit={handlepersonalSubmit}>
               <div className="form-group cf-group mb-3">
-                <input type="text" size="40" placeholder="姓名" />
+                <input
+                  type="text"
+                  size="40"
+                  placeholder="姓名"
+                  name="name"
+                  value={personalInfo.name}
+                  required
+                  onChange={handlePersonalInfoChange}
+                />
                 <input
                   type="text"
                   size="40"
                   maxlength="10"
                   placeholder="手機"
+                  name="phone"
+                  value={personalInfo.phone}
+                  required
+                  onChange={handlePersonalInfoChange}
                 />
                 <input
                   type="text"
                   size="40"
                   maxlength="10"
                   placeholder="宅配地址"
+                  name="address"
+                  value={personalInfo.address}
+                  required
+                  onChange={handlePersonalInfoChange}
                 />
               </div>
             </form>
@@ -46,7 +91,7 @@ const Cart = () => {
             <h3 class="CF-h3">-付款方式-</h3>
           </div>
           <div className="creditCard">
-            <CreditCards />
+            <CreditCards setcredicCardInfo={setcredicCardInfo} />
           </div>
         </div>
       </div>
@@ -58,9 +103,25 @@ const Cart = () => {
 
         <button
           className="CF-btn2"
-          type="button"
+          type="submit"
+          form="personalInfoForm"
           onClick={() => {
-            console.log(cartInfo);
+            submitforms();
+
+            let orderInfo = { ...personalInfo, total: cartInfo.total };
+            let orderItem = cartInfo.cartItems;
+            // console.log('orderInfo', orderInfo);
+            // console.log('orderItem', orderItem);
+            // console.log('credicCardInfo', credicCardInfo);
+
+            let orderInfostr = JSON.stringify(orderInfo);
+            let orderItemstr = JSON.stringify(orderItem);
+            let credicCardInfostr = JSON.stringify(credicCardInfo);
+
+            sessionStorage.setItem('orderInfostr', orderInfostr);
+            sessionStorage.setItem('orderItemstr', orderItemstr);
+            sessionStorage.setItem('credicCardInfostr', credicCardInfostr);
+            // history.push('/checkpage');
           }}
         >
           下一步

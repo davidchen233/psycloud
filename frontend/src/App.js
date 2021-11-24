@@ -1,11 +1,6 @@
 // 使用套件
 import { createContext, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // 頁面元件
 import Auth from './pages/auth/Auth';
@@ -93,7 +88,12 @@ function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
-              <Route path="/Checkpage">
+              <Route
+                path="/checkpage"
+                onLeave={() => {
+                  alert('hello');
+                }}
+              >
                 <Checkpage />
               </Route>
               <Route path="/chatRoom">

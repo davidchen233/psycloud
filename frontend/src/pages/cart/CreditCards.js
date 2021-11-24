@@ -3,13 +3,16 @@ import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 
 export default class PaymentForm extends React.Component {
-  state = {
-    cvc: '',
-    expiry: '',
-    focus: '',
-    name: '',
-    number: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      cvc: '',
+      expiry: '',
+      focus: '',
+      name: '',
+      number: '',
+    };
+  }
 
   handleInputFocus = (e) => {
     this.setState({ focus: e.target.name });
@@ -19,6 +22,11 @@ export default class PaymentForm extends React.Component {
     const { name, value } = e.target;
 
     this.setState({ [name]: value });
+    this.props.setcredicCardInfo(this.state);
+  };
+
+  handleSubmit = (e) => {
+    alert('sent');
   };
 
   render() {
@@ -31,7 +39,11 @@ export default class PaymentForm extends React.Component {
           name={this.state.name}
           number={this.state.number}
         />
-        <form className="creditform">
+        <form
+          className="creditform"
+          id="creditForm"
+          onSubmit={this.handleSubmit}
+        >
           <div class="row">
             <div class="col-md-6">
               <input
@@ -40,6 +52,7 @@ export default class PaymentForm extends React.Component {
                 size="25"
                 maxLength="16"
                 placeholder="信用卡號"
+                required
                 onChange={this.handleInputChange}
                 onFocus={this.handleInputFocus}
               />
@@ -50,6 +63,7 @@ export default class PaymentForm extends React.Component {
                 name="name"
                 size="25"
                 placeholder="信用卡上姓名"
+                required
                 onChange={this.handleInputChange}
                 onFocus={this.handleInputFocus}
               />
@@ -61,6 +75,7 @@ export default class PaymentForm extends React.Component {
                 size="25"
                 maxLength="4"
                 placeholder="到期日"
+                required
                 onChange={this.handleInputChange}
                 onFocus={this.handleInputFocus}
               />
@@ -72,6 +87,7 @@ export default class PaymentForm extends React.Component {
                 size="25"
                 placeholder="驗證碼"
                 maxLength="3"
+                required
                 onChange={this.handleInputChange}
                 onFocus={this.handleInputFocus}
               />

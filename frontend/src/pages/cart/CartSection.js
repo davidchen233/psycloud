@@ -73,7 +73,7 @@ const CartSection = ({ setCartInfo }) => {
                     min="1"
                     onChange={(e) => {
                       // 最少為 1
-                      if (e.target.value === '') {
+                      if (e.target.value === '' || e.target.value <= 0) {
                         e.target.value = 1;
                       }
 
