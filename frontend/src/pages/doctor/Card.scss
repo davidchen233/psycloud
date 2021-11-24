@@ -1,22 +1,47 @@
+.flex-container {
+  width: 300px;
+  height: 430px;
+}
+
 .recommend-card {
+  position: relative;
   padding: 2em 3em;
+  height: 95%;
   margin: 0.5em;
   border-radius: 29px;
   background: linear-gradient(#ffffda50, #f6c9d950);
   box-shadow: 5px 5px 10px #cecfc7, -5px -5px 10px #ffffff;
-  transition: all ease-in-out 250ms;
+  transition: transform ease-in-out 250ms, border-radius ease-in-out 250ms,
+    box-shadow ease-in-out 250ms;
   text-align: center;
-
+  .name {
+    font-size: 1.6em;
+    padding: 0;
+    margin: 0.2em 0px 0px 0px;
+  }
   img {
     border-radius: 50%;
     background: #fff2f0;
     box-shadow: 5px 5px 10px #bec2c2, -5px -5px 10px #ffffff;
+    width: 180px;
+  }
+
+  .expertise {
+    height: 28%;
+    overflow: hidden;
+    p {
+      line-height: '1.5em';
+      margin: 0;
+    }
   }
 
   p {
     margin: 1.2em 0em;
   }
   button {
+    position: absolute;
+    bottom: 20px;
+    transform: translate(-50%);
     border: 2px solid #4797ff;
     border-radius: 8px;
     padding: 0.25em;
@@ -36,5 +61,6 @@
   transform: scale(1.005, 1.005);
   border-radius: 29px;
   box-shadow: 20px 20px 40px #e4e6dd, -20px -20px 40px #ffffff;
-  transition: all ease-in-out 250ms;
+  transition: transform ease-in-out 250ms, border-radius ease-in-out 250ms,
+    box-shadow ease-in-out 250ms;
 }

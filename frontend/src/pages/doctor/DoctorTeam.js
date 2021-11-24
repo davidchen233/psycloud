@@ -5,10 +5,18 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
+import axios from 'axios';
 
 function DoctorTeam() {
+  const [doctors, setDoctors] = useState([]);
+
   useEffect(() => {
     AOS.init({ offset: 200, duration: 1500, once: true, easing: 'ease-in' });
+    let fetch = async () => {
+      let res = await axios.get('http://localhost:3001/api/doctors');
+      setDoctors(res.data);
+    };
+    fetch();
   }, []);
 
   const [showBtn, setShowBtn] = useState(true);
@@ -44,36 +52,9 @@ function DoctorTeam() {
           <button className="search-btn round">壓力檢測</button>
         </section>
         <section className="team-container">
-          <div data-aos="fade">
-            <Card />
-          </div>
-          <div data-aos="fade">
-            <Card />
-          </div>
-          <div data-aos="fade">
-            <Card />
-          </div>
-          <div data-aos="fade">
-            <Card />
-          </div>
-          <div data-aos="fade">
-            <Card />
-          </div>
-          <div data-aos="fade">
-            <Card />
-          </div>
-          <div data-aos="fade">
-            <Card />
-          </div>
-          <div data-aos="fade">
-            <Card />
-          </div>
-          <div data-aos="fade">
-            <Card />
-          </div>
-          <div data-aos="fade">
-            <Card />
-          </div>
+          {doctors.map((doctor) => (
+            <Card {...doctor} />
+          ))}
         </section>
       </section>
       {/* had to write this to overwrite the home page background... */}

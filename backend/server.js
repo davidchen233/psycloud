@@ -16,7 +16,7 @@ app.use(
     origin: ["http://localhost:3000"],
     credentials: true,
   })
-);
+);  
 
 // 讀取 body 的資料
 app.use(express.urlencoded({ extended: true }));

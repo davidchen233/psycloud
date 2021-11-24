@@ -20,7 +20,7 @@ $font-color: #006ead;
   animation-delay: 2.4s;
 }
 .dr-fade-in {
-  animation-name: pop-up;
+  animation-name: dr-pop-up;
   animation-duration: 3s;
   animation-fill-mode: both;
 }
@@ -32,8 +32,8 @@ $font-color: #006ead;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-areas:
     'summary summary calender calender'
-    'cv expertise calender calender'
-    'cv expertise calender calender';
+    'expertise cv calender calender'
+    'expertise cv calender calender';
 }
 
 .neu {
@@ -43,6 +43,11 @@ $font-color: #006ead;
 }
 
 .dr-portfolio {
+  .dr-descriptive {
+    // line-height: 1.5em;
+    padding: 0;
+    margin: 0;
+  }
   h3 {
     font-size: 1.2em;
     color: $font-color;
@@ -127,13 +132,14 @@ $font-color: #006ead;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 1em;
   }
 }
 
 .dr-press:hover {
-  transform: translateY(-0.1em);
+  transform: translateY(0.02em);
   box-shadow: 2px 2px 2px #e4e6dd;
-  transition: all ease-in-out 250ms;
+  // transition: all ease-in-out 250ms;
 }
 
 @media only screen and (max-width: 1300px) {
