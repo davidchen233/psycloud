@@ -14,13 +14,13 @@ const Checkpageform = ({ history }) => {
   console.log('orderItem', orderItem);
 
   //離開頁面時清除sessionstorage
-  useEffect(() => {
-    history.listen(() => {
-      sessionStorage.removeItem('orderInfostr');
-      sessionStorage.removeItem('orderItemstr');
-      sessionStorage.removeItem('credicCardInfostr');
-    });
-  }, []);
+  // useEffect(() => {
+  //   history.listen(() => {
+  //     localStorage.removeItem('orderInfostr');
+  //     localStorage.removeItem('orderItemstr');
+  //     localStorage.removeItem('creditCardInfostr');
+  //   });
+  // }, []);
 
   let creatOrder = async () => {
     let res = await axios.post(
@@ -66,7 +66,13 @@ const Checkpageform = ({ history }) => {
         </p>
 
         <div className="d-grid gap-2 pt-5 d-md-flex justify-content-md-center">
-          <button className="CF-btn1 me-md-2" type="button">
+          <button
+            className="CF-btn1 me-md-2"
+            type="button"
+            onClick={() => {
+              redirect.push('/cart');
+            }}
+          >
             回上一頁
           </button>
           <button className="CF-btn2" type="button" onClick={creatOrder}>

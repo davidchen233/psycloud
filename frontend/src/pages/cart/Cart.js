@@ -65,7 +65,6 @@ const Cart = () => {
                     <input
                       type="text"
                       size="40"
-                      maxlength="10"
                       placeholder="宅配地址"
                       name="address"
                       value={personalInfo.address}
@@ -121,7 +120,7 @@ const Cart = () => {
                   sessionStorage.setItem('orderInfostr', orderInfostr);
                   sessionStorage.setItem('orderItemstr', orderItemstr);
                   sessionStorage.setItem(
-                    'credicCardInfostr',
+                    'creditCardInfostr',
                     credicCardInfostr
                   );
                   history.push('/checkpage');
