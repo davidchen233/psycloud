@@ -3,6 +3,7 @@ const connection = require("../utils/db_connection");
 const multer = require("multer");
 const path = require("path");
 const moment = require("moment");
+const { loginCheckMiddleware } = require("../middlewares/auth");
 
 // 建立 router
 const router = express.Router();
@@ -12,6 +13,8 @@ router.get("/", async (req, res) => {
   let data = await connection.queryAsync("SELECT * FROM users");
   res.json(data);
 });
+
+// router.use(loginCheckMiddleware);
 
 // 取得登入會員資料
 router.get("/userInfo", async (req, res) => {
