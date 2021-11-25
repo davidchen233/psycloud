@@ -111,7 +111,10 @@ const Profile = () => {
     <>
       {showPwdModal === true && <PwdModal togglePwdModal={togglePwdModal} />}
       {showPersonalModal === true && (
-        <PersonalInfoForm togglePersonalModal={togglePersonalModal} />
+        <PersonalInfoForm
+          togglePersonalModal={togglePersonalModal}
+          setShowPersonalModal={setShowPersonalModal}
+        />
       )}
       {showOrderModal === true && (
         <OrderModal toggleOrderModal={toggleOrderModal} orderId={orderId} />

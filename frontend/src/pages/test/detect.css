@@ -1,80 +1,72 @@
+.maxwid {
+  max-width: 768px;
+}
+.card-body {
+  height: 350px;
+  margin: 0 50px;
+}
+.startbt {
+  background-color: #4797ff;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  width: 85px;
+}
+.del-line {
+  text-decoration: none;
+}
+.outermost {
+  border-radius: 15px;
+}
 
+.arrow-page-left {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  top: 50%;
+  margin-top: -30px;
+  padding: 0;
+  font-weight: 900;
+}
 
-        html,
-        body {
-            height: 100%;
-        }
-        .maxwid{
-            max-width: 768px;
-        }
-        .card-body {
-            height: 350px;
-            margin: 0 50px;
-        }
-        .startbt{
-          background-color:#4797FF ;color:white;border-radius: 7px;border:none;width:85px;
-        }
-        .del-line{
-          text-decoration: none;
-        }
-        .outermost{
-          border-radius: 15px;
-        }
+.arrow-page-right {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  top: 50%;
+  margin-top: -30px;
+  padding: 0;
+}
 
-        .arrow-page-left {
-            position: absolute;
-            left: 0;
-            z-index: 10;
-            top: 50%;
-            margin-top: -30px;
-            padding: 0;
-            font-weight: 900;
-        }
+.arrow-page-right svg {
+  font-weight: 900;
+}
 
-        .arrow-page-right {
-            position: absolute;
-            right: 0;
-            z-index: 10;
-            top: 50%;
-            margin-top: -30px;
-            padding: 0;
-        }
+/* a {
+  color: black;
+} */
 
-        .arrow-page-right svg {
-            font-weight: 900;
-        }
+.radio-font {
+  color: #4797ff;
+}
 
-        a {
-            color: black;
-        }
+.cocolor {
+  color: #4797ff;
+}
 
-        .radio-font {
-            color: #4797FF;
-          }
-          
-          .cocolor{
-            color: #4797FF;
-          }
-          
-          h2 {
-            text-align: center;
-          }
-          
-          .first-cloud {
-            position: absolute;
-            right: 10px;
-            bottom: 50px;
+.first-cloud {
+  position: absolute;
+  right: 10px;
+  bottom: 50px;
 
-            width: 100px;
-            height: 100px;
-          }
+  width: 100px;
+  height: 100px;
+}
 
-          @media screen and (min-width: 768px){
-            .first-cloud{
-              position: relative;
-              left: 200px;
-              top: 1px;
-            }
-        }
-
-        
+@media screen and (min-width: 768px) {
+  .first-cloud {
+    position: relative;
+    left: 200px;
+    top: 1px;
+  }
+}

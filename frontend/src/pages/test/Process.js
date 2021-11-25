@@ -66,12 +66,10 @@ const Process = () => {
     };
     console.log(testResult);
 
-    let res = await axios.post(`${API_URL}/tests/result`,testResult);
-    console.log(res)
-    history.push("/Result")
+    let res = await axios.post(`${API_URL}/tests/result`, testResult);
+    console.log(res);
+    history.push('/Result');
   }
-  
-
 
   const now = 7.7;
 

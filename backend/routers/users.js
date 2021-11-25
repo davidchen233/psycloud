@@ -2,6 +2,7 @@ const express = require("express");
 const connection = require("../utils/db_connection");
 const multer = require("multer");
 const path = require("path");
+const moment = require("moment");
 
 // 建立 router
 const router = express.Router();
@@ -27,6 +28,7 @@ router.get("/userInfo", async (req, res) => {
       "SELECT * FROM psychologists WHERE user_id=?",
       [data.id]
     );
+    let birth = moment(data.birth).format("YYYY-MM-DD");
     returnUserData = {
       id: data.id,
       psychologist_id: psychologistInfo.id,
@@ -34,7 +36,7 @@ router.get("/userInfo", async (req, res) => {
       username: data.username,
       avatar: data.avatar,
       email: data.email,
-      birth: data.birth,
+      birth: birth,
       isPsychologist: data.is_psychologist,
       isAdmin: data.is_admin,
     };
@@ -45,12 +47,21 @@ router.get("/userInfo", async (req, res) => {
       username: data.username,
       avatar: data.avatar,
       email: data.email,
-      birth: data.birth,
+      birth: birth,
       isPsychologist: data.is_psychologist,
       isAdmin: data.is_admin,
     };
   }
   res.json(returnUserData);
+});
+
+// 更改個人資料
+router.post("/editInfo", async (req, res) => {
+  let data = await connection.queryAsync(
+    "UPDATE users SET name=?, birth=? WHERE id=?",
+    [req.body.name, req.body.birth, req.session.user.id]
+  );
+  res.json({ code: "0", message: "編輯成功" });
 });
 
 // 取得登入者的測驗結果
