@@ -32,6 +32,7 @@ const Profile = () => {
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false);
   const [showOrderModal, setShowOrderModal] = useState(false);
+  const [orderId, setOrderId] = useState(0);
   const [showPsyInfoForm, setShowPsyInfoForm] = useState(false);
   const [showEditPsyInfoForm, setShowEditPsyInfoForm] = useState(false);
 
@@ -86,7 +87,12 @@ const Profile = () => {
       case 'consultation':
         return <Consultation />;
       case 'orders':
-        return <Orders toggleOrderModal={toggleOrderModal} />;
+        return (
+          <Orders
+            setShowOrderModal={setShowOrderModal}
+            setOrderId={setOrderId}
+          />
+        );
       case 'test':
         return <Test />;
       case 'psychologist':
@@ -108,7 +114,7 @@ const Profile = () => {
         <PersonalInfoForm togglePersonalModal={togglePersonalModal} />
       )}
       {showOrderModal === true && (
-        <OrderModal toggleOrderModal={toggleOrderModal} />
+        <OrderModal toggleOrderModal={toggleOrderModal} orderId={orderId} />
       )}
       {showPsyInfoForm === true && (
         <PsyInfoForm togglePsyInfoForm={togglePsyInfoForm} />
