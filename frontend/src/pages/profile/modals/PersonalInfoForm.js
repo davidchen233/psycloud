@@ -3,11 +3,17 @@ import './formModal.css';
 import { GrClose } from 'react-icons/gr';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
-const PersonalInfoForm = ({ togglePersonalModal }) => {
+import { API_URL } from '../../../config/config';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const PersonalInfoForm = ({ togglePersonalModal, setShowPersonalModal }) => {
+  const MySwal = withReactContent(Swal);
+  let user = JSON.parse(localStorage.getItem('user'));
+
   const [inputs, setInputs] = useState({
-    name: '神奇寶貝',
-    birth: '1998-10-30',
-    phone: '0912345678',
+    name: user.name,
+    birth: user.birth,
   });
 
   function handleChange(e) {
@@ -18,7 +24,6 @@ const PersonalInfoForm = ({ togglePersonalModal }) => {
   const [inputErrors, setInputErrors] = useState({
     name: '',
     birth: '',
-    phone: '',
   });
 
   function handleFormInvalid(e) {
@@ -40,9 +45,19 @@ const PersonalInfoForm = ({ togglePersonalModal }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let formData = new FormData(e.target);
     try {
-      let res = await axios.post('TODO: API URL', formData);
+      let res = await axios.post(`${API_URL}/users/editInfo`, inputs, {
+        withCredentials: true,
+      });
+      let newUser = { ...user };
+      newUser.name = inputs.name;
+      newUser.birth = inputs.birth;
+
+      localStorage.setItem('user', JSON.stringify(newUser));
+      MySwal.fire({ title: res.data.message, icon: 'success' }).then(() => {
+        setShowPersonalModal(false);
+        window.location.reload();
+      });
     } catch (e) {
       console.log('handleSubmit error: ', e);
     }
@@ -90,23 +105,6 @@ const PersonalInfoForm = ({ togglePersonalModal }) => {
             </Col>
             {inputErrors.birth !== '' && (
               <div className="profileModalError">{inputErrors.birth}</div>
-            )}
-          </Form.Group>
-          <Form.Group as={Row} className="mb-3">
-            <Form.Label column sm="2">
-              電話 :
-            </Form.Label>
-            <Col sm="10">
-              <Form.Control
-                type="phone"
-                value={inputs.phone}
-                name="phone"
-                onChange={handleChange}
-                required
-              />
-            </Col>
-            {inputErrors.phone !== '' && (
-              <div className="profileModalError">{inputErrors.phone}</div>
             )}
           </Form.Group>
           <div className="d-flex justify-content-end">

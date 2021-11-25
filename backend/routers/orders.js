@@ -6,9 +6,9 @@ const router = express.Router();
 
 //生成訂單編號的 function
 function getOrderCode(randomLength) {
-  return Number(
-    Math.random().toString().substr(2, randomLength) + Date.now()
-  ).toString(36);
+  return Number(Math.random().toString().substr(2, randomLength) + Date.now())
+    .toString(36)
+    .toUpperCase();
 }
 
 // 建立訂單
@@ -45,8 +45,21 @@ router.post("/createOrder", async (req, res) => {
 
     // 更新商品的銷售量
     // TODO: 取得當個商品
+    let product = await connection.queryAsync(
+      "SELECT * FROM products WHERE id = ?",
+      [req.body.orderItem[i].product_id]
+    );
+
     // TODO: 取得當中的 sold 讓他加上購買的數量
+    let sold = +product[0].sold;
+    sold += +req.body.orderItem[i].amount;
+
     // TODO: UPDATE 回 商品資料表
+
+    let newproduct = await connection.queryAsync(
+      "UPDATE products SET sold=? WHERE id=?",
+      [sold, req.body.orderItem[i].product_id]
+    );
   }
   res.json({ code: "0", message: "您已購買成功!!" });
 });
