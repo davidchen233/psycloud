@@ -1,11 +1,6 @@
 // 使用套件
 import { createContext, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // 頁面元件
 import Auth from './pages/auth/Auth';
@@ -21,6 +16,7 @@ import Decors from './pages/product/Decors';
 import Relieve from './pages/product/Relieve';
 import Cart from './pages/cart/Cart';
 import Checkpage from './pages/cart/Checkpage';
+import OrderCompleted from './pages/cart/OrderCompleted';
 import ProductDetails from './pages/product/ProductDetails';
 import Chat from './pages/chatRoom/Chat';
 
@@ -93,7 +89,15 @@ function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
-              <Route path="/Checkpage">
+              <Route path="/OrderCompleted">
+                <OrderCompleted />
+              </Route>
+              <Route
+                path="/checkpage"
+                onLeave={() => {
+                  alert('hello');
+                }}
+              >
                 <Checkpage />
               </Route>
               <Route path="/chatRoom">

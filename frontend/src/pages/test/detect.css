@@ -1,80 +1,122 @@
+.maxwid {
+  max-width: 768px;
+}
+.card-body {
+  height: 350px;
+  margin: 0 50px;
+}
+.startbt {
+  background-color: #4797ff;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  width: 85px;
+}
+.del-line {
+  text-decoration: none;
+}
+.outermost {
+  border-radius: 15px;
+}
 
+.arrow-page-left {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  top: 50%;
+  margin-top: -30px;
+  padding: 0;
+  font-weight: 900;
+}
 
-        html,
-        body {
-            height: 100%;
-        }
-        .maxwid{
-            max-width: 768px;
-        }
-        .card-body {
-            height: 350px;
+.maxwid {
+  max-width: 768px;
+}
+/* .card-head {
+            height: 400px;
             margin: 0 50px;
-        }
-        .startbt{
-          background-color:#4797FF ;color:white;border-radius: 7px;border:none;width:85px;
-        }
-        .del-line{
-          text-decoration: none;
-        }
-        .outermost{
-          border-radius: 15px;
-        }
+        } */
+.startbt {
+  background-color: #4797ff;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  width: 85px;
+}
+.del-line {
+  text-decoration: none;
+}
+.outermost {
+  border-radius: 15px;
+}
 
-        .arrow-page-left {
-            position: absolute;
-            left: 0;
-            z-index: 10;
-            top: 50%;
-            margin-top: -30px;
-            padding: 0;
-            font-weight: 900;
-        }
+.arrow-page-right {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  top: 50%;
+  margin-top: -30px;
+  padding: 0;
+}
 
-        .arrow-page-right {
-            position: absolute;
-            right: 0;
-            z-index: 10;
-            top: 50%;
-            margin-top: -30px;
-            padding: 0;
-        }
+.arrow-page-right svg {
+  font-weight: 900;
+}
 
-        .arrow-page-right svg {
-            font-weight: 900;
-        }
+/* a {
+  color: black;
+} */
 
-        a {
-            color: black;
-        }
+.radio-font {
+  color: #4797ff;
+}
 
-        .radio-font {
-            color: #4797FF;
-          }
-          
-          .cocolor{
-            color: #4797FF;
-          }
-          
-          h2 {
-            text-align: center;
-          }
-          
-          .first-cloud {
-            position: absolute;
-            right: 10px;
-            bottom: 50px;
+.cocolor {
+  color: #4797ff;
+}
 
-            width: 100px;
-            height: 100px;
-          }
+.radio-font {
+  color: #4797ff;
+}
 
-          @media screen and (min-width: 768px){
-            .first-cloud{
-              position: relative;
-              left: 200px;
-              top: 1px;
-            }
-        }
+.cocolor {
+  color: #4797ff;
+}
 
-        
+.first-cloud {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  width: 100px;
+  height: 100px;
+}
+/* .card-head {
+              height: 350px;
+              margin: 0;
+          } */
+
+@media screen and (min-width: 768px) {
+  .first-cloud {
+    position: relative;
+    left: 200px;
+    top: 1px;
+  }
+}
+
+.first-cloud {
+  position: absolute;
+  right: 10px;
+  bottom: 50px;
+
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .first-cloud {
+    position: relative;
+    left: 200px;
+    top: 1px;
+  }
+}

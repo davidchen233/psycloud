@@ -1,9 +1,13 @@
 import React from 'react';
+import { ImFire } from 'react-icons/im';
 
 const ProductPageHot = ({ sold, image, name, price }) => {
   return (
     <div>
-      <p>已售出 {sold}</p>
+      <p className="d-flex align-items-center justify-content-center">
+        <ImFire color="#FF4646" className="me-2" size="20" />
+        已售出 {sold}
+      </p>
       <div className="justify-content-center align-items-center">
         <div className="hotImg mb-3">
           <img src={image} alt="" />

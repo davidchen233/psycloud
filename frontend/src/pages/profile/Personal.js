@@ -30,15 +30,36 @@ const Personal = ({ togglePwdModal, togglePersonalModal, setAvatar }) => {
   };
 
   // TODO: 上傳 BANNER
+  const handleUploadBanner = async (e) => {
+    try {
+      let formData = new FormData();
+      formData.append('banner', e.target.files[0]);
+      let res = await axios.post(`${API_URL}/users/uploadBanner`, formData, {
+        withCredentials: true,
+      });
+      console.log(res.data.banner);
+      // 存到 local storage
+      user.banner = res.data.banner;
+      localStorage.setItem('user', JSON.stringify(user));
+      setDisplayUser(user);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <>
       <div className="personal-banner">
-        <img src={`${PUBLIC_URL}/user_banner/null_banner.jpeg`} alt="" />
+        <img src={PUBLIC_URL + displayUser.banner} alt="" />
       </div>
       <label className="upload-banner">
         <HiOutlinePhotograph size="30" />
-        <input type="file" name="banner" className="d-none" />
+        <input
+          type="file"
+          name="banner"
+          className="d-none"
+          onChange={handleUploadBanner}
+        />
       </label>
       <div className="profile-box">
         <div className="editPhoto">
@@ -58,7 +79,7 @@ const Personal = ({ togglePwdModal, togglePersonalModal, setAvatar }) => {
           </div>
         </div>
         <div className="account-box">
-          <h3>{user.name}</h3>
+          <h3>{displayUser.name}</h3>
           <p>
             會員帳號: <span>{displayUser.email}</span>
             <button onClick={togglePwdModal}>更改密碼</button>
@@ -67,7 +88,7 @@ const Personal = ({ togglePwdModal, togglePersonalModal, setAvatar }) => {
         <div className="infos">
           <div className="row infoItem">
             <div className="col-3 itemTitle">姓名 :</div>
-            <span className="col-9 itemValue">{user.name}</span>
+            <span className="col-9 itemValue">{displayUser.name}</span>
           </div>
           <div className="row infoItem">
             <div className="col-3 itemTitle">Email :</div>

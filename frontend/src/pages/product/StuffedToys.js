@@ -39,9 +39,15 @@ const StuffedItem = () => {
       </section>
       <div className="d-flex justify-content-between">
         <div class="buttons">
-          <button className="button1">絨毛抱枕</button>
-          <button className="button1">療癒擺飾</button>
-          <button className="button1">手指紓壓</button>
+          <Link to="/StuffedToys">
+            <button className="button1">絨毛抱枕</button>
+          </Link>
+          <Link to="/Decors">
+            <button className="button1">療癒擺飾</button>
+          </Link>
+          <Link to="/Relieve">
+            <button className="button1">手指紓壓</button>
+          </Link>
         </div>
         <div>
           <input
