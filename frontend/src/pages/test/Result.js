@@ -3,8 +3,9 @@ import Cloud from './cloud/cloud3.jpg';
 import TestPsychologist from './TestPsychologist';
 import TestProduct from './TestProduct';
 import { useEffect, useState } from 'react';
-import { API_URL } from '../../config/config';
+import { PUBLIC_URL, API_URL } from '../../config/config';
 import { TEST_RESULT } from '../../config/test-result';
+import { Link } from 'react-router-dom';
 
 import 'swiper/swiper.min.css';
 import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
@@ -15,14 +16,24 @@ SwiperCore.use(EffectCoverflow);
 
 const Result = () => {
   const [result, setResult] = useState(TEST_RESULT[0]);
+  //產品
+  const [hotproducts, sethotproducts] = useState([]);
 
   useEffect(async () => {
     let res = await axios.get(`${API_URL}/users/userTestResult`, {
       withCredentials: true,
     });
     setResult(TEST_RESULT[res.data.pressure_level]);
+
+    let products = await axios.get(
+      `${API_URL}/products/level/${res.data.pressure_level}`
+    );
+    sethotproducts(products.data);
   }, []);
-  console.log(result);
+
+  // console.log(result);
+  // console.log(hotproducts);
+
   return (
     <>
       <div className="gradient">
@@ -97,9 +108,9 @@ const Result = () => {
               <div className="mt-5 location">
                 <h4>-您可能會喜歡的舒壓好物-</h4>
                 <div className="moredetail">
-                  <a href="#/" className="more del-line">
+                  <Link to="/product" className="more del-line">
                     看更多&gt;&gt;
-                  </a>
+                  </Link>
                 </div>
               </div>
               {/* 產品                 */}
@@ -108,7 +119,7 @@ const Result = () => {
                   effect={'coverflow'}
                   // slidesPerView={3}
                   grabCursor={true}
-                  centeredSlides={true}
+                  centeredSlides={false}
                   coverflowEffect={{
                     rotate: 0,
                     stretch: 0,
@@ -129,7 +140,7 @@ const Result = () => {
                   }}
                   loop={true}
                 >
-                  <SwiperSlide>
+                  {/* <SwiperSlide>
                     <TestProduct />
                   </SwiperSlide>
                   <SwiperSlide>
@@ -140,7 +151,20 @@ const Result = () => {
                   </SwiperSlide>
                   <SwiperSlide>
                     <TestProduct />
-                  </SwiperSlide>
+                  </SwiperSlide> */}
+                  {hotproducts.map((hotproduct, productID) => {
+                    return (
+                      <SwiperSlide>
+                        <TestProduct
+                          key={hotproduct.id}
+                          sold={hotproduct.sold}
+                          name={hotproduct.name}
+                          price={hotproduct.price}
+                          image={PUBLIC_URL + hotproduct.image}
+                        />
+                      </SwiperSlide>
+                    );
+                  })}
                 </Swiper>
               </div>
               {/* 產品                 */}

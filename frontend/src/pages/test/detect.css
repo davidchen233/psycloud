@@ -7,10 +7,10 @@
         .maxwid{
             max-width: 768px;
         }
-        .card-body {
-            height: 350px;
+        /* .card-head {
+            height: 400px;
             margin: 0 50px;
-        }
+        } */
         .startbt{
           background-color:#4797FF ;color:white;border-radius: 7px;border:none;width:85px;
         }
@@ -63,11 +63,15 @@
           .first-cloud {
             position: absolute;
             right: 10px;
-            bottom: 50px;
+            bottom: 10px;
 
             width: 100px;
             height: 100px;
           }
+          /* .card-head {
+              height: 350px;
+              margin: 0;
+          } */
 
           @media screen and (min-width: 768px){
             .first-cloud{
@@ -75,6 +79,7 @@
               left: 200px;
               top: 1px;
             }
+            
         }
 
         

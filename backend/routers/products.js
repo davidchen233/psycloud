@@ -15,7 +15,7 @@ router.get("/hotproducts", async (req, res) => {
 // 抓分類推薦商品
 router.get("/similarproduct/:categoryID", async (req, res) => {
   let data = await connection.queryAsync(
-    "SELECT * FROM products WHERE product_category = ? ORDER BY sold DESC LIMIT 10",
+    "SELECT * FROM products WHERE product_category = ? ORDER BY sold DESC LIMIT 10"
     [req.params.categoryID]
   );
   res.json(data);
@@ -40,6 +40,15 @@ router.get("/product/:productID", async (req, res) => {
   } else {
     res.status(404).send("查無此資料");
   }
+});
+
+// 檢測推薦商品
+router.get("/level/:pressure_level", async (req, res) => {
+  let data = await connection.queryAsync(
+    "SELECT * FROM products WHERE pressure_level = ?",
+    [req.params.pressure_level]
+  );
+  res.json(data);
 });
 
 // 匯出此 router

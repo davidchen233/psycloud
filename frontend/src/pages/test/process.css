@@ -41,7 +41,7 @@
 
     }
 
-    .card-body{
+    .card-box{
         height: 350px;
             margin: 0 50px;
     }
@@ -84,6 +84,7 @@
         display:none;
         
     }
+    
 
     
     
