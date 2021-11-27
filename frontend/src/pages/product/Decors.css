@@ -8,11 +8,6 @@
   margin: 50px 0px 40px 0px;
 }
 
-.buttons2 {
-  float: left;
-  margin-bottom: 5%;
-}
-
 .button2 {
   font-size: 16px;
   border: none;
@@ -30,11 +25,6 @@
 
 .button2:hover {
   background-color: rgba(66, 184, 248, 0);
-}
-
-.search {
-  float: right;
-  margin-bottom: 5%;
 }
 
 input {
@@ -62,12 +52,21 @@ input {
 /* main */
 
 .flex-wrapper2 {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 280px);
   justify-content: space-between;
+  grid-gap: 40px;
   margin: 50px 0px 40px;
   text-align: center;
-  clear: both;
+}
+
+.flex-wrapper2 a {
+  text-decoration: none;
+  color: #707070;
+}
+
+.flex-wrapper2 a:hover {
+  color: #707070;
 }
 
 @media (max-width: 540px) {
@@ -77,7 +76,7 @@ input {
 }
 
 .DecorsImg {
-  width: 280px;
+  /* width: 280px; */
   height: 280px;
   border-radius: 8px;
   cursor: pointer;

@@ -15,7 +15,7 @@ router.get("/hotproducts", async (req, res) => {
 // 抓分類推薦商品
 router.get("/similarproduct/:categoryID", async (req, res) => {
   let data = await connection.queryAsync(
-    "SELECT * FROM products WHERE product_category = ? ORDER BY sold DESC LIMIT 10"
+    "SELECT * FROM products WHERE product_category = ? ORDER BY sold DESC LIMIT 6",
     [req.params.categoryID]
   );
   res.json(data);
@@ -46,7 +46,15 @@ router.get("/product/:productID", async (req, res) => {
 router.get("/level/:pressure_level", async (req, res) => {
   let data = await connection.queryAsync(
     "SELECT * FROM products WHERE pressure_level = ?",
-    [req.params.pressure_level]
+    [req.params.pressure_level])
+    res.json(data);
+  })
+
+// 取得小照片
+router.get("/:productID/images", async (req, res) => {
+  let data = await connection.queryAsync(
+    "SELECT * FROM product_images WHERE product_id=?",
+    [req.params.productID]
   );
   res.json(data);
 });

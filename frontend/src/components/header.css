@@ -85,6 +85,23 @@ header .other-nav li a {
   text-decoration: none;
 }
 
+.other-nav .header-cart {
+  position: relative;
+}
+
+.other-nav .header-cart .cartCount {
+  position: absolute;
+  top: -9px;
+  right: -7px;
+  background: rgb(82, 82, 82);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
 @media (max-width: 996px) {
   header,
   header.sticky {

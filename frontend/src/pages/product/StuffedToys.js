@@ -9,12 +9,27 @@ import './StuffedToys.css';
 
 const StuffedItem = () => {
   const [stuffed, setstuffed] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   useEffect(async () => {
     let res = await axios.get(`${API_URL}/products/category/1`);
     setstuffed(res.data);
+    setFilteredProducts(res.data);
   }, []);
-  console.log(stuffed);
 
+  const [search, setSearch] = useState('');
+  const handleSearch = async (e) => {
+    setSearch(e.target.value);
+    if (!e.target.value) {
+      setFilteredProducts(stuffed);
+    }
+  };
+
+  const handleFilter = () => {
+    let filteredProduct = stuffed.filter((item) => {
+      return item.name.includes(search);
+    });
+    setFilteredProducts(filteredProduct);
+  };
   return (
     <div className="container">
       <section className="S-Title">
@@ -24,9 +39,15 @@ const StuffedItem = () => {
       </section>
       <div className="d-flex justify-content-between">
         <div class="buttons">
-          <button className="button1">絨毛抱枕</button>
-          <button className="button1">療癒擺飾</button>
-          <button className="button1">手指紓壓</button>
+          <Link to="/StuffedToys">
+            <button className="button1">絨毛抱枕</button>
+          </Link>
+          <Link to="/Decors">
+            <button className="button1">療癒擺飾</button>
+          </Link>
+          <Link to="/Relieve">
+            <button className="button1">手指紓壓</button>
+          </Link>
         </div>
         <div>
           <input
@@ -34,15 +55,20 @@ const StuffedItem = () => {
             type="text"
             placeholder="Search.."
             name="search"
+            value={search}
+            onChange={handleSearch}
+            onKeyPress={(e) => {
+              e.key === 'Enter' && handleFilter();
+            }}
           />
-          <button class="btn-search">
+          <button class="btn-search" onClick={handleFilter}>
             <FaSearch />
           </button>
         </div>
       </div>
 
       <div className="flex-wrapper1">
-        {stuffed.map((stuffeditem) => {
+        {filteredProducts.map((stuffeditem) => {
           return (
             <Link to={`/ProductDetails/${stuffeditem.id}`}>
               <StuffedToysItem

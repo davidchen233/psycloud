@@ -11,7 +11,7 @@ const detect = () => {
       <div className="container">
         <div className="row mx-auto maxwid">
           <div className="col-md-12 mt-3">
-            <h2>-壓力檢測-</h2>
+            <h2 className="text-center">-壓力檢測-</h2>
           </div>
           <div className="col-md-12 text-center mt-3">
             <div className="card outermost">

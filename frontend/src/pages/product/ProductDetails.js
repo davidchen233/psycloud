@@ -9,28 +9,30 @@ import { PUBLIC_URL, API_URL } from '../../config/config';
 const ProductDetails = () => {
   const { productID } = useParams();
   const [productDetail, setProductDetail] = useState({});
-  const [productCategory, setProductCategory] = useState(0);
+  const [categoryProducts, setCategoryProducts] = useState([]);
 
   useEffect(async () => {
-    try {
-      let res = await axios.get(`${API_URL}/products/product/${productID}`);
-      setProductDetail(res.data);
-      setProductCategory(res.data.product_category);
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
+    let res = await axios.get(`${API_URL}/products/product/${productID}`);
+    setProductDetail(res.data);
 
+    let newCatProducts = await axios.get(
+      `${API_URL}/products/similarproduct/${res.data.product_category}`
+    );
+    setCategoryProducts(newCatProducts.data);
+    console.log(newCatProducts);
+  }, []);
+  console.log(productDetail);
   return (
     <>
       <ProductDetailsSection
-        productDetail={productDetail}
-        samplepic="/sources/sample.jpg"
+        productDetail={productDetail.id}
+        image={PUBLIC_URL + productDetail.image}
+        name={productDetail.name}
+        description={productDetail.description}
+        price={productDetail.price}
+        productInfo={productDetail}
       />
-      <ProductDetailSeemore
-        product_category={productCategory}
-        samplepic="/sources/sample.jpg"
-      />
+      <ProductDetailSeemore categoryProducts={categoryProducts} />
     </>
   );
 };

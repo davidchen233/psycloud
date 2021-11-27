@@ -71,6 +71,8 @@ const Process = () => {
     history.push('/Result');
   }
 
+  const now = 7.7;
+
   return (
     <>
       <form name="test" onSubmit={handleSubmit}>
