@@ -38,6 +38,25 @@ const Process = () => {
 
   let history = useHistory();
 
+  const checkValue = () => {
+    if (
+      score.q1 === '' ||
+      score.q2 === '' ||
+      score.q3 === '' ||
+      score.q4 === '' ||
+      score.q5 === '' ||
+      score.q6 === '' ||
+      score.q7 === '' ||
+      score.q8 === '' ||
+      score.q9 === '' ||
+      score.q10 === '' ||
+      score.q11 === '' ||
+      score.q12 === '' ||
+      score.q13 === ''
+    ) {
+      alert('有題目未填寫完成');
+    }
+  };
   async function handleSubmit(e) {
     e.preventDefault();
     let scoreObj = Object.values(score);
@@ -95,7 +114,7 @@ const Process = () => {
                                   name="q1"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -127,7 +146,7 @@ const Process = () => {
                                   name="q2"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -187,7 +206,7 @@ const Process = () => {
                                   name="q3"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -219,7 +238,7 @@ const Process = () => {
                                   name="q4"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -279,7 +298,7 @@ const Process = () => {
                                   name="q5"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -311,7 +330,7 @@ const Process = () => {
                                   name="q6"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -371,7 +390,7 @@ const Process = () => {
                                   name="q7"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -403,7 +422,7 @@ const Process = () => {
                                   name="q8"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -463,7 +482,7 @@ const Process = () => {
                                   name="q9"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -495,7 +514,7 @@ const Process = () => {
                                   name="q10"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -555,7 +574,7 @@ const Process = () => {
                                   name="q11"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -587,7 +606,7 @@ const Process = () => {
                                   name="q12"
                                   value="true"
                                   onChange={handleScoreChange}
-                                  //required
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -646,7 +665,7 @@ const Process = () => {
                                 name="q13"
                                 value="1"
                                 onChange={handlePressureTypeChange}
-                                //required
+                                required
                               />
                               <label className="cocolor" htmlFor>
                                 情緒管理
@@ -694,7 +713,10 @@ const Process = () => {
                               <br />
                             </div>
                             {/* <button type="button" className="mt-3" style={{backgroundColor: '#4797FF', color: 'white', borderRadius: '7px', border: 'none', width: '85px'}}>送出</button> */}
-                            <button className="mt-3 del-line toresult">
+                            <button
+                              className="mt-3 del-line toresult"
+                              onClick={checkValue}
+                            >
                               送出
                             </button>
                           </div>

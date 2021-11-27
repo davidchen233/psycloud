@@ -157,6 +157,7 @@ const Result = () => {
                       <SwiperSlide>
                         <TestProduct
                           key={hotproduct.id}
+                          id={hotproduct.id}
                           sold={hotproduct.sold}
                           name={hotproduct.name}
                           price={hotproduct.price}

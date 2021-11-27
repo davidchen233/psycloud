@@ -1,19 +1,13 @@
 import './result.css';
-// import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const TestProduct = ({ sold, image, name, price }) => {
+const TestProduct = ({ id, sold, image, name, price }) => {
   return (
-    <>
-      {/* <NavLink to="/"> */}
-
-      {/* <div className="col-md-3"> */}
+    <Link to={`/ProductDetails/${id}`} className="text-decoration-none">
       <div className="card w-100 outermost location">
         <p className="object-price">${price}</p>
-        {/* <div className="mx-auto m-3 object-img"> */}
         <img className="mx-auto m-3 object-img" src={image} alt="" />
-        {/* </div> */}
-        {/* <img class="card-img-top" src="" alt="Card image cap"> */}
-        <div className="card-body">
+        <div className="process-card-body">
           <p className="card-text">
             {name}
             <br />
@@ -21,10 +15,7 @@ const TestProduct = ({ sold, image, name, price }) => {
           </p>
         </div>
       </div>
-      {/* </div> */}
-
-      {/* </NavLink> */}
-    </>
+    </Link>
   );
 };
 export default TestProduct;
