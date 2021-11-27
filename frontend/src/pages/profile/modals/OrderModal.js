@@ -1,7 +1,6 @@
 import './orderModal.css';
 import { useState, useEffect } from 'react';
 import { GrClose } from 'react-icons/gr';
-import ProductImg from '../tempImg/12.jpg';
 import axios from 'axios';
 import { API_URL, PUBLIC_URL } from '../../../config/config';
 import { ORDER_STATUS } from '../../../config/status';
