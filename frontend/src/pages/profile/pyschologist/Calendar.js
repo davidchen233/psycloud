@@ -30,6 +30,7 @@ const Calendar = () => {
     let res = await axios(
       `${API_URL}/reservations/psychologistEvents/${localUser.psychologistId}`
     );
+    console.log('loadEvent', res.data);
     let eventData = res.data.map((currentEvent) => {
       return {
         event_id: currentEvent.id,
@@ -60,6 +61,7 @@ const Calendar = () => {
 
   const openEventModalEdit = (info) => {
     setShow(true);
+    console.log('info_id', info.event.extendedProps);
     let getTime = {
       id: info.event.extendedProps.event_id,
       date: info.event.extendedProps.currentdate,
@@ -96,7 +98,7 @@ const Calendar = () => {
       );
       let eventData = res.data.map((currentEvent) => {
         return {
-          id: currentEvent.id,
+          event_id: currentEvent.id,
           psychologist_id: currentEvent.psychologist_id,
           period: currentEvent.period,
           start:
@@ -121,19 +123,21 @@ const Calendar = () => {
     e.preventDefault();
     let postData = {
       id: e.target.id.value,
+      psychologistId: localUser.psychologistId,
       date: e.target.date.value,
       period: e.target.period.value,
     };
-    console.log(postData);
+    console.log('editPostData', postData);
     let res = await axios.post(`${API_URL}/reservations/editEvent`, postData);
     setShow(false);
     MySwal.fire(res.data.message).then(async () => {
       let res = await axios(
         `${API_URL}/reservations/psychologistEvents/${localUser.psychologistId}`
       );
+      console.log('editResponse', res.data);
       let eventData = res.data.map((currentEvent) => {
         return {
-          id: currentEvent.id,
+          event_id: currentEvent.id,
           psychologist_id: currentEvent.psychologist_id,
           period: currentEvent.period,
           start:
@@ -148,7 +152,7 @@ const Calendar = () => {
           backgroundColor: currentEvent.reserved ? '#FF5151' : '#4F4F4F',
         };
       });
-      console.log(res.data);
+      console.log('edit', res.data);
       setEvent(eventData);
     });
   }
@@ -161,12 +165,7 @@ const Calendar = () => {
         </Modal.Header>
         <Modal.Body>
           <form className="d-flex" id="eventForm" onSubmit={modalInfo.function}>
-            <input
-              type="text"
-              defaultValue={currentEvent.id}
-              hidden
-              name="id"
-            />
+            <input type="text" value={currentEvent.id} hidden name="id" />
             <input
               name="date"
               type="date"

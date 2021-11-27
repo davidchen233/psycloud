@@ -44,7 +44,7 @@ router.post("/createEvent", async (req, res) => {
 router.post("/editEvent", async (req, res) => {
   let check = await connection.queryAsync(
     "SELECT * from reservations WHERE psychologist_id=? && date=? && period=?",
-    [req.body.psychologist_id, req.body.date, req.body.period]
+    [req.body.psychologistId, req.body.date, req.body.period]
   );
   if (check.length > 0) {
     return res.json({ code: "1202", message: "時程已存在", data: check });
