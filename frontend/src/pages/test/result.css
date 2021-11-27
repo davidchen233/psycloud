@@ -36,7 +36,12 @@
 }
 
 .outermost {
-  border-radius: 15px;
+  border-radius: 15px !important ;
+}
+.belarge:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+  /* box-shadow:  10px 10px 5px rgba(0,0,0,0.8); */
 }
 
 .location {
@@ -60,13 +65,20 @@
   border-bottom: 2px dashed #c7f0fd;
 }
 
+/* .object-outer{position:relative;} */
+
 .object-img {
   width: 100px;
   height: 100px;
   background-size: cover;
   background-position: center;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkMqbYN1AAcd6tDYINKuT_tnY4rXG85ISOCA&usqp=CAU');
+  border-radius: 15px;
+  position: relative;
+  right: 0;
+  top: 15px;
+  /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkMqbYN1AAcd6tDYINKuT_tnY4rXG85ISOCA&usqp=CAU') */
 }
+
 .object-price {
   position: absolute;
   right: 10px;

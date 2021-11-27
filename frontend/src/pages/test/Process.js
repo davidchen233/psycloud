@@ -38,6 +38,25 @@ const Process = () => {
 
   let history = useHistory();
 
+  const checkValue = () => {
+    if (
+      score.q1 === '' ||
+      score.q2 === '' ||
+      score.q3 === '' ||
+      score.q4 === '' ||
+      score.q5 === '' ||
+      score.q6 === '' ||
+      score.q7 === '' ||
+      score.q8 === '' ||
+      score.q9 === '' ||
+      score.q10 === '' ||
+      score.q11 === '' ||
+      score.q12 === '' ||
+      score.q13 === ''
+    ) {
+      alert('有題目未填寫完成');
+    }
+  };
   async function handleSubmit(e) {
     e.preventDefault();
     let scoreObj = Object.values(score);
@@ -83,7 +102,7 @@ const Process = () => {
                 <div className="col-md-12 text-center mt-3">
                   <div className="position-relative">
                     <div className="card">
-                      <div className="card-body d-flex align-items-center">
+                      <div className="card-box d-flex align-items-center">
                         <div className="mx-auto">
                           <div>
                             1.最近是否經常感到緊張，覺得工作總是做不完?
@@ -95,6 +114,7 @@ const Process = () => {
                                   name="q1"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -126,6 +146,7 @@ const Process = () => {
                                   name="q2"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -157,13 +178,11 @@ const Process = () => {
                   <div
                     className="progress-bar progress-bar-striped"
                     role="progressbar"
-                    style={{ width: '10%' }}
+                    style={{ width: '0%' }}
                     aria-valuenow={10}
                     aria-valuemin={0}
                     aria-valuemax={100}
-                  >
-                    {now / 2}%
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>
@@ -175,7 +194,7 @@ const Process = () => {
                 <div className="col-md-12 text-center mt-3">
                   <div className="position-relative">
                     <div className="card">
-                      <div className="card-body d-flex align-items-center">
+                      <div className="card-box d-flex align-items-center">
                         <div className="mx-auto">
                           <div>
                             3.最近是否經常有情緒低落、焦慮、煩躁的情況?
@@ -187,6 +206,7 @@ const Process = () => {
                                   name="q3"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -218,6 +238,7 @@ const Process = () => {
                                   name="q4"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -249,13 +270,11 @@ const Process = () => {
                   <div
                     className="progress-bar progress-bar-striped"
                     role="progressbar"
-                    style={{ width: '15%' }}
+                    style={{ width: 'calc(1/7*100%)' }}
                     aria-valuenow={10}
                     aria-valuemin={0}
                     aria-valuemax={100}
-                  >
-                    15%
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>
@@ -267,7 +286,7 @@ const Process = () => {
                 <div className="col-md-12 text-center mt-3">
                   <div className="position-relative">
                     <div className="card">
-                      <div className="card-body d-flex align-items-center">
+                      <div className="card-box d-flex align-items-center">
                         <div className="mx-auto">
                           <div>
                             5.最近是否經常覺得胃口不好? 或胃口特別好?
@@ -279,6 +298,7 @@ const Process = () => {
                                   name="q5"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -310,6 +330,7 @@ const Process = () => {
                                   name="q6"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -341,13 +362,11 @@ const Process = () => {
                   <div
                     className="progress-bar progress-bar-striped"
                     role="progressbar"
-                    style={{ width: '30%' }}
+                    style={{ width: 'calc(2/7*100%)' }}
                     aria-valuenow={10}
                     aria-valuemin={0}
                     aria-valuemax={100}
-                  >
-                    30%
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>
@@ -359,7 +378,7 @@ const Process = () => {
                 <div className="col-md-12 text-center mt-3">
                   <div className="position-relative">
                     <div className="card">
-                      <div className="card-body d-flex align-items-center">
+                      <div className="card-box d-flex align-items-center">
                         <div className="mx-auto">
                           <div>
                             7.最近是否經常覺得很累，假日都在睡覺?
@@ -371,6 +390,7 @@ const Process = () => {
                                   name="q7"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -402,6 +422,7 @@ const Process = () => {
                                   name="q8"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -433,13 +454,11 @@ const Process = () => {
                   <div
                     className="progress-bar progress-bar-striped"
                     role="progressbar"
-                    style={{ width: '45%' }}
+                    style={{ width: 'calc(3/7*100%)' }}
                     aria-valuenow={10}
                     aria-valuemin={0}
                     aria-valuemax={100}
-                  >
-                    45%
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>
@@ -451,7 +470,7 @@ const Process = () => {
                 <div className="col-md-12 text-center mt-3">
                   <div className="position-relative">
                     <div className="card">
-                      <div className="card-body d-flex align-items-center">
+                      <div className="card-box d-flex align-items-center">
                         <div className="mx-auto">
                           <div>
                             9.最近是否經常意見和別人不同?
@@ -463,6 +482,7 @@ const Process = () => {
                                   name="q9"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -494,6 +514,7 @@ const Process = () => {
                                   name="q10"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -525,13 +546,11 @@ const Process = () => {
                   <div
                     className="progress-bar progress-bar-striped"
                     role="progressbar"
-                    style={{ width: '60%' }}
+                    style={{ width: 'calc(4/7*100%)' }}
                     aria-valuenow={10}
                     aria-valuemin={0}
                     aria-valuemax={100}
-                  >
-                    60%
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>
@@ -543,7 +562,7 @@ const Process = () => {
                 <div className="col-md-12 text-center mt-3">
                   <div className="position-relative">
                     <div className="card">
-                      <div className="card-body d-flex align-items-center">
+                      <div className="card-box d-flex align-items-center">
                         <div className="mx-auto">
                           <div>
                             11.最近是否經常覺得未來充滿不確定感? 恐懼感?
@@ -555,6 +574,7 @@ const Process = () => {
                                   name="q11"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -586,6 +606,7 @@ const Process = () => {
                                   name="q12"
                                   value="true"
                                   onChange={handleScoreChange}
+                                  required
                                 />
                                 <label className="cocolor" htmlFor>
                                   是
@@ -617,13 +638,11 @@ const Process = () => {
                   <div
                     className="progress-bar progress-bar-striped"
                     role="progressbar"
-                    style={{ width: '75%' }}
+                    style={{ width: 'calc(5/7*100%)' }}
                     aria-valuenow={10}
                     aria-valuemin={0}
                     aria-valuemax={100}
-                  >
-                    75%
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>
@@ -635,7 +654,7 @@ const Process = () => {
                 <div className="col-md-12 text-center mt-3 position-relative">
                   <div className="position-relative">
                     <div className="card">
-                      <div className="card-body d-flex align-items-center">
+                      <div className="card-box d-flex align-items-center">
                         <div className="mx-auto">
                           <div>
                             13.您最近的困擾主要是來自哪個方面呢?
@@ -646,6 +665,7 @@ const Process = () => {
                                 name="q13"
                                 value="1"
                                 onChange={handlePressureTypeChange}
+                                required
                               />
                               <label className="cocolor" htmlFor>
                                 情緒管理
@@ -693,7 +713,10 @@ const Process = () => {
                               <br />
                             </div>
                             {/* <button type="button" className="mt-3" style={{backgroundColor: '#4797FF', color: 'white', borderRadius: '7px', border: 'none', width: '85px'}}>送出</button> */}
-                            <button className="mt-3 del-line toresult">
+                            <button
+                              className="mt-3 del-line toresult"
+                              onClick={checkValue}
+                            >
                               送出
                             </button>
                           </div>
@@ -708,13 +731,11 @@ const Process = () => {
                   <div
                     className="progress-bar progress-bar-striped"
                     role="progressbar"
-                    style={{ width: 'calc(12/13*100%)' }}
+                    style={{ width: 'calc(6/7*100%)' }}
                     aria-valuenow={10}
                     aria-valuemin={0}
                     aria-valuemax={100}
-                  >
-                    {now * '12'}%
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>

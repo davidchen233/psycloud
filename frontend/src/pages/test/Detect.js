@@ -15,7 +15,7 @@ const detect = () => {
           </div>
           <div className="col-md-12 text-center mt-3">
             <div className="card outermost">
-              <div className="card-body align-items-center">
+              <div className="text-box align-items-center">
                 <div className="mx-auto mt-5">
                   {/* <div class="inbox"> */}
                   <p>

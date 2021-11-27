@@ -42,6 +42,13 @@ router.get("/product/:productID", async (req, res) => {
   }
 });
 
+// 檢測推薦商品
+router.get("/level/:pressure_level", async (req, res) => {
+  let data = await connection.queryAsync(
+    "SELECT * FROM products WHERE pressure_level = ?",
+    [req.params.pressure_level])
+    res.json(data);
+  })
 
 // 取得小照片
 router.get("/:productID/images", async (req, res) => {
