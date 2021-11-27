@@ -26,11 +26,13 @@ import EditPsyInfoForm from './modals/EditPsyInfoForm';
 
 const Profile = () => {
   let user = JSON.parse(localStorage.getItem('user'));
+  const [avatar, setAvatar] = useState(user.avatar);
 
   const [currentView, setCurrentView] = useState('profile');
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false);
   const [showOrderModal, setShowOrderModal] = useState(false);
+  const [orderId, setOrderId] = useState(0);
   const [showPsyInfoForm, setShowPsyInfoForm] = useState(false);
   const [showEditPsyInfoForm, setShowEditPsyInfoForm] = useState(false);
 
@@ -79,12 +81,18 @@ const Profile = () => {
           <Personal
             togglePwdModal={togglePwdModal}
             togglePersonalModal={togglePersonalModal}
+            setAvatar={setAvatar}
           />
         );
       case 'consultation':
         return <Consultation />;
       case 'orders':
-        return <Orders toggleOrderModal={toggleOrderModal} />;
+        return (
+          <Orders
+            setShowOrderModal={setShowOrderModal}
+            setOrderId={setOrderId}
+          />
+        );
       case 'test':
         return <Test />;
       case 'psychologist':
@@ -103,10 +111,13 @@ const Profile = () => {
     <>
       {showPwdModal === true && <PwdModal togglePwdModal={togglePwdModal} />}
       {showPersonalModal === true && (
-        <PersonalInfoForm togglePersonalModal={togglePersonalModal} />
+        <PersonalInfoForm
+          togglePersonalModal={togglePersonalModal}
+          setShowPersonalModal={setShowPersonalModal}
+        />
       )}
       {showOrderModal === true && (
-        <OrderModal toggleOrderModal={toggleOrderModal} />
+        <OrderModal toggleOrderModal={toggleOrderModal} orderId={orderId} />
       )}
       {showPsyInfoForm === true && (
         <PsyInfoForm togglePsyInfoForm={togglePsyInfoForm} />
@@ -119,7 +130,7 @@ const Profile = () => {
           <div>
             <div className="navigation">
               <div className="avatar">
-                <img src={PUBLIC_URL + user.avatar} alt="" />
+                <img src={PUBLIC_URL + avatar} alt="" />
               </div>
               <ul>
                 <li
@@ -174,23 +185,19 @@ const Profile = () => {
                     <span className="title">檢測結果</span>
                   </div>
                 </li>
-                {user.isPsychologist ? (
-                  <li
-                    data-id="psychologist"
-                    className="list"
-                    ref={psychologistRef}
-                    onClick={handleClick}
-                  >
-                    <div className="listItem">
-                      <span className="iconBx">
-                        <FaUserMd className="icon" />
-                      </span>
-                      <span className="title">心理師專區</span>
-                    </div>
-                  </li>
-                ) : (
-                  ''
-                )}
+                <li
+                  data-id="psychologist"
+                  className={`list ${user.isPsychologist ? '' : 'invisible'}`}
+                  ref={psychologistRef}
+                  onClick={handleClick}
+                >
+                  <div className="listItem">
+                    <span className="iconBx">
+                      <FaUserMd className="icon" />
+                    </span>
+                    <span className="title">心理師專區</span>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>

@@ -1,74 +1,94 @@
-    .cocolor{
-        color: #4797FF;
-    }
-    
-    .gr{
-        color:gray;
-    }
-    
-    .lastcloud{
-        width: 100px;
-        height: 100px;
-    }
+.cocolor {
+  color: #4797ff;
+}
 
-    h2 {
-        text-align: center;
-    }
-    html,
-    body {
-        height: 100%;
-    }
+.gr {
+  color: gray;
+}
 
-    .maxwid{
-        max-width: 768px;
-    }
-    .test-block {
-        height: 350px;
-        margin: 0 50px;
-    }
-    .moredetail{
-        position: absolute;
-    }
+.lastcloud {
+  width: 100px;
+  height: 100px;
+}
 
-    .more{
-        background-color:#4797FF;color:white;border-radius: 7px;border:none;width:70px;font-size: small;padding: 1px 6px;
-    }
-    .del-line{
-        text-decoration: none;
-      }
+.maxwid {
+  max-width: 768px;
+}
+.test-block {
+  height: 350px;
+  margin: 0 50px;
+}
+.moredetail {
+  position: absolute;
+}
 
-    .outermost{
-        border-radius: 15px;
-    }
+.more {
+  background-color: #4797ff;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  width: 70px;
+  font-size: small;
+  padding: 1px 6px;
+}
+.del-line {
+  text-decoration: none;
+}
 
-    .location{
-        position: relative; 
-    }
+.outermost {
+  border-radius: 15px;
+}
 
+.location {
+  position: relative;
+}
 
-    .person-img{
-        border: 3px solid #5ed5e6;width: 100px;height: 100px;background-size: cover;background-position: center; background-image: url('https://images.chinatimes.com/newsphoto/2019-04-22/656/20190422001723.jpg');border-radius: 100px;
-    }
-    .profession{
-        display:block;font-size: 12px
-    }
-    .person-line{
-        border-bottom: 2px dashed #c7f0fd;
-    }
+.person-img {
+  border: 3px solid #5ed5e6;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://images.chinatimes.com/newsphoto/2019-04-22/656/20190422001723.jpg');
+  border-radius: 100px;
+}
+.profession {
+  display: block;
+  font-size: 12px;
+}
+.person-line {
+  border-bottom: 2px dashed #c7f0fd;
+}
 
-    .object-img{width: 100px;height: 100px;background-size: cover;background-position: center; background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkMqbYN1AAcd6tDYINKuT_tnY4rXG85ISOCA&usqp=CAU');
+.object-img {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkMqbYN1AAcd6tDYINKuT_tnY4rXG85ISOCA&usqp=CAU');
+}
+.object-price {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  color: #4797ff;
+}
+.quantity {
+  display: block;
+  font-size: 12px;
+}
 
-    }
-    .object-price{
-        position:absolute; right:10px; top:0; color:#4797FF;
-    }
-    .quantity{
-        display:block;font-size: 12px
-    }
+.m-top {
+  margin-top: 0px;
+}
 
-    .m-top{margin-top: 0px}
-
-    @media screen and (min-width: 768px){
-        .moredetail{position: absolute; right: 0; top: 5px}
-        .m-top{margin-top: 45px}
-    }
+@media screen and (min-width: 768px) {
+  .moredetail {
+    position: absolute;
+    right: 0;
+    top: 5px;
+  }
+  .m-top {
+    margin-top: 45px;
+  }
+}

@@ -1,15 +1,13 @@
-import { useState, useEffect } from 'react';
-
-const DecorsItem = () => {
+const DecorsItem = ({ image, name, price }) => {
   return (
     <div>
       <div className="justify-content-center align-items-center">
         <div className="DecorsImg mb-3">
-          <img src="/sources/bear.jpg" alt="" />
+          <img src={image} alt="" />
         </div>
         <div>
-          <h5>松鼠愛森林</h5>
-          <h4>$420</h4>
+          <h5>{name}</h5>
+          <h4>${price}</h4>
         </div>
       </div>
     </div>

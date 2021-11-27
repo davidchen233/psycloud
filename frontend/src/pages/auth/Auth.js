@@ -3,8 +3,11 @@ import { withRouter, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../config/config';
 import './auth.css';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const Auth = () => {
+  const MySwal = withReactContent(Swal);
   const [toggleForm, setToggleForm] = useState(false);
   let history = useHistory();
   let user = JSON.parse(localStorage.getItem('user'));
@@ -40,6 +43,7 @@ const Auth = () => {
       [e.target.name]: '',
     };
     setLoginErrors(updatedLoginErrors);
+    setLoginResponse('');
   };
   async function handleLoginSubmit(e) {
     e.preventDefault();
@@ -52,8 +56,9 @@ const Auth = () => {
       } else {
         console.log(res.data.user);
         localStorage.setItem('user', JSON.stringify(res.data.user));
-        alert(res.data.message);
-        history.push('/');
+        MySwal.fire({ title: res.data.message, icon: 'success' }).then(() => {
+          history.push('/');
+        });
       }
     } catch (err) {
       console.log(err);
@@ -124,6 +129,7 @@ const Auth = () => {
           confirmPassword: '',
         });
         setSignupResponse('');
+        alert(res.data.message);
         setToggleForm(false);
       }
     } catch (err) {

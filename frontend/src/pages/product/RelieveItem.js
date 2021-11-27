@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 
-const RelieveItem = () => {
+const RelieveItem = ({ image, name, price }) => {
   return (
     <div>
       <div className="justify-content-center align-items-center">
         <div className="RelieveImg mb-3">
-          <img src="/sources/bear.jpg" alt="" />
+          <img src={image} alt="" />
         </div>
         <div>
-          <h5>Push pop bubble</h5>
-          <h4>$299</h4>
+          <h5>{name}</h5>
+          <h4>${price}</h4>
         </div>
       </div>
     </div>
