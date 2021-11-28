@@ -42,6 +42,7 @@ const Header = () => {
       // localStorage.removeItem('user');
       globalValues.setCartCount(0);
       localStorage.clear();
+      localStorage.setItem('cart', '');
       MySwal.fire({ title: '登出成功', icon: 'success' }).then(() => {
         setActiveIndex(-1);
         history.push('/');
