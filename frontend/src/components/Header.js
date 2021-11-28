@@ -39,7 +39,9 @@ const Header = () => {
   function handleLogout() {
     try {
       axios.get(`${API_URL}/auth/logout`, { withCredentials: true });
-      localStorage.removeItem('user');
+      // localStorage.removeItem('user');
+      globalValues.setCartCount(0);
+      localStorage.clear();
       MySwal.fire({ title: '登出成功', icon: 'success' }).then(() => {
         setActiveIndex(-1);
         history.push('/');

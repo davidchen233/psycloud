@@ -4,10 +4,12 @@ import CartSection from './CartSection';
 import CreditCards from './CreditCards';
 import './checkoutFormSection.css';
 import './cart.css';
+import Loading from './Loading';
 
 const Cart = () => {
   const history = useHistory();
   const [credicCardInfo, setcredicCardInfo] = useState({});
+  const [showLoading, setShowLoading] = useState(false);
 
   // 購物車資訊
   const [cartInfo, setCartInfo] = useState({});
@@ -24,6 +26,10 @@ const Cart = () => {
     newPersonalInfo[e.target.name] = e.target.value;
     setPersonalInfo(newPersonalInfo);
   };
+
+  if (showLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="container">
@@ -123,7 +129,10 @@ const Cart = () => {
                     'creditCardInfostr',
                     credicCardInfostr
                   );
-                  history.push('/checkpage');
+                  setTimeout(() => {
+                    history.push('/checkpage');
+                  }, 1000);
+                  setShowLoading(true);
                 }
               }}
             >
