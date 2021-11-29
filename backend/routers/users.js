@@ -69,15 +69,20 @@ router.post("/editInfo", async (req, res) => {
 
 // 取得登入者的測驗結果
 router.get("/userTestResult", async (req, res) => {
-  let data = await connection.queryAsync(
-    "SELECT * FROM test_results WHERE user_id=?",
-    [req.session.user.id]
-  );
-  if (data.length === 0) {
-    res.json({ status: "none", message: "未填寫" });
+  try {
+    let data = await connection.queryAsync(
+      "SELECT * FROM test_results WHERE user_id=?",
+      [req.session.user.id]
+    );
+    if (data.length === 0) {
+      res.json({ status: "none", message: "未填寫" });
+    } else {
+      data = data[0];
+      res.json(data);
+    }
+  } catch (e) {
+    console.log(e);
   }
-  data = data[0];
-  res.json(data);
 });
 
 // 上傳大頭貼

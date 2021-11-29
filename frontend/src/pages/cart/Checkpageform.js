@@ -1,14 +1,16 @@
-import { useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
 import { API_URL } from '../../config/config';
 import { GlobalValues } from '../../App';
 import axios from 'axios';
+import Loading from './Loading';
 
 const Checkpageform = ({ history }) => {
   let redirect = useHistory();
   let globalValues = useContext(GlobalValues);
   let orderInfo = JSON.parse(sessionStorage.getItem('orderInfostr'));
   let orderItem = JSON.parse(sessionStorage.getItem('orderItemstr'));
+  const [showLoading, setShowLoading] = useState(false);
 
   console.log('orderInfo', orderInfo);
   console.log('orderItem', orderItem);
@@ -39,11 +41,18 @@ const Checkpageform = ({ history }) => {
       }
       localStorage.setItem('cart', '');
       globalValues.setCartCount(0);
-      redirect.push('/OrderCompleted');
+      setTimeout(() => {
+        redirect.push('/OrderCompleted');
+      }, 2000);
+      setShowLoading(true);
     } else {
       alert('訂單建立失敗');
     }
   };
+
+  if (showLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
