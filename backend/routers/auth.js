@@ -111,6 +111,7 @@ router.post("/login", async (req, res) => {
 // 登出
 router.get("/logout", (req, res) => {
   req.session.user = null;
+  // req.session.destroy();
   res.json({ code: "0", message: "登出成功" });
 });
 

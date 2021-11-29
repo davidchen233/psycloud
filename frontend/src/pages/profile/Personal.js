@@ -42,7 +42,6 @@ const Personal = ({ togglePwdModal, togglePersonalModal, setAvatar }) => {
       user.banner = res.data.banner;
       localStorage.setItem('user', JSON.stringify(user));
       setDisplayUser(user);
-      setAvatar(res.data.banner);
     } catch (e) {
       console.log(e);
     }

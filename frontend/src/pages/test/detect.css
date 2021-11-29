@@ -29,6 +29,27 @@
   font-weight: 900;
 }
 
+.maxwid {
+  max-width: 768px;
+}
+/* .card-head {
+            height: 400px;
+            margin: 0 50px;
+        } */
+.startbt {
+  background-color: #4797ff;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  width: 85px;
+}
+.del-line {
+  text-decoration: none;
+}
+.outermost {
+  border-radius: 15px;
+}
+
 .arrow-page-right {
   position: absolute;
   right: 0;
@@ -52,6 +73,35 @@
 
 .cocolor {
   color: #4797ff;
+}
+
+.radio-font {
+  color: #4797ff;
+}
+
+.cocolor {
+  color: #4797ff;
+}
+
+.first-cloud {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  width: 100px;
+  height: 100px;
+}
+/* .card-head {
+              height: 350px;
+              margin: 0;
+          } */
+
+@media screen and (min-width: 768px) {
+  .first-cloud {
+    position: relative;
+    left: 200px;
+    top: 1px;
+  }
 }
 
 .first-cloud {
