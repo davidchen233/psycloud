@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
 import {
   FaRegUser,
@@ -41,6 +41,24 @@ const Profile = () => {
   const ordersRef = useRef();
   const testRef = useRef();
   const psychologistRef = useRef();
+
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body.style.overflow =
+      showPwdModal ||
+      showPersonalModal ||
+      showOrderModal ||
+      showPsyInfoForm ||
+      showEditPsyInfoForm
+        ? 'hidden'
+        : 'auto';
+  }, [
+    showPwdModal,
+    showPersonalModal,
+    showOrderModal,
+    showPsyInfoForm,
+    showEditPsyInfoForm,
+  ]);
 
   function handleClick(e) {
     let id = e.currentTarget.getAttribute('data-id');
