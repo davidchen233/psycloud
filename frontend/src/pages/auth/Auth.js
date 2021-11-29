@@ -182,16 +182,45 @@ const Auth = () => {
               {loginErrors.password !== '' && (
                 <span className="errorMsg">{loginErrors.password}</span>
               )}
-              <p className="signup">
-                還沒有帳號?
+              <div className="d-flex justify-content-between align-items-center">
+                <p className="signup">
+                  還沒有帳號?
+                  <span
+                    onClick={() => {
+                      setToggleForm(true);
+                    }}
+                  >
+                    馬上註冊...
+                  </span>
+                </p>
                 <span
-                  onClick={() => {
-                    setToggleForm(true);
+                  className="forgetPwd"
+                  onClick={async () => {
+                    MySwal.fire({
+                      title: '重設密碼',
+                      focusConfirm: true,
+                      html: '<input type="email" id="changePwdEmail" placeholder="請輸入您註冊的帳號..." class="form-control"/>',
+                      icon: 'warning',
+                      showCancelButton: true,
+                      cancelButtonColor: 'grey',
+                      cancelButtonText: '取消',
+                      confirmButtonColor: '#4797ff',
+                      confirmButtonText: '確認',
+                    }).then(async () => {
+                      let email =
+                        document.getElementById('changePwdEmail').value;
+                      let res = await axios.post(
+                        `${API_URL}/auth/forgetPassword`,
+                        { email: email }
+                      );
+                      alert(res.data.message);
+                    });
                   }}
                 >
-                  馬上註冊...
+                  忘記密碼
                 </span>
-              </p>
+              </div>
+
               <span className="errorMsg ps-0 fs-6">{loginResponse}</span>
               <div className="d-flex justify-content-between">
                 <div></div>
