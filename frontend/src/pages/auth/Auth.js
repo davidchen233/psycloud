@@ -197,7 +197,7 @@ const Auth = () => {
                   className="forgetPwd"
                   onClick={async () => {
                     MySwal.fire({
-                      title: '重設密碼',
+                      title: '取得新密碼',
                       focusConfirm: true,
                       html: '<input type="email" id="changePwdEmail" placeholder="請輸入您註冊的帳號..." class="form-control"/>',
                       icon: 'warning',
@@ -206,14 +206,21 @@ const Auth = () => {
                       cancelButtonText: '取消',
                       confirmButtonColor: '#4797ff',
                       confirmButtonText: '確認',
-                    }).then(async () => {
-                      let email =
-                        document.getElementById('changePwdEmail').value;
-                      let res = await axios.post(
-                        `${API_URL}/auth/forgetPassword`,
-                        { email: email }
-                      );
-                      alert(res.data.message);
+                      closeOnConfirm: false,
+                    }).then(async (result) => {
+                      if (result.isConfirmed) {
+                        let email =
+                          document.getElementById('changePwdEmail').value;
+                        if (email === '') {
+                          alert('請輸入email');
+                        } else {
+                          let res = await axios.post(
+                            `${API_URL}/auth/forgetPassword`,
+                            { email: email }
+                          );
+                          alert(res.data.message);
+                        }
+                      }
                     });
                   }}
                 >
