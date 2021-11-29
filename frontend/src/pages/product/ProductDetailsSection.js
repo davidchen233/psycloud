@@ -3,6 +3,8 @@ import { Link, useParams, withRouter, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { PUBLIC_URL, API_URL } from '../../config/config';
 import { GlobalValues } from '../../App';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const ProductDetailsSection = ({
   image,
@@ -14,6 +16,7 @@ const ProductDetailsSection = ({
   let globalValues = useContext(GlobalValues);
   let user = localStorage.getItem('user');
   let history = useHistory();
+  const MySwal = withReactContent(Swal);
   const { productID } = useParams();
   const [smallimages, setsmallimages] = useState([]);
   const [viewPic, setViewPic] = useState(image);
@@ -85,8 +88,19 @@ const ProductDetailsSection = ({
                   history.push('/auth');
                 } else {
                   if (localStorage.getItem(productInfo.id)) {
-                    alert('您已加入購物車');
+                    MySwal.fire({
+                      title: '已加入購物車',
+                      icon: 'warning',
+                      timer: 1200,
+                      showConfirmButton: false,
+                    });
                   } else {
+                    MySwal.fire({
+                      title: '成功加入購物車',
+                      icon: 'success',
+                      timer: 1200,
+                      showConfirmButton: false,
+                    });
                     localStorage.setItem(
                       productInfo.id,
                       e.currentTarget.children[0].value

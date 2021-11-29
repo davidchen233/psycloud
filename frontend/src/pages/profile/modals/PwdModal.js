@@ -3,8 +3,12 @@ import './formModal.css';
 import { GrClose } from 'react-icons/gr';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
+import { API_URL } from '../../../config/config';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const PwdModal = ({ togglePwdModal }) => {
+  const MySwal = withReactContent(Swal);
   const [inputs, setInputs] = useState({
     oldPassword: '',
     newPassword: '',
@@ -52,7 +56,12 @@ const PwdModal = ({ togglePwdModal }) => {
       return;
     }
     try {
-      let res = axios.await('http://localhost:3000/aaa');
+      let res = await axios.post(`${API_URL}/auth/changePassword`, inputs, {
+        withCredentials: true,
+      });
+      MySwal.fire({ title: res.data.message }).then(() => {
+        togglePwdModal();
+      });
     } catch (e) {
       console.log('handleSubmit error: ', e);
     }
