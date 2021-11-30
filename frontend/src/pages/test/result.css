@@ -5,6 +5,9 @@
 .gr {
   color: gray;
 }
+.black {
+  color: black;
+}
 
 .lastcloud {
   width: 100px;
@@ -41,8 +44,18 @@
 .belarge:hover {
   transform: scale(1.1);
   transition: 0.5s;
-  /* box-shadow:  10px 10px 5px rgba(0,0,0,0.8); */
 }
+.beshadow {
+  height: 200px;
+}
+/* 不確定 */
+.beshadow:hover {
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* .swiper-slide {
+  height: 280px;
+} */
 
 .location {
   position: relative;
@@ -64,8 +77,6 @@
 .person-line {
   border-bottom: 2px dashed #c7f0fd;
 }
-
-/* .object-outer{position:relative;} */
 
 .object-img {
   width: 100px;
@@ -92,6 +103,71 @@
 
 .m-top {
   margin-top: 0px;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.App .recharts-wrapper svg {
+  margin-left: -100px;
+}
+
+.App .recharts-legend-wrapper {
+  padding-left: 70px;
+}
+
+.card-container {
+  height: 350px;
+  margin: 0 20px;
+  width: 600px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.cover {
+  transform: rotateY(0deg);
+  /* background-color: blue; */
+}
+.back {
+  transform: rotateY(-180deg);
+  /* background-color: red; */
+}
+
+.logoBox {
+  margin: 60px auto 0;
+}
+
+.logoBox .logo #logo {
+  width: 350px;
+}
+
+.cover,
+.back {
+  height: 100%;
+  width: 100%;
+  margin: 0 50px;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.25s ease-in-out;
+}
+.card-container:hover .cover {
+  transform: rotateY(180deg);
+}
+.card-container:hover .back {
+  transform: rotateY(0deg);
 }
 
 @media screen and (min-width: 768px) {

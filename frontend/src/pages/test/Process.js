@@ -5,6 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import axios from 'axios';
 import { API_URL } from '../../config/config';
 import { useHistory } from 'react-router-dom';
+import ProgressBar from './ProgressBar';
 
 const Process = () => {
   const [score, setScore] = useState({
@@ -89,8 +90,6 @@ const Process = () => {
     console.log(res);
     history.push('/Result');
   }
-
-  const now = 7.7;
 
   return (
     <>

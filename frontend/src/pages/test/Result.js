@@ -6,6 +6,20 @@ import { useEffect, useState } from 'react';
 import { PUBLIC_URL, API_URL } from '../../config/config';
 import { TEST_RESULT } from '../../config/test-result';
 import { Link } from 'react-router-dom';
+import Logo from '../../components/Logo';
+
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  BarChart,
+  XAxis,
+  YAxis,
+  Legend,
+  CartesianGrid,
+  Bar,
+  Cell,
+} from 'recharts';
 
 import 'swiper/swiper.min.css';
 import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
@@ -17,7 +31,14 @@ SwiperCore.use(EffectCoverflow);
 const Result = () => {
   const [result, setResult] = useState(TEST_RESULT[0]);
   //產品
-  const [hotproducts, sethotproducts] = useState([]);
+  const [hotproducts, setHotproducts] = useState([]);
+
+  const [data, setData] = useState([
+    { name: '普通', 測驗分布: 0 },
+    { name: '輕度', 測驗分布: 0 },
+    { name: '中度', 測驗分布: 0 },
+    { name: '重度', 測驗分布: 0 },
+  ]);
 
   useEffect(async () => {
     let res = await axios.get(`${API_URL}/users/userTestResult`, {
@@ -28,11 +49,11 @@ const Result = () => {
     let products = await axios.get(
       `${API_URL}/products/level/${res.data.pressure_level}`
     );
-    sethotproducts(products.data);
-  }, []);
+    setHotproducts(products.data);
 
-  // console.log(result);
-  // console.log(hotproducts);
+    let resData = await axios.get(`${API_URL}/tests/testData`);
+    setData(resData.data);
+  }, []);
 
   return (
     <>
@@ -43,29 +64,73 @@ const Result = () => {
               <h2 className="text-center">-檢測結果-</h2>
             </div>
             <div className="col-md-12 text-center mt-3">
-              <div className="card test-block outermost">
-                <div className="card-body  align-items-center">
-                  <div className="mx-auto  m-top">
-                    {/* <img src="http://fakeimg.pl/100x75" alt="雲朵" /> */}
-                    <img src={Cloud} alt="雲朵" className="lastcloud" />
-                    <div className="mt-3">
-                      <p />
-                      <h5>
-                        您的壓力狀態為&nbsp; :&nbsp;
-                        <span className="cocolor">{result.pressure}</span>
-                      </h5>
-                      <p />
-                      <p>{result.info}</p>
+              <div class="card-container">
+                <div className="result-card test-block outermost back">
+                  <div className="card-body  align-items-center">
+                    <div className="mx-auto  m-top">
+                      {/* <img src="http://fakeimg.pl/100x75" alt="雲朵" /> */}
+                      <img src={Cloud} alt="雲朵" className="lastcloud" />
+                      <div className="mt-3">
+                        <p />
+                        <h5>
+                          您的壓力狀態為&nbsp; :&nbsp;
+                          <span className="cocolor">{result.pressure}</span>
+                        </h5>
+                        <p />
+                        <p>{result.info}</p>
+                      </div>
                     </div>
                   </div>
+                </div>
+                <div class="result-card test-block outermost cover">
+                  <div class="card-body  align-items-center">
+                    <div className="logoBox">
+                      <Logo />
+                    </div>
+                    <h5 class="text-center mt-5">
+                      --- 翻開查看您的測驗結果 ---
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-12 align-items-center mt-4">
+                <h4>-壓力統計-</h4>
+                <div className="App">
+                  <BarChart
+                    width={500}
+                    height={300}
+                    data={data}
+                    margin={{
+                      top: 5,
+                      right: 30,
+                      left: 80,
+                      bottom: 5,
+                    }}
+                    barSize={20}
+                  >
+                    <XAxis
+                      dataKey="name"
+                      scale="point"
+                      padding={{ left: 10, right: 10 }}
+                    />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <Bar
+                      dataKey="測驗分布"
+                      fill="#4797ff"
+                      background={{ fill: '#eee' }}
+                    />
+                  </BarChart>
                 </div>
               </div>
               <div className="text-center mt-5 location">
                 <h4>-推薦適合您的心理師-</h4>
                 <div className="moredetail">
-                  <a href="#/" className="more del-line">
+                  <Link to="/doctor" className="more del-line">
                     看更多&gt;&gt;
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="row mt-3">
@@ -82,7 +147,6 @@ const Result = () => {
                     slideShadows: false,
                   }}
                   breakpoints={{
-                    // when window width is >= 480px
                     640: {
                       slidesPerView: 1,
                       spaceBetween: 1,
@@ -140,19 +204,7 @@ const Result = () => {
                   }}
                   loop={true}
                 >
-                  {/* <SwiperSlide>
-                    <TestProduct />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <TestProduct />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <TestProduct />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <TestProduct />
-                  </SwiperSlide> */}
-                  {hotproducts.map((hotproduct, productID) => {
+                  {hotproducts.map((hotproduct, hotproductID) => {
                     return (
                       <SwiperSlide>
                         <TestProduct

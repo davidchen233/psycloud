@@ -96,22 +96,7 @@
               margin: 0;
           } */
 
-@media screen and (min-width: 768px) {
-  .first-cloud {
-    position: relative;
-    left: 200px;
-    top: 1px;
-  }
-}
 
-.first-cloud {
-  position: absolute;
-  right: 10px;
-  bottom: 50px;
-
-  width: 100px;
-  height: 100px;
-}
 
 @media screen and (min-width: 768px) {
   .first-cloud {
