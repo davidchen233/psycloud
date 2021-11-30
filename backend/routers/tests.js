@@ -24,15 +24,19 @@ router.post("/result", async(req,res)=>{
 })
 
 
+// 取得測驗數據
+router.get("/testData", async(req,res)=>{
+  let data  = await connection.queryAsync("SELECT * FROM test_results");
+  let normal = data.filter((item)=>{return item.pressure_level == 0})
+  let light = data.filter((item)=>{return item.pressure_level == 1})
+  let medium = data.filter((item)=>{return item.pressure_level ==2})
+  let serious = data.filter((item)=>{return item.pressure_level == 3})
 
-
-
-
-//  /api/tests/result
-// router.post("/result", async(req,res)=>{
-//     let result = await connection.queryAsync('SELECT * FROM test_results', [req.body]);
-//     res.json(result) ; 
-// })
+  res.json([{ name: '普通', 測驗分布: normal.length },
+  { name: '輕度', 測驗分布: light.length },
+  { name: '中度', 測驗分布: medium.length },
+  { name: '重度', 測驗分布: serious.length },])
+})
 
 
 
