@@ -2,6 +2,7 @@ const express = require("express");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const connection = require("../utils/db_connection");
+require("dotenv").config();
 
 // 建立 router
 const router = express.Router();
@@ -111,7 +112,78 @@ router.post("/login", async (req, res) => {
 // 登出
 router.get("/logout", (req, res) => {
   req.session.user = null;
+  // req.session.destroy();
   res.json({ code: "0", message: "登出成功" });
+});
+
+// 更改密碼
+const mailgun = require("mailgun-js");
+function getOrderCode(randomLength) {
+  return Number(Math.random().toString().substr(2, randomLength) + Date.now())
+    .toString(36)
+    .toUpperCase();
+}
+
+// 忘記密碼
+router.post("/forgetPassword", async (req, res) => {
+  try {
+    let check = await connection.queryAsync(
+      "SELECT * FROM users WHERE email = ?",
+      [req.body.email]
+    );
+
+    if (check.length === 0) {
+      return res.json({ message: "帳號不存在" });
+    }
+
+    // 設定新密碼並更新使用者密碼
+    let newPwd = getOrderCode(8);
+    let hashNewPwd = await bcrypt.hash(newPwd, 10);
+    let setNewPwd = await connection.queryAsync(
+      "UPDATE users SET password=? WHERE email=?",
+      [hashNewPwd, req.body.email]
+    );
+
+    // 寄送新密碼到使用者 email
+    const mg = mailgun({
+      apiKey: process.env.MG_API_KEY,
+      domain: process.env.MG_DOMAIN,
+    });
+    const data = {
+      from: "心理雲 <postmaster@sandbox75ded4288ec64e9692a47287e3068442.mailgun.org>",
+      to: req.body.email,
+      subject: "心理雲",
+      text: `您的新密碼為: ${newPwd}`,
+    };
+    mg.messages().send(data, function (error, body) {
+      console.log(body);
+    });
+    res.json({ message: "請到 email 查看信件取得新密碼" });
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+// 更改密碼
+router.post("/changePassword", async (req, res) => {
+  let userInfo = await connection.queryAsync(
+    "SELECT * FROM users WHERE email=?",
+    [req.session.user.email]
+  );
+  console.log("password", userInfo[0].password);
+  console.log("oldpwd", req.body.oldPassword);
+  let result = await bcrypt.compare(req.body.oldPassword, userInfo[0].password);
+  if (!result) {
+    res.json({ message: "密碼輸入錯誤" });
+  }
+
+  // TODO: 比對資料成功
+  let newPwd = await bcrypt.hash(req.body.newPassword, 10);
+  let changePwd = await connection.queryAsync(
+    "UPDATE users SET password =? WHERE email=?",
+    [newPwd, req.session.user.email]
+  );
+  res.json({ message: "密碼更改成功" });
 });
 
 // 匯出此 router
