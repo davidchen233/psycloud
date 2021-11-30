@@ -84,9 +84,9 @@ const Decors = () => {
         })}
       </div>
 
-      <div>
+      {/* <div>
         <Pagination />
-      </div>
+      </div> */}
     </div>
   );
 };

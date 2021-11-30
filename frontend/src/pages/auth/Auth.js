@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../config/config';
 import './auth.css';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { ImEye } from 'react-icons/im';
+import { RiEyeCloseFill } from 'react-icons/ri';
 
 const Auth = () => {
   const MySwal = withReactContent(Swal);
@@ -21,6 +23,9 @@ const Auth = () => {
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   }
+
+  // 顯示密碼效果
+  let [showPwd, setShowPwd] = useState(false);
 
   // 登入表單開始 ===========================================
   const [loginResponse, setLoginResponse] = useState('');
@@ -178,7 +183,30 @@ const Auth = () => {
                 onChange={handleLoginChange}
                 minLength="8"
                 required
+                id="loginPwd"
               />
+              <div className="d-flex justify-content-between">
+                <div></div>
+                {showPwd ? (
+                  <ImEye
+                    className="showPwd"
+                    onClick={() => {
+                      let loginPwd = document.getElementById('loginPwd');
+                      setShowPwd(false);
+                      loginPwd.type = 'password';
+                    }}
+                  />
+                ) : (
+                  <RiEyeCloseFill
+                    className="showPwd"
+                    onClick={() => {
+                      let loginPwd = document.getElementById('loginPwd');
+                      setShowPwd(true);
+                      loginPwd.type = 'text';
+                    }}
+                  />
+                )}
+              </div>
               {loginErrors.password !== '' && (
                 <span className="errorMsg">{loginErrors.password}</span>
               )}

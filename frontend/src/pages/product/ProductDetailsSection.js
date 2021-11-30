@@ -61,7 +61,7 @@ const ProductDetailsSection = ({
       <div className="d-flex align-items-start flex-column bd-highlight mb-3 right-content">
         <div className="mb-auto p-2 bd-highlight">
           <p className="detail-title">{name}</p>
-          <p>{description}</p>
+          <pre>{description}</pre>
         </div>
         <div className="px-2 py-3 bd-highlight">
           <div>
