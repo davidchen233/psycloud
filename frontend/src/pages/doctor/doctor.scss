@@ -92,8 +92,9 @@ $font-color: #006ead;
       background: #f1f6f6;
       box-shadow: 5px 5px 10px #bec2c2, -5px -5px 10px #ffffff;
       align-self: center;
-      max-width: 200px;
-      height: auto;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
     }
     transition: all ease-in-out 250ms;
   }
@@ -175,6 +176,7 @@ $font-color: #006ead;
       'calender';
     .photo {
       width: 150px;
+      height: 150px;
     }
   }
   .calender-img {

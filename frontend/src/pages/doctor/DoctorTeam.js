@@ -5,10 +5,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function DoctorTeam() {
   const [doctors, setDoctors] = useState([]);
+  console.log(doctors);
 
   useEffect(() => {
     AOS.init({ offset: 200, duration: 1500, once: true, easing: 'ease-in' });
@@ -49,7 +51,9 @@ function DoctorTeam() {
               value="依專長搜尋"
             ></input>
           </section>
-          <button className="search-btn round">壓力檢測</button>
+          <Link to={`/test`}>
+            <button className="search-btn round">壓力檢測</button>
+          </Link>
         </section>
         <section className="team-container">
           {doctors.map((doctor) => (

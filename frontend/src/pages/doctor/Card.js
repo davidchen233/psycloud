@@ -3,11 +3,15 @@ import Photo from './unnamed.jpg';
 import './Card.scss';
 import { Link } from 'react-router-dom';
 
-export default function card({ id, name, expertise }) {
+export default function card({ id, name, photo, expertise }) {
   return (
     <div data-aos="fade" className="flex-container">
       <div className="recommend-card float">
-        <img className="doc-photo" src={Photo} alt="doctor"></img>
+        <img
+          className="doc-photo"
+          src={`http://localhost:3001/${photo}`}
+          alt="doctor"
+        ></img>
         <p className="name">{name}</p>
         <div className="expertise">
           {expertise &&

@@ -16,7 +16,7 @@ app.use(
     origin: ["http://localhost:3000"],
     credentials: true,
   })
-);  
+);
 
 // 讀取 body 的資料
 app.use(express.urlencoded({ extended: true }));
@@ -54,6 +54,18 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("User Disconnected", socket.id);
   });
+
+  //video chat 
+  socket.emit("me", socket.id);
+  socket.on('disconnect', ()=>{
+    socket.broadcast.emit("callended")
+  })
+  socket.on("calluser", ({userToCall, signalData, from, name})=>{
+    io.to(userToCall).emit('calluser', {signal: signalData, from, name})
+  })
+  socket.on("answercall", (data)=>{
+    io.to(data.to).emit("callaccepted", data.signal);
+  })
 });
 
 // auth 相關的 API
@@ -82,6 +94,7 @@ app.use("/api/products", productsRouter);
 
 // orders 相關的 API
 let ordersRouter = require("./routers/orders");
+const { publicDecrypt } = require("crypto");
 app.use("/api/orders", ordersRouter);
 
 // 404 not found

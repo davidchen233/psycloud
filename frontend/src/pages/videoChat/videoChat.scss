@@ -1,0 +1,70 @@
+.videoChat-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-video {
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  background: linear-gradient(#f1f6f6, #fdfff6);
+  box-shadow: 10px 10px 15px #d2d4cc, -10px -10px 15px #ffffff;
+  margin-bottom: 1em;
+  //300px
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.form-container {
+  label {
+    font-size: 20px;
+  }
+  input {
+    border-radius: 8px;
+    padding: 0.1em 0px 0.1em 1em;
+    margin: 1em 0px;
+  }
+  display: flex;
+  width: 400px;
+  padding: 1em;
+  flex-direction: column;
+
+  &:focus {
+    outline: transparent;
+  }
+}
+
+.options-container {
+  border-radius: 8px;
+  background: hsl(0, 0%, 96%);
+  box-shadow: 14px 14px 23px #d7d7d7, -14px -14px 23px #ffffff;
+  & > div {
+    padding: 1em;
+  }
+  button {
+    border: 2px solid #4797ff;
+    border-radius: 8px;
+    color: white;
+    font-size: 1em;
+    background-color: #4797ff;
+    padding: 0.1em;
+    &:hover {
+      background-color: #4797ffb4;
+    }
+  }
+}
+
+.notification-container {
+  p {
+    font-size: 20px;
+  }
+  display: flex;
+  flex-direction: column;
+}

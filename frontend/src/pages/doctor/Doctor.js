@@ -1,8 +1,6 @@
 import React from 'react';
 import Calender from './fullcalendar.png';
-import Photo from './unnamed.jpg';
 import './Doctor.scss';
-import Card from './Card';
 import PopUp from './PopUp';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
@@ -45,11 +43,15 @@ function Doctor() {
   const { name, photo, summary, experience, expertise, education } = doctor;
   return (
     <>
-      <PopUp handlePopUp={handlePopUp} popUp={popUp} Photo={Photo} />
+      <PopUp handlePopUp={handlePopUp} popUp={popUp} doctor={doctor} />
       <section class="dr-portfolio">
         <section className="summary dr-press dr-fade-in dr-fade1">
           <div className="photo-div">
-            <img className="photo" src={Photo} alt="doctor"></img>
+            <img
+              className="photo"
+              src={`http://localhost:3001/${photo}`}
+              alt="doctor"
+            ></img>
           </div>
           <div className="summary-div">
             <div className="name">
@@ -90,12 +92,6 @@ function Doctor() {
       <section className="dr-recommend-section dr-fade-in dr-fade5">
         <h3>其他相似專長的心理師</h3>
         <SliderSection recommend={recommend} />
-        {/* <section className="card-section">
-          {recommend.length > 0 &&
-            recommend.map((doctor) => {
-              return <Card {...doctor} />;
-            })}
-        </section> */}
       </section>
       {/* had to write this to overwrite the home page background... */}
       <style>
