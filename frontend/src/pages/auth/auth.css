@@ -209,3 +209,11 @@
   letter-spacing: 2px;
   color: rgb(255, 101, 101);
 }
+
+.forgetPwd {
+  cursor: pointer;
+  color: rgb(255, 101, 101);
+  border-bottom: 1px solid rgb(255, 101, 101);
+  font-size: 14px;
+  margin-top: 3px;
+}

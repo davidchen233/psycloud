@@ -29,3 +29,12 @@
   font-weight: bold;
   border-bottom: 1px dashed #6e6e6e;
 }
+
+.noResult {
+  letter-spacing: 3px;
+}
+
+.noResult a {
+  text-decoration: none;
+  border-bottom: 1px solid #4797ff;
+}

@@ -1,10 +1,11 @@
 const express = require("express");
 const connection = require("../utils/db_connection");
+const moment = require("moment");
 
 // 建立 router
 const router = express.Router();
 
-//get all doctors 
+//get all doctors
 router.get("/", async (req, res) => {
   const sql = "SELECT * FROM psychologists";
   let data = await connection.queryAsync(sql);
@@ -44,6 +45,43 @@ router.get("/:id/recommend", async (req, res) => {
       )
       .filter((d) => d.id != id)
   );
+});
+
+router.get("/:id/reservation", async (req, res) => {
+  const { id } = req.params;
+  const sql = `SELECT * FROM reservations WHERE psychologist_id = ${id} AND reserved = 0`;
+  let data = await connection.queryAsync(sql);
+  res.json(
+    data.filter(
+      (day, index, array) =>
+        index ===
+        array.findIndex(
+          (d) => moment(d.date).toString() === moment(day.date).toString()
+        )
+    )
+  );
+});
+
+router.get("/:id/reservation/:date", async (req, res) => {
+  const { id, date } = req.params;
+  const sql = `SELECT period FROM reservations WHERE psychologist_id = ${id} AND date LIKE '${date}%' AND reserved = 0`;
+  let data = await connection.queryAsync(sql);
+  res.json(data);
+});
+
+router.post("/reservation", async (req, res) => {
+  console.log(req.body);
+  const sql =
+    "UPDATE reservations SET user_id=?, reserved_at=?, info=? ,reserved=1 WHERE psychologist_id = ? AND period = ? AND date LIKE '${date}%'";
+  let result = await connection.queryAsync(sql, [
+    req.session.user.id,
+    moment().format('YYYY-MM-DD h:mm:ssa'),
+    req.body.info,
+    req.body.psychologist_id,
+    req.body.period,
+    req.body.date
+  ]);
+  res.send("banana");
 });
 
 // 匯出此 router

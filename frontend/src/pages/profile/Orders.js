@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ORDER_STATUS } from '../../config/status';
 import './orders.css';
+import axios from 'axios';
+import { API_URL } from '../../config/config';
 
-const Orders = ({ toggleOrderModal }) => {
+const Orders = ({ setShowOrderModal, setOrderId }) => {
   const [orders, setOrders] = useState([
     {
       order_code: '#D554845',
@@ -11,6 +13,13 @@ const Orders = ({ toggleOrderModal }) => {
       status: 1,
     },
   ]);
+
+  useEffect(async () => {
+    let res = await axios.get(`${API_URL}/users/orders`, {
+      withCredentials: true,
+    });
+    setOrders(res.data);
+  }, []);
 
   return (
     <>
@@ -30,17 +39,23 @@ const Orders = ({ toggleOrderModal }) => {
         {/* TODO: map 出訂單內容 */}
         {orders.map((order) => {
           return (
-            <div className="row mb-4 align-items-center">
+            <div className="row mb-4 align-items-center" key={order.id}>
               <div className="col-2">{order.order_code}</div>
-              <div className="col-3">{order.created_at}</div>
+              <div className="col-3">{order.created_at.split('T')[0]}</div>
               <div className="col-2">$ {order.total}</div>
               <div className="col-2">
                 <span className="order-status">
-                  {ORDER_STATUS[order.status]}
+                  {ORDER_STATUS[order.order_status]}
                 </span>
               </div>
               <div className="col-3">
-                <button onClick={toggleOrderModal} className="viewBtn">
+                <button
+                  onClick={() => {
+                    setShowOrderModal(true);
+                    setOrderId(order.id);
+                  }}
+                  className="viewBtn"
+                >
                   檢視詳情
                 </button>
               </div>

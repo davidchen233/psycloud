@@ -37,6 +37,8 @@
     "simple-peer": "^9.11.0",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.4.0",
+    "sweetalert2": "^11.2.1",
+    "sweetalert2-react-content": "^4.2.0",
     "swiper": "^6.8.4",
     "web-vitals": "^1.0.1"
   },

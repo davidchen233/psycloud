@@ -3,13 +3,23 @@ import { withRouter, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../config/config';
 import './auth.css';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const Auth = () => {
+  const MySwal = withReactContent(Swal);
   const [toggleForm, setToggleForm] = useState(false);
   let history = useHistory();
   let user = JSON.parse(localStorage.getItem('user'));
   if (user) {
     history.push('/');
+  }
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   }
 
   // 登入表單開始 ===========================================
@@ -40,6 +50,7 @@ const Auth = () => {
       [e.target.name]: '',
     };
     setLoginErrors(updatedLoginErrors);
+    setLoginResponse('');
   };
   async function handleLoginSubmit(e) {
     e.preventDefault();
@@ -52,13 +63,15 @@ const Auth = () => {
       } else {
         console.log(res.data.user);
         localStorage.setItem('user', JSON.stringify(res.data.user));
-        alert(res.data.message);
-        history.push('/');
+        MySwal.fire({ title: res.data.message, icon: 'success' }).then(() => {
+          history.push('/');
+        });
       }
     } catch (err) {
       console.log(err);
     }
   }
+
   // 登入表單結束 ===========================================
 
   // 註冊表單開始 ===========================================
@@ -124,6 +137,7 @@ const Auth = () => {
           confirmPassword: '',
         });
         setSignupResponse('');
+        alert(res.data.message);
         setToggleForm(false);
       }
     } catch (err) {
@@ -168,16 +182,52 @@ const Auth = () => {
               {loginErrors.password !== '' && (
                 <span className="errorMsg">{loginErrors.password}</span>
               )}
-              <p className="signup">
-                還沒有帳號?
+              <div className="d-flex justify-content-between align-items-center">
+                <p className="signup">
+                  還沒有帳號?
+                  <span
+                    onClick={() => {
+                      setToggleForm(true);
+                    }}
+                  >
+                    馬上註冊...
+                  </span>
+                </p>
                 <span
-                  onClick={() => {
-                    setToggleForm(true);
+                  className="forgetPwd"
+                  onClick={async () => {
+                    MySwal.fire({
+                      title: '取得新密碼',
+                      focusConfirm: true,
+                      html: '<input type="email" id="changePwdEmail" placeholder="請輸入您註冊的帳號..." class="form-control"/>',
+                      icon: 'warning',
+                      showCancelButton: true,
+                      cancelButtonColor: 'grey',
+                      cancelButtonText: '取消',
+                      confirmButtonColor: '#4797ff',
+                      confirmButtonText: '確認',
+                      closeOnConfirm: false,
+                    }).then(async (result) => {
+                      if (result.isConfirmed) {
+                        let email =
+                          document.getElementById('changePwdEmail').value;
+                        if (email === '') {
+                          alert('請輸入email');
+                        } else {
+                          let res = await axios.post(
+                            `${API_URL}/auth/forgetPassword`,
+                            { email: email }
+                          );
+                          alert(res.data.message);
+                        }
+                      }
+                    });
                   }}
                 >
-                  馬上註冊...
+                  忘記密碼
                 </span>
-              </p>
+              </div>
+
               <span className="errorMsg ps-0 fs-6">{loginResponse}</span>
               <div className="d-flex justify-content-between">
                 <div></div>

@@ -1,14 +1,10 @@
 import './psyInfo.css';
-import License from '../tempImg/12.jpg';
 
 const PsyInfo = ({ togglePsyInfoForm, toggleEditPsyInfoForm }) => {
   return (
     <>
       <div className="w-75 mx-auto d-flex align-items-center pt-3 mb-4">
         <div className="licenseBx">
-          <div className="licenseImg mb-2">
-            <img src={License} alt="" />
-          </div>
           <p className="text-center">
             證號: <span>TODO:證照號碼</span>
           </p>

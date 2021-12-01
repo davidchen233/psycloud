@@ -3,6 +3,7 @@
   background-color: rgb(255, 255, 255, 0.7);
   box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.1);
   padding: 30px 80px;
+  min-height: 200px;
 }
 
 .Cart-Title {
@@ -40,6 +41,14 @@
   width: 130px;
   height: 130px;
   border-radius: 8px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.cart-tbody-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .quantity-input {
@@ -52,4 +61,8 @@
 .total {
   font-size: 18px;
   font-weight: 900;
+}
+
+td svg {
+  cursor: pointer;
 }

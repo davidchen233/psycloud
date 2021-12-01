@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
 import {
   FaRegUser,
@@ -26,10 +26,13 @@ import EditPsyInfoForm from './modals/EditPsyInfoForm';
 
 const Profile = () => {
   let user = JSON.parse(localStorage.getItem('user'));
+  const [avatar, setAvatar] = useState(user.avatar);
+
   const [currentView, setCurrentView] = useState('profile');
   const [showPwdModal, setShowPwdModal] = useState(false);
   const [showPersonalModal, setShowPersonalModal] = useState(false);
   const [showOrderModal, setShowOrderModal] = useState(false);
+  const [orderId, setOrderId] = useState(0);
   const [showPsyInfoForm, setShowPsyInfoForm] = useState(false);
   const [showEditPsyInfoForm, setShowEditPsyInfoForm] = useState(false);
 
@@ -38,6 +41,24 @@ const Profile = () => {
   const ordersRef = useRef();
   const testRef = useRef();
   const psychologistRef = useRef();
+
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body.style.overflow =
+      showPwdModal ||
+      showPersonalModal ||
+      showOrderModal ||
+      showPsyInfoForm ||
+      showEditPsyInfoForm
+        ? 'hidden'
+        : 'auto';
+  }, [
+    showPwdModal,
+    showPersonalModal,
+    showOrderModal,
+    showPsyInfoForm,
+    showEditPsyInfoForm,
+  ]);
 
   function handleClick(e) {
     let id = e.currentTarget.getAttribute('data-id');
@@ -78,12 +99,18 @@ const Profile = () => {
           <Personal
             togglePwdModal={togglePwdModal}
             togglePersonalModal={togglePersonalModal}
+            setAvatar={setAvatar}
           />
         );
       case 'consultation':
         return <Consultation />;
       case 'orders':
-        return <Orders toggleOrderModal={toggleOrderModal} />;
+        return (
+          <Orders
+            setShowOrderModal={setShowOrderModal}
+            setOrderId={setOrderId}
+          />
+        );
       case 'test':
         return <Test />;
       case 'psychologist':
@@ -102,10 +129,13 @@ const Profile = () => {
     <>
       {showPwdModal === true && <PwdModal togglePwdModal={togglePwdModal} />}
       {showPersonalModal === true && (
-        <PersonalInfoForm togglePersonalModal={togglePersonalModal} />
+        <PersonalInfoForm
+          togglePersonalModal={togglePersonalModal}
+          setShowPersonalModal={setShowPersonalModal}
+        />
       )}
       {showOrderModal === true && (
-        <OrderModal toggleOrderModal={toggleOrderModal} />
+        <OrderModal toggleOrderModal={toggleOrderModal} orderId={orderId} />
       )}
       {showPsyInfoForm === true && (
         <PsyInfoForm togglePsyInfoForm={togglePsyInfoForm} />
@@ -118,7 +148,7 @@ const Profile = () => {
           <div>
             <div className="navigation">
               <div className="avatar">
-                <img src={PUBLIC_URL + user.avatar} alt="" />
+                <img src={PUBLIC_URL + avatar} alt="" />
               </div>
               <ul>
                 <li
@@ -175,7 +205,7 @@ const Profile = () => {
                 </li>
                 <li
                   data-id="psychologist"
-                  className="list"
+                  className={`list ${user.isPsychologist ? '' : 'invisible'}`}
                   ref={psychologistRef}
                   onClick={handleClick}
                 >

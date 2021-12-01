@@ -10,7 +10,6 @@ import axios from 'axios';
 
 function DoctorTeam() {
   const [doctors, setDoctors] = useState([]);
-  console.log(doctors);
 
   useEffect(() => {
     AOS.init({ offset: 200, duration: 1500, once: true, easing: 'ease-in' });

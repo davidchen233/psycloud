@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { NavLink, withRouter, useHistory } from 'react-router-dom';
 import Logo from './Logo';
 import './header.css';
@@ -6,7 +6,15 @@ import { BsPerson, BsCart3 } from 'react-icons/bs';
 import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 import axios from 'axios';
 import { API_URL } from '../config/config';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import { GlobalValues } from '../App';
+
 const Header = () => {
+  let globalValues = useContext(GlobalValues);
+  console.log('cartCount', globalValues.cartCount);
+
+  const MySwal = withReactContent(Swal);
   // TODO: 是否已登入
   let user = JSON.parse(localStorage.getItem('user'));
 
@@ -22,7 +30,7 @@ const Header = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const menuItems = ['壓力檢測', '預約心理師', '紓壓小物', '心情聊天室'];
   const menuLinks = {
-    壓力檢測: 'test',
+    壓力檢測: user ? 'test' : 'auth',
     預約心理師: 'doctor',
     紓壓小物: 'product',
     心情聊天室: 'chatRoom',
@@ -31,10 +39,14 @@ const Header = () => {
   function handleLogout() {
     try {
       axios.get(`${API_URL}/auth/logout`, { withCredentials: true });
-      localStorage.removeItem('user');
-      alert('登出成功');
-      setActiveIndex(-1);
-      history.push('/');
+      // localStorage.removeItem('user');
+      globalValues.setCartCount(0);
+      localStorage.clear();
+      localStorage.setItem('cart', '');
+      MySwal.fire({ title: '登出成功', icon: 'success' }).then(() => {
+        setActiveIndex(-1);
+        history.push('/');
+      });
     } catch (err) {
       console.log(err);
     }
@@ -81,12 +93,19 @@ const Header = () => {
         </li>
         <li>
           <NavLink
-            to="/cart"
+            to={user ? '/cart' : '/auth'}
             onClick={() => {
               setActiveIndex(-1);
             }}
           >
-            <BsCart3 size="26" />
+            <div className="header-cart">
+              {user ? (
+                <div className="cartCount">{globalValues.cartCount}</div>
+              ) : (
+                ''
+              )}
+              <BsCart3 size="26" />
+            </div>
           </NavLink>
         </li>
         {user ? (
