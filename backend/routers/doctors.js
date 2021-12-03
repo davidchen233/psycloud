@@ -10,32 +10,43 @@ router.get("/", async (req, res) => {
   const sql = "SELECT * FROM psychologists";
   let data = await connection.queryAsync(sql);
   res.json(data);
-  console.log(__dirname);
 });
 
 router.post("/reservation", async (req, res) => {
-  console.log(req.body);
+  try {
+    const sql =
+      `UPDATE reservations SET user_id=?, reserved_at=?, info=? ,reserved=1 WHERE psychologist_id = ? AND period = ? AND date LIKE ?`;
+    let result = await connection.queryAsync(sql, [
+      req.session.user.id,
+      moment().format("YYYY-MM-DD hh:mm:ssa"),
+      req.body.info,
+      req.body.psychologist_id,
+      `${req.body.period}%`,
+      req.body.date,
+    ]);
+    res.json({ message: "success", sql });
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+router.get("/currentUser", async (req, res) => {
+  // const { id } = req.session.user;
+  if (req.session.user) {
+    res.json(req.session.user);
+  }
+  // const sql = `SELECT * FROM user WHERE id = ?`;
   // try {
-  //   const sql =
-  //     "UPDATE reservations SET user_id=?, reserved_at=?, info=? ,reserved=1 WHERE psychologist_id = ? AND period = ? AND date LIKE '${date}%'";
-  //   let result = await connection.queryAsync(sql, [
-  //     req.session.user.id,
-  //     moment().format("YYYY-MM-DD h:mm:ssa"),
-  //     req.body.info,
-  //     req.body.psychologist_id,
-  //     req.body.period,
-  //     req.body.date,
-  //   ]);
-  res.json({ message: "success" });
+  //   let data = await connection.queryAsync(sql, [id]);
+  //   res.json(data);
   // } catch (e) {
-  //   console.log(e);
+  //   console.error(e);
   // }
 });
 
 //get doctor by search
 router.get("/search", async (req, res) => {
   const { key } = req.query;
-  console.log(key);
   const sql = `SELECT * FROM psychologists WHERE expertise LIKE '%${key}%'`;
   let data = await connection.queryAsync(sql);
   res.json(data);
@@ -60,7 +71,6 @@ router.get("/:id/recommend", async (req, res) => {
     .map((type) => type.pressure_type)
     .map((value) => `pressure_type = ${value}`)
     .join(" OR ");
-  console.log(result);
   //get the other id by types acquire above
   const sql2 = `SELECT name, expertise, pressure_type, doc.id, photo FROM psychologists AS doc INNER JOIN psy_pressuretypes AS type ON doc.id = type.psychologist_id WHERE ${result}`;
   let list = await connection.queryAsync(sql2);
@@ -77,7 +87,7 @@ router.get("/:id/recommend", async (req, res) => {
 
 router.get("/:id/reservation", async (req, res) => {
   const { id } = req.params;
-  const sql = `SELECT * FROM reservations WHERE psychologist_id = ${id} AND reserved = 0`;
+  const sql = `SELECT * FROM reservations WHERE psychologist_id = ${id} AND reserved = 0 ORDER BY date ASC`;
   let data = await connection.queryAsync(sql);
   res.json(
     data.filter(

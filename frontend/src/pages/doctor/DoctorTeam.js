@@ -138,7 +138,7 @@ function DoctorTeam() {
               <h2>點此即可返回...</h2>
             </div>
           ) : (
-            doctors.map((doctor) => <Card {...doctor} />)
+            doctors.map((doctor) => <Card key={doctor.id} {...doctor} />)
           )}
         </section>
       </section>

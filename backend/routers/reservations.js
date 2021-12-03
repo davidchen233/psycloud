@@ -23,6 +23,35 @@ router.get("/psychologistEvents/:psychologistId", async (req, res) => {
   }
 });
 
+//get reservation by user_id
+router.get("/getUser", async (req, res) => {
+  res.json(req.session.user.id);
+});
+
+router.get("/getUser/getList/:id", async (req, res) => {
+  const id = req.params.id;
+  const sql =
+    "SELECT name, res.id, psychologist_id, date, period, photo, res.user_id FROM reservations AS res INNER JOIN psychologists AS psy on res.psychologist_id = psy.id WHERE res.user_id = ?";
+  let data = await connection.queryAsync(sql, [id]);
+  res.json(data);
+});
+
+//docotr getting its own list
+router.get("/getPsyId/:id", async (req, res) => {
+  const id = req.params.id;
+  const sql ="SELECT psy.id from psychologists AS psy INNER JOIN users on users.id = psy.user_id WHERE user_id = ?"
+  let data = await connection.queryAsync(sql, [id]);
+  res.json(data[0].id)
+});
+
+router.get("/getPsyList/:id", async (req, res) => {
+  const id = req.params.id;
+  const sql =
+    "SELECT res.id, avatar, users.name, date, period FROM reservations as res INNER JOIN users on users.id = res.user_id WHERE res.psychologist_id = ?";
+  let data = await connection.queryAsync(sql, [id]);
+  res.json(data);
+});
+
 // 新增時程
 router.post("/createEvent", async (req, res) => {
   let check = await connection.queryAsync(

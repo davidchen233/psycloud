@@ -12,7 +12,7 @@ import { GlobalValues } from '../App';
 
 const Header = () => {
   let globalValues = useContext(GlobalValues);
-  console.log('cartCount', globalValues.cartCount);
+  // console.log('cartCount', globalValues.cartCount);
 
   const MySwal = withReactContent(Swal);
   // TODO: 是否已登入

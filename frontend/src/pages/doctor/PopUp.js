@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './PopUp.scss';
 // import { useState } from 'react';
 import { ImCross } from 'react-icons/im';
@@ -9,36 +9,67 @@ import { NavLink } from 'react-router-dom';
 import CreditCard from './CreditCard';
 
 export default function PopUp(props) {
-  let user = JSON.parse(localStorage.getItem('user'));
   const { name, photo, price } = props.doctor;
   const { submit, setSubmit } = props;
   const { success, setSuccess } = props;
+  const { reservation, setReservation } = props;
   const { id } = useParams();
+  const [user, setUser] = useState('');
   const [date, setDate] = useState({});
   const [selectedDate, setSelectedDate] = useState({});
   const [period, setPeriod] = useState({});
-  const [reservation, setReservation] = useState({
-    psychologist_id: id,
-  });
   const [error, setError] = useState({});
+  const dateRef = useRef(null);
+  const periodRef = useRef(null);
 
   function handleChange(e) {
     setReservation({ ...reservation, [e.target.name]: e.target.value });
   }
+  const fetcher = () => {
+    const fetchDate = async () => {
+      let res = await axios.get(
+        `http://localhost:3001/api/doctors/${id}/reservation`
+      );
+      setDate(res.data);
+    };
+    const fetchUser = async () => {
+      let result = await axios.get(
+        `http://localhost:3001/api/doctors/currentUser`,
+        { withCredentials: true }
+      );
+      setUser(result.data.id);
+    };
+    fetchDate();
+    fetchUser();
+    setReservation({ psychologist_id: id });
+  };
 
-  async function handleSubmit(e) {
-    // try {
-    // let submit = await axios.post(
-    //   `http://localhost:3001/api/doctors/reservation`,
-    //   reservation,
-    //   { withCredentials: true }
-    // );
-    setSuccess(true);
-    // } catch (err) {
-    //   console.error(err);
-    // }
-    console.log('banana');
-  }
+  const fetchPeriod = async () => {
+    let res = await axios.get(
+      `http://localhost:3001/api/doctors/${id}/reservation/${selectedDate}`
+    );
+    setPeriod(res.data);
+  };
+
+  useEffect(() => {
+    fetcher();
+  }, [id]);
+
+  const handleSubmit = async (e) => {
+    try {
+      let submit = await axios.post(
+        `http://localhost:3001/api/doctors/reservation`,
+        reservation,
+        { withCredentials: true }
+      );
+      setSuccess(true);
+      setReservation({});
+      setPeriod({});
+      fetcher();
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   function handleValidation(form) {
     const errors = {};
@@ -50,23 +81,8 @@ export default function PopUp(props) {
     }
     return errors;
   }
-  useEffect(() => {
-    const fetchDate = async () => {
-      let res = await axios.get(
-        `http://localhost:3001/api/doctors/${id}/reservation`
-      );
-      setDate(res.data);
-    };
-    fetchDate();
-  }, [id]);
 
   useEffect(() => {
-    const fetchPeriod = async () => {
-      let res = await axios.get(
-        `http://localhost:3001/api/doctors/${id}/reservation/${selectedDate}`
-      );
-      setPeriod(res.data);
-    };
     fetchPeriod();
   }, [selectedDate, id]);
 
@@ -79,10 +95,10 @@ export default function PopUp(props) {
             -預約完成-
           </h2>
           <p>預約的心理師: {name}</p>
-          <p>預約日期: {reservation.date}</p>
+          <p>預約日期: {dateRef.current}</p>
           <p>
             時段:
-            {reservation.period === '1'
+            {periodRef.current === '1'
               ? '上午( 10:00 ~ 12:00)'
               : '下午 ( 14:00 ~ 16:00)'}
           </p>
@@ -99,12 +115,12 @@ export default function PopUp(props) {
     );
   }
 
-  if (submit && user) {
+  if (user === '') {
     return (
       <section className={props.popUp}>
         <div className="dr-form-container">
           <ImCross className="cross" onClick={props.handlePopUp} />
-          <div clasName="dr-form-login-alert">
+          <div className="dr-form-login-alert">
             <NavLink
               to={'/auth'}
               onClick={() => {
@@ -119,7 +135,7 @@ export default function PopUp(props) {
     );
   }
 
-  if (submit && !user) {
+  if (submit && user) {
     return (
       <section className={props.popUp}>
         <div className="dr-form-container">
@@ -160,9 +176,13 @@ export default function PopUp(props) {
             name="date"
             className="form-panel dr-pop-up delay2"
             value={reservation.date}
+            onClick={() => {
+              fetchPeriod();
+            }}
             onChange={(e) => {
               setSelectedDate(e.target.value);
               handleChange(e);
+              dateRef.current = e.target.value;
             }}
           >
             <option disabled selected>
@@ -188,7 +208,10 @@ export default function PopUp(props) {
             name="period"
             className="form-panel dr-pop-up delay3"
             value={reservation.period}
-            onChange={handleChange}
+            onChange={(e) => {
+              periodRef.current = e.target.value;
+              handleChange(e);
+            }}
           >
             <option disabled selected>
               請選擇時段

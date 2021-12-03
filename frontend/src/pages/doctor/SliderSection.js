@@ -45,7 +45,7 @@ export default class Responsive extends Component {
         <Slider {...settings}>
           {recommend.length > 0 &&
             recommend.map((doctor) => {
-              return <Card {...doctor} />;
+              return <Card key={doctor.id} {...doctor} />;
             })}
         </Slider>
       </div>

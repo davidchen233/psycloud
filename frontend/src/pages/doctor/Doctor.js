@@ -1,5 +1,5 @@
 import React from 'react';
-import Calender from './fullcalendar.png';
+// import Calender from './fullcalendar.png';
 import './Doctor.scss';
 import PopUp from './PopUp';
 import { useState, useEffect } from 'react';
@@ -8,6 +8,7 @@ import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SliderSection from './SliderSection';
+import Calendar from './Calendar';
 
 function Doctor() {
   const [popUp, setPopUp] = useState('hidden-dr');
@@ -15,6 +16,8 @@ function Doctor() {
   const [recommend, setRecommend] = useState({});
   const [submit, setSubmit] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [reservation, setReservation] = useState({});
+  const [user, setUser] = useState('');
   const { id } = useParams();
 
   function handlePopUp() {
@@ -40,8 +43,16 @@ function Doctor() {
       );
       setRecommend(res.data);
     };
+    const fetchUser = async () => {
+      let result = await axios.get(
+        `http://localhost:3001/api/doctors/currentUser`,
+        { withCredentials: true }
+      );
+      setUser(result.data.id);
+    };
     fetchData();
     fetchRecommend();
+    fetchUser();
   }, [id]);
 
   const { name, photo, summary, experience, expertise, education } = doctor;
@@ -55,6 +66,9 @@ function Doctor() {
         setSubmit={setSubmit}
         success={success}
         setSuccess={setSuccess}
+        reservation={reservation}
+        setReservation={setReservation}
+        user={user}
       />
       <section class="dr-portfolio">
         <section className="summary dr-press dr-fade-in dr-fade1">
@@ -80,8 +94,12 @@ function Doctor() {
           <h3>經歷（摘錄）／ Experience：</h3>
           <div>
             {experience &&
-              experience.split(/\r\n/g).map((line) => {
-                return <p className="dr-descriptive">{line}</p>;
+              experience.split(/\r\n/g).map((line, i) => {
+                return (
+                  <p key={i} className="dr-descriptive">
+                    {line}
+                  </p>
+                );
               })}
           </div>
         </section>
@@ -91,14 +109,19 @@ function Doctor() {
           <h3>專長/Expertise</h3>
           <div>
             {expertise &&
-              expertise.split(/\r\n/g).map((line) => {
-                return <p className="dr-descriptive">{line}</p>;
+              expertise.split(/\r\n/g).map((line, i) => {
+                return (
+                  <p key={i} className="dr-descriptive">
+                    {line}
+                  </p>
+                );
               })}
           </div>
         </section>
         <section className="calender dr-press dr-fade-in dr-fade4">
           <h3>可預約時間</h3>
-          <img src={Calender} alt="calender" className="calender-img"></img>
+          {/* <img src={Calender} alt="calender" className="calender-img"></img> */}
+          <Calendar />
         </section>
       </section>
       <section className="dr-recommend-section dr-fade-in dr-fade5">

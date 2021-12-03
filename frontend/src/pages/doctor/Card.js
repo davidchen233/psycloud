@@ -19,9 +19,10 @@ export default function card({ id, name, photo, expertise }) {
               return <p>{line}</p>;
             })}
         </div>
-        <Link to={`/doctor/${id}`}>
+        {/* {I use a istead of link cause i want to clear the state} */}
+        <a href={`/doctor/${id}`}>
           <button>查看詳情</button>
-        </Link>
+        </a>
       </div>
     </div>
   );
