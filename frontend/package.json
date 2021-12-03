@@ -34,6 +34,7 @@
     "react-scroll-to-bottom": "^4.2.0",
     "react-slick": "^0.28.1",
     "react-tilt": "^0.1.4",
+    "recharts": "^2.1.6",
     "sass": "^1.43.4",
     "simple-peer": "^9.11.0",
     "slick-carousel": "^1.8.1",
