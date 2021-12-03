@@ -13,6 +13,8 @@ function Doctor() {
   const [popUp, setPopUp] = useState('hidden-dr');
   const [doctor, setDoctor] = useState({});
   const [recommend, setRecommend] = useState({});
+  const [submit, setSubmit] = useState(false);
+  const [success, setSuccess] = useState(false);
   const { id } = useParams();
 
   function handlePopUp() {
@@ -22,6 +24,8 @@ function Doctor() {
     } else {
       setPopUp('hidden-dr');
       document.body.style.overflow = 'initial';
+      setSubmit(false);
+      setSuccess(false);
     }
   }
   useEffect(() => {
@@ -43,7 +47,15 @@ function Doctor() {
   const { name, photo, summary, experience, expertise, education } = doctor;
   return (
     <>
-      <PopUp handlePopUp={handlePopUp} popUp={popUp} doctor={doctor} />
+      <PopUp
+        handlePopUp={handlePopUp}
+        popUp={popUp}
+        doctor={doctor}
+        submit={submit}
+        setSubmit={setSubmit}
+        success={success}
+        setSuccess={setSuccess}
+      />
       <section class="dr-portfolio">
         <section className="summary dr-press dr-fade-in dr-fade1">
           <div className="photo-div">

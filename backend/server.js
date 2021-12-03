@@ -36,6 +36,10 @@ app.use(
   })
 );
 
+//video chat rooms
+const users = {};
+const socketToRoom = {};
+
 // socket io server
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -52,20 +56,47 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
+    const roomID = socketToRoom[socket.id];
+    let room = users[roomID];
+    if (room) {
+      room = room.filter((id) => id !== socket.id);
+      users[roomID] = room;
+    }
+    socket.broadcast.emit("user left", socket.id);
+
     console.log("User Disconnected", socket.id);
   });
 
-  //video chat 
-  socket.emit("me", socket.id);
-  socket.on('disconnect', ()=>{
-    socket.broadcast.emit("callended")
-  })
-  socket.on("calluser", ({userToCall, signalData, from, name})=>{
-    io.to(userToCall).emit('calluser', {signal: signalData, from, name})
-  })
-  socket.on("answercall", (data)=>{
-    io.to(data.to).emit("callaccepted", data.signal);
-  })
+  socket.on("join room", (roomID) => {
+    if (users[roomID]) {
+      const length = users[roomID].length;
+      if (length === 2) {
+        socket.emit("room full");
+        return;
+      }
+      users[roomID].push(socket.id);
+    } else {
+      users[roomID] = [socket.id];
+    }
+    socketToRoom[socket.id] = roomID;
+    const usersInThisRoom = users[roomID].filter((id) => id !== socket.id);
+
+    socket.emit("all users", usersInThisRoom);
+  });
+
+  socket.on("sending signal", (payload) => {
+    io.to(payload.userToSignal).emit("user joined", {
+      signal: payload.signal,
+      callerID: payload.callerID,
+    });
+  });
+
+  socket.on("returning signal", (payload) => {
+    io.to(payload.callerID).emit("receiving returned signal", {
+      signal: payload.signal,
+      id: socket.id,
+    });
+  });
 });
 
 // auth 相關的 API

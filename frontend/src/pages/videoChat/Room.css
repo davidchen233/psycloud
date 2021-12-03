@@ -1,0 +1,36 @@
+.room-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 100px;
+  padding: 100px;
+  flex-wrap: wrap;
+}
+
+.video-section {
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px #d2d4cc, -10px -10px 15px #ffffff;
+  margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 1400px) {
+  .room-container {
+    padding: 0px;
+  }
+  .video-section {
+    width: 80vw;
+    max-height: 80vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .room-container {
+    padding: 0;
+    gap: 2em;
+  }
+
+  .video-section {
+    max-width: 80%;
+  }
+}

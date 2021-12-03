@@ -21,6 +21,28 @@ function DoctorTeam() {
   }, []);
 
   const [showBtn, setShowBtn] = useState(true);
+  const [cancel, setCancel] = useState(false);
+  const [search, setSearch] = useState([]);
+
+  function handleSearch(e) {
+    e.preventDefault();
+    let fetch = async () => {
+      let res = await axios.get(
+        `http://localhost:3001/api/doctors/search?key=${search}`
+      );
+      setDoctors(res.data);
+    };
+    fetch();
+  }
+  function handleReturn() {
+    setSearch('');
+    setCancel(!cancel);
+    let fetch = async () => {
+      let res = await axios.get('http://localhost:3001/api/doctors');
+      setDoctors(res.data);
+    };
+    fetch();
+  }
 
   return (
     <>
@@ -30,34 +52,94 @@ function DoctorTeam() {
           class="dr-show-btn"
           onClick={() => {
             setShowBtn(!showBtn);
-            console.log('click');
           }}
         />
         <section className="control-section">
           <section className={showBtn ? 'search-hide' : 'search-show'}>
-            <input type="text" class="search-input"></input>
-            <input
-              type="submit"
-              className="search-btn"
-              value="依專長搜尋"
-            ></input>
+            <form onSubmit={handleSearch}>
+              <input
+                type="text"
+                class="search-input"
+                value={search}
+                onChange={(e) => {
+                  setCancel(false);
+                  setSearch(e.target.value);
+                }}
+              ></input>
+              {!cancel ? (
+                <input
+                  type="submit"
+                  className="search-btn"
+                  onClick={() => {
+                    setCancel(!cancel);
+                  }}
+                  value="依專長搜尋"
+                ></input>
+              ) : (
+                <input
+                  type="submit"
+                  className="search-btn"
+                  onClick={() => {
+                    handleReturn();
+                  }}
+                  value="返回列表"
+                ></input>
+              )}
+            </form>
           </section>
           <section className="search-section">
-            <input type="text" class="search-input"></input>
-            <input
-              type="submit"
-              className="search-btn"
-              value="依專長搜尋"
-            ></input>
+            <form onSubmit={handleSearch}>
+              <input
+                type="text"
+                class="search-input"
+                value={search}
+                onChange={(e) => {
+                  setCancel(false);
+                  setSearch(e.target.value);
+                }}
+              ></input>
+              {!cancel ? (
+                <input
+                  type="submit"
+                  className="search-btn"
+                  onClick={() => {
+                    if (search) {
+                      setCancel(!cancel);
+                    }
+                  }}
+                  value="依專長搜尋"
+                ></input>
+              ) : (
+                <input
+                  type="submit"
+                  className="search-btn"
+                  onClick={() => {
+                    handleReturn();
+                  }}
+                  value="返回列表"
+                ></input>
+              )}
+            </form>
           </section>
           <Link to={`/test`}>
             <button className="search-btn round">壓力檢測</button>
           </Link>
         </section>
         <section className="team-container">
-          {doctors.map((doctor) => (
-            <Card {...doctor} />
-          ))}
+          {doctors.length === 0 ? (
+            <div
+              onClick={handleReturn}
+              className="return-alert"
+              style={{ cursor: 'pointer' }}
+            >
+              <h2>查無相符心理師...</h2>
+              <h2>請試試看其他關鍵字</h2>
+              <br />
+              <h2>點此即可返回...</h2>
+            </div>
+          ) : (
+            doctors.map((doctor) => <Card {...doctor} />)
+          )}
         </section>
       </section>
       {/* had to write this to overwrite the home page background... */}

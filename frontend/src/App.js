@@ -11,7 +11,8 @@ import Process from './pages/test/Process';
 import Result from './pages/test/Result';
 import Doctor from './pages/doctor/DoctorTeam';
 import Doctorpage from './pages/doctor/Doctor';
-import VideoChat from './pages/videoChat/videoChat';
+import VideoChat from './pages/videoChat/Room';
+import CreateRoom from './pages/videoChat/CreateRoom';
 import ProductPage from './pages/product/ProductPage';
 import StuffedToys from './pages/product/StuffedToys';
 import Decors from './pages/product/Decors';
@@ -76,8 +77,11 @@ function App() {
               <Route path="/doctor">
                 <Doctor />
               </Route>
-              <Route path="/videoChat">
+              <Route path="/videoChat/room/">
                 <VideoChat />
+              </Route>
+              <Route path="/videoChat">
+                <CreateRoom />
               </Route>
               <Route path="/product">
                 <ProductPage />

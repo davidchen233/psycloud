@@ -13,6 +13,34 @@ router.get("/", async (req, res) => {
   console.log(__dirname);
 });
 
+router.post("/reservation", async (req, res) => {
+  console.log(req.body);
+  // try {
+  //   const sql =
+  //     "UPDATE reservations SET user_id=?, reserved_at=?, info=? ,reserved=1 WHERE psychologist_id = ? AND period = ? AND date LIKE '${date}%'";
+  //   let result = await connection.queryAsync(sql, [
+  //     req.session.user.id,
+  //     moment().format("YYYY-MM-DD h:mm:ssa"),
+  //     req.body.info,
+  //     req.body.psychologist_id,
+  //     req.body.period,
+  //     req.body.date,
+  //   ]);
+  res.json({ message: "success" });
+  // } catch (e) {
+  //   console.log(e);
+  // }
+});
+
+//get doctor by search
+router.get("/search", async (req, res) => {
+  const { key } = req.query;
+  console.log(key);
+  const sql = `SELECT * FROM psychologists WHERE expertise LIKE '%${key}%'`;
+  let data = await connection.queryAsync(sql);
+  res.json(data);
+});
+
 //get doctor by id
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
@@ -67,21 +95,6 @@ router.get("/:id/reservation/:date", async (req, res) => {
   const sql = `SELECT period FROM reservations WHERE psychologist_id = ${id} AND date LIKE '${date}%' AND reserved = 0`;
   let data = await connection.queryAsync(sql);
   res.json(data);
-});
-
-router.post("/reservation", async (req, res) => {
-  console.log(req.body);
-  const sql =
-    "UPDATE reservations SET user_id=?, reserved_at=?, info=? ,reserved=1 WHERE psychologist_id = ? AND period = ? AND date LIKE '${date}%'";
-  let result = await connection.queryAsync(sql, [
-    req.session.user.id,
-    moment().format('YYYY-MM-DD h:mm:ssa'),
-    req.body.info,
-    req.body.psychologist_id,
-    req.body.period,
-    req.body.date
-  ]);
-  res.send("banana");
 });
 
 // 匯出此 router

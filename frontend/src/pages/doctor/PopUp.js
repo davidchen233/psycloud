@@ -4,30 +4,52 @@ import './PopUp.scss';
 import { ImCross } from 'react-icons/im';
 import { useParams } from 'react-router';
 import axios from 'axios';
-import { concatSeries } from 'async';
 import moment from 'moment';
+import { NavLink } from 'react-router-dom';
+import CreditCard from './CreditCard';
 
 export default function PopUp(props) {
   let user = JSON.parse(localStorage.getItem('user'));
   const { name, photo, price } = props.doctor;
+  const { submit, setSubmit } = props;
+  const { success, setSuccess } = props;
   const { id } = useParams();
   const [date, setDate] = useState({});
-  const [period, setPeriod] = useState({});
   const [selectedDate, setSelectedDate] = useState({});
+  const [period, setPeriod] = useState({});
   const [reservation, setReservation] = useState({
     psychologist_id: id,
   });
+  const [error, setError] = useState({});
+
   function handleChange(e) {
     setReservation({ ...reservation, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
-    e.preventDefault();
+    // try {
+    // let submit = await axios.post(
+    //   `http://localhost:3001/api/doctors/reservation`,
+    //   reservation,
+    //   { withCredentials: true }
+    // );
+    setSuccess(true);
+    // } catch (err) {
+    //   console.error(err);
+    // }
     console.log('banana');
-    // let submit = await axios.post(`http://localhost:3001/api/`, reservation);
   }
-  console.log(reservation);
 
+  function handleValidation(form) {
+    const errors = {};
+    if (!form.date) {
+      errors.date = '請選擇日期';
+    }
+    if (!form.period) {
+      errors.period = '請選擇時段';
+    }
+    return errors;
+  }
   useEffect(() => {
     const fetchDate = async () => {
       let res = await axios.get(
@@ -48,6 +70,67 @@ export default function PopUp(props) {
     fetchPeriod();
   }, [selectedDate, id]);
 
+  if (success) {
+    return (
+      <section className={props.popUp}>
+        <div className="dr-form-container">
+          <ImCross className="cross" onClick={props.handlePopUp} />
+          <h2 className="dr-pop-up delay1" style={{ 'margin-bottom': '50px' }}>
+            -預約完成-
+          </h2>
+          <p>預約的心理師: {name}</p>
+          <p>預約日期: {reservation.date}</p>
+          <p>
+            時段:
+            {reservation.period === '1'
+              ? '上午( 10:00 ~ 12:00)'
+              : '下午 ( 14:00 ~ 16:00)'}
+          </p>
+          <NavLink
+            to="/product"
+            onClick={() => {
+              document.body.style.overflow = 'initial';
+            }}
+          >
+            <button className="complete">逛逛我們的減壓小物</button>
+          </NavLink>
+        </div>
+      </section>
+    );
+  }
+
+  if (submit && user) {
+    return (
+      <section className={props.popUp}>
+        <div className="dr-form-container">
+          <ImCross className="cross" onClick={props.handlePopUp} />
+          <div clasName="dr-form-login-alert">
+            <NavLink
+              to={'/auth'}
+              onClick={() => {
+                document.body.style.overflow = 'initial';
+              }}
+            >
+              <h2 className="dr-pop-up delay1">請先登入</h2>
+            </NavLink>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (submit && !user) {
+    return (
+      <section className={props.popUp}>
+        <div className="dr-form-container">
+          <ImCross className="cross" onClick={props.handlePopUp} />
+          <h2 className="dr-pop-up delay1">付款資訊</h2>
+          <CreditCard handleSubmit={handleSubmit} />
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className={props.popUp}>
       <div className="dr-form-container">
@@ -59,7 +142,7 @@ export default function PopUp(props) {
           alt="doctor"
         ></img>
         <p className="formName">{name}心理師</p>
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form">
           <label for="price" className="form-label dr-pop-up delay1">
             價格
           </label>
@@ -76,6 +159,7 @@ export default function PopUp(props) {
             id="date"
             name="date"
             className="form-panel dr-pop-up delay2"
+            value={reservation.date}
             onChange={(e) => {
               setSelectedDate(e.target.value);
               handleChange(e);
@@ -93,6 +177,9 @@ export default function PopUp(props) {
                 );
               })}
           </select>
+          <div className="dr-pop-up delay2 z-index">
+            <p className="dr-error">{error.date}</p>
+          </div>
           <label for="period" className="form-label dr-pop-up delay3">
             時段
           </label>
@@ -100,6 +187,7 @@ export default function PopUp(props) {
             id="period"
             name="period"
             className="form-panel dr-pop-up delay3"
+            value={reservation.period}
             onChange={handleChange}
           >
             <option disabled selected>
@@ -114,17 +202,28 @@ export default function PopUp(props) {
                 );
               })}
           </select>
+          <div className="dr-pop-up delay3 z-index">
+            <p className="dr-error">{error.period}</p>
+          </div>
           <textarea
             name="info"
             className="form-panel dr-pop-up delay4"
             placeholder="請說說您的情況："
+            value={reservation.info}
             onChange={handleChange}
-          ></textarea>
+          />
           <input
-            type="submit"
+            type="button"
             value="確定預約"
             className="submit dr-pop-up delay5"
-          ></input>
+            onClick={async () => {
+              setError(handleValidation(reservation));
+              let fail = Object.keys(handleValidation(reservation)).length;
+              if (!fail) {
+                setSubmit(true);
+              }
+            }}
+          />
         </form>
       </div>
     </section>
