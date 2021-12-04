@@ -31,7 +31,7 @@ const Doctor = () => {
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
-          centeredSlides={true}
+          // centeredSlides={true}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,

@@ -14,11 +14,13 @@ const TestPsychologist = ({ id, name, expertise, photo }) => {
   }, []);
   return (
     <>
-      <NavLink to="/" className="text-decoration-none">
+      <NavLink to={`/doctor/${id}`} className="text-decoration-none">
         <div className="card w-100 outermost ">
           <div className=" belarge">
-            <div className="mx-auto m-3 person-img" />
-            {/* <img class="card-img-top" src="" alt="Card image cap"> */}
+            <div className="mx-auto m-3 person-img">
+              <img className="card-img-top" src={photo} alt="Cardcap" />
+            </div>
+
             <div className="process-card-body">
               <p className="card-text">
                 {name}醫師

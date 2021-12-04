@@ -145,7 +145,7 @@ const Result = () => {
                   effect={'coverflow'}
                   // slidesPerView={3}
                   grabCursor={true}
-                  centeredSlides={true}
+                  // centeredSlides={true}
                   coverflowEffect={{
                     rotate: 0,
                     stretch: 0,
