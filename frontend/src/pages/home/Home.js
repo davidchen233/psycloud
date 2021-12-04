@@ -23,7 +23,6 @@ const Home = () => {
       <Banner />
       <div className="container">
         <Test />
-        <h2 class="h2forDoc">-- 心理師團隊 --</h2>
         <Doctor doctors={doctors} />
         <Products />
       </div>

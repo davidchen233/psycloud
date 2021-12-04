@@ -1,6 +1,6 @@
 import React from 'react';
 // import Calender from './fullcalendar.png';
-import './Doctor.scss';
+import './doctor.scss';
 import PopUp from './PopUp';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';

@@ -40,6 +40,8 @@ const Result = () => {
     { name: '重度', 測驗分布: 0 },
   ]);
 
+  const [doctor, setDoctor] = useState([]);
+
   useEffect(async () => {
     let res = await axios.get(`${API_URL}/users/userTestResult`, {
       withCredentials: true,
@@ -53,6 +55,11 @@ const Result = () => {
 
     let resData = await axios.get(`${API_URL}/tests/testData`);
     setData(resData.data);
+
+    let doctors = await axios.post(`${API_URL}/tests/recommendDoc`, {
+      pressure_type: res.data.pressure_type,
+    });
+    setDoctor(doctors.data);
   }, []);
 
   return (
@@ -158,15 +165,18 @@ const Result = () => {
                   }}
                   loop={true}
                 >
-                  <SwiperSlide>
-                    <TestPsychologist />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <TestPsychologist />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <TestPsychologist />
-                  </SwiperSlide>
+                  {doctor.map((i) => {
+                    return (
+                      <SwiperSlide key={i.id}>
+                        <TestPsychologist
+                          id={i.id}
+                          name={i.name}
+                          expertise={i.expertise}
+                          photo={PUBLIC_URL + '/' + i.photo}
+                        />
+                      </SwiperSlide>
+                    );
+                  })}
                 </Swiper>
               </div>
               <div className="mt-5 location">

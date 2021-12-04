@@ -14,8 +14,7 @@ router.get("/", async (req, res) => {
 
 router.post("/reservation", async (req, res) => {
   try {
-    const sql =
-      `UPDATE reservations SET user_id=?, reserved_at=?, info=? ,reserved=1 WHERE psychologist_id = ? AND period = ? AND date LIKE ?`;
+    const sql = `UPDATE reservations SET user_id=?, reserved_at=?, info=? ,reserved=1 WHERE psychologist_id = ? AND period = ? AND date LIKE ?`;
     let result = await connection.queryAsync(sql, [
       req.session.user.id,
       moment().format("YYYY-MM-DD hh:mm:ssa"),
@@ -105,6 +104,18 @@ router.get("/:id/reservation/:date", async (req, res) => {
   const sql = `SELECT period FROM reservations WHERE psychologist_id = ${id} AND date LIKE '${date}%' AND reserved = 0`;
   let data = await connection.queryAsync(sql);
   res.json(data);
+});
+
+// get homepage expertise
+router.get("/:id/expertise", async (req, res) => {
+  let data = await connection.queryAsync(
+    "SELECT * FROM psy_pressuretypes WHERE psychologist_id=?",
+    [req.params.id]
+  );
+  let type = data.map((i) => {
+    return i.pressure_type;
+  });
+  res.json(type);
 });
 
 // 匯出此 router

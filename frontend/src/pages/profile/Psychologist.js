@@ -51,12 +51,12 @@ const Psychologist = ({ togglePsyInfoForm, toggleEditPsyInfoForm }) => {
           >
             我的諮詢
           </li>
-          <li
+          {/* <li
             className={activeItem === '心理師資料' ? 'active' : ''}
             onClick={handleClick}
           >
             心理師資料
-          </li>
+          </li> */}
         </ul>
       </nav>
       <div className="doctorContent">{switchView()}</div>

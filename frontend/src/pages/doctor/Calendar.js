@@ -205,7 +205,7 @@ const Calendar = () => {
         initialView="dayGridMonth"
         height={680}
         fixedWeekCount={false}
-        selectable={true}
+        // selectable={true}
         events={event}
         // dateClick={openEventModalCreate}
         // eventClick={openEventModalEdit}
