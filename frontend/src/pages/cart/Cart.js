@@ -4,7 +4,7 @@ import CartSection from './CartSection';
 import CreditCards from './CreditCards';
 import './checkoutFormSection.css';
 import './cart.css';
-import Loading from './Loading';
+import Loading from './loading';
 
 const Cart = () => {
   const history = useHistory();

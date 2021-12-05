@@ -31,7 +31,9 @@ const Calendar = () => {
 
   useEffect(() => {
     let fetch = async () => {
-      let res = await axios(`${API_URL}/reservations/psychologistEvents/${id}`);
+      let res = await axios(
+        `${API_URL}/reservations/psychologistEvents/unreserved/${id}`
+      );
       console.log('loadEvent', res.data);
       let eventData = res.data.map((currentEvent) => {
         return {
@@ -56,25 +58,25 @@ const Calendar = () => {
     fetch();
   }, [id]);
 
-  const openEventModalCreate = (info) => {
-    setShow(true);
-    let getTime = { id: '', date: info.dateStr, period: '' };
-    setcurrentEvent(getTime);
-    setModalInfo({ title: '新增', function: createEvent });
-  };
+  // const openEventModalCreate = (info) => {
+  //   setShow(true);
+  //   let getTime = { id: '', date: info.dateStr, period: '' };
+  //   setcurrentEvent(getTime);
+  //   setModalInfo({ title: '新增', function: createEvent });
+  // };
 
-  const openEventModalEdit = (info) => {
-    setShow(true);
-    console.log('info_id', info.event.extendedProps);
-    let getTime = {
-      id: info.event.extendedProps.event_id,
-      date: info.event.extendedProps.currentdate,
-      period: `${info.event.extendedProps.period}`,
-    };
-    setcurrentEvent(getTime);
-    setModalInfo({ title: '編輯', function: editEvent });
-    console.log(info.event.extendedProps);
-  };
+  // const openEventModalEdit = (info) => {
+  //   setShow(true);
+  //   console.log('info_id', info.event.extendedProps);
+  //   let getTime = {
+  //     id: info.event.extendedProps.event_id,
+  //     date: info.event.extendedProps.currentdate,
+  //     period: `${info.event.extendedProps.period}`,
+  //   };
+  //   setcurrentEvent(getTime);
+  //   setModalInfo({ title: '編輯', function: editEvent });
+  //   console.log(info.event.extendedProps);
+  // };
 
   const closeEventModal = (e) => {
     setShow(false);
