@@ -10,3 +10,11 @@ export const ORDER_STATUS = {
   4: '已完成',
   5: '已取消',
 };
+
+export const PRESSURE_TYPES = {
+  1: '情緒管理',
+  2: '家庭關係',
+  3: '人際關係',
+  4: '疾病照顧',
+  5: '職涯發展',
+};

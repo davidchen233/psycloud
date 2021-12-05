@@ -10,6 +10,8 @@ import Test from './pages/test/Detect';
 import Process from './pages/test/Process';
 import Result from './pages/test/Result';
 import Doctor from './pages/doctor/DoctorTeam';
+import Doctorpage from './pages/doctor/Doctor';
+import VideoChat from './pages/videoChat/Room';
 import ProductPage from './pages/product/ProductPage';
 import StuffedToys from './pages/product/StuffedToys';
 import Decors from './pages/product/Decors';
@@ -68,8 +70,14 @@ function App() {
               <Route path="/profile">
                 <Profile />
               </Route>
+              <Route path="/doctor/:id">
+                <Doctorpage />
+              </Route>
               <Route path="/doctor">
                 <Doctor />
+              </Route>
+              <Route path="/videoChat/room/">
+                <VideoChat />
               </Route>
               <Route path="/product">
                 <ProductPage />

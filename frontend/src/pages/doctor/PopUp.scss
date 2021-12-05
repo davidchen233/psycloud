@@ -34,6 +34,18 @@
   animation-delay: 2s;
 }
 
+.credit-card {
+  margin: 1em 0px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  input {
+    border: 1.5px solid transparent;
+    border-radius: 8px;
+  }
+}
+
 .form-mask-dr {
   display: flex;
   justify-content: center;
@@ -50,10 +62,24 @@
   transition: all 2s;
   animation-name: dr-pop-up;
   animation-duration: 0.8s;
+
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
+.complete {
+  margin-top: 1.5em;
+  border: 2px solid #4797ff;
+  border-radius: 8px;
+  color: white;
+  font-size: 1em;
+  background-color: #4797ff;
+  padding: 0.2em 1em;
 }
 
 .dr-form-container {
-  position: relative;
+  // position: relative;
   animation-name: dr-pop-up;
   animation-duration: 1s;
   padding: 2em;
@@ -61,10 +87,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: rgba(255, 255, 255, 0.9);
   width: 60%;
-  min-height: 80vh;
+  min-height: 70vh;
+  max-height: 95vh;
   backdrop-filter: blur(10px);
+  overflow: auto;
 
   .cross {
     position: fixed;
@@ -80,7 +109,7 @@
     box-shadow: 5px 5px 10px #bec2c2, -5px -5px 10px #ffffff;
     align-self: center;
     width: 150px;
-    height: auto;
+    height: 150px;
     margin: 0.5em 0;
   }
 
@@ -131,6 +160,23 @@
       background-color: #4797ff;
       padding: 0.1em;
     }
+  }
+  .dr-error {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.5em;
+    margin-bottom: -1.5em;
+    color: red;
+  }
+  .z-index {
+    position: relative;
+    z-index: 1;
+  }
+  .credit-error {
+    position: relative;
+    margin-top: -0.5em;
+    margin-bottom: -0.5em;
+    color: red;
   }
 }
 

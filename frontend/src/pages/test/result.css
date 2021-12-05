@@ -65,10 +65,17 @@
   border: 3px solid #5ed5e6;
   width: 100px;
   height: 100px;
-  background-size: cover;
+  /* background-size: cover;
   background-position: center;
-  background-image: url('https://images.chinatimes.com/newsphoto/2019-04-22/656/20190422001723.jpg');
+  background-image: url('https://images.chinatimes.com/newsphoto/2019-04-22/656/20190422001723.jpg'); */
+  overflow: hidden;
   border-radius: 100px;
+}
+
+.person-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .profession {
   display: block;

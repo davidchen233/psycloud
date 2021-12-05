@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Card from './Card';
 import './doctor.css';
@@ -5,10 +6,18 @@ import './doctor.css';
 import 'swiper/swiper.min.css';
 import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import axios from 'axios';
 import SwiperCore, { EffectCoverflow } from 'swiper';
+import { API_URL, PUBLIC_URL } from '../../config/config';
 SwiperCore.use(EffectCoverflow);
 
 const Doctor = () => {
+  const [doctors, setDoctors] = useState([]);
+
+  useEffect(async () => {
+    let res = await axios.get(`${API_URL}/doctors`);
+    setDoctors(res.data);
+  }, []);
   return (
     <section className="h-section doctor">
       <h2>-- 心理師團隊 --</h2>
@@ -22,7 +31,7 @@ const Doctor = () => {
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
-          centeredSlides={true}
+          // centeredSlides={true}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -43,21 +52,18 @@ const Doctor = () => {
           }}
           loop={true}
         >
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
+          {doctors.map((doc) => {
+            return (
+              <SwiperSlide>
+                <Card
+                  id={doc.id}
+                  name={doc.name}
+                  expertise={doc.expertise}
+                  photo={PUBLIC_URL + '/' + doc.photo}
+                />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </section>

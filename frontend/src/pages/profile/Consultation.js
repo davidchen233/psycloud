@@ -1,15 +1,40 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './consultation.css';
 import { FaVideo } from 'react-icons/fa';
 import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 import { PERIOD } from '../../config/status';
 import Avatar from './tempImg/avatar.jpg';
+import axios from 'axios';
+import moment from 'moment';
+import creatRoom from '../videoChat/CreateRoom';
+import { Link } from 'react-router-dom';
+import { number } from 'prop-types';
 
 const Consultation = () => {
   const [swiperPosition, setSwiperPosition] = useState(0);
   const [rightDisabled, setRightDisabled] = useState('');
+  const [user, setUser] = useState('');
+  const [list, setList] = useState([]);
   const swipeLengthRef = useRef();
   const swiperWrapperRef = useRef();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      let result = await axios.get(
+        `http://localhost:3001/api/reservations/getUser`,
+        { withCredentials: true }
+      );
+      setUser(result.data);
+    };
+    fetchUser();
+    const fetchList = async () => {
+      let list = await axios.get(
+        `http://localhost:3001/api/reservations/getUser/getList/${user}`
+      );
+      setList(list.data);
+    };
+    fetchList();
+  }, [user]);
 
   // TODO: 替換掉假資料
   const [consultations, setConsultations] = useState([
@@ -18,8 +43,6 @@ const Consultation = () => {
       psychologist: '鴨子王',
       date: '1998-10-30',
       period: 1,
-      price: 2000,
-      status: '0',
     },
   ]);
 
@@ -34,21 +57,24 @@ const Consultation = () => {
           className="myConsult-wrapper"
           style={{ left: swiperPosition }}
         >
-          {consultations.map((consultation) => {
+          {list.map((item) => {
             return (
-              <div className="myConsult-card" key={consultation.id}>
+              <div className="myConsult-card" key={item.id}>
                 <h4>預約資訊</h4>
                 <div className="consult-avatarBx">
-                  <img src={Avatar} alt="" />
+                  <img src={`http://localhost:3001/${item.photo}`} alt="" />
                 </div>
-                <h5>心理師: {consultation.psychologist}</h5>
-                <p>預約日期: {consultation.date}</p>
-                <p>預約時段: {PERIOD[consultation.period]}</p>
-                <p>價格: {consultation.price}/次</p>
-                <p>狀態: {consultation.status}</p>
-                <button>
-                  <FaVideo size="22" color="#333" />
-                </button>
+                <h5>{item.name} 心理師</h5>
+                <p>預約日期: {moment(item.date).format('YYYY-MM-DD')}</p>
+                <p>預約時段: {PERIOD[item.period]}</p>
+                <Link
+                  to={{
+                    pathname: '/videoChat/room/',
+                    state: { roomID: item.id },
+                  }}
+                >
+                  <button>開始通話</button>
+                </Link>
               </div>
             );
           })}
