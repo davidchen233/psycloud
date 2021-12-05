@@ -3,7 +3,7 @@ import { withRouter, useHistory } from 'react-router-dom';
 import { API_URL } from '../../config/config';
 import { GlobalValues } from '../../App';
 import axios from 'axios';
-import Loading from './Loading';
+import Loading from './loading';
 
 const Checkpageform = ({ history }) => {
   let redirect = useHistory();

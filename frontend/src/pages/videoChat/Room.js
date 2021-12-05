@@ -3,6 +3,7 @@ import io from 'socket.io-client';
 import { useParams, useLocation } from 'react-router';
 import Peer from 'simple-peer';
 import './Room.css';
+import { BsFillCameraVideoFill } from 'react-icons/bs';
 
 const Video = (props) => {
   const ref = useRef();
@@ -16,19 +17,11 @@ const Video = (props) => {
   return <video className="video-section" playsInline autoPlay ref={ref} />;
 };
 
-// const videoConstraints = {
-//   height: window.innerHeight / 2,
-//   width: window.innerWidth / 2,
-// video: videoConstraints,
-// };
-
 const Room = (props) => {
   const [peers, setPeers] = useState([]);
   const socketRef = useRef();
   const userVideo = useRef();
   const peersRef = useRef([]);
-  // const { roomID } = useParams();
-  // const {roomID} = this.props.location.state.params.roomID;
   const { roomID } = useLocation().state.roomID;
   console.log(useLocation().state.roomID);
 
@@ -120,19 +113,36 @@ const Room = (props) => {
     return peer;
   }
 
+  function handleToggle() {
+    const track = userVideo.current.srcObject.getTracks();
+    console.log(track);
+    if (track[0].enabled) {
+      track[0].enabled = false;
+      track[1].enabled = false;
+    } else {
+      track[0].enabled = true;
+      track[1].enabled = true;
+    }
+  }
+
   if (!useLocation().state.roomID) {
     return <h2>無此聊天室</h2>;
   }
 
   return (
     <div className="room-container">
-      <video
-        muted
-        className="video-section"
-        ref={userVideo}
-        autoPlay
-        playsInline
-      />
+      <div className="my-video">
+        <video
+          muted
+          className="video-section"
+          ref={userVideo}
+          autoPlay
+          playsInline
+        />
+        <button onClick={handleToggle}>
+          <BsFillCameraVideoFill />
+        </button>
+      </div>
       {peers.map((peer) => {
         return <Video key={peer.peerID} peer={peer.peer} />;
       })}

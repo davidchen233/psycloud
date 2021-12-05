@@ -23,6 +23,24 @@ router.get("/psychologistEvents/:psychologistId", async (req, res) => {
   }
 });
 
+//get not unreserved events
+router.get("/psychologistEvents/unreserved/:psychologistId", async (req, res) => {
+  let data = await connection.queryAsync(
+    "SELECT * FROM reservations WHERE psychologist_id =? AND reserved = 0",
+    [req.params.psychologistId]
+  );
+
+  if (data.length > 0) {
+    for (let i = 0; i < data.length; i++) {
+      data[i].date = moment(data[i].date).format("YYYY-MM-DD");
+    }
+    res.json(data);
+  } else {
+    data = [];
+    res.json(data);
+  }
+});
+
 //get reservation by user_id
 router.get("/getUser", async (req, res) => {
   res.json(req.session.user.id);
