@@ -143,7 +143,7 @@ const CartSection = ({ setCartInfo }) => {
                     globalValues.setCartCount(cartCount);
                   }}
                 >
-                  <FaTrashAlt size="24" />
+                  <FaTrashAlt size="24" className="trashcan" />
                 </td>
               </tr>
             );

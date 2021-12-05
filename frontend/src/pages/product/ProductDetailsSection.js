@@ -34,6 +34,9 @@ const ProductDetailsSection = ({
 
   const handleAmountChange = (e) => {
     let newAmount = e.target.value;
+    if (newAmount === '' || newAmount <= 0) {
+      newAmount = 1;
+    }
     setAmount(newAmount);
   };
   if (image === undefined) {

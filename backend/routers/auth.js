@@ -2,6 +2,7 @@ const express = require("express");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const connection = require("../utils/db_connection");
+const moment = require("moment");
 require("dotenv").config();
 
 // 建立 router
@@ -81,7 +82,7 @@ router.post("/login", async (req, res) => {
       avatar: user.avatar,
       banner: user.banner,
       email: user.email,
-      birth: user.birth,
+      birth: moment(user.birth).format("YYYY-MM-DD"),
       isPsychologist: user.is_psychologist,
       isAdmin: user.is_admin,
     };
@@ -99,7 +100,7 @@ router.post("/login", async (req, res) => {
     avatar: user.avatar,
     banner: user.banner,
     email: user.email,
-    birth: user.birth,
+    birth: moment(user.birth).format("YYYY-MM-DD"),
     isPsychologist: user.is_psychologist,
     isAdmin: user.is_admin,
   };

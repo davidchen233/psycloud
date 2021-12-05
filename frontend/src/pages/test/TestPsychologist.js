@@ -30,7 +30,12 @@ const TestPsychologist = ({ id, name, expertise, photo }) => {
               <div className="person-line" />
               <p className="mt-3 gr">
                 專長:{' '}
-                {`${PRESSURE_TYPES[pType[0]]}/${PRESSURE_TYPES[pType[1]]}`}
+                {pType.map((type, i) => {
+                  if (i + 1 === pType.length) {
+                    return PRESSURE_TYPES[type];
+                  }
+                  return PRESSURE_TYPES[type] + ' / ';
+                })}
               </p>
             </div>
           </div>

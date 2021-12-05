@@ -110,12 +110,13 @@ const Process = () => {
                               <span>
                                 <input
                                   type="radio"
+                                  id="q1-t"
                                   name="q1"
                                   value="true"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q1-t">
                                   是
                                 </label>
                                 <br />
@@ -126,8 +127,9 @@ const Process = () => {
                                   name="q1"
                                   value="false"
                                   onChange={handleScoreChange}
+                                  id="q1-f"
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q1-f">
                                   否
                                 </label>
                                 <br />
@@ -143,11 +145,12 @@ const Process = () => {
                                 <input
                                   type="radio"
                                   name="q2"
+                                  id="q2-t"
                                   value="true"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q2-t">
                                   是
                                 </label>
                                 <br />
@@ -158,8 +161,9 @@ const Process = () => {
                                   name="q2"
                                   value="false"
                                   onChange={handleScoreChange}
+                                  id="q2-f"
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q2-f">
                                   否
                                 </label>
                                 <br />
@@ -206,8 +210,9 @@ const Process = () => {
                                   value="true"
                                   onChange={handleScoreChange}
                                   required
+                                  id="q3-t"
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q3-t">
                                   是
                                 </label>
                                 <br />
@@ -218,8 +223,9 @@ const Process = () => {
                                   name="q3"
                                   value="false"
                                   onChange={handleScoreChange}
+                                  id="q3-f"
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q3-f">
                                   否
                                 </label>
                                 <br />
@@ -235,11 +241,12 @@ const Process = () => {
                                 <input
                                   type="radio"
                                   name="q4"
+                                  id="q4-t"
                                   value="true"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q4-t">
                                   是
                                 </label>
                                 <br />
@@ -248,10 +255,11 @@ const Process = () => {
                                 <input
                                   type="radio"
                                   name="q4"
+                                  id="q4-f"
                                   value="false"
                                   onChange={handleScoreChange}
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q4-f">
                                   否
                                 </label>
                                 <br />
@@ -296,10 +304,11 @@ const Process = () => {
                                   type="radio"
                                   name="q5"
                                   value="true"
+                                  id="q5-t"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q5-t">
                                   是
                                 </label>
                                 <br />
@@ -309,9 +318,10 @@ const Process = () => {
                                   type="radio"
                                   name="q5"
                                   value="false"
+                                  id="q5-f"
                                   onChange={handleScoreChange}
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q5-f">
                                   否
                                 </label>
                                 <br />
@@ -328,10 +338,11 @@ const Process = () => {
                                   type="radio"
                                   name="q6"
                                   value="true"
+                                  id="q6-t"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q6-t">
                                   是
                                 </label>
                                 <br />
@@ -341,9 +352,10 @@ const Process = () => {
                                   type="radio"
                                   name="q6"
                                   value="false"
+                                  id="q6-f"
                                   onChange={handleScoreChange}
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q6-f">
                                   否
                                 </label>
                                 <br />
@@ -388,10 +400,11 @@ const Process = () => {
                                   type="radio"
                                   name="q7"
                                   value="true"
+                                  id="q7-t"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q7-t">
                                   是
                                 </label>
                                 <br />
@@ -401,9 +414,10 @@ const Process = () => {
                                   type="radio"
                                   name="q7"
                                   value="false"
+                                  id="q7-f"
                                   onChange={handleScoreChange}
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q7-f">
                                   否
                                 </label>
                                 <br />
@@ -420,10 +434,11 @@ const Process = () => {
                                   type="radio"
                                   name="q8"
                                   value="true"
+                                  id="q8-t"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q8-t">
                                   是
                                 </label>
                                 <br />
@@ -433,9 +448,10 @@ const Process = () => {
                                   type="radio"
                                   name="q8"
                                   value="false"
+                                  id="q8-f"
                                   onChange={handleScoreChange}
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q8-f">
                                   否
                                 </label>
                                 <br />
@@ -480,10 +496,11 @@ const Process = () => {
                                   type="radio"
                                   name="q9"
                                   value="true"
+                                  id="q9-t"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q9-t">
                                   是
                                 </label>
                                 <br />
@@ -493,9 +510,10 @@ const Process = () => {
                                   type="radio"
                                   name="q9"
                                   value="false"
+                                  id="q9-f"
                                   onChange={handleScoreChange}
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q9-f">
                                   否
                                 </label>
                                 <br />
@@ -512,10 +530,11 @@ const Process = () => {
                                   type="radio"
                                   name="q10"
                                   value="true"
+                                  id="q10-t"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q10-t">
                                   是
                                 </label>
                                 <br />
@@ -525,9 +544,10 @@ const Process = () => {
                                   type="radio"
                                   name="q10"
                                   value="false"
+                                  id="q10-f"
                                   onChange={handleScoreChange}
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q10-f">
                                   否
                                 </label>
                                 <br />
@@ -572,10 +592,11 @@ const Process = () => {
                                   type="radio"
                                   name="q11"
                                   value="true"
+                                  id="q11-t"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q11-t">
                                   是
                                 </label>
                                 <br />
@@ -585,9 +606,10 @@ const Process = () => {
                                   type="radio"
                                   name="q11"
                                   value="false"
+                                  id="q11-f"
                                   onChange={handleScoreChange}
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q11-f">
                                   否
                                 </label>
                                 <br />
@@ -604,10 +626,11 @@ const Process = () => {
                                   type="radio"
                                   name="q12"
                                   value="true"
+                                  id="q12-t"
                                   onChange={handleScoreChange}
                                   required
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q12-t">
                                   是
                                 </label>
                                 <br />
@@ -617,9 +640,10 @@ const Process = () => {
                                   type="radio"
                                   name="q12"
                                   value="false"
+                                  id="q12-f"
                                   onChange={handleScoreChange}
                                 />
-                                <label className="cocolor" htmlFor>
+                                <label className="cocolor" htmlFor="q12-f">
                                   否
                                 </label>
                                 <br />
@@ -663,10 +687,11 @@ const Process = () => {
                                 type="radio"
                                 name="q13"
                                 value="1"
+                                id="q13-1"
                                 onChange={handlePressureTypeChange}
                                 required
                               />
-                              <label className="cocolor" htmlFor>
+                              <label className="cocolor" htmlFor="q13-1">
                                 情緒管理
                               </label>
                               <br />
@@ -674,9 +699,10 @@ const Process = () => {
                                 type="radio"
                                 name="q13"
                                 value="2"
+                                id="q13-2"
                                 onChange={handlePressureTypeChange}
                               />
-                              <label className="cocolor" htmlFor>
+                              <label className="cocolor" htmlFor="q13-2">
                                 家庭關係
                               </label>
                               <br />
@@ -684,9 +710,10 @@ const Process = () => {
                                 type="radio"
                                 name="q13"
                                 value="3"
+                                id="q13-3"
                                 onChange={handlePressureTypeChange}
                               />
-                              <label className="cocolor" htmlFor>
+                              <label className="cocolor" htmlFor="q13-3">
                                 人際關係
                               </label>
                               <br />
@@ -694,9 +721,10 @@ const Process = () => {
                                 type="radio"
                                 name="q13"
                                 value="4"
+                                id="q13-4"
                                 onChange={handlePressureTypeChange}
                               />
-                              <label className="cocolor" htmlFor>
+                              <label className="cocolor" htmlFor="q13-4">
                                 疾病照顧
                               </label>
                               <br />
@@ -704,9 +732,10 @@ const Process = () => {
                                 type="radio"
                                 name="q13"
                                 value="5"
+                                id="q13-5"
                                 onChange={handlePressureTypeChange}
                               />
-                              <label className="cocolor" htmlFor>
+                              <label className="cocolor" htmlFor="q13-5">
                                 職涯發展
                               </label>
                               <br />
