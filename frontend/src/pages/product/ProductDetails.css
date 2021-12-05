@@ -4,8 +4,8 @@
 }
 
 .right-content {
-  max-width: 600px;
-  min-width: 400px;
+  /* max-width: 600px; */
+  width: 600px;
 }
 
 .product-small-img {

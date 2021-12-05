@@ -163,7 +163,7 @@ const Result = () => {
                       spaceBetween: 1,
                     },
                   }}
-                  loop={true}
+                  // loop={true}
                 >
                   {doctor.map((i) => {
                     return (

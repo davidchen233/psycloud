@@ -41,8 +41,8 @@ const Cart = () => {
       </div>
       {localStorage.getItem('cart') ? (
         <>
-          <div className="row checkform ">
-            <div className="col-md-5 checkout-div">
+          <div className="d-flex checkform justify-content-between">
+            <div className="w-45 checkout-div">
               <div className="checkout-Title">
                 <h3 class="CF-h3">-訂購資訊-</h3>
               </div>
@@ -82,7 +82,7 @@ const Cart = () => {
               </div>
             </div>
 
-            <div className="col-md-6 checkout-div3">
+            <div className="w-50 checkout-div3">
               <div className="checkout-Title">
                 <h3 class="CF-h3">-付款方式-</h3>
               </div>

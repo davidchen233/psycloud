@@ -82,9 +82,9 @@ const StuffedItem = () => {
         })}
       </div>
 
-      <div>
+      {/* <div>
         <Pagination />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -82,9 +82,9 @@ const Relieve = () => {
         })}
       </div>
 
-      <div>
+      {/* <div>
         <Pagination />
-      </div>
+      </div> */}
     </div>
   );
 };

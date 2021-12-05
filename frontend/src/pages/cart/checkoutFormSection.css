@@ -1,5 +1,10 @@
 .checkform {
-  justify-content: space-between;
+  /* width: 95%; */
+  margin: 0 auto;
+}
+
+.w-45 {
+  width: 45%;
 }
 
 .checkout-div {
