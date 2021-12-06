@@ -15,22 +15,12 @@ const DocConsultation = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchList = async () => {
       let result = await axios.get(
-        `http://localhost:3001/api/reservations/getUser`,
+        `http://localhost:3001/api/reservations/getUser/getPsyList/`,
         { withCredentials: true }
       );
-      let user = await axios.get(
-        `http://localhost:3001/api/reservations/getPsyId/${result.data}`
-      );
-      setUser(user.data);
-    };
-    fetchUser();
-    const fetchList = async () => {
-      let list = await axios.get(
-        `http://localhost:3001/api/reservations/getPsyList/${user}`
-      );
-      setList(list.data);
+      setList(result.data);
     };
     fetchList();
   }, [user]);
