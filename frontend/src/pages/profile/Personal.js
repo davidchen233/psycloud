@@ -97,7 +97,9 @@ const Personal = ({ togglePwdModal, togglePersonalModal, setAvatar }) => {
           <div className="row infoItem mb-4">
             <div className="col-3 itemTitle">生日 :</div>
             <span className="col-9 itemValue">
-              {displayUser.birth ? displayUser.birth : '---未填寫---'}
+              {displayUser.birth !== 'Invalid date'
+                ? displayUser.birth
+                : '---未填寫---'}
             </span>
           </div>
           <div className="d-flex justify-content-between">
