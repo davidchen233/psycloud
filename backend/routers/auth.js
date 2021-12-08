@@ -151,7 +151,7 @@ router.post("/forgetPassword", async (req, res) => {
       domain: process.env.MG_DOMAIN,
     });
     const data = {
-      from: "心理雲 <postmaster@sandbox75ded4288ec64e9692a47287e3068442.mailgun.org>",
+      from: "心理雲 <postmaster@sandboxbbef656ac24c4d1398bba4cc6a75375a.mailgun.org>",
       to: req.body.email,
       subject: "心理雲",
       text: `您的新密碼為: ${newPwd}`,

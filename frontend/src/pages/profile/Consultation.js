@@ -19,22 +19,17 @@ const Consultation = () => {
   const swiperWrapperRef = useRef();
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchList = async () => {
       let result = await axios.get(
-        `http://localhost:3001/api/reservations/getUser`,
+        `http://localhost:3001/api/reservations/getUser/getList`,
         { withCredentials: true }
       );
-      setUser(result.data);
-    };
-    fetchUser();
-    const fetchList = async () => {
-      let list = await axios.get(
-        `http://localhost:3001/api/reservations/getUser/getList/${user}`
-      );
-      setList(list.data);
+      setList(result.data);
     };
     fetchList();
-  }, [user]);
+  }, []);
+
+  console.log(list);
 
   // TODO: 替換掉假資料
   const [consultations, setConsultations] = useState([
