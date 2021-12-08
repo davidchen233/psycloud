@@ -9,8 +9,7 @@ const TestProduct = ({ id, sold, image, name, price }) => {
         <img className="mx-auto m-3 object-img" src={image} alt="" />
         <div className="process-card-body">
           <p className="card-text black">
-            {name}
-            <br />
+            <span className="ellipsis">{name}</span>
             <span className="quantity gr">已售出{sold}件</span>
           </p>
         </div>

@@ -165,7 +165,7 @@ router.post(
 // 取得訂單資訊
 router.get("/orders", async (req, res) => {
   let data = await connection.queryAsync(
-    "SELECT * FROM orders WHERE user_id=?",
+    "SELECT * FROM orders WHERE user_id=? ORDER BY created_at DESC",
     [req.session.user.id]
   );
   res.json(data);
