@@ -66,11 +66,9 @@ const Result = () => {
     <>
       <div className="gradient">
         <div className="container p-5">
-          <div className="row mx-auto maxwid">
-            <div className="col-md-12 ">
-              <h2 className="text-center">-檢測結果-</h2>
-            </div>
-            <div className="col-md-12 text-center mt-3">
+          <div className="mx-auto maxwid">
+            <h2 className="text-center">-檢測結果-</h2>
+            <div className="text-center mt-3">
               <div class="card-container">
                 <div className="result-card test-block outermost back">
                   <div className="card-body  align-items-center">
@@ -94,7 +92,7 @@ const Result = () => {
                     <div className="logoBox">
                       <Logo />
                     </div>
-                    <h5 class="text-center mt-5">
+                    <h5 class="text-center mt-5 small-font">
                       --- 翻開查看您的測驗結果 ---
                     </h5>
                   </div>
@@ -140,7 +138,7 @@ const Result = () => {
                   </Link>
                 </div>
               </div>
-              <div className="row mt-3">
+              <div className="mt-3">
                 <Swiper
                   effect={'coverflow'}
                   // slidesPerView={3}
@@ -155,7 +153,7 @@ const Result = () => {
                   }}
                   breakpoints={{
                     640: {
-                      slidesPerView: 1,
+                      slidesPerView: 2,
                       spaceBetween: 1,
                     },
                     996: {
@@ -188,7 +186,7 @@ const Result = () => {
                 </div>
               </div>
               {/* 產品                 */}
-              <div className="row mt-3">
+              <div className="mt-3">
                 <Swiper
                   effect={'coverflow'}
                   // slidesPerView={3}
@@ -204,7 +202,7 @@ const Result = () => {
                   breakpoints={{
                     // when window width is >= 480px
                     640: {
-                      slidesPerView: 1,
+                      slidesPerView: 2,
                       spaceBetween: 1,
                     },
                     996: {

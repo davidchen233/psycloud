@@ -52,7 +52,7 @@
 }
 
 .quantity-input {
-  width: 25%;
+  width: 50%;
   border-radius: 2px;
   text-align: center;
   background-color: rgb(255, 255, 255, 0);
@@ -70,4 +70,27 @@
 
 .trashcan:hover {
   transform: scale(1.2);
+}
+
+.cart-value {
+  width: 90px;
+}
+
+@media screen and (max-width: 768px) {
+  .checkout-div,
+  .w-50.checkout-div3 {
+    width: 90% !important;
+  }
+  .cart-div {
+    padding: 30px 50px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cart-table {
+    font-size: 14px;
+  }
+  .trashcan {
+    height: 20px;
+  }
 }

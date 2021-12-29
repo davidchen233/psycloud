@@ -41,48 +41,54 @@ const Cart = () => {
       </div>
       {localStorage.getItem('cart') ? (
         <>
-          <div className="d-flex checkform justify-content-between">
-            <div className="w-45 checkout-div">
+          <div className="d-md-flex checkform justify-content-between">
+            <div className="w-45 mx-auto checkout-div pt-1">
               <div className="checkout-Title">
                 <h3 class="CF-h3">-訂購資訊-</h3>
               </div>
               <div className="CF-body">
                 <form id="personalInfoForm">
                   <div className="form-group cf-group mb-3">
-                    <input
-                      type="text"
-                      size="40"
-                      placeholder="姓名"
-                      name="name"
-                      value={personalInfo.name}
-                      required
-                      onChange={handlePersonalInfoChange}
-                    />
-                    <input
-                      type="text"
-                      size="40"
-                      maxlength="10"
-                      placeholder="手機"
-                      name="phone"
-                      value={personalInfo.phone}
-                      required
-                      onChange={handlePersonalInfoChange}
-                    />
-                    <input
-                      type="text"
-                      size="40"
-                      placeholder="宅配地址"
-                      name="address"
-                      value={personalInfo.address}
-                      required
-                      onChange={handlePersonalInfoChange}
-                    />
+                    <devicePixelRatio>
+                      <input
+                        type="text"
+                        placeholder="姓名"
+                        name="name"
+                        value={personalInfo.name}
+                        required
+                        onChange={handlePersonalInfoChange}
+                        className="w-75"
+                      />
+                    </devicePixelRatio>
+                    <div>
+                      <input
+                        type="text"
+                        maxlength="10"
+                        placeholder="手機"
+                        name="phone"
+                        value={personalInfo.phone}
+                        required
+                        onChange={handlePersonalInfoChange}
+                        className="w-75"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="宅配地址"
+                        name="address"
+                        value={personalInfo.address}
+                        required
+                        onChange={handlePersonalInfoChange}
+                        className="w-75"
+                      />
+                    </div>
                   </div>
                 </form>
               </div>
             </div>
 
-            <div className="w-50 checkout-div3">
+            <div className="w-50 mx-auto checkout-div3 pt-1">
               <div className="checkout-Title">
                 <h3 class="CF-h3">-付款方式-</h3>
               </div>

@@ -72,6 +72,7 @@ const Header = () => {
                 className={activeIndex === i ? 'active' : ''}
                 onClick={() => {
                   setActiveIndex(i);
+                  setToggle(false);
                 }}
               >
                 <NavLink to={`/${menuLinks[v]}`}>{v}</NavLink>

@@ -37,7 +37,7 @@ export default class PaymentForm extends React.Component {
         />
         <form className="creditform" id="creditForm">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <input
                 type="tel"
                 name="number"
@@ -49,7 +49,7 @@ export default class PaymentForm extends React.Component {
                 onFocus={this.handleInputFocus}
               />
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <input
                 type="text"
                 name="name"
@@ -60,7 +60,7 @@ export default class PaymentForm extends React.Component {
                 onFocus={this.handleInputFocus}
               />
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <input
                 type="text"
                 name="expiry"
@@ -72,7 +72,7 @@ export default class PaymentForm extends React.Component {
                 onFocus={this.handleInputFocus}
               />
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <input
                 type="text"
                 name="cvc"

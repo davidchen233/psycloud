@@ -14,9 +14,9 @@ const detect = () => {
             <h2 className="text-center">-壓力檢測-</h2>
           </div>
           <div className="col-md-12 text-center mt-3">
-            <div className="card outermost">
+            <div className="card outermost px-3">
               <div className="text-box align-items-center">
-                <div className="mx-auto mt-5">
+                <div className="mx-auto mt-3 mt-md-5">
                   {/* <div class="inbox"> */}
                   <p>
                     促進身心健康的第一步，就是了解自己的身體狀況，
@@ -28,7 +28,7 @@ const detect = () => {
                     {/* <link to="/process">開始檢測test</link> */}
                     <NavLink
                       to="/process"
-                      className="mt-0 startbt del-line"
+                      className="mt-0 mb-3 startbt del-line"
                       type="button"
                     >
                       開始檢測

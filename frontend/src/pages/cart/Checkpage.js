@@ -10,7 +10,7 @@ const Checkpage = () => {
         <div className="CP-title">
           <h3>-訂單確認-</h3>
         </div>
-        <div className="CP-div w-50 mx-auto">
+        <div className="CP-div mx-auto">
           <Checkpageform />
         </div>
       </div>

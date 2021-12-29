@@ -181,4 +181,11 @@ header .other-nav li a {
   header.sticky {
     padding: 20px 20px;
   }
+  .other-nav {
+    margin: 0;
+    padding: 0;
+  }
+  #logo {
+    width: 120px;
+  }
 }

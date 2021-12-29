@@ -39,7 +39,7 @@ const Decors = () => {
           <h3>-療癒擺飾-</h3>
         </div>
       </section>
-      <div className="d-flex justify-content-between">
+      <div className="d-md-flex justify-content-between">
         <div class="buttons2">
           <Link to="/StuffedToys">
             <button className="button1">絨毛抱枕</button>
@@ -51,7 +51,7 @@ const Decors = () => {
             <button className="button1">手指紓壓</button>
           </Link>
         </div>
-        <div>
+        <div className="p-searchBox">
           <input
             className="btn-search-area "
             type="text"

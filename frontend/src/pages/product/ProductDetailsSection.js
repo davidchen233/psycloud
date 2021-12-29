@@ -43,9 +43,12 @@ const ProductDetailsSection = ({
     return <></>;
   }
   return (
-    <div className="detail-product d-flex mx-auto justify-content-between">
-      <div className="d-flex justify-content-evenly">
-        <div className="product-small-img">
+    <div className="detail-product d-lg-flex mx-auto justify-content-between">
+      <div className="d-lg-flex mx-auto">
+        <div className="img-container">
+          <img src={viewPic} alt="" />
+        </div>
+        <div className="product-small-img d-flex d-lg-block">
           {smallimages.map((smallimage) => {
             return (
               <img
@@ -56,15 +59,12 @@ const ProductDetailsSection = ({
             );
           })}
         </div>
-        <div className="img-container">
-          <img src={viewPic} alt="" />
-        </div>
       </div>
 
       <div className="d-flex align-items-start flex-column bd-highlight mb-3 right-content">
         <div className="mb-auto p-2 bd-highlight">
           <p className="detail-title">{name}</p>
-          <pre>{description}</pre>
+          <p>{description}</p>
         </div>
         <div className="px-2 py-3 bd-highlight">
           <div>
@@ -82,7 +82,7 @@ const ProductDetailsSection = ({
           <h2>NT${price}</h2>
         </div>
         <div className="p-2 bd-highlight">
-          <div className="d-grid gap-2 d-md-flex justify-content-md-center">
+          <div className="d-grid gap-2 d-flex justify-content-md-center">
             <button
               className="me-md-2 detail-btn1"
               type="button"

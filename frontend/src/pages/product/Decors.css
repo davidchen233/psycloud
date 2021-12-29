@@ -104,3 +104,17 @@ input {
 .pagination li a:hover {
   background-color: transparent;
 }
+@media screen and (max-width: 768px) {
+  .buttons2 {
+    text-align: center;
+  }
+  .p-searchBox {
+    display: none;
+  }
+  .flex-wrapper2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}

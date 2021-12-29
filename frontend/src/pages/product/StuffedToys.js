@@ -37,7 +37,7 @@ const StuffedItem = () => {
           <h3>-絨毛抱枕-</h3>
         </div>
       </section>
-      <div className="d-flex justify-content-between">
+      <div className="d-md-flex justify-content-between">
         <div class="buttons">
           <Link to="/StuffedToys">
             <button className="button1">絨毛抱枕</button>
@@ -49,7 +49,7 @@ const StuffedItem = () => {
             <button className="button1">手指紓壓</button>
           </Link>
         </div>
-        <div>
+        <div className="p-searchBox">
           <input
             className="btn-search-area "
             type="text"

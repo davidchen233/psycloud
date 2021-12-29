@@ -19,12 +19,8 @@
 }
 .test-block {
   height: 350px;
-  margin: 0 50px;
+  /* margin: 0 50px; */
 }
-.moredetail {
-  position: absolute;
-}
-
 .more {
   background-color: #4797ff;
   color: white;
@@ -47,6 +43,7 @@
 }
 .beshadow {
   height: 200px;
+  transition: 0.4s;
 }
 /* 不確定 */
 .beshadow:hover {
@@ -129,8 +126,8 @@
 
 .card-container {
   height: 350px;
-  margin: 0 20px;
-  width: 600px;
+  margin: 0 auto;
+  max-width: 600px;
   position: relative;
   perspective: 1000px;
 }
@@ -165,7 +162,6 @@
 .back {
   height: 100%;
   width: 100%;
-  margin: 0 50px;
   position: absolute;
   backface-visibility: hidden;
   transition: transform 0.25s ease-in-out;
@@ -192,5 +188,15 @@
   }
   .m-top {
     margin-top: 45px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logoBox .logo #logo {
+    width: 200px;
+  }
+
+  .small-font {
+    font-size: 16px;
   }
 }

@@ -53,8 +53,8 @@ const CartSection = ({ setCartInfo }) => {
       <table className="cart-table">
         <thead className="cart-thead">
           <tr>
-            <td className="thead-td">商品圖片</td>
-            <td>商品名稱</td>
+            <td className="thead-td d-none d-lg-inline-block">商品圖片</td>
+            <td>名稱</td>
             <td>價格</td>
             <td>數量</td>
             <td>小計</td>
@@ -66,7 +66,7 @@ const CartSection = ({ setCartInfo }) => {
             total += +item.price * +item.amount;
             return (
               <tr>
-                <td className="cart-tbody-td py-3">
+                <td className="cart-tbody-td py-3  d-none d-lg-inline-block">
                   <div className="cart-tbody-image">
                     <img src={item.image} alt="" />
                   </div>
@@ -152,22 +152,18 @@ const CartSection = ({ setCartInfo }) => {
       </table>
 
       <hr />
-
-      <div className="d-flex justify-content-between">
-        <div></div>
-        <div className="w-25 text-end pe-4 ">
-          <div className="row">
-            <div className="col-6">商品總計</div>
-            <div className="col-6">NT$ {total}</div>
-          </div>
-          <div className="row">
-            <div className="col-6">運費</div>
-            <div className="col-6">NT$ {shipping}</div>
-          </div>
-          <div className="row total">
-            <div className="col-6">訂單總金額</div>
-            <div className="col-6">NT$ {finalTotal}</div>
-          </div>
+      <div className="float-left text-end pe-4 cart-totalBx">
+        <div className="d-flex justify-content-end">
+          <div className="me-3">商品總計</div>
+          <div className="cart-value">NT$ {total}</div>
+        </div>
+        <div className="d-flex justify-content-end">
+          <div className="me-3">運費</div>
+          <div className="cart-value">NT$ {shipping}</div>
+        </div>
+        <div className="d-flex justify-content-end total">
+          <div className="me-3">訂單總金額</div>
+          <div className="cart-value">NT$ {finalTotal}</div>
         </div>
       </div>
     </>

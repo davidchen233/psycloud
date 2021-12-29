@@ -15,10 +15,35 @@
   padding: 60px 80px 40px;
   display: flex;
   justify-content: center;
+  width: 50%;
 }
 
 .CP-text {
   text-align: center;
   letter-spacing: 2px;
   font-size: 18px;
+}
+
+@media screen and (max-width: 992px) {
+  .CP-div {
+    padding: 40px 40px 20px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .CP-div {
+    padding: 40px 40px 20px;
+    width: 100%;
+  }
+  .complete-h3 h3 {
+    font-size: 16px;
+  }
+  .CP-text {
+    font-size: 14px;
+  }
+  .CF-btn1,
+  .CF-btn2 {
+    font-size: 14px;
+  }
 }

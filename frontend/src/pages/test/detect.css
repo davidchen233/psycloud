@@ -3,7 +3,7 @@
 }
 .card-body {
   height: 350px;
-  margin: 0 50px;
+  /* margin: 0 50px; */
 }
 .startbt {
   background-color: #4797ff;
@@ -96,12 +96,8 @@
               margin: 0;
           } */
 
-
-
 @media screen and (min-width: 768px) {
-  .first-cloud {
-    position: relative;
-    left: 200px;
-    top: 1px;
+  .text-box {
+    padding: 20px;
   }
 }
